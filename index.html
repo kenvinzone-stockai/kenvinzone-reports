@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KenvinZone – Báo Cáo Chiến Lược</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1B2A;
+  --navy-2: #132030;
+  --navy-3: #1A2A3C;
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-dim: rgba(201,168,76,0.15);
+  --gold-dim2: rgba(201,168,76,0.08);
+  --teal: #2DD4BF;
+  --teal-dim: rgba(45,212,191,0.12);
+  --red: #EF4444;
+  --red-dim: rgba(239,68,68,0.12);
+  --green: #22C55E;
+  --green-dim: rgba(34,197,94,0.12);
+  --amber: #F59E0B;
+  --text-1: #F0EDE8;
+  --text-2: #A8A09A;
+  --text-3: #635C56;
+  --border: rgba(201,168,76,0.18);
+  --border-2: rgba(255,255,255,0.06);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--navy);
+  color: var(--text-1);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0; opacity: 0.4;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: fixed; left: 0; top: 0; bottom: 0;
+  width: 280px;
+  background: var(--navy-2);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+.sidebar-header {
+  padding: 28px 24px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.logo-mark {
+  font-family: 'DM Serif Display', serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.logo-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: var(--text-1);
+  line-height: 1.1;
+}
+.logo-sub {
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+/* ── FILTERS ── */
+.filter-section { padding: 20px 16px; border-bottom: 1px solid var(--border-2); }
+.filter-label { font-size: 10px; letter-spacing: 0.15em; color: var(--text-3); text-transform: uppercase; margin-bottom: 10px; }
+.filter-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.filter-chip {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 400;
+}
+.filter-chip:hover { border-color: var(--gold); color: var(--gold); }
+.filter-chip.active { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); font-weight: 500; }
+
+/* ── REPORT LIST ── */
+.report-list { flex: 1; overflow-y: auto; padding: 12px 0; }
+.report-list::-webkit-scrollbar { width: 3px; }
+.report-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.report-item {
+  padding: 14px 16px;
+  margin: 2px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  position: relative;
+}
+.report-item:hover { background: var(--gold-dim2); border-color: var(--border); }
+.report-item.active { background: var(--gold-dim); border-color: var(--gold); }
+.report-item.active::before {
+  content: '';
+  position: absolute; left: -1px; top: 20%; bottom: 20%;
+  width: 2px; background: var(--gold); border-radius: 2px;
+}
+.ri-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px; }
+.ri-instrument {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px; font-weight: 500;
+  color: var(--text-1);
+}
+.ri-time { font-size: 11px; color: var(--text-3); font-family: 'DM Mono', monospace; }
+.ri-bias {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-top: 3px;
+}
+.ri-bias.bearish { background: var(--red-dim); color: var(--red); }
+.ri-bias.bullish { background: var(--green-dim); color: var(--green); }
+.ri-bias.neutral { background: rgba(245,158,11,0.12); color: var(--amber); }
+.ri-catalyst { font-size: 11px; color: var(--text-3); margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ── MAIN CONTENT ── */
+.main {
+  margin-left: 280px;
+  min-height: 100vh;
+  position: relative; z-index: 1;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(13,27,42,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-left { display: flex; align-items: center; gap: 12px; }
+.topbar-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px; color: var(--text-3);
+}
+.topbar-title { font-size: 14px; font-weight: 500; color: var(--text-2); }
+.btn-download {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 18px;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  color: var(--gold);
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px; font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-download:hover { background: var(--gold); color: var(--navy); }
+.btn-download svg { width: 14px; height: 14px; }
+
+/* ── REPORT CONTENT ── */
+.report-content { padding: 32px; max-width: 960px; }
+
+/* HERO SECTION */
+.report-hero {
+  background: linear-gradient(135deg, var(--navy-3) 0%, var(--navy-2) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.report-hero::after {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+.hero-instrument {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px; color: var(--gold);
+}
+.hero-datetime { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text-3); }
+.hero-archetype {
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 11px; color: var(--text-3);
+  letter-spacing: 0.05em;
+}
+.hero-bias-block {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
+}
+.hero-bias-label { font-size: 11px; color: var(--text-3); letter-spacing: 0.1em; text-transform: uppercase; }
+.hero-bias-value {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+}
+.hero-bias-value.bearish { color: var(--red); }
+.hero-bias-value.bullish { color: var(--green); }
+.hero-bias-value.neutral { color: var(--amber); }
+.hero-price {
+  font-family: 'DM Mono', monospace;
+  font-size: 32px; font-weight: 500;
+  color: var(--text-1);
+}
+.hero-price-label { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+.hero-divider { height: 1px; background: var(--border); margin: 20px 0; }
+.hero-quote {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  color: var(--text-2);
+  line-height: 1.6;
+  padding-left: 16px;
+  border-left: 2px solid var(--gold);
+  font-style: italic;
+}
+
+/* ── GRID LAYOUT ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--navy-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--border); }
+.card-title {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--text-3);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-title::before {
+  content: '';
+  display: inline-block;
+  width: 3px; height: 12px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* TIMEFRAME GRID */
+.tf-item {
+  background: var(--navy-3);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+}
+.tf-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; color: var(--gold);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.tf-bias { font-size: 12px; color: var(--text-2); line-height: 1.4; }
+
+/* SCENARIO TABLE */
+.scenario-row {
+  display: flex; align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-2);
+  gap: 12px;
+}
+.scenario-row:last-child { border-bottom: none; }
+.scenario-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px; color: var(--gold);
+  font-weight: 500; min-width: 28px;
+}
+.scenario-name { flex: 1; font-size: 13px; color: var(--text-1); }
+.scenario-zone { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-3); }
+.scenario-prob {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px; font-weight: 500;
+}
+.prob-bar-wrap { width: 60px; height: 4px; background: var(--border-2); border-radius: 2px; overflow: hidden; }
+.prob-bar { height: 100%; background: var(--gold); border-radius: 2px; }
+
+/* KEY LEVELS */
+.level-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-2); }
+.level-row:last-child { border-bottom: none; }
+.level-type { font-size: 11px; min-width: 80px; }
+.level-type.resist { color: var(--red); }
+.level-type.support { color: var(--green); }
+.level-type.current { color: var(--gold); }
+.level-price { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--text-1); font-weight: 500; }
+
+/* CATALYST BLOCK */
+.catalyst-text {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.7;
+  padding: 14px;
+  background: var(--navy-3);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--teal);
+}
+
+/* SUMMARY BLOCK */
+.summary-text {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.8;
+}
+
+/* ── EMPTY / WELCOME STATE ── */
+.welcome {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 70vh;
+  text-align: center; padding: 40px;
+}
+.welcome-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px; color: var(--gold);
+  margin-bottom: 12px; opacity: 0.6;
+}
+.welcome-text { font-size: 16px; color: var(--text-3); line-height: 1.7; max-width: 400px; }
+
+/* ── MOBILE TOGGLE ── */
+.menu-toggle {
+  display: none;
+  position: fixed; top: 14px; left: 14px; z-index: 200;
+  background: var(--navy-2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px;
+  cursor: pointer; color: var(--gold);
+}
+.sidebar-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 90;
+}
+
+/* ── LOADING SPINNER ── */
+.spinner {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 70vh;
+}
+.spin {
+  width: 32px; height: 32px;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── FADE IN ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.4s ease forwards; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-overlay.open { display: block; }
+  .main { margin-left: 0; }
+  .menu-toggle { display: block; }
+  .topbar { padding: 0 16px 0 52px; }
+  .report-content { padding: 20px 16px; }
+  .grid-2, .grid-4 { grid-template-columns: 1fr 1fr; }
+  .hero-price { font-size: 24px; }
+}
+@media (max-width: 480px) {
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Mobile toggle -->
+<button class="menu-toggle" onclick="toggleSidebar()" aria-label="Menu">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+<div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="logo-mark">Team Cố Vấn Chiến Lược</div>
+    <div class="logo-name">KenvinZone</div>
+    <div class="logo-sub">Report Dashboard</div>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-label">Instrument</div>
+    <div class="filter-row" id="filter-instrument">
+      <button class="filter-chip active" data-filter="instrument" data-value="all">Tất cả</button>
+      <button class="filter-chip" data-filter="instrument" data-value="XAUUSD">XAUUSD</button>
+      <button class="filter-chip" data-filter="instrument" data-value="NQ">NQ / US100</button>
+    </div>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-label">Bias</div>
+    <div class="filter-row" id="filter-bias">
+      <button class="filter-chip active" data-filter="bias_type" data-value="all">Tất cả</button>
+      <button class="filter-chip" data-filter="bias_type" data-value="bearish" style="color:var(--red)">Bearish</button>
+      <button class="filter-chip" data-filter="bias_type" data-value="bullish" style="color:var(--green)">Bullish</button>
+      <button class="filter-chip" data-filter="bias_type" data-value="neutral" style="color:var(--amber)">Neutral</button>
+    </div>
+  </div>
+
+  <div class="report-list" id="reportList">
+    <div class="spinner"><div class="spin"></div></div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="topbar-id" id="topbarId">—</span>
+      <span class="topbar-title" id="topbarTitle">Chọn báo cáo để xem</span>
+    </div>
+    <a class="btn-download" id="btnDownload" href="#" style="display:none" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Tải DOCX
+    </a>
+  </div>
+
+  <div id="reportContent">
+    <div class="welcome">
+      <div class="welcome-logo">KZ</div>
+      <div class="welcome-text">Chọn một báo cáo từ danh sách bên trái để xem phân tích chi tiết.</div>
+    </div>
+  </div>
+</main>
+
+<script>
+const REPORTS_URL = 'reports.json';
+let allReports = [];
+let activeFilters = { instrument: 'all', bias_type: 'all' };
+let activeId = null;
+
+async function loadReports() {
+  try {
+    const res = await fetch(REPORTS_URL + '?t=' + Date.now());
+    const data = await res.json();
+    allReports = data.reports.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
+    renderList();
+  } catch(e) {
+    document.getElementById('reportList').innerHTML = '<div style="padding:20px;color:var(--text-3);font-size:13px">Không tải được dữ liệu.</div>';
+  }
+}
+
+function renderList() {
+  const filtered = allReports.filter(r => {
+    if (activeFilters.instrument !== 'all' && r.instrument !== activeFilters.instrument) return false;
+    if (activeFilters.bias_type !== 'all' && r.bias_type !== activeFilters.bias_type) return false;
+    return true;
+  });
+  const el = document.getElementById('reportList');
+  if (!filtered.length) {
+    el.innerHTML = '<div style="padding:20px;color:var(--text-3);font-size:13px">Không có báo cáo phù hợp.</div>';
+    return;
+  }
+  el.innerHTML = filtered.map(r => `
+    <div class="report-item ${r.id === activeId ? 'active' : ''}" onclick="showReport('${r.id}')">
+      <div class="ri-header">
+        <span class="ri-instrument">${r.instrument}</span>
+        <span class="ri-time">${r.date_display} ${r.time_display}</span>
+      </div>
+      <div class="ri-bias ${r.bias_type}">${r.bias}</div>
+      <div class="ri-catalyst">${r.catalyst}</div>
+    </div>
+  `).join('');
+}
+
+function showReport(id) {
+  const r = allReports.find(x => x.id === id);
+  if (!r) return;
+  activeId = id;
+  renderList();
+
+  document.getElementById('topbarId').textContent = r.id;
+  document.getElementById('topbarTitle').textContent = `${r.instrument} – ${r.date_display} ${r.time_display}`;
+
+  const dlBtn = document.getElementById('btnDownload');
+  dlBtn.href = r.docx_url; dlBtn.style.display = 'flex';
+
+  const levels = r.key_levels;
+  const levelsHtml = [
+    ...levels.resistance.map(p => `<div class="level-row"><span class="level-type resist">Kháng cự</span><span class="level-price">${p.toLocaleString('vi-VN')}</span></div>`),
+    `<div class="level-row"><span class="level-type current">Hiện tại</span><span class="level-price" style="font-size:18px">${levels.current.toLocaleString('vi-VN')}</span></div>`,
+    ...levels.support.map(p => `<div class="level-row"><span class="level-type support">Hỗ trợ</span><span class="level-price">${p.toLocaleString('vi-VN')}</span></div>`)
+  ].join('');
+
+  const tfHtml = Object.entries(r.timeframes).map(([tf, bias]) => `
+    <div class="tf-item">
+      <div class="tf-label">${tf}</div>
+      <div class="tf-bias">${bias}</div>
+    </div>
+  `).join('');
+
+  const scenHtml = r.scenarios.map(s => `
+    <div class="scenario-row">
+      <span class="scenario-id">${s.id}</span>
+      <span class="scenario-name">${s.name}</span>
+      <span class="scenario-zone">${s.zone}</span>
+      <div class="prob-bar-wrap"><div class="prob-bar" style="width:${parseInt(s.prob)}%"></div></div>
+      <span class="scenario-prob" style="color:var(--gold)">${s.prob}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('reportContent').innerHTML = `
+    <div class="report-content fade-up">
+      <div class="report-hero">
+        <div class="hero-meta">
+          <span class="hero-instrument">${r.instrument}</span>
+          <span class="hero-datetime">${r.date_display}  ${r.time_display} UTC+7</span>
+          <span class="hero-archetype">${r.archetype}</span>
+        </div>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px">
+          <div>
+            <div class="hero-bias-label">Bias ưu tiên</div>
+            <div class="hero-bias-value ${r.bias_type}">${r.bias}</div>
+          </div>
+          <div style="text-align:right">
+            <div class="hero-price">${r.price_current.toLocaleString('vi-VN')}</div>
+            <div class="hero-price-label">Giá tham chiếu</div>
+          </div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-quote">${r.session_quote}</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Tóm tắt phân tích</div>
+          <div class="summary-text">${r.summary}</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Catalyst & Lịch tin</div>
+          <div class="catalyst-text">${r.catalyst}</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-title">Đa khung thời gian</div>
+        <div class="grid-4">${tfHtml}</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Mức giá then chốt</div>
+          ${levelsHtml}
+        </div>
+        <div class="card">
+          <div class="card-title">Scenario matrix</div>
+          ${scenHtml}
+        </div>
+      </div>
+    </div>
+  `;
+
+  if (window.innerWidth <= 768) {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('open');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.querySelectorAll('.filter-chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const type = btn.dataset.filter;
+    activeFilters[type] = btn.dataset.value;
+    document.querySelectorAll(`[data-filter="${type}"]`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderList();
+  });
+});
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+
+loadReports();
+
+// Auto-refresh mỗi 5 phút
+setInterval(loadReports, 5 * 60 * 1000);
+</script>
+</body>
+</html>

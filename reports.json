@@ -1,0 +1,701 @@
+{
+  "version": "1.0",
+  "reports": [
+    {
+      "id": "RPT-20260413-01",
+      "datetime": "2026-04-13T06:30:00+07:00",
+      "date_display": "13/04/2026",
+      "time_display": "06:30",
+      "instrument": "XAUUSD",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "SELL THE RALLY",
+      "bias_type": "bearish",
+      "price_current": 4736.0,
+      "catalyst": "PPI tháng 3 ra 20:30 – rủi ro USD tăng",
+      "summary": "Giá đã vượt 4.730–4.740. Cửa SELL nâng lên cụm 4.754–4.779. Đợi M15/H1 từ chối rõ trước khi hành động.",
+      "key_levels": {
+        "resistance": [
+          4754.0,
+          4779.0
+        ],
+        "support": [
+          4700.0,
+          4673.0
+        ],
+        "current": 4736.0
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260413_0630_final.docx"
+    },
+    {
+      "id": "RPT-20260413-02",
+      "datetime": "2026-04-13T10:30:00+07:00",
+      "date_display": "13/04/2026",
+      "time_display": "10:30",
+      "instrument": "NQ",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "BUY THE DIP",
+      "bias_type": "bullish",
+      "price_current": 18435,
+      "catalyst": "FOMC minutes – kỳ vọng cắt giảm lãi suất",
+      "summary": "D1 vẫn bearish trung hạn. H4 hồi kỹ thuật sau sweep 4.633. Bias tuần: sell-the-rally.",
+      "key_levels": {
+        "resistance": [
+          18453,
+          18478
+        ],
+        "support": [
+          18399,
+          18372
+        ],
+        "current": 18435
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260413_1030_final.docx"
+    },
+    {
+      "id": "RPT-20260413-03",
+      "datetime": "2026-04-13T14:30:00+07:00",
+      "date_display": "13/04/2026",
+      "time_display": "14:30",
+      "instrument": "XAUUSD",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "SIDEWAYS – CHỜ",
+      "bias_type": "neutral",
+      "price_current": 4743.0,
+      "catalyst": "NFP cuối tuần – chờ biến động",
+      "summary": "Xung đột đa khung. Chờ PPI mở biên trước khi vào lệnh. Ưu tiên quan sát.",
+      "key_levels": {
+        "resistance": [
+          4761.0,
+          4786.0
+        ],
+        "support": [
+          4707.0,
+          4680.0
+        ],
+        "current": 4743.0
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260413_1430_final.docx"
+    },
+    {
+      "id": "RPT-20260413-04",
+      "datetime": "2026-04-13T18:30:00+07:00",
+      "date_display": "13/04/2026",
+      "time_display": "18:30",
+      "instrument": "NQ",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "SELL THE RALLY",
+      "bias_type": "bearish",
+      "price_current": 18465,
+      "catalyst": "Islamabad talks thất bại – geopolitical premium",
+      "summary": "V-shape recovery từ 4.633. H1 chững lại dưới 4.738. M15 momentum đang suy yếu.",
+      "key_levels": {
+        "resistance": [
+          18483,
+          18508
+        ],
+        "support": [
+          18429,
+          18402
+        ],
+        "current": 18465
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260413_1830_final.docx"
+    },
+    {
+      "id": "RPT-20260413-05",
+      "datetime": "2026-04-13T22:30:00+07:00",
+      "date_display": "13/04/2026",
+      "time_display": "22:30",
+      "instrument": "XAUUSD",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "SELL THE RALLY",
+      "bias_type": "bearish",
+      "price_current": 4750.0,
+      "catalyst": "PPI tháng 3 ra 20:30 – rủi ro USD tăng",
+      "summary": "Giá đã vượt 4.730–4.740. Cửa SELL nâng lên cụm 4.754–4.779. Đợi M15/H1 từ chối rõ trước khi hành động.",
+      "key_levels": {
+        "resistance": [
+          4768.0,
+          4793.0
+        ],
+        "support": [
+          4714.0,
+          4687.0
+        ],
+        "current": 4750.0
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260413_2230_final.docx"
+    },
+    {
+      "id": "RPT-20260413-06",
+      "datetime": "2026-04-14T02:30:00+07:00",
+      "date_display": "14/04/2026",
+      "time_display": "02:30",
+      "instrument": "NQ",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "BUY THE DIP",
+      "bias_type": "bullish",
+      "price_current": 18495,
+      "catalyst": "FOMC minutes – kỳ vọng cắt giảm lãi suất",
+      "summary": "D1 vẫn bearish trung hạn. H4 hồi kỹ thuật sau sweep 4.633. Bias tuần: sell-the-rally.",
+      "key_levels": {
+        "resistance": [
+          18513,
+          18538
+        ],
+        "support": [
+          18459,
+          18432
+        ],
+        "current": 18495
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260414_0230_final.docx"
+    },
+    {
+      "id": "RPT-20260414-01",
+      "datetime": "2026-04-14T06:30:00+07:00",
+      "date_display": "14/04/2026",
+      "time_display": "06:30",
+      "instrument": "XAUUSD",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "SIDEWAYS – CHỜ",
+      "bias_type": "neutral",
+      "price_current": 4757.0,
+      "catalyst": "NFP cuối tuần – chờ biến động",
+      "summary": "Xung đột đa khung. Chờ PPI mở biên trước khi vào lệnh. Ưu tiên quan sát.",
+      "key_levels": {
+        "resistance": [
+          4775.0,
+          4800.0
+        ],
+        "support": [
+          4721.0,
+          4694.0
+        ],
+        "current": 4757.0
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260414_0630_final.docx"
+    },
+    {
+      "id": "RPT-20260414-02",
+      "datetime": "2026-04-14T10:30:00+07:00",
+      "date_display": "14/04/2026",
+      "time_display": "10:30",
+      "instrument": "NQ",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "SELL THE RALLY",
+      "bias_type": "bearish",
+      "price_current": 18525,
+      "catalyst": "Islamabad talks thất bại – geopolitical premium",
+      "summary": "V-shape recovery từ 4.633. H1 chững lại dưới 4.738. M15 momentum đang suy yếu.",
+      "key_levels": {
+        "resistance": [
+          18543,
+          18568
+        ],
+        "support": [
+          18489,
+          18462
+        ],
+        "current": 18525
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260414_1030_final.docx"
+    },
+    {
+      "id": "RPT-20260414-03",
+      "datetime": "2026-04-14T14:30:00+07:00",
+      "date_display": "14/04/2026",
+      "time_display": "14:30",
+      "instrument": "XAUUSD",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "SELL THE RALLY",
+      "bias_type": "bearish",
+      "price_current": 4764.0,
+      "catalyst": "PPI tháng 3 ra 20:30 – rủi ro USD tăng",
+      "summary": "Giá đã vượt 4.730–4.740. Cửa SELL nâng lên cụm 4.754–4.779. Đợi M15/H1 từ chối rõ trước khi hành động.",
+      "key_levels": {
+        "resistance": [
+          4782.0,
+          4807.0
+        ],
+        "support": [
+          4728.0,
+          4701.0
+        ],
+        "current": 4764.0
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260414_1430_final.docx"
+    },
+    {
+      "id": "RPT-20260414-04",
+      "datetime": "2026-04-14T18:30:00+07:00",
+      "date_display": "14/04/2026",
+      "time_display": "18:30",
+      "instrument": "NQ",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "BUY THE DIP",
+      "bias_type": "bullish",
+      "price_current": 18555,
+      "catalyst": "FOMC minutes – kỳ vọng cắt giảm lãi suất",
+      "summary": "D1 vẫn bearish trung hạn. H4 hồi kỹ thuật sau sweep 4.633. Bias tuần: sell-the-rally.",
+      "key_levels": {
+        "resistance": [
+          18573,
+          18598
+        ],
+        "support": [
+          18519,
+          18492
+        ],
+        "current": 18555
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260414_1830_final.docx"
+    },
+    {
+      "id": "RPT-20260414-05",
+      "datetime": "2026-04-14T22:30:00+07:00",
+      "date_display": "14/04/2026",
+      "time_display": "22:30",
+      "instrument": "XAUUSD",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "SIDEWAYS – CHỜ",
+      "bias_type": "neutral",
+      "price_current": 4771.0,
+      "catalyst": "NFP cuối tuần – chờ biến động",
+      "summary": "Xung đột đa khung. Chờ PPI mở biên trước khi vào lệnh. Ưu tiên quan sát.",
+      "key_levels": {
+        "resistance": [
+          4789.0,
+          4814.0
+        ],
+        "support": [
+          4735.0,
+          4708.0
+        ],
+        "current": 4771.0
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260414_2230_final.docx"
+    },
+    {
+      "id": "RPT-20260414-06",
+      "datetime": "2026-04-15T02:30:00+07:00",
+      "date_display": "15/04/2026",
+      "time_display": "02:30",
+      "instrument": "NQ",
+      "archetype": "Bản nối tiếp / Cập nhật 4 giờ",
+      "bias": "SELL THE RALLY",
+      "bias_type": "bearish",
+      "price_current": 18585,
+      "catalyst": "Islamabad talks thất bại – geopolitical premium",
+      "summary": "V-shape recovery từ 4.633. H1 chững lại dưới 4.738. M15 momentum đang suy yếu.",
+      "key_levels": {
+        "resistance": [
+          18603,
+          18628
+        ],
+        "support": [
+          18549,
+          18522
+        ],
+        "current": 18585
+      },
+      "timeframes": {
+        "D1": "Giảm có hồi kỹ thuật",
+        "H4": "Bearish nhẹ – hồi kỹ thuật",
+        "H1": "Hồi rồi chững lại",
+        "M15": "Tăng ngắn hạn suy yếu"
+      },
+      "scenarios": [
+        {
+          "id": "S1",
+          "name": "Sell the rally nâng",
+          "prob": "50%",
+          "zone": "4.754–4.779"
+        },
+        {
+          "id": "S2",
+          "name": "Ngắn hạn continuation",
+          "prob": "20%",
+          "zone": "Trên 4.754"
+        },
+        {
+          "id": "S3",
+          "name": "Range 4.720–4.754",
+          "prob": "20%",
+          "zone": "4.720–4.754"
+        },
+        {
+          "id": "S4",
+          "name": "Phản ứng ngược",
+          "prob": "10%",
+          "zone": "Dưới 4.720"
+        }
+      ],
+      "session_quote": "Giá đã vượt 4.740 nhưng chưa reclaim 4.754–4.779; đợi M15/H1 từ chối rõ trước khi hành động.",
+      "docx_url": "reports/XAUUSD_ban_noi_tiep_20260415_0230_final.docx"
+    }
+  ]
+}
