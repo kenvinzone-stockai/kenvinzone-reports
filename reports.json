@@ -1,15 +1,14 @@
-{"version":"1.0","reports":[{"id":"RPT-202604142322","datetime":"2026-04-14T23:22:57+07:00","date_display":"14/04/2026","time_display":"23:22","instrument":"XAUUSD","archetype":"Báo cáo 4H – 23:22","price_current":"3235.5","raw":```json
-{
+{"version":"1.0","reports":[{"id":"RPT-202604142323","datetime":"2026-04-14T23:23:10+07:00","date_display":"14/04/2026","time_display":"23:23","instrument":"XAUUSD","archetype":"Báo cáo 4H – 23:23","price_current":"3235.5","raw":{
   "instrument": "XAUUSD",
   "archetype": "Báo cáo 4H – 14:30",
   "timestamp": "2024-12-19T14:30:00+07:00",
   "summary": {
-    "primary_bias": "Chờ xác nhận",
-    "bias_direction": "Chờ xác nhận",
-    "confidence_level": "Thấp (25-49%)",
+    "primary_bias": "Bullish",
+    "bias_direction": "Bullish",
+    "confidence_level": "Trung bình (50-74%)",
     "current_price": 3235.5,
-    "key_insight": "D1 bullish mạnh nhưng H4 MACD bearish tạo xung đột tín hiệu. H1 và M15 neutral cho thấy thị trường đang consolidate chờ hướng đi rõ ràng.",
-    "headline": "Vàng trong vùng neutral chờ breakout sau xung đột tín hiệu đa khung"
+    "key_insight": "D1 và H4 đều có EMA alignment bullish mạnh, nhưng MACD H4 bearish divergence tạo tín hiệu thận trọng. Giá đang test vùng 3235 với momentum yếu dần.",
+    "headline": "Vàng bullish D1/H4 nhưng cần xác nhận momentum"
   },
   "market_structure": {
     "D1": {
@@ -19,32 +18,32 @@
       "ema_alignment": "Full Bullish Alignment",
       "rsi_zone": "Bullish Zone",
       "macd_bias": "Bullish",
-      "key_levels": "Vùng tăng trưởng bền vững trên 3200"
+      "key_levels": "Vùng tăng giá mạnh, EMA 200 tại 3185 làm support xa"
     },
     "H4": {
-      "bias": "Mixed",
-      "trend": "Bullish structure nhưng momentum yếu dần",
-      "structure": "Bullish nhưng có dấu hiệu divergence",
+      "bias": "Bullish",
+      "trend": "Bullish nhưng có dấu hiệu chậm lại",
+      "structure": "Bullish structure với EMA alignment mạnh",
       "ema_alignment": "Full Bullish",
       "rsi_zone": "Neutral",
       "macd_bias": "Bearish",
       "momentum": "Weakening",
       "critical_levels": {
         "resistance": [3252.1, 3258.3],
-        "support": [3220, 3205.4]
+        "support": [3228.5, 3210.2]
       }
     },
     "H1": {
       "bias": "Neutral",
-      "trend": "Sideway consolidation",
-      "intraday_story": "Thị trường đang trong phase chờ đợi sau khi test vùng resistance",
+      "trend": "Consolidation với bias yếu dần",
+      "intraday_story": "Giá đang sideway sau khi test high, RSI neutral và MACD bearish",
       "rsi_zone": "Neutral",
       "macd_bias": "Bearish"
     },
     "M15": {
       "bias": "Neutral",
-      "trend": "Range-bound movement",
-      "trigger_setup": "Chờ breakout khỏi range 3220-3242",
+      "trend": "Range-bound giữa 3220-3242",
+      "trigger_setup": "Chờ breakout khỏi range 3220-3242 để xác định hướng",
       "structure": "Mixed/Range Structure",
       "momentum": "Neutral",
       "candle_pattern": "None"
@@ -53,58 +52,57 @@
   "key_levels": {
     "current_price": 3235.5,
     "resistance": [3242, 3252.1],
-    "support": [3220, 3205.4],
+    "support": [3228.5, 3220],
     "swing_high": 3258.3,
     "swing_low": 3198.2,
     "prev_day_high": 3252.1,
     "prev_day_low": 3205.4
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 Full Bullish EMA alignment", "RSI D1 trong Bullish Zone", "Giá trên EMA200 (3185)"],
-    "bearish_factors": ["H4 MACD bearish divergence", "H1 MACD bearish", "M15 trong range structure"],
-    "dominant_bias": "Mixed"
+    "bullish_factors": ["D1 Full Bullish EMA alignment", "D1 RSI trong Bullish Zone", "H4 EMA alignment bullish", "Giá trên EMA 20/50/200"],
+    "bearish_factors": ["H4 MACD bearish divergence", "H1 MACD bearish", "M15 trong range consolidation", "Momentum đang yếu dần"],
+    "dominant_bias": "Bullish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Break và hold trên 3242 với volume confirmation",
+      "setup": "Long trên 3242 với confirmation từ volume và momentum",
       "target": [3252.1, 3258.3],
       "stop_loss": 3225,
-      "risk_reward": "1:2.1",
-      "probability": 45
+      "risk_reward": "1:1.5",
+      "probability": 65
     },
     "alternative_scenario": {
       "bias": "Bearish",
-      "setup": "Break xuống dưới 3220 với momentum mạnh",
-      "target": [3205.4],
-      "stop_loss": 3240,
-      "risk_reward": "1:1.8",
+      "setup": "Short dưới 3220 nếu break support với volume",
+      "target": [3210.2],
+      "stop_loss": 3235,
+      "risk_reward": "1:1",
       "probability": 35
     },
     "invalidation_scenario": {
-      "bias": "Neutral",
-      "setup": "Tiếp tục sideway trong range 3220-3242",
-      "target": [3230],
-      "stop_loss": 3215,
-      "risk_reward": "1:1",
-      "probability": 20
+      "bias": "Bearish",
+      "setup": "Break dưới EMA 50 (3210.2) với volume mạnh",
+      "target": [3198.2],
+      "stop_loss": 3225,
+      "risk_reward": "1:0.8",
+      "probability": 25
     }
   },
-  "risk_factors": ["Xung đột tín hiệu giữa D1 bullish và H4/H1 bearish", "Volume thấp tạo breakout giả", "ATR 18.5 cho thấy volatility trung bình"],
-  "catalyst_watch": ["Tin tức Fed policy", "US session open volatility"],
+  "risk_factors": ["MACD bearish divergence trên H4/H1", "Volume thấp trong range", "Conflicting signals giữa các timeframe"],
+  "catalyst_watch": ["US Dollar strength", "Fed policy signals"],
   "execution_plan": {
-    "entry_zone": "Breakout khỏi range 3220-3242",
-    "entry_condition": "Confirmation candle + volume surge trên M15",
-    "position_sizing": "50% position size do confidence thấp",
-    "session_focus": "US session 21:30-02:00",
-    "key_time": "15:00-16:00 cho direction clarity"
+    "entry_zone": "3242+ cho long, 3220- cho short",
+    "entry_condition": "Breakout khỏi range 3220-3242 với confirmation",
+    "position_sizing": "Conservative 1-2% risk do mixed signals",
+    "session_focus": "NY session overlap",
+    "key_time": "15:30-17:00 ICT cho volatility"
   },
   "action_checklist": {
-    "immediate": ["Monitor breakout level 3242 và 3220", "Theo dõi volume pattern"],
-    "pre_trade": ["Chờ confirmation candle", "Set alert tại key levels"],
-    "monitoring": ["H4 MACD recovery signals", "D1 trend continuation strength"]
+    "immediate": ["Monitor 3242 resistance break", "Watch for volume confirmation"],
+    "pre_trade": ["Xác nhận breakout direction", "Check US session news"],
+    "monitoring": ["MACD histogram changes", "EMA 20 support/resistance"]
   },
-  "dashboard_summary": "Vàng trong giai đoạn consolidation với xung đột tín hiệu đa khung. Chờ breakout rõ ràng để xác định hướng.",
-  "telegram_summary": "🥇 XAUUSD 3235.5 | D1 bullish vs H4 bearish | Range 3220-3242 | Chờ breakout xác nhận hướng | RR 1:2+ nếu break"
-}
-```,"docx_url":""}]}
+  "dashboard_summary": "Vàng bullish bias từ D1/H4 nhưng gặp resistance tại 3242. Cần breakout để xác nhận hướng tiếp theo.",
+  "telegram_summary": "🥇 XAUUSD: Bullish D1/H4 vs Bearish MACD. Range 3220-3242. Long >3242 target 3252/3258. Short <3220 target 3210. Risk: Mixed signals các TF"
+},"docx_url":""}]}
