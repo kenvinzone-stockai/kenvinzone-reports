@@ -1,83 +1,88 @@
-{"version":"1.0","reports":[{"id":"RPT-202604141728","datetime":"2026-04-14T17:28:46+07:00","date_display":"14/04/2026","time_display":"17:28","instrument":"","archetype":"Ban noi tiep","price_current":0,"raw":{
-  "archetype": "06:30",
-  "instrument": "XAUUSD",
-  "timeframe": "15",
-  "session": "manual",
-  "timestamp": "2024-12-19 06:30:00",
-  "executive_summary": {
-    "title": "XAUUSD M15 - Phiên Thủ Công",
-    "bias": "NEUTRAL",
-    "confidence": 15,
-    "key_insight": "Dữ liệu thị trường không khả dụng - chờ tín hiệu từ hệ thống",
-    "risk_level": "HIGH"
+{"version":"1.0","reports":[{"id":"RPT-202604142109","datetime":"2026-04-14T21:09:54+07:00","date_display":"14/04/2026","time_display":"21:09","instrument":"","archetype":"Ban noi tiep","price_current":0,"raw":{
+  "metadata": {
+    "instrument": "XAUUSD",
+    "product_type": "vàng CFD",
+    "timeframe": "15",
+    "session": "manual",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "archetype": "bản cập nhật 4h"
   },
-  "multi_timeframe_analysis": {
+  "summary": {
+    "headline": "XAUUSD - Dữ liệu không đầy đủ, độ tin cậy phân tích giảm",
+    "bias": "Chờ xác nhận",
+    "confidence": "Thấp (25%)",
+    "key_catalyst": "Dữ liệu thị trường chưa đồng bộ hoặc ngoài giờ giao dịch",
+    "risk_level": "Cao"
+  },
+  "multi_timeframe": {
     "D1": {
-      "trend": "Không xác định",
-      "structure": "Không có dữ liệu",
-      "key_levels": "Chờ cập nhật",
-      "bias": "NEUTRAL",
-      "note": "Thiếu thông tin từ khung ngày"
+      "trend": "Không xác định được do thiếu dữ liệu",
+      "bias": "Chờ cập nhật",
+      "structure": "Cần dữ liệu giá để phân tích",
+      "key_level": "Không có mức hỗ trợ/kháng cự khả dụng"
     },
     "H4": {
-      "trend": "Không xác định", 
-      "structure": "Không có dữ liệu",
-      "confluence": "Chờ tín hiệu",
-      "bias": "NEUTRAL",
-      "note": "Cần dữ liệu để xác định hướng H4"
+      "trend": "Không xác định được do thiếu dữ liệu", 
+      "bias": "Chờ cập nhật",
+      "structure": "Cần dữ liệu giá để phân tích",
+      "catalyst": "Chờ session giao dịch chính thức"
     },
     "H1": {
-      "pattern": "Không xác định",
-      "momentum": "Chờ xác nhận",
-      "levels": "Thiếu thông tin",
-      "bias": "NEUTRAL"
+      "trend": "Không xác định được do thiếu dữ liệu",
+      "intraday_story": "Thị trường có thể đang ngoài giờ giao dịch hoặc dữ liệu chưa cập nhật",
+      "momentum": "Chờ xác nhận"
     },
     "M15": {
-      "trigger": "Chưa có",
-      "entry_quality": "Không đánh giá được",
-      "immediate_action": "Chờ dữ liệu",
-      "bias": "NEUTRAL"
+      "trigger": "Không có trigger khả dụng",
+      "structure": "Cần dữ liệu real-time để xác định entry",
+      "volume": "Không có dữ liệu volume",
+      "action": "Chờ dữ liệu"
     }
   },
   "strategy": {
-    "primary_scenario": {
-      "direction": "WAIT",
-      "setup": "Chờ dữ liệu từ hệ thống",
-      "entry": "Không thực hiện",
+    "primary_setup": "Tạm dừng giao dịch cho đến khi có dữ liệu đầy đủ",
+    "entry_conditions": [
+      "Chờ dữ liệu giá real-time",
+      "Xác nhận session giao dịch active",
+      "Kiểm tra kết nối TradingView webhook"
+    ],
+    "risk_management": {
+      "position_sizing": "0% - không vào lệnh",
       "stop_loss": "N/A",
-      "take_profit": "N/A",
-      "risk_reward": "N/A"
-    },
-    "alternative_scenario": {
-      "condition": "Khi có dữ liệu đầy đủ",
-      "direction": "TBD",
-      "entry": "Theo tín hiệu mới",
-      "adjustment": "Đánh giá lại toàn bộ"
+      "take_profit": "N/A"
     }
   },
-  "market_context": {
-    "session_notes": "Phiên thủ công - có thể là test hoặc gián đoạn dữ liệu",
-    "news_risk": "Kiểm tra lịch kinh tế cho vàng",
-    "liquidity": "Không xác định được do thiếu volume",
-    "correlation": "Theo dõi DXY và lợi suất trái phiếu Mỹ"
+  "scenarios": {
+    "bull_case": {
+      "condition": "Khi dữ liệu được cập nhật và cho thấy xu hướng tăng",
+      "probability": "Chờ xác định",
+      "targets": "Chờ dữ liệu"
+    },
+    "bear_case": {
+      "condition": "Khi dữ liệu được cập nhật và cho thấy xu hướng giảm", 
+      "probability": "Chờ xác định",
+      "targets": "Chờ dữ liệu"
+    },
+    "neutral_case": {
+      "condition": "Dữ liệu không khả dụng hoặc thị trường ngoài giờ",
+      "probability": "Cao (hiện tại)",
+      "action": "Chờ session giao dịch chính"
+    }
   },
-  "risk_management": {
-    "overall_risk": "VERY HIGH",
-    "position_sizing": "Không giao dịch",
-    "max_exposure": "0%",
-    "key_risks": [
-      "Không có dữ liệu thị trường",
-      "Không thể đánh giá xu hướng",
-      "Risk/reward không tính được"
-    ]
-  },
-  "action_checklist": [
-    "❌ Không thực hiện giao dịch cho đến khi có dữ liệu",
-    "⚠️ Kiểm tra kết nối TradingView",
-    "⚠️ Xác minh webhook hoạt động",
-    "⚠️ Theo dõi tin tức vàng thủ công",
-    "📋 Sẵn sàng phân tích khi dữ liệu trở lại"
+  "execution_checklist": [
+    "❌ Kiểm tra kết nối dữ liệu TradingView",
+    "❌ Xác nhận session giao dịch đang active", 
+    "❌ Chờ dữ liệu giá real-time",
+    "❌ Không vào lệnh với dữ liệu không đầy đủ",
+    "⚠️ Monitor webhook connectivity"
   ],
-  "next_update": "Khi có dữ liệu mới từ hệ thống",
-  "handover_notes": "Payload hiện tại toàn bộ là 0/N/A - cần kiểm tra technical issue. Không thực hiện bất kỳ giao dịch nào cho đến khi dữ liệu được khôi phục đầy đủ."
+  "next_handover": {
+    "next_update": "Khi dữ liệu được khôi phục hoặc 14:30 GMT+7",
+    "watch_for": [
+      "Dữ liệu giá được cập nhật", 
+      "Session giao dịch chính thức bắt đầu",
+      "Catalyst tin tức quan trọng"
+    ],
+    "prepare": "Sẵn sàng phân tích lại khi có dữ liệu đầy đủ"
+  }
 },"docx_url":""}]}
