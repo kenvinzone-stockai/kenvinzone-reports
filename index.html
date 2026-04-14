@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KenvinZone — Trading Strategy DashBoard</title>
+<title>KenvinZone — Cố vấn báo cáo chiến lược</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
 
@@ -582,15 +582,15 @@
 <nav class="nav">
   <div class="nav-brand">KenvinZone</div>
   <div class="nav-right">
-    <div class="live-indicator"><span class="live-dot"></span>LIVE</div>
+    <div class="live-indicator"><span class="live-dot"></span>TRỰC TIẾP</div>
     <div id="last-updated">—</div>
   </div>
 </nav>
 
 <!-- FILTER -->
 <div class="filter-bar">
-  <span class="filter-label">Filter</span>
-  <button class="filter-btn active" data-filter="ALL" onclick="setFilter('ALL',this)">ALL</button>
+  <span class="filter-label">Lọc theo</span>
+  <button class="filter-btn active" data-filter="ALL" onclick="setFilter('ALL',this)">TẤT CẢ</button>
   <div id="filter-btns"></div>
 </div>
 
@@ -598,7 +598,7 @@
 <main id="main-content">
   <div class="loading-screen" id="loading">
     <div class="spinner"></div>
-    <div>Loading market intelligence…</div>
+    <div>Đang tải dữ liệu thị trường…</div>
   </div>
 </main>
 
@@ -710,7 +710,7 @@ async function loadReports() {
     document.getElementById('main-content').innerHTML = `
       <div class="empty-state">
         <div class="icon">⚠</div>
-        <div>Could not load reports.json</div>
+        <div>Không thể tải reports.json</div>
         <div style="margin-top:8px;font-size:11px;color:var(--text4)">${e.message}</div>
       </div>`;
   }
@@ -719,7 +719,7 @@ async function loadReports() {
 function formatTs(ts) {
   try {
     const d = new Date(ts);
-    return d.toLocaleString('en-US', {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'});
+    return d.toLocaleString('vi-VN', {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'});
   } catch(e) { return String(ts); }
 }
 
@@ -753,7 +753,7 @@ function render() {
     container.innerHTML = `
       <div class="empty-state">
         <div class="icon">◈</div>
-        <div>No reports found for <strong>${escHtml(currentFilter)}</strong></div>
+        <div>Không có báo cáo nào cho <strong>${escHtml(currentFilter)}</strong></div>
       </div>`;
     return;
   }
@@ -818,7 +818,7 @@ function renderHero(r) {
       <div class="insight-text">${escHtml(r.insight)}</div>
     </div>
     <div class="hero-right">
-      <div class="price-label">Current Price</div>
+      <div class="price-label">Giá Hiện Tại</div>
       <div class="price-value">${escHtml(r.price)}</div>
       ${r._ts ? `<div class="report-timestamp">${escHtml(formatTs(r._ts))}</div>` : ''}
     </div>
@@ -829,14 +829,14 @@ function renderHero(r) {
 function renderScenarios(r) {
   const { primary, alternative, invalidation } = r.scenarios;
   const cards = [
-    { key: 'primary',     label: '★ Primary Scenario',     data: primary,     cls: 'primary' },
-    { key: 'alternative', label: '◈ Alternative Scenario', data: alternative, cls: 'alternative' },
-    { key: 'invalidation',label: '✕ Invalidation',         data: invalidation,cls: 'invalidation' },
+    { key: 'primary',     label: '★ Kịch Bản Chính',     data: primary,     cls: 'primary' },
+    { key: 'alternative', label: '◈ Kịch Bản Thay Thế', data: alternative, cls: 'alternative' },
+    { key: 'invalidation',label: '✕ Vô Hiệu Hoá',       data: invalidation,cls: 'invalidation' },
   ];
 
   return `
   <div class="section-full" style="border-top:1px solid var(--border)">
-    <div class="section-title">Trading Scenarios</div>
+    <div class="section-title">Kịch Bản Giao Dịch</div>
     <div class="scenarios-grid">
       ${cards.map(c => renderScenarioCard(c)).join('')}
     </div>
@@ -847,7 +847,7 @@ function renderScenarioCard({ key, label, data, cls }) {
   if (!data || !Object.keys(data).length) return `
     <div class="scenario-card ${cls}">
       <div class="scenario-type ${cls}">${label}</div>
-      <div style="color:var(--text4);font-size:12px">No data</div>
+      <div style="color:var(--text4);font-size:12px">Không có dữ liệu</div>
     </div>`;
 
   const bias    = safeStr(data.bias || data.direction || data.type || '');
@@ -865,13 +865,13 @@ function renderScenarioCard({ key, label, data, cls }) {
     ${bias ? `<span class="scenario-bias-tag ${biasClass}">${escHtml(bias)}</span>` : ''}
     ${setup ? `<div class="scenario-setup">${escHtml(setup)}</div>` : ''}
     <div class="scenario-stats">
-      ${target !== '—' ? `<div class="stat-item"><div class="stat-label">Target</div><div class="stat-value green">${escHtml(target)}</div></div>` : ''}
-      ${sl !== '—' ? `<div class="stat-item"><div class="stat-label">Stop Loss</div><div class="stat-value red">${escHtml(sl)}</div></div>` : ''}
-      ${rr !== '—' ? `<div class="stat-item"><div class="stat-label">Risk/Reward</div><div class="stat-value gold">${escHtml(rr)}</div></div>` : ''}
+      ${target !== '—' ? `<div class="stat-item"><div class="stat-label">Mục Tiêu</div><div class="stat-value green">${escHtml(target)}</div></div>` : ''}
+      ${sl !== '—' ? `<div class="stat-item"><div class="stat-label">Cắt Lỗ</div><div class="stat-value red">${escHtml(sl)}</div></div>` : ''}
+      ${rr !== '—' ? `<div class="stat-item"><div class="stat-label">Tỷ Lệ R/R</div><div class="stat-value gold">${escHtml(rr)}</div></div>` : ''}
     </div>
     ${probPct > 0 ? `
     <div class="prob-bar-wrap">
-      <div class="prob-bar-label"><span>Probability</span><span>${Math.round(probPct)}%</span></div>
+      <div class="prob-bar-label"><span>Xác Suất</span><span>${Math.round(probPct)}%</span></div>
       <div class="prob-bar-track">
         <div class="prob-bar-fill ${cls}" data-pct="${Math.min(probPct,100)}"></div>
       </div>
@@ -901,9 +901,9 @@ function renderTimeframe(r) {
 
   return `
   <div class="section-block">
-    <div class="section-title">Multi-Timeframe</div>
+    <div class="section-title">Đa Khung Thời Gian</div>
     ${rows.length ? `<table class="tf-table"><tbody>${rows.join('')}</tbody></table>`
-      : '<div style="color:var(--text4);font-size:12px">No data</div>'}
+      : '<div style="color:var(--text4);font-size:12px">Không có dữ liệu</div>'}
   </div>`;
 }
 
@@ -923,7 +923,7 @@ function renderKeyLevels(r) {
     const desc  = typeof v === 'object' ? (safeStr(v.description || v.desc || '', '')) : '';
     items.push({ type:'resistance', price: vStr, desc });
   });
-  if (price && price !== '—') items.push({ type:'current', price, desc:'Current Price' });
+  if (price && price !== '—') items.push({ type:'current', price, desc:'Giá Hiện Tại' });
   supports.forEach(v => {
     const vStr = typeof v === 'object' ? (safeStr(v.price || v.level || v.value)) : safeStr(v);
     const desc  = typeof v === 'object' ? (safeStr(v.description || v.desc || '', '')) : '';
@@ -932,16 +932,16 @@ function renderKeyLevels(r) {
 
   return `
   <div class="section-block">
-    <div class="section-title">Key Levels</div>
+    <div class="section-title">Vùng Giá Quan Trọng</div>
     ${items.length ? `<div class="levels-wrap">
       ${items.map(i => `
       <div class="level-item">
         <span class="level-dot ${i.type}"></span>
-        <span class="level-type">${i.type}</span>
+        <span class="level-type">${i.type === 'resistance' ? 'Kháng cự' : i.type === 'support' ? 'Hỗ trợ' : 'Hiện tại'}</span>
         <span class="level-price">${escHtml(i.price)}</span>
         ${i.desc ? `<span class="level-desc">${escHtml(i.desc)}</span>` : ''}
       </div>`).join('')}
-    </div>` : '<div style="color:var(--text4);font-size:12px">No key levels data</div>'}
+    </div>` : '<div style="color:var(--text4);font-size:12px">Không có dữ liệu vùng giá</div>'}
   </div>`;
 }
 
@@ -949,13 +949,13 @@ function renderKeyLevels(r) {
 function renderRisk(r) {
   return `
   <div class="section-block">
-    <div class="section-title">Risk Radar</div>
+    <div class="section-title">Radar Rủi Ro</div>
     ${r.risk_factors.length ? `<div class="risk-list">
       ${r.risk_factors.map(item => {
         const text = typeof item === 'object' ? safeStr(item.description || item.risk || item.factor || item) : safeStr(item);
         return `<div class="risk-item"><span class="risk-icon">⚡</span><span>${escHtml(text)}</span></div>`;
       }).join('')}
-    </div>` : '<div style="color:var(--text4);font-size:12px">No risk factors</div>'}
+    </div>` : '<div style="color:var(--text4);font-size:12px">Không có rủi ro nào</div>'}
   </div>`;
 }
 
@@ -963,24 +963,24 @@ function renderRisk(r) {
 function renderConfluence(r) {
   return `
   <div class="section-block" style="flex:1">
-    <div class="section-title">Bull / Bear Factors</div>
+    <div class="section-title">Yếu Tố Hỗ Trợ / Áp Lực</div>
     <div class="factors-columns">
       <div>
-        <div class="factor-col-title bull">▲ Bullish Confluence</div>
+        <div class="factor-col-title bull">▲ Hỗ Trợ Tăng</div>
         <div class="factor-list">
           ${r.bullish.length ? r.bullish.map(item => {
             const text = typeof item === 'object' ? safeStr(item.factor || item.description || item) : safeStr(item);
             return `<div class="factor-item bull"><span class="factor-icon">↑</span>${escHtml(text)}</div>`;
-          }).join('') : '<div style="color:var(--text4);font-size:12px">None</div>'}
+          }).join('') : '<div style="color:var(--text4);font-size:12px">Không có</div>'}
         </div>
       </div>
       <div>
-        <div class="factor-col-title bear">▼ Bearish Confluence</div>
+        <div class="factor-col-title bear">▼ Áp Lực Giảm</div>
         <div class="factor-list">
           ${r.bearish.length ? r.bearish.map(item => {
             const text = typeof item === 'object' ? safeStr(item.factor || item.description || item) : safeStr(item);
             return `<div class="factor-item bear"><span class="factor-icon">↓</span>${escHtml(text)}</div>`;
-          }).join('') : '<div style="color:var(--text4);font-size:12px">None</div>'}
+          }).join('') : '<div style="color:var(--text4);font-size:12px">Không có</div>'}
         </div>
       </div>
     </div>
@@ -993,7 +993,7 @@ function renderCatalyst(r) {
   const icons = ['📅','📊','🏦','📰','⚡','🌐','💹','📈'];
   return `
   <div class="section-block" style="flex:1">
-    <div class="section-title">Catalyst Watch</div>
+    <div class="section-title">Sự Kiện Cần Theo Dõi</div>
     ${catalysts.length ? `<div class="catalyst-list">
       ${catalysts.map((item, i) => {
         const icon = icons[i % icons.length];
@@ -1003,7 +1003,7 @@ function renderCatalyst(r) {
           return `<div class="catalyst-item">
             <span class="catalyst-icon">${icon}</span>
             <div class="catalyst-content">
-              <div class="catalyst-name">${escHtml(name || 'Event')}</div>
+              <div class="catalyst-name">${escHtml(name || 'Sự kiện')}</div>
               ${detail ? `<div class="catalyst-detail">${escHtml(detail)}</div>` : ''}
             </div>
           </div>`;
@@ -1013,7 +1013,7 @@ function renderCatalyst(r) {
           <div class="catalyst-content"><div class="catalyst-name">${escHtml(safeStr(item))}</div></div>
         </div>`;
       }).join('')}
-    </div>` : '<div style="color:var(--text4);font-size:12px">No catalysts</div>'}
+    </div>` : '<div style="color:var(--text4);font-size:12px">Không có sự kiện</div>'}
   </div>`;
 }
 
