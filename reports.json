@@ -1,1 +1,132 @@
-{"version":"1.0","reports":[{"id":"RPT-202604141106","datetime":"2026-04-14T11:06:42+07:00","date_display":"14/04/2026","time_display":"11:06","instrument":"XAUUSD","archetype":"Ban noi tiep","price_current":0,"raw":{"bias":"SELL THE RALLY","bias_type":"bearish","summary":"XAUUSD đang trong xu hướng giảm có hồi kỹ thuật, áp lực bán gia tăng khi test vùng kháng cự.","catalyst":"Fed duy trì lập trường diều hâu, USD mạnh lên tạo áp lực lên vàng","session_quote":"Mọi đợt hồi đều là cơ hội bán tốt trong xu hướng giảm hiện tại","key_levels":{"resistance":[2779,2800],"support":[2700,2672],"current":2736},"timeframes":{"D1":"Giảm có hồi kỹ thuật","H4":"Bearish nhẹ","H1":"Hồi rồi chững","M15":"Tăng ngắn hạn suy yếu"},"scenarios":[{"id":"S1","name":"Sell the rally","prob":"55%","zone":"2754-2779"},{"id":"S2","name":"Range kéo dài","prob":"25%","zone":"2720-2740"},{"id":"S3","name":"Reclaim bullish","prob":"20%","zone":"Trên 2780"}]},"docx_url":""}]}
+{"version":"1.0","reports":[{"id":"RPT-202604141134","datetime":"2026-04-14T11:34:21+07:00","date_display":"14/04/2026","time_display":"11:34","instrument":"XAUUSD","archetype":"Ban noi tiep","price_current":0,"raw":```json
+{
+  "metadata": {
+    "instrument": "Chưa xác định",
+    "ticker_id": "Chưa xác định", 
+    "timeframe": "Chưa xác định",
+    "session": "Chưa xác định",
+    "bar_time": "Chưa xác định",
+    "server_time": "Chưa xác định",
+    "archetype": "Báo cáo thiếu dữ liệu",
+    "confidence_level": "Rất thấp - 15%"
+  },
+  "executive_summary": {
+    "bias_chinh": "Không xác định được do thiếu dữ liệu market",
+    "catalyst_chinh": "Không có dữ liệu để đánh giá",
+    "timeframe_quyet_dinh": "Không thể phân tích đa khung",
+    "hanh_dong_uu_tien": "Chờ dữ liệu đầy đủ trước khi giao dịch"
+  },
+  "price_action": {
+    "gia_hien_tai": "Chưa có dữ liệu",
+    "open": "Chưa có dữ liệu", 
+    "high": "Chưa có dữ liệu",
+    "low": "Chưa có dữ liệu",
+    "close": "Chưa có dữ liệu",
+    "volume": "Chưa có dữ liệu",
+    "mo_ta_price_action": "Không thể phân tích price action do thiếu dữ liệu hoàn toàn"
+  },
+  "multi_timeframe_analysis": {
+    "D1": {
+      "trend": "Chưa xác định",
+      "ema_alignment": "Chưa xác định", 
+      "rsi_zone": "Chưa xác định",
+      "macd_bias": "Chưa xác định",
+      "nhan_xet": "Thiếu dữ liệu D1 để xác định bias lớn"
+    },
+    "H4": {
+      "trend": "Chưa xác định",
+      "ema_alignment": "Chưa xác định",
+      "rsi_zone": "Chưa xác định", 
+      "macd_bias": "Chưa xác định",
+      "nhan_xet": "Thiếu dữ liệu H4 để xác định khung quyết định"
+    },
+    "H1": {
+      "trend": "Chưa xác định",
+      "rsi_zone": "Chưa xác định",
+      "macd_bias": "Chưa xác định",
+      "nhan_xet": "Thiếu dữ liệu H1 để phân tích intraday"
+    },
+    "M15": {
+      "trend": "Chưa xác định",
+      "structure": "Chưa xác định",
+      "momentum": "Chưa xác định",
+      "candle_pattern": "Chưa xác định",
+      "nhan_xet": "Thiếu dữ liệu M15 để xác định trigger"
+    },
+    "dong_thuan_da_khung": "Không thể đánh giá do thiếu hoàn toàn dữ liệu"
+  },
+  "key_levels": {
+    "swing_high": "Chưa xác định",
+    "swing_low": "Chưa xác định", 
+    "prev_day_high": "Chưa xác định",
+    "prev_day_low": "Chưa xác định",
+    "high_20_bar": "Chưa xác định",
+    "low_20_bar": "Chưa xác định",
+    "mo_ta_levels": "Không thể xác định các mức quan trọng do thiếu dữ liệu"
+  },
+  "technical_indicators": {
+    "ema20": "Chưa có",
+    "ema50": "Chưa có",
+    "ema200": "Chưa có",
+    "rsi14": "Chưa có", 
+    "macd_histogram": "Chưa có",
+    "bollinger_state": "Chưa xác định",
+    "atr14": "Chưa có",
+    "volume_ratio": "Chưa có",
+    "danh_gia_indicators": "Tất cả chỉ báo thiếu dữ liệu"
+  },
+  "trading_strategy": {
+    "setup_chinh": "Không thể thiết lập chiến lược do thiếu dữ liệu",
+    "diem_vao": "Chờ dữ liệu đầy đủ",
+    "stop_loss": "Không xác định được",
+    "take_profit": "Không xác định được", 
+    "risk_reward": "Không tính được",
+    "position_sizing": "Không áp dụng được"
+  },
+  "scenarios": {
+    "bullish_scenario": {
+      "dieu_kien": "Cần dữ liệu để xác định điều kiện tăng",
+      "target": "Không xác định",
+      "probability": "0%"
+    },
+    "bearish_scenario": {
+      "dieu_kien": "Cần dữ liệu để xác định điều kiện giảm", 
+      "target": "Không xác định",
+      "probability": "0%"
+    },
+    "neutral_scenario": {
+      "dieu_kien": "Trạng thái hiện tại - thiếu dữ liệu",
+      "hanh_dong": "Chờ dữ liệu market đầy đủ",
+      "probability": "100%"
+    }
+  },
+  "risk_factors": {
+    "catalyst_tin_tuc": "Không xác định được do thiếu context thời gian",
+    "risk_cao": "Không thể giao dịch do thiếu hoàn toàn dữ liệu market",
+    "bien_dong_dang_chu_y": "Không thể đánh giá volatility"
+  },
+  "execution_checklist": {
+    "truoc_vao_lenh": [
+      "Thu thập đầy đủ dữ liệu market từ TradingView",
+      "Xác định instrument và timeframe cụ thể",
+      "Kiểm tra session và thời gian giao dịch"
+    ],
+    "trong_lenh": [
+      "Không áp dụng được do thiếu setup"
+    ],
+    "sau_lenh": [
+      "Không áp dụng được"
+    ]
+  },
+  "next_session_handover": {
+    "diem_theo_doi": "Cần webhook gửi đầy đủ dữ liệu market",
+    "muc_quan_trong": "Tất cả dữ liệu cơ bản: price, volume, indicators",
+    "luu_y_session_tiep": "Đảm bảo payload JSON có đầy đủ thông tin từ Pine Script",
+    "action_items": [
+      "Kiểm tra lại kết nối TradingView webhook", 
+      "Verify Pine Script đang gửi đúng format dữ liệu",
+      "Test với sample data trước khi trade thực"
+    ]
+  }
+}
+```,"docx_url":""}]}
