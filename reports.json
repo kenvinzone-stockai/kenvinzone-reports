@@ -1,88 +1,114 @@
-{"version":"1.0","reports":[{"id":"RPT-202604142109","datetime":"2026-04-14T21:09:54+07:00","date_display":"14/04/2026","time_display":"21:09","instrument":"","archetype":"Ban noi tiep","price_current":0,"raw":{
+{"version":"1.0","reports":[{"id":"RPT-202604142110","datetime":"2026-04-14T21:10:46+07:00","date_display":"14/04/2026","time_display":"21:10","instrument":"NQ / US100","archetype":"Ban noi tiep","price_current":25651.75,"raw":{
   "metadata": {
-    "instrument": "XAUUSD",
-    "product_type": "vàng CFD",
+    "instrument": "USATECM2026",
+    "product_type": "Nasdaq Futures",
+    "broker": "ActivTrades",
     "timeframe": "15",
-    "session": "manual",
-    "timestamp": "2024-01-15T10:30:00Z",
-    "archetype": "bản cập nhật 4h"
+    "session": "18:30",
+    "timestamp": "1776167101373",
+    "current_price": 25651.75,
+    "archetype": "Cập nhật 18:30"
   },
-  "summary": {
-    "headline": "XAUUSD - Dữ liệu không đầy đủ, độ tin cậy phân tích giảm",
-    "bias": "Chờ xác nhận",
-    "confidence": "Thấp (25%)",
-    "key_catalyst": "Dữ liệu thị trường chưa đồng bộ hoặc ngoài giờ giao dịch",
-    "risk_level": "Cao"
+  "executive_summary": {
+    "bias": "Bullish với dấu hiệu suy yếu ngắn hạn",
+    "confidence": "Trung bình (70%)",
+    "key_insight": "Nasdaq futures đang trong xu thế tăng đa khung nhưng M15 xuất hiện tín hiệu điều chỉnh với Bearish Pin Bar và momentum suy yếu",
+    "primary_scenario": "Pullback về vùng 25620-25630 trước khi tiếp tục tăng",
+    "risk_factors": ["Overbought trên H4 và H1", "MACD divergence xuất hiện", "Volume thấp hơn trung bình"]
   },
-  "multi_timeframe": {
+  "multi_timeframe_analysis": {
     "D1": {
-      "trend": "Không xác định được do thiếu dữ liệu",
-      "bias": "Chờ cập nhật",
-      "structure": "Cần dữ liệu giá để phân tích",
-      "key_level": "Không có mức hỗ trợ/kháng cự khả dụng"
+      "trend": "Bullish",
+      "structure": "Xu thế tăng chính được duy trì",
+      "key_levels": "Hỗ trợ tại 25323 (SMA200), kháng cự xa tại 26000",
+      "bias": "Tăng trung hạn",
+      "strength": "EMA alignment hỗn hợp cho thấy đà tăng chưa hoàn toàn vững chắc"
     },
     "H4": {
-      "trend": "Không xác định được do thiếu dữ liệu", 
-      "bias": "Chờ cập nhật",
-      "structure": "Cần dữ liệu giá để phân tích",
-      "catalyst": "Chờ session giao dịch chính thức"
+      "trend": "Bullish",
+      "structure": "Full Bullish Alignment nhưng RSI Overbought cảnh báo",
+      "key_levels": "Kháng cự ngay tại 25673, hỗ trợ tại 25587 (EMA50)",
+      "bias": "Tăng nhưng cần pullback",
+      "strength": "MACD vẫn Bullish nhưng RSI quá mua cần thận trọng"
     },
     "H1": {
-      "trend": "Không xác định được do thiếu dữ liệu",
-      "intraday_story": "Thị trường có thể đang ngoài giờ giao dịch hoặc dữ liệu chưa cập nhật",
-      "momentum": "Chờ xác nhận"
+      "trend": "Bullish",
+      "structure": "Xu thế tăng nhưng MACD Bearish divergence",
+      "key_levels": "Vùng 25630-25650 là khu vực quan trọng",
+      "bias": "Bullish nhưng momentum yếu đi",
+      "strength": "RSI Overbought và MACD Bearish báo hiệu điều chỉnh ngắn hạn"
     },
     "M15": {
-      "trigger": "Không có trigger khả dụng",
-      "structure": "Cần dữ liệu real-time để xác định entry",
-      "volume": "Không có dữ liệu volume",
-      "action": "Chờ dữ liệu"
+      "trend": "Bullish",
+      "structure": "Mixed/Range Structure với Bearish Pin Bar",
+      "key_levels": "Hỗ trợ tức thì tại 25649, kháng cự tại 25673",
+      "bias": "Trigger điều chỉnh xuất hiện",
+      "strength": "EMA alignment vẫn Full Bullish nhưng momentum suy yếu và xuất hiện Bearish Pin Bar"
     }
   },
-  "strategy": {
-    "primary_setup": "Tạm dừng giao dịch cho đến khi có dữ liệu đầy đủ",
-    "entry_conditions": [
-      "Chờ dữ liệu giá real-time",
-      "Xác nhận session giao dịch active",
-      "Kiểm tra kết nối TradingView webhook"
-    ],
-    "risk_management": {
-      "position_sizing": "0% - không vào lệnh",
-      "stop_loss": "N/A",
-      "take_profit": "N/A"
-    }
+  "consensus_analysis": {
+    "agreement_level": "Cao trên khung lớn, phân kỳ trên khung nhỏ",
+    "dominant_narrative": "Xu thế tăng chính được duy trì nhưng cần điều chỉnh kỹ thuật",
+    "conflict_resolution": "D1/H4 Bullish bias chính, H1/M15 cảnh báo pullback ngắn hạn",
+    "synthesis": "Kịch bản chính là pullback để tích lũy trước khi tiếp tục tăng"
+  },
+  "trading_strategy": {
+    "primary_bias": "Bullish với điều chỉnh ngắn hạn",
+    "entry_strategy": "Chờ pullback về 25620-25630 để long, hoặc breakout trên 25673",
+    "key_levels": {
+      "support": ["25630 (EMA20)", "25587 (EMA50)", "25574.5 (Low 20 bar)"],
+      "resistance": ["25673 (Swing High)", "25700", "25750"]
+    },
+    "risk_management": "Stop loss dưới 25574, target đầu tiên 25700",
+    "position_sizing": "Conservative do signals hỗn hợp"
   },
   "scenarios": {
-    "bull_case": {
-      "condition": "Khi dữ liệu được cập nhật và cho thấy xu hướng tăng",
-      "probability": "Chờ xác định",
-      "targets": "Chờ dữ liệu"
+    "bullish_continuation": {
+      "probability": "60%",
+      "trigger": "Pullback về 25620-25630 và bounce mạnh",
+      "target": "25700-25750",
+      "invalidation": "Break dưới 25574"
     },
-    "bear_case": {
-      "condition": "Khi dữ liệu được cập nhật và cho thấy xu hướng giảm", 
-      "probability": "Chờ xác định",
-      "targets": "Chờ dữ liệu"
+    "bearish_correction": {
+      "probability": "35%",
+      "trigger": "Break dưới 25630 với volume",
+      "target": "25580-25550",
+      "invalidation": "Break trên 25673 ngay lập tức"
     },
-    "neutral_case": {
-      "condition": "Dữ liệu không khả dụng hoặc thị trường ngoài giờ",
-      "probability": "Cao (hiện tại)",
-      "action": "Chờ session giao dịch chính"
+    "sideways_consolidation": {
+      "probability": "5%",
+      "trigger": "Range trading 25620-25673",
+      "target": "Scalp trong range",
+      "invalidation": "Break khỏi range"
     }
   },
-  "execution_checklist": [
-    "❌ Kiểm tra kết nối dữ liệu TradingView",
-    "❌ Xác nhận session giao dịch đang active", 
-    "❌ Chờ dữ liệu giá real-time",
-    "❌ Không vào lệnh với dữ liệu không đầy đủ",
-    "⚠️ Monitor webhook connectivity"
-  ],
-  "next_handover": {
-    "next_update": "Khi dữ liệu được khôi phục hoặc 14:30 GMT+7",
-    "watch_for": [
-      "Dữ liệu giá được cập nhật", 
-      "Session giao dịch chính thức bắt đầu",
-      "Catalyst tin tức quan trọng"
+  "execution_checklist": {
+    "pre_trade": [
+      "Xác nhận pullback về vùng 25620-25630",
+      "Kiểm tra volume confirmation",
+      "Theo dõi MACD histogram recovery trên M15"
     ],
-    "prepare": "Sẵn sàng phân tích lại khi có dữ liệu đầy đủ"
+    "during_trade": [
+      "Monitor RSI về vùng 40-50 trên H1",
+      "Chú ý reaction tại EMA20 (25632)",
+      "Risk management tại 25574"
+    ],
+    "post_trade": [
+      "Partial profit tại 25700",
+      "Trail stop theo EMA20 M15",
+      "Review performance khi đóng vị thế"
+    ]
+  },
+  "market_context": {
+    "session_notes": "Session 18:30 thường có thanh khoản tăng từ thị trường Mỹ",
+    "catalyst_watch": "Chú ý các báo cáo kinh tế Mỹ và sentiment công nghệ",
+    "risk_events": "FOMC minutes, tech earnings có thể tác động mạnh",
+    "volume_profile": "Volume 5434 ở mức Normal, cần tăng để confirm breakout"
+  },
+  "handover_notes": {
+    "key_watch": "Reaction tại vùng 25620-25630 sẽ quyết định hướng ngắn hạn",
+    "next_catalyst": "Breakout 25673 hoặc breakdown 25574 sẽ xác định scenario chính",
+    "risk_reminder": "Overbought conditions yêu cầu quản lý rủi ro chặt chẽ",
+    "follow_up": "Update khi có confirmation signal từ volume và momentum"
   }
 },"docx_url":""}]}
