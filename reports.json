@@ -1,104 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604141437","datetime":"2026-04-14T14:37:47+07:00","date_display":"14/04/2026","time_display":"14:37","instrument":"XAUUSD","archetype":"Ban noi tiep","price_current":4782.18,"raw":{
-  "metadata": {
-    "instrument": "XAUUSD",
-    "product_type": "Vàng CFD",
-    "broker": "BlackBull Markets",
-    "timeframe": "M1",
+{"version":"1.0","reports":[{"id":"RPT-202604141549","datetime":"2026-04-14T15:49:12+07:00","date_display":"14/04/2026","time_display":"15:49","instrument":"NQ / US100","archetype":"Ban noi tiep","price_current":25584,"raw":{
+  "analysis_metadata": {
+    "instrument": "USATECM2026",
+    "product_type": "Nasdaq Futures",
+    "timeframe": "1",
     "session": "manual",
-    "timestamp": "2026-04-15T10:18:00Z",
-    "current_price": 4782.18,
-    "archetype": "Bản cập nhật intraday"
+    "current_price": 25584,
+    "analysis_time": "1776150000623",
+    "archetype": "cập nhật realtime",
+    "confidence_level": "Trung bình"
   },
   "executive_summary": {
-    "market_bias": "Bullish nhưng cần thận trọng",
-    "confidence_level": 75,
-    "key_narrative": "Vàng duy trì xu hướng tăng mạnh với giá vượt 4780, nhưng xuất hiện dấu hiệu overbought trên M15 cần theo dõi",
-    "primary_catalyst": "Momentum tăng giá mạnh từ phiên trước, giá break above 4750 resistance",
-    "risk_assessment": "Trung bình - RSI overbought và momentum suy yếu trên M15"
+    "market_bias": "Bullish nhưng đang trong giai đoạn consolidation",
+    "key_theme": "Xu hướng tăng dài hạn gặp áp lực ngắn hạn do H4 overbought và momentum suy yếu",
+    "primary_scenario": "Continuation bullish sau khi test support",
+    "risk_level": "Trung bình - cao do conflicting signals",
+    "action_required": "Chờ breakout khỏi consolidation range hoặc test support"
   },
   "multi_timeframe_analysis": {
     "D1": {
       "bias": "Bullish",
-      "structure": "Xu hướng tăng chính vẫn còn nguyên vẹn",
-      "key_levels": "Đã vượt qua vùng kháng cự 4750, mục tiêu tiếp theo 4800+",
-      "ema_analysis": "EMA alignment hỗn hợp nhưng giá đang trên các MA chính",
-      "momentum": "MACD bullish cross, RSI neutral zone cho phép room tăng thêm"
+      "key_insight": "Xu hướng tăng dài hạn vẫn nguyên vẹn với MACD bullish, nhưng EMA alignment mixed cho thấy đang gặp kháng cự",
+      "support_resistance": "Support mạnh tại vùng 25563, kháng cự gần nhất 25591.75",
+      "confluence_factors": ["RSI trong vùng bullish", "Trend bullish được duy trì"]
     },
     "H4": {
-      "bias": "Bullish nhưng có divergence",
-      "structure": "Trend bullish nhưng MACD chuyển bearish là tín hiệu cảnh báo",
-      "key_levels": "Đang test vùng 4780-4785, cần hold để continuation",
-      "confluence": "EMA alignment hỗn hợp, RSI trong vùng bullish",
-      "momentum": "Xuất hiện divergence giữa price action và MACD"
+      "bias": "Bullish nhưng cảnh báo",
+      "key_insight": "EMA alignment full bullish nhưng RSI overbought và đang tại vùng kháng cử, cần consolidation",
+      "support_resistance": "Kháng cự mạnh tại 25591.75, support tại 25563",
+      "confluence_factors": ["MACD vẫn bullish", "RSI overbought cần điều chỉnh"]
     },
     "H1": {
       "bias": "Bullish",
-      "structure": "Trend và momentum đều bullish, hỗ trợ move tiếp tục",
-      "key_levels": "Strong bullish momentum, RSI bullish zone",
-      "entry_context": "Khung này hỗ trợ cho các entry bullish ngắn hạn",
-      "momentum": "MACD bullish, RSI trong vùng tích cực"
+      "key_insight": "Duy trì xu hướng tăng với MACD và RSI đều bullish, hỗ trợ cho scenario continuation",
+      "support_resistance": "Support gần nhất 25574.5, kháng cự 25585.5",
+      "confluence_factors": ["Trend bullish nhất quán", "Momentum vẫn tích cực"]
     },
     "M15": {
-      "bias": "Bullish nhưng overbought",
-      "structure": "Mixed/Range structure với EMA full bullish alignment",
-      "trigger_analysis": "RSI 80.09 overbought, momentum weakening, candle doji",
-      "volume": "Volume bình thường, không có surge đột biến",
-      "immediate_action": "Cần pullback để reset overbought condition"
+      "bias": "Neutral-Bullish",
+      "key_insight": "Bollinger Bands squeeze báo hiệu breakout sắp diễn ra, momentum đang suy yếu cần chờ direction",
+      "support_resistance": "Range hẹp 25580.5 - 25585.5",
+      "confluence_factors": ["BB squeeze pending breakout", "Volume bình thường", "Momentum yếu đi"]
     }
   },
-  "strategy_recommendation": {
-    "primary_direction": "Bullish với quản lý risk",
-    "entry_strategy": "Chờ pullback về 4775-4777 để long với R:R tốt hơn",
-    "profit_targets": [4790, 4800, 4815],
-    "stop_loss": 4770,
-    "position_sizing": "Giảm 50% size do overbought condition",
-    "time_horizon": "Intraday đến swing ngắn"
+  "market_structure": {
+    "current_phase": "Consolidation trong uptrend",
+    "key_levels": {
+      "immediate_resistance": 25591.75,
+      "immediate_support": 25574.5,
+      "major_resistance": 25591.75,
+      "major_support": 25563
+    },
+    "structure_notes": "Đang test vùng kháng cự swing high, cần breakout để continuation hoặc pullback để test support"
   },
-  "scenario_planning": {
-    "bull_case": {
-      "probability": 65,
-      "catalyst": "Break above 4785 với volume tăng",
-      "targets": "4800 -> 4820",
-      "invalidation": "Fail to hold 4775"
+  "trading_scenarios": {
+    "primary_scenario": {
+      "setup": "Bullish Continuation",
+      "probability": "60%",
+      "trigger": "Break và hold trên 25591.75 với volume",
+      "targets": ["25600", "25615"],
+      "stops": "25574.5",
+      "rationale": "D1 và H4 trend bullish, H1 hỗ trợ continuation"
     },
-    "bear_case": {
-      "probability": 35,
-      "catalyst": "RSI overbought trigger correction, MACD H4 bearish",
-      "targets": "4770 -> 4760",
-      "invalidation": "Strong break above 4790"
-    },
-    "range_case": {
-      "probability": 45,
-      "range": "4775-4785",
-      "strategy": "Fade extremes, buy dips sell rips"
+    "alternative_scenario": {
+      "setup": "Pullback trong uptrend",
+      "probability": "40%",
+      "trigger": "Rejection tại 25591.75, break xuống 25580",
+      "targets": ["25563", "25550"],
+      "stops": "25595",
+      "rationale": "H4 RSI overbought, M15 momentum yếu, cần test lại support"
     }
   },
-  "risk_factors": [
-    "RSI M15 overbought ở 80.09 cần correction",
-    "MACD H4 đã chuyển bearish tạo divergence",
-    "Giá đã tăng gần 50$ từ low trước đó",
-    "Volume chưa có sự đột phá mạnh confirm breakout",
-    "Cần theo dõi tin tức vĩ mô ảnh hưởng đến vàng"
-  ],
-  "execution_checklist": [
-    "✓ Xác nhận D1 và H1 đều bullish",
-    "✓ Giá đang trên EMA20 (4775.46)",
-    "⚠ RSI overbought cần reset",
-    "⚠ MACD H4 bearish divergence",
-    "☐ Chờ pullback về support 4775-4777",
-    "☐ Confirm với volume tăng khi re-entry",
-    "☐ Set SL dưới 4770 (swing low protection)"
-  ],
-  "market_context": {
-    "session_notes": "Manual session, cần theo dõi momentum khi market mở chính thức",
-    "volatility": "ATR 2.3 - volatility trung bình",
-    "liquidity": "Volume ratio 1.24 - above average nhưng không exceptional",
-    "news_risk": "Cần cảnh báo với các tin về Fed policy và geopolitical events"
+  "risk_factors": {
+    "technical_risks": [
+      "H4 RSI overbought có thể gây áp lực bán",
+      "M15 momentum suy yếu trong BB squeeze",
+      "Conflicting EMA alignment trên D1"
+    ],
+    "fundamental_risks": [
+      "Tin tức kinh tế Mỹ có thể tác động mạnh đến Nasdaq",
+      "Sentiment thị trường công nghệ"
+    ],
+    "volatility_assessment": "Trung bình với ATR 4.23, cần cẩn trọng với breakout"
   },
-  "handover_notes": {
-    "watch_levels": "4785 resistance, 4775 support key",
-    "next_catalyst": "Reaction tại 4785 sẽ quyết định direction tiếp theo",
-    "time_sensitivity": "RSI overbought cần được resolve trong vài giờ tới",
-    "risk_management": "Size xuống 50% do overbought, strict SL 4770"
+  "action_checklist": {
+    "immediate_actions": [
+      "Monitor price action tại 25591.75 resistance",
+      "Chờ BB squeeze breakout direction trên M15",
+      "Theo dõi volume confirmation"
+    ],
+    "conditional_setups": [
+      "Nếu break 25591.75: long với target 25600-25615",
+      "Nếu reject tại 25591.75: short với target 25563",
+      "Stop loss theo scenario tương ứng"
+    ],
+    "monitoring_points": [
+      "H4 RSI có pullback khỏi overbought không",
+      "M15 momentum có cải thiện không",
+      "Volume có tăng theo breakout direction không"
+    ]
+  },
+  "next_session_outlook": {
+    "expected_scenario": "Breakout khỏi consolidation range",
+    "key_levels_to_watch": ["25591.75", "25580", "25563"],
+    "potential_catalysts": ["Technical breakout", "Volume expansion", "US market sentiment"],
+    "preparation_notes": "Chuẩn bị cho cả hai scenario bullish continuation và pullback correction"
   }
 },"docx_url":""}]}
