@@ -1,122 +1,111 @@
-{"version":"1.0","reports":[{"id":"RPT-202604141151","datetime":"2026-04-14T11:51:55+07:00","date_display":"14/04/2026","time_display":"11:51","instrument":"XAUUSD","archetype":"Ban noi tiep","price_current":0,"raw":"```json
-{
+{"version":"1.0","reports":[{"id":"RPT-202604141336","datetime":"2026-04-14T13:36:24+07:00","date_display":"14/04/2026","time_display":"13:36","instrument":"XAUUSD","archetype":"Ban noi tiep","price_current":0,"raw":"{
   "metadata": {
-    "instrument": "Không xác định",
-    "tickerID": "Không có",
-    "timeframe": "Không xác định",
-    "session": "Không xác định",
-    "barTime": "Không có",
-    "serverTime": "Không có",
-    "archetype": "06:30",
-    "analysisTime": "2024-12-19T10:30:00Z",
-    "dataQuality": "Không đầy đủ - payload trống"
+    "instrument": "XAUUSD",
+    "product_type": "CFD Vàng",
+    "timeframe": "15",
+    "session": "manual",
+    "timestamp": "2024-12-19",
+    "archetype": "06:30 - Bản Mốc Gốc",
+    "confidence_level": "Thấp - Thiếu dữ liệu market"
   },
-  "executiveSummary": {
-    "headline": "KHÔNG THỂ PHÂN TÍCH - DỮ LIỆU PAYLOAD TRỐNG",
-    "bias": "NEUTRAL",
-    "confidence": 0,
-    "keyDriver": "Thiếu dữ liệu thị trường hoàn toàn",
-    "actionRequired": "Cần payload đầy đủ để thực hiện phân tích"
+  "executive_summary": {
+    "headline": "XAUUSD - Chờ Kết Nối Dữ Liệu Market",
+    "bias_direction": "NEUTRAL",
+    "key_insight": "Payload nhận được không chứa dữ liệu price và indicator thực tế, tất cả field đều = 0 hoặc N/A. Không thể phân tích xu hướng và cấu trúc thị trường.",
+    "action_required": "Chờ webhook truyền dữ liệu đầy đủ từ TradingView Pine Script"
   },
-  "multiTimeframeAnalysis": {
+  "multi_timeframe_analysis": {
     "D1": {
-      "trend": "Không xác định",
-      "bias": "NEUTRAL",
-      "structure": "Không có dữ liệu",
-      "emaAlignment": "Không xác định",
-      "rsiZone": "Không xác định",
-      "macdBias": "Không xác định",
-      "strength": 0
+      "bias": "UNKNOWN",
+      "structure": "Không xác định - thiếu price data",
+      "key_levels": "N/A",
+      "confluence": "Chờ dữ liệu"
     },
     "H4": {
-      "trend": "Không xác định",
-      "bias": "NEUTRAL",
-      "structure": "Không có dữ liệu",
-      "emaAlignment": "Không xác định",
-      "rsiZone": "Không xác định",
-      "macdBias": "Không xác định",
-      "strength": 0
+      "bias": "UNKNOWN", 
+      "structure": "Không xác định - thiếu price data",
+      "momentum": "N/A",
+      "decision_point": "Chờ dữ liệu"
     },
     "H1": {
-      "trend": "Không xác định",
-      "bias": "NEUTRAL",
-      "rsiZone": "Không xác định",
-      "macdBias": "Không xác định",
-      "strength": 0
+      "bias": "UNKNOWN",
+      "intraday_story": "Không thể xác định câu chuyện intraday",
+      "catalyst_response": "N/A"
     },
     "M15": {
-      "trend": "Không xác định",
-      "structure": "Không có dữ liệu",
-      "emaAlignment": "Không xác định",
-      "momentum": "Không xác định",
-      "trigger": "Không có"
+      "trigger_setup": "Không có trigger - thiếu structure",
+      "entry_conditions": "Chờ dữ liệu market",
+      "invalidation": "N/A"
     }
   },
-  "keyLevels": {
-    "currentPrice": 0,
-    "resistance": {
-      "immediate": 0,
-      "major": 0,
-      "description": "Không xác định do thiếu dữ liệu"
+  "technical_confluence": {
+    "support_levels": [],
+    "resistance_levels": [],
+    "key_moving_averages": "Tất cả EMA = 0",
+    "momentum_indicators": "RSI, MACD không hoạt động",
+    "volatility_context": "ATR = 0, không đo được biến động"
+  },
+  "market_context": {
+    "session_characteristics": "Manual session - không rõ thời điểm thị trường",
+    "news_catalysts": "Cần theo dõi: Fed policy, USD strength, safe-haven demand",
+    "seasonality": "Gần cuối năm - thường có low volatility",
+    "cross_asset_signals": "Cần monitor DXY, yields, equities"
+  },
+  "trading_strategy": {
+    "primary_scenario": {
+      "setup": "Chờ kết nối dữ liệu market",
+      "entry": "Không thể xác định entry point",
+      "stop_loss": "N/A",
+      "take_profit": "N/A",
+      "risk_reward": "N/A"
     },
-    "support": {
-      "immediate": 0,
-      "major": 0,
-      "description": "Không xác định do thiếu dữ liệu"
+    "alternative_scenario": {
+      "condition": "Khi có dữ liệu đầy đủ",
+      "approach": "Phân tích lại theo workflow D1->H4->H1->M15",
+      "risk_management": "Áp dụng position sizing theo volatility"
     }
   },
-  "technicalIndicators": {
-    "ema20": 0,
-    "ema50": 0,
-    "ema200": 0,
-    "rsi14": 0,
-    "macd": 0,
-    "bbWidth": 0,
-    "atr14": 0,
-    "volumeRatio": 0
-  },
-  "tradingStrategy": {
-    "primaryBias": "NEUTRAL",
-    "scenarioA": {
-      "condition": "Khi có đủ dữ liệu thị trường",
-      "action": "Thực hiện phân tích đa khung thời gian đầy đủ",
-      "target": "TBD",
-      "stopLoss": "TBD",
-      "riskReward": "N/A"
-    },
-    "scenarioB": {
-      "condition": "Tiếp tục thiếu dữ liệu",
-      "action": "Chờ đợi, không giao dịch",
-      "target": "N/A",
-      "stopLoss": "N/A",
-      "riskReward": "N/A"
-    }
-  },
-  "riskFactors": [
-    "Payload dữ liệu hoàn toàn trống - không thể xác định bias thị trường",
-    "Thiếu thông tin về instrument và timeframe",
-    "Không có dữ liệu giá và volume để đánh giá",
-    "Không thể xác định session và context thời gian"
-  ],
-  "marketContext": {
-    "newsRisk": "Không xác định do thiếu context thời gian",
-    "sessionContext": "Không rõ",
-    "volatilityExpectation": "Không thể đánh giá"
-  },
-  "actionChecklist": [
-    "❌ Kiểm tra lại webhook configuration",
-    "❌ Xác nhận Pine Script đang gửi dữ liệu đầy đủ",
-    "❌ Đảm bảo tất cả fields trong payload được điền",
-    "❌ Không thực hiện giao dịch cho đến khi có dữ liệu hợp lệ"
-  ],
-  "nextHandover": {
-    "timeExpected": "Khi có payload đầy đủ",
-    "focusAreas": [
-      "Xác định instrument và timeframe",
-      "Phân tích đa khung thời gian với dữ liệu thực",
-      "Thiết lập bias và strategy phù hợp"
+  "risk_assessment": {
+    "technical_risks": [
+      "Thiếu hoàn toàn dữ liệu price và indicator",
+      "Không thể xác định support/resistance",
+      "Không có context về market structure"
     ],
-    "watchFor": "Dữ liệu market structure hoàn chỉnh từ Pine Script"
+    "fundamental_risks": [
+      "Fed meeting outcomes",
+      "Year-end positioning",
+      "Geopolitical events"
+    ],
+    "execution_risks": [
+      "Spread widening during low liquidity",
+      "Gap risk qua weekend"
+    ]
+  },
+  "action_checklist": {
+    "immediate": [
+      "Kiểm tra kết nối TradingView webhook",
+      "Verify Pine Script indicator outputs",
+      "Test lại market data feed"
+    ],
+    "pre_trade": [
+      "Chờ payload với dữ liệu thực tế",
+      "Xác nhận timeframe và price levels",
+      "Check news calendar cho catalysts"
+    ],
+    "monitoring": [
+      "Real-time price feeds",
+      "Multi-timeframe alignment",
+      "Risk management triggers"
+    ]
+  },
+  "next_update": {
+    "trigger_conditions": "Khi nhận được market data đầy đủ",
+    "expected_timing": "Ngay sau khi webhook hoạt động bình thường",
+    "focus_areas": "D1 bias, H4 structure, entry setups"
+  },
+  "handover_notes": {
+    "for_pm_team": "Payload hiện tại = dummy data, cần troubleshoot webhook connection",
+    "for_execution": "Không trade được cho đến khi có dữ liệu thực tế",
+    "for_risk": "Monitor system connectivity, không có exposure hiện tại"
   }
-}
-```","docx_url":""}]}
+}","docx_url":""}]}
