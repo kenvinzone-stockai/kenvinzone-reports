@@ -1,111 +1,89 @@
-{"version":"1.0","reports":[{"id":"RPT-202604141336","datetime":"2026-04-14T13:36:24+07:00","date_display":"14/04/2026","time_display":"13:36","instrument":"XAUUSD","archetype":"Ban noi tiep","price_current":0,"raw":"{
+{"version":"1.0","reports":[{"id":"RPT-202604141359","datetime":"2026-04-14T13:59:27+07:00","date_display":"14/04/2026","time_display":"13:59","instrument":"USATECM2026","archetype":"Ban noi tiep","price_current":25581.5,"raw":"{
   "metadata": {
-    "instrument": "XAUUSD",
-    "product_type": "CFD Vàng",
-    "timeframe": "15",
+    "instrument": "USATECM2026",
+    "product_type": "Nasdaq CFD",
+    "timeframe": "1min",
     "session": "manual",
-    "timestamp": "2024-12-19",
-    "archetype": "06:30 - Bản Mốc Gốc",
-    "confidence_level": "Thấp - Thiếu dữ liệu market"
+    "current_price": 25581.5,
+    "analysis_time": "2026-04-04",
+    "archetype": "Cập nhật intraday"
   },
   "executive_summary": {
-    "headline": "XAUUSD - Chờ Kết Nối Dữ Liệu Market",
-    "bias_direction": "NEUTRAL",
-    "key_insight": "Payload nhận được không chứa dữ liệu price và indicator thực tế, tất cả field đều = 0 hoặc N/A. Không thể phân tích xu hướng và cấu trúc thị trường.",
-    "action_required": "Chờ webhook truyền dữ liệu đầy đủ từ TradingView Pine Script"
+    "bias_chinh": "Bullish nhưng đang trong giai đoạn consolidation",
+    "catalyst_gan_nhat": "Giá đang test vùng resistance 25582-25591, chờ breakout hoặc pullback",
+    "risk_reward_hom_nay": "R:R 1:2 nếu long break 25582 target 25600, SL 25574",
+    "confidence_level": 75,
+    "key_insight": "Đa khung bullish alignment mạnh nhưng M15 doji và BB squeeze báo hiệu breakout sắp tới"
   },
   "multi_timeframe_analysis": {
     "D1": {
-      "bias": "UNKNOWN",
-      "structure": "Không xác định - thiếu price data",
-      "key_levels": "N/A",
-      "confluence": "Chờ dữ liệu"
+      "bias": "Bullish",
+      "logic": "Trend bullish với RSI zone bullish và MACD bias bullish, tạo nền tảng tích cực cho xu hướng tăng dài hạn",
+      "key_levels": "Support chính tại 24903 (prev day low), resistance 25585 (prev day high)",
+      "strength": 8
     },
     "H4": {
-      "bias": "UNKNOWN", 
-      "structure": "Không xác định - thiếu price data",
-      "momentum": "N/A",
-      "decision_point": "Chờ dữ liệu"
+      "bias": "Bullish",
+      "logic": "Full bullish EMA alignment với RSI overbought nhưng vẫn duy trì MACD bullish, khung quyết định ủng hộ tiếp tục xu hướng tăng",
+      "key_levels": "Vùng 25580-25590 là khu vực quan trọng cho H4",
+      "strength": 9
     },
     "H1": {
-      "bias": "UNKNOWN",
-      "intraday_story": "Không thể xác định câu chuyện intraday",
-      "catalyst_response": "N/A"
+      "bias": "Bullish", 
+      "logic": "Trend bullish với RSI bullish zone và MACD bias bullish, intraday vẫn trong xu hướng tăng",
+      "key_levels": "Support 25574, resistance 25591",
+      "strength": 8
     },
     "M15": {
-      "trigger_setup": "Không có trigger - thiếu structure",
-      "entry_conditions": "Chờ dữ liệu market",
-      "invalidation": "N/A"
+      "bias": "Neutral-Bullish",
+      "logic": "Trend bullish nhưng structure mixed/range, momentum weakening với candle doji và BB squeeze báo hiệu sắp có breakout. MACD bearish divergence cần chú ý",
+      "key_levels": "Range 25574.5-25582.25, breakout level 25582",
+      "strength": 6
     }
   },
-  "technical_confluence": {
-    "support_levels": [],
-    "resistance_levels": [],
-    "key_moving_averages": "Tất cả EMA = 0",
-    "momentum_indicators": "RSI, MACD không hoạt động",
-    "volatility_context": "ATR = 0, không đo được biến động"
-  },
-  "market_context": {
-    "session_characteristics": "Manual session - không rõ thời điểm thị trường",
-    "news_catalysts": "Cần theo dõi: Fed policy, USD strength, safe-haven demand",
-    "seasonality": "Gần cuối năm - thường có low volatility",
-    "cross_asset_signals": "Cần monitor DXY, yields, equities"
-  },
-  "trading_strategy": {
+  "strategy": {
     "primary_scenario": {
-      "setup": "Chờ kết nối dữ liệu market",
-      "entry": "Không thể xác định entry point",
-      "stop_loss": "N/A",
-      "take_profit": "N/A",
-      "risk_reward": "N/A"
+      "name": "Bullish Breakout",
+      "probability": 60,
+      "logic": "Long break 25582 với target 25600-25615",
+      "entry": "Break 25582 với volume confirmation",
+      "stop_loss": 25574,
+      "take_profit": ["25600", "25615"],
+      "risk_reward": "1:2.5"
     },
     "alternative_scenario": {
-      "condition": "Khi có dữ liệu đầy đủ",
-      "approach": "Phân tích lại theo workflow D1->H4->H1->M15",
-      "risk_management": "Áp dụng position sizing theo volatility"
+      "name": "Range Bounce",
+      "probability": 40,
+      "logic": "Long pullback về 25574-25576 nếu không break được 25582",
+      "entry": "25574-25576 với confirmation candle",
+      "stop_loss": 25563,
+      "take_profit": ["25590", "25600"],
+      "risk_reward": "1:1.8"
     }
   },
-  "risk_assessment": {
-    "technical_risks": [
-      "Thiếu hoàn toàn dữ liệu price và indicator",
-      "Không thể xác định support/resistance",
-      "Không có context về market structure"
-    ],
-    "fundamental_risks": [
-      "Fed meeting outcomes",
-      "Year-end positioning",
-      "Geopolitical events"
-    ],
-    "execution_risks": [
-      "Spread widening during low liquidity",
-      "Gap risk qua weekend"
-    ]
+  "risk_factors": [
+    "RSI H4 overbought có thể gây áp lực bán ngắn hạn",
+    "MACD M15 bearish divergence cần theo dõi",
+    "BB squeeze có thể breakout cả 2 hướng",
+    "Volume hiện tại normal, cần volume confirmation cho breakout"
+  ],
+  "market_context": {
+    "session_bias": "Manual session - theo dõi momentum tự nhiên của thị trường",
+    "volatility": "ATR 4.17 cho thấy volatility trung bình, phù hợp cho scalping",
+    "liquidity_zones": ["25574-25576 (support)", "25582-25585 (resistance)"],
+    "news_risk": "Không có catalyst kinh tế lớn, tập trung technical analysis"
   },
-  "action_checklist": {
-    "immediate": [
-      "Kiểm tra kết nối TradingView webhook",
-      "Verify Pine Script indicator outputs",
-      "Test lại market data feed"
-    ],
-    "pre_trade": [
-      "Chờ payload với dữ liệu thực tế",
-      "Xác nhận timeframe và price levels",
-      "Check news calendar cho catalysts"
-    ],
-    "monitoring": [
-      "Real-time price feeds",
-      "Multi-timeframe alignment",
-      "Risk management triggers"
-    ]
-  },
-  "next_update": {
-    "trigger_conditions": "Khi nhận được market data đầy đủ",
-    "expected_timing": "Ngay sau khi webhook hoạt động bình thường",
-    "focus_areas": "D1 bias, H4 structure, entry setups"
-  },
-  "handover_notes": {
-    "for_pm_team": "Payload hiện tại = dummy data, cần troubleshoot webhook connection",
-    "for_execution": "Không trade được cho đến khi có dữ liệu thực tế",
-    "for_risk": "Monitor system connectivity, không có exposure hiện tại"
+  "action_checklist": [
+    "✅ Xác nhận D1-H4-H1 cùng bias bullish",
+    "⏳ Chờ M15 break 25582 hoặc pullback 25574",
+    "⏳ Theo dõi volume khi test key levels",
+    "⏳ Watch MACD M15 recovery signal",
+    "⏳ Monitor BB expansion sau squeeze"
+  ],
+  "next_session_handover": {
+    "key_levels_to_watch": ["25582 (breakout level)", "25574 (support)", "25600 (target)"],
+    "bias_continuation": "Bullish bias duy trì nếu hold trên 25574",
+    "invalidation_point": "Break dưới 25563 sẽ shift bias sang neutral",
+    "expected_catalyst": "Chờ breakout từ BB squeeze range 25574-25582"
   }
 }","docx_url":""}]}
