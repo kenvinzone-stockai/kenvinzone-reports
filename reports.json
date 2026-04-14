@@ -1,114 +1,89 @@
-{"version":"1.0","reports":[{"id":"RPT-202604142110","datetime":"2026-04-14T21:10:46+07:00","date_display":"14/04/2026","time_display":"21:10","instrument":"NQ / US100","archetype":"Ban noi tiep","price_current":25651.75,"raw":{
-  "metadata": {
-    "instrument": "USATECM2026",
-    "product_type": "Nasdaq Futures",
-    "broker": "ActivTrades",
-    "timeframe": "15",
+{"version":"1.0","reports":[{"id":"RPT-202604142126","datetime":"2026-04-14T21:26:13+07:00","date_display":"14/04/2026","time_display":"21:26","instrument":"XAUUSD","archetype":"Ban noi tiep","price_current":4777.97,"raw":{
+  "summary": {
+    "instrument": "XAUUSD",
     "session": "18:30",
-    "timestamp": "1776167101373",
-    "current_price": 25651.75,
-    "archetype": "Cập nhật 18:30"
-  },
-  "executive_summary": {
-    "bias": "Bullish với dấu hiệu suy yếu ngắn hạn",
-    "confidence": "Trung bình (70%)",
-    "key_insight": "Nasdaq futures đang trong xu thế tăng đa khung nhưng M15 xuất hiện tín hiệu điều chỉnh với Bearish Pin Bar và momentum suy yếu",
-    "primary_scenario": "Pullback về vùng 25620-25630 trước khi tiếp tục tăng",
-    "risk_factors": ["Overbought trên H4 và H1", "MACD divergence xuất hiện", "Volume thấp hơn trung bình"]
+    "timeframe": "15",
+    "current_price": 4777.97,
+    "bias": "Bullish với momentum yếu dần",
+    "confidence": 75,
+    "key_message": "Vàng duy trì xu hướng tăng đa khung nhưng đang gặp áp lực tại vùng 4780. Chờ breakout khỏi Bollinger Squeeze để xác nhận hướng tiếp theo."
   },
   "multi_timeframe_analysis": {
     "D1": {
-      "trend": "Bullish",
-      "structure": "Xu thế tăng chính được duy trì",
-      "key_levels": "Hỗ trợ tại 25323 (SMA200), kháng cự xa tại 26000",
-      "bias": "Tăng trung hạn",
-      "strength": "EMA alignment hỗn hợp cho thấy đà tăng chưa hoàn toàn vững chắc"
+      "bias": "Bullish",
+      "structure": "Xu hướng tăng chính với EMA alignment hỗn hợp",
+      "key_levels": "Vùng hỗ trợ 4750, kháng cự 4800",
+      "momentum": "RSI neutral 52.29, MACD bullish nhưng histogram âm"
     },
     "H4": {
-      "trend": "Bullish",
-      "structure": "Full Bullish Alignment nhưng RSI Overbought cảnh báo",
-      "key_levels": "Kháng cự ngay tại 25673, hỗ trợ tại 25587 (EMA50)",
-      "bias": "Tăng nhưng cần pullback",
-      "strength": "MACD vẫn Bullish nhưng RSI quá mua cần thận trọng"
+      "bias": "Bullish",
+      "structure": "Trend bullish với RSI trong vùng mua, MACD dương",
+      "key_levels": "Hỗ trợ mạnh 4770, kháng cự 4785-4790",
+      "momentum": "EMA alignment hỗn hợp nhưng bias vẫn tích cực"
     },
     "H1": {
-      "trend": "Bullish",
-      "structure": "Xu thế tăng nhưng MACD Bearish divergence",
-      "key_levels": "Vùng 25630-25650 là khu vực quan trọng",
-      "bias": "Bullish nhưng momentum yếu đi",
-      "strength": "RSI Overbought và MACD Bearish báo hiệu điều chỉnh ngắn hạn"
+      "bias": "Bullish", 
+      "structure": "Duy trì trend tăng, RSI bullish zone",
+      "key_levels": "Hỗ trợ gần 4775, kháng cự 4780-4785",
+      "momentum": "MACD bullish hỗ trợ continuation"
     },
     "M15": {
-      "trend": "Bullish",
-      "structure": "Mixed/Range Structure với Bearish Pin Bar",
-      "key_levels": "Hỗ trợ tức thì tại 25649, kháng cự tại 25673",
-      "bias": "Trigger điều chỉnh xuất hiện",
-      "strength": "EMA alignment vẫn Full Bullish nhưng momentum suy yếu và xuất hiện Bearish Pin Bar"
+      "bias": "Bullish nhưng momentum yếu",
+      "structure": "HH/HL pattern, EMA full bullish alignment",
+      "key_levels": "Swing high 4796.69, swing low 4757.96",
+      "momentum": "Bollinger Squeeze báo hiệu breakout sắp tới, candle doji thể hiện indecision"
     }
   },
-  "consensus_analysis": {
-    "agreement_level": "Cao trên khung lớn, phân kỳ trên khung nhỏ",
-    "dominant_narrative": "Xu thế tăng chính được duy trì nhưng cần điều chỉnh kỹ thuật",
-    "conflict_resolution": "D1/H4 Bullish bias chính, H1/M15 cảnh báo pullback ngắn hạn",
-    "synthesis": "Kịch bản chính là pullback để tích lũy trước khi tiếp tục tăng"
-  },
-  "trading_strategy": {
-    "primary_bias": "Bullish với điều chỉnh ngắn hạn",
-    "entry_strategy": "Chờ pullback về 25620-25630 để long, hoặc breakout trên 25673",
-    "key_levels": {
-      "support": ["25630 (EMA20)", "25587 (EMA50)", "25574.5 (Low 20 bar)"],
-      "resistance": ["25673 (Swing High)", "25700", "25750"]
-    },
-    "risk_management": "Stop loss dưới 25574, target đầu tiên 25700",
-    "position_sizing": "Conservative do signals hỗn hợp"
+  "strategy": {
+    "primary_direction": "Bullish",
+    "entry_strategy": "Chờ breakout khỏi Bollinger Squeeze trên 4780 hoặc pullback về EMA20 (4776.77)",
+    "invalidation": "Close dưới 4770 (EMA50)",
+    "risk_management": "ATR14 = 9.59, size position theo 1-2% risk",
+    "time_horizon": "Intraday đến swing short-term"
   },
   "scenarios": {
-    "bullish_continuation": {
-      "probability": "60%",
-      "trigger": "Pullback về 25620-25630 và bounce mạnh",
-      "target": "25700-25750",
-      "invalidation": "Break dưới 25574"
+    "bullish": {
+      "probability": 60,
+      "trigger": "Breakout trên 4780 với volume confirmation",
+      "targets": "4785 -> 4790 -> 4796 (swing high)",
+      "invalidation": "Reject tại 4780 với bearish engulfing"
     },
-    "bearish_correction": {
-      "probability": "35%",
-      "trigger": "Break dưới 25630 với volume",
-      "target": "25580-25550",
-      "invalidation": "Break trên 25673 ngay lập tức"
+    "bearish": {
+      "probability": 25,
+      "trigger": "Break dưới 4770 với momentum",
+      "targets": "4765 -> 4758 (swing low) -> 4750",
+      "invalidation": "Reclaim 4775 với bullish momentum"
     },
-    "sideways_consolidation": {
-      "probability": "5%",
-      "trigger": "Range trading 25620-25673",
-      "target": "Scalp trong range",
-      "invalidation": "Break khỏi range"
+    "neutral": {
+      "probability": 15,
+      "trigger": "Sideways trong range 4770-4780",
+      "action": "Chờ breakout direction, không trade range",
+      "invalidation": "Breakout quyết định khỏi range"
     }
   },
-  "execution_checklist": {
-    "pre_trade": [
-      "Xác nhận pullback về vùng 25620-25630",
-      "Kiểm tra volume confirmation",
-      "Theo dõi MACD histogram recovery trên M15"
-    ],
-    "during_trade": [
-      "Monitor RSI về vùng 40-50 trên H1",
-      "Chú ý reaction tại EMA20 (25632)",
-      "Risk management tại 25574"
-    ],
-    "post_trade": [
-      "Partial profit tại 25700",
-      "Trail stop theo EMA20 M15",
-      "Review performance khi đóng vị thế"
-    ]
+  "risk_factors": {
+    "technical": "Bollinger Squeeze có thể breakout cả 2 hướng, MACD histogram âm",
+    "fundamental": "Rủi ro từ DXY, yields, geopolitical events",
+    "market_structure": "Volume normal, chưa có confirmation mạnh cho breakout"
   },
-  "market_context": {
-    "session_notes": "Session 18:30 thường có thanh khoản tăng từ thị trường Mỹ",
-    "catalyst_watch": "Chú ý các báo cáo kinh tế Mỹ và sentiment công nghệ",
-    "risk_events": "FOMC minutes, tech earnings có thể tác động mạnh",
-    "volume_profile": "Volume 5434 ở mức Normal, cần tăng để confirm breakout"
+  "action_plan": {
+    "immediate": "Monitor breakout khỏi 4780 hoặc breakdown 4770",
+    "if_bullish": "Long break 4780, SL 4770, TP 4785/4790",
+    "if_bearish": "Short break 4770, SL 4780, TP 4758/4750",
+    "if_neutral": "Đứng ngoài, chờ signal rõ ràng hơn"
+  },
+  "trade_checklist": {
+    "trend_alignment": "✓ D1/H4/H1 bullish, M15 bullish structure",
+    "key_level_respect": "✓ Price near key resistance 4780",
+    "momentum_confirmation": "⚠ Momentum yếu dần, chờ confirmation", 
+    "volume_confirmation": "⚠ Volume normal, chưa có spike",
+    "risk_reward": "✓ RR 1:2+ nếu breakout confirm",
+    "session_context": "✓ 18:30 session - thời điểm volume tăng"
   },
   "handover_notes": {
-    "key_watch": "Reaction tại vùng 25620-25630 sẽ quyết định hướng ngắn hạn",
-    "next_catalyst": "Breakout 25673 hoặc breakdown 25574 sẽ xác định scenario chính",
-    "risk_reminder": "Overbought conditions yêu cầu quản lý rủi ro chặt chẽ",
-    "follow_up": "Update khi có confirmation signal từ volume và momentum"
+    "next_session_focus": "Monitor reaction tại 4780, theo dõi Bollinger Squeeze breakout",
+    "key_events": "Chú ý DXY movement, US session volume",
+    "technical_watch": "MACD convergence, RSI momentum shift, volume confirmation",
+    "risk_reminder": "Position size conservative do momentum uncertainty"
   }
 },"docx_url":""}]}
