@@ -1,1 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604142238","datetime":"2026-04-14T22:38:37+07:00","date_display":"14/04/2026","time_display":"22:38","instrument":"XAUUSD","archetype":"Báo cáo 4H – 22:38","price_current":"3235.5","raw":,"docx_url":""}]}
+{"version":"1.0","reports":[{"id":"RPT-202604142240","datetime":"2026-04-14T22:40:44+07:00","date_display":"14/04/2026","time_display":"22:40","instrument":"XAUUSD","archetype":"Báo cáo 4H – 22:40","price_current":"3235.5","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 14:30",
+  "timestamp": "2024-12-19T14:30:00+07:00",
+  "summary": {
+    "primary_bias": "Neutral",
+    "bias_direction": "Neutral",
+    "confidence_level": "Thấp (25-49%)",
+    "current_price": 3235.5,
+    "key_insight": "Vàng đang trong vùng consolidation với bias D1 Bullish nhưng momentum ngắn hạn suy yếu. H4 và H1 cho tín hiệu trái chiều, cần chờ breakout rõ ràng.",
+    "headline": "XAUUSD consolidation, chờ direction confirmation"
+  },
+  "market_structure": {
+    "D1": {
+      "bias": "Bullish",
+      "trend": "Xu hướng tăng dài hạn được duy trì",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Bullish Zone",
+      "macd_bias": "Bullish",
+      "key_levels": "Vùng kháng cự chính quanh 3252-3258, hỗ trợ mạnh tại 3205"
+    },
+    "H4": {
+      "bias": "Neutral",
+      "trend": "Bullish nhưng momentum suy yếu",
+      "structure": "Consolidation pattern sau pullback",
+      "ema_alignment": "Full Bullish",
+      "rsi_zone": "Neutral",
+      "macd_bias": "Bearish",
+      "momentum": "Weakening",
+      "critical_levels": {
+        "resistance": [3242, 3252.1],
+        "support": [3220, 3205.4]
+      }
+    },
+    "H1": {
+      "bias": "Neutral",
+      "trend": "Sideways consolidation",
+      "intraday_story": "Giá dao động trong range hẹp, thiếu momentum rõ ràng",
+      "rsi_zone": "Neutral",
+      "macd_bias": "Bearish"
+    },
+    "M15": {
+      "bias": "Neutral",
+      "trend": "Range-bound movement",
+      "trigger_setup": "Chờ breakout khỏi vùng 3220-3242",
+      "structure": "Mixed/Range Structure",
+      "momentum": "Neutral",
+      "candle_pattern": "None"
+    }
+  },
+  "key_levels": {
+    "current_price": 3235.5,
+    "resistance": [3242, 3252.1],
+    "support": [3220, 3205.4],
+    "swing_high": 3258.3,
+    "swing_low": 3198.2,
+    "prev_day_high": 3252.1,
+    "prev_day_low": 3205.4
+  },
+  "confluence_analysis": {
+    "bullish_factors": ["D1 Full Bullish EMA alignment", "RSI D1 trong vùng Bullish", "Giá trên EMA 200 dài hạn"],
+    "bearish_factors": ["H4 MACD Bearish divergence", "H1 momentum suy yếu", "Thiếu volume confirmation"],
+    "dominant_bias": "Mixed"
+  },
+  "trading_scenarios": {
+    "primary_scenario": {
+      "bias": "Bullish",
+      "setup": "Break và hold trên 3242 với volume tăng",
+      "target": [3252, 3258],
+      "stop_loss": 3225,
+      "risk_reward": "1:2.2",
+      "probability": 45
+    },
+    "alternative_scenario": {
+      "bias": "Bearish",
+      "setup": "Break xuống dưới 3220 với momentum mạnh",
+      "target": [3205],
+      "stop_loss": 3245,
+      "risk_reward": "1:1.5",
+      "probability": 35
+    },
+    "invalidation_scenario": {
+      "bias": "Bearish",
+      "setup": "Breakdown mạnh dưới 3205 support chính",
+      "target": [3185],
+      "stop_loss": 3225,
+      "risk_reward": "1:2.5",
+      "probability": 20
+    }
+  },
+  "risk_factors": ["Conflict giữa D1 bullish và H4 bearish momentum", "Volume thấp trong session hiện tại", "ATR 18.5 cho thấy volatility tăng"],
+  "catalyst_watch": ["US Dollar strength movements", "Fed policy speculation news"],
+  "execution_plan": {
+    "entry_zone": "Breakout 3242 hoặc breakdown 3220",
+    "entry_condition": "Confirmation candle với volume tăng",
+    "position_sizing": "Reduce size do conflict signals",
+    "session_focus": "US session opening",
+    "key_time": "15:30-16:30 cho breakout attempts"
+  },
+  "action_checklist": {
+    "immediate": ["Monitor 3242 resistance test", "Watch for volume pickup"],
+    "pre_trade": ["Confirm direction với multiple timeframe", "Set tight stops due to ranging market"],
+    "monitoring": ["Track US session volume", "Monitor USD strength index"]
+  },
+  "dashboard_summary": "XAUUSD trong phase consolidation với D1 bias bullish nhưng momentum ngắn hạn mixed. Chờ breakout confirmation.",
+  "telegram_summary": "🥇 XAUUSD: Consolidation tại 3235. D1↗️ H4❓ Range 3220-3242. Chờ breakout + volume confirm. Risk management cao! #Gold #Trading"
+},"docx_url":""}]}
