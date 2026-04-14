@@ -1,89 +1,122 @@
-{"version":"1.0","reports":[{"id":"RPT-202604141359","datetime":"2026-04-14T13:59:27+07:00","date_display":"14/04/2026","time_display":"13:59","instrument":"USATECM2026","archetype":"Ban noi tiep","price_current":25581.5,"raw":"{
-  "metadata": {
+{"version":"1.0","reports":[{"id":"RPT-202604141410","datetime":"2026-04-14T14:10:35+07:00","date_display":"14/04/2026","time_display":"14:10","instrument":"NQ / US100","archetype":"Ban noi tiep","price_current":25581.25,"raw":{
+  "summary": {
     "instrument": "USATECM2026",
-    "product_type": "Nasdaq CFD",
-    "timeframe": "1min",
-    "session": "manual",
-    "current_price": 25581.5,
-    "analysis_time": "2026-04-04",
-    "archetype": "Cập nhật intraday"
-  },
-  "executive_summary": {
-    "bias_chinh": "Bullish nhưng đang trong giai đoạn consolidation",
-    "catalyst_gan_nhat": "Giá đang test vùng resistance 25582-25591, chờ breakout hoặc pullback",
-    "risk_reward_hom_nay": "R:R 1:2 nếu long break 25582 target 25600, SL 25574",
+    "current_price": 25581.25,
+    "primary_bias": "Bullish",
     "confidence_level": 75,
-    "key_insight": "Đa khung bullish alignment mạnh nhưng M15 doji và BB squeeze báo hiệu breakout sắp tới"
+    "key_insight": "Nasdaq 2026 futures trong xu hướng tăng đa khung với H4 overbought, chờ breakout khỏi Bollinger squeeze hoặc pullback về EMA cluster 25578-25580",
+    "action_bias": "Mua trên breakout hoặc dip buying"
   },
-  "multi_timeframe_analysis": {
+  "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "logic": "Trend bullish với RSI zone bullish và MACD bias bullish, tạo nền tảng tích cực cho xu hướng tăng dài hạn",
-      "key_levels": "Support chính tại 24903 (prev day low), resistance 25585 (prev day high)",
-      "strength": 8
+      "key_factors": ["Trend bullish", "RSI bullish zone", "MACD bullish", "EMA alignment mixed cho thấy consolidation"],
+      "critical_levels": {
+        "resistance": [25591.75, 25600],
+        "support": [25580, 25575, 25563]
+      }
     },
     "H4": {
       "bias": "Bullish",
-      "logic": "Full bullish EMA alignment với RSI overbought nhưng vẫn duy trì MACD bullish, khung quyết định ủng hộ tiếp tục xu hướng tăng",
-      "key_levels": "Vùng 25580-25590 là khu vực quan trọng cho H4",
-      "strength": 9
+      "key_factors": ["Full bullish EMA alignment", "Trend bullish mạnh", "MACD bullish nhưng RSI overbought"],
+      "critical_levels": {
+        "resistance": [25590, 25600],
+        "support": [25575, 25563]
+      }
     },
     "H1": {
-      "bias": "Bullish", 
-      "logic": "Trend bullish với RSI bullish zone và MACD bias bullish, intraday vẫn trong xu hướng tăng",
-      "key_levels": "Support 25574, resistance 25591",
-      "strength": 8
+      "bias": "Bullish",
+      "key_factors": ["Trend bullish", "RSI bullish zone", "MACD bullish", "Momentum tiếp tục tích cực"],
+      "critical_levels": {
+        "resistance": [25585, 25591.75],
+        "support": [25578, 25574.5]
+      }
     },
     "M15": {
-      "bias": "Neutral-Bullish",
-      "logic": "Trend bullish nhưng structure mixed/range, momentum weakening với candle doji và BB squeeze báo hiệu sắp có breakout. MACD bearish divergence cần chú ý",
-      "key_levels": "Range 25574.5-25582.25, breakout level 25582",
-      "strength": 6
+      "bias": "Bullish nhưng yếu",
+      "key_factors": ["Trend bullish", "Mixed structure", "Momentum weakening", "BB squeeze chờ breakout", "Pin bar bullish"],
+      "trigger_levels": {
+        "entry_long": [25582.5, 25578],
+        "entry_short": [25575],
+        "stop_loss": [25574, 25563]
+      }
     }
   },
-  "strategy": {
+  "confluence_analysis": {
+    "bullish_confluence": [
+      "D1-H4-H1 cùng bias bullish",
+      "H4 EMA full bullish alignment",
+      "MACD bullish trên nhiều khung",
+      "Pin bar bullish M15",
+      "Price trên EMA cluster"
+    ],
+    "bearish_confluence": [
+      "H4 RSI overbought",
+      "M15 momentum weakening",
+      "M15 structure mixed/range",
+      "MACD histogram âm M15",
+      "BB squeeze có thể break down"
+    ],
+    "key_inflection_zone": "25578-25582 (EMA cluster + BB mid)"
+  },
+  "trading_scenarios": {
     "primary_scenario": {
-      "name": "Bullish Breakout",
+      "bias": "Bullish continuation",
       "probability": 60,
-      "logic": "Long break 25582 với target 25600-25615",
-      "entry": "Break 25582 với volume confirmation",
-      "stop_loss": 25574,
-      "take_profit": ["25600", "25615"],
-      "risk_reward": "1:2.5"
+      "setup": "Breakout trên 25582.5 với volume confirmation",
+      "target": [25590, 25600],
+      "stop_loss": 25575,
+      "risk_reward": "1:2",
+      "conditions": ["Volume tăng trên breakout", "RSI H4 không divergence"]
     },
     "alternative_scenario": {
-      "name": "Range Bounce",
-      "probability": 40,
-      "logic": "Long pullback về 25574-25576 nếu không break được 25582",
-      "entry": "25574-25576 với confirmation candle",
-      "stop_loss": 25563,
-      "take_profit": ["25590", "25600"],
-      "risk_reward": "1:1.8"
+      "bias": "Dip buying",
+      "probability": 25,
+      "setup": "Pullback về 25578-25579 (EMA cluster)",
+      "target": [25585, 25591],
+      "stop_loss": 25574,
+      "risk_reward": "1:2.5",
+      "conditions": ["Bounce tại EMA support", "RSI M15 oversold"]
+    },
+    "invalidation_scenario": {
+      "bias": "Bearish reversal",
+      "probability": 15,
+      "setup": "Break dưới 25574.5 với volume",
+      "target": [25563, 25550],
+      "stop_loss": 25580,
+      "conditions": ["Break key support M15", "MACD bear cross H1"]
     }
   },
   "risk_factors": [
-    "RSI H4 overbought có thể gây áp lực bán ngắn hạn",
-    "MACD M15 bearish divergence cần theo dõi",
-    "BB squeeze có thể breakout cả 2 hướng",
-    "Volume hiện tại normal, cần volume confirmation cho breakout"
+    "H4 RSI overbought có thể gây pullback",
+    "M15 momentum suy yếu",
+    "BB squeeze có thể breakout cả hai hướng",
+    "Volume bình thường thiếu conviction",
+    "Futures 2026 thanh khoản có thể thấp"
   ],
-  "market_context": {
-    "session_bias": "Manual session - theo dõi momentum tự nhiên của thị trường",
-    "volatility": "ATR 4.17 cho thấy volatility trung bình, phù hợp cho scalping",
-    "liquidity_zones": ["25574-25576 (support)", "25582-25585 (resistance)"],
-    "news_risk": "Không có catalyst kinh tế lớn, tập trung technical analysis"
+  "catalyst_watch": [
+    "Tin tức tech sector",
+    "Fed policy updates",
+    "US economic data",
+    "VIX movements",
+    "Bond yields"
+  ],
+  "execution_plan": {
+    "immediate_action": "Chờ breakout 25582.5 hoặc pullback 25578",
+    "position_sizing": "50% ban đầu, 50% add trên confirmation",
+    "time_horizon": "Intraday đến swing short-term",
+    "monitoring_points": ["25582.5 breakout", "25578 support test", "Volume pattern"]
   },
-  "action_checklist": [
-    "✅ Xác nhận D1-H4-H1 cùng bias bullish",
-    "⏳ Chờ M15 break 25582 hoặc pullback 25574",
-    "⏳ Theo dõi volume khi test key levels",
-    "⏳ Watch MACD M15 recovery signal",
-    "⏳ Monitor BB expansion sau squeeze"
-  ],
-  "next_session_handover": {
-    "key_levels_to_watch": ["25582 (breakout level)", "25574 (support)", "25600 (target)"],
-    "bias_continuation": "Bullish bias duy trì nếu hold trên 25574",
-    "invalidation_point": "Break dưới 25563 sẽ shift bias sang neutral",
-    "expected_catalyst": "Chờ breakout từ BB squeeze range 25574-25582"
+  "market_context": {
+    "session": "Manual trigger",
+    "volatility": "Bình thường (ATR 4.16)",
+    "liquidity": "Cẩn thận với futures 2026",
+    "correlation": "Theo US100 spot nhưng có premium/discount"
+  },
+  "next_review": "Sau khi price action rõ ràng tại 25582.5 hoặc 25578, hoặc 2-4h nếu sideways",
+  "confidence_factors": {
+    "high": ["Multi-timeframe bullish alignment", "EMA cluster support"],
+    "medium": ["Pin bar pattern", "MACD bullish"],
+    "low": ["Volume confirmation", "RSI divergence risk"]
   }
-}","docx_url":""}]}
+},"docx_url":""}]}
