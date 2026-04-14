@@ -1,108 +1,107 @@
-{"version":"1.0","reports":[{"id":"RPT-202604141549","datetime":"2026-04-14T15:49:12+07:00","date_display":"14/04/2026","time_display":"15:49","instrument":"NQ / US100","archetype":"Ban noi tiep","price_current":25584,"raw":{
-  "analysis_metadata": {
-    "instrument": "USATECM2026",
-    "product_type": "Nasdaq Futures",
-    "timeframe": "1",
-    "session": "manual",
-    "current_price": 25584,
-    "analysis_time": "1776150000623",
-    "archetype": "cập nhật realtime",
-    "confidence_level": "Trung bình"
-  },
+{"version":"1.0","reports":[{"id":"RPT-202604141728","datetime":"2026-04-14T17:28:44+07:00","date_display":"14/04/2026","time_display":"17:28","instrument":"","archetype":"Ban noi tiep","price_current":0,"raw":{
+  "analysis_id": "XAUUSD_M15_MANUAL_20240101_000000",
+  "timestamp": "2024-01-01T00:00:00Z",
+  "instrument": "XAUUSD",
+  "product_type": "Gold CFD",
+  "timeframe": "M15",
+  "session_type": "manual",
+  "archetype": "Cập nhật thủ công",
+  "current_price": 0,
+  "market_hours": "Thị trường đóng cửa",
   "executive_summary": {
-    "market_bias": "Bullish nhưng đang trong giai đoạn consolidation",
-    "key_theme": "Xu hướng tăng dài hạn gặp áp lực ngắn hạn do H4 overbought và momentum suy yếu",
-    "primary_scenario": "Continuation bullish sau khi test support",
-    "risk_level": "Trung bình - cao do conflicting signals",
-    "action_required": "Chờ breakout khỏi consolidation range hoặc test support"
+    "overall_bias": "NEUTRAL",
+    "confidence": "Rất thấp (10%)",
+    "primary_scenario": "Chờ dữ liệu market mới",
+    "risk_level": "Cao",
+    "key_message": "Payload không chứa dữ liệu thị trường hợp lệ. Tất cả indicator đều = 0 và trend = N/A. Cần chờ kết nối TradingView ổn định."
   },
   "multi_timeframe_analysis": {
     "D1": {
-      "bias": "Bullish",
-      "key_insight": "Xu hướng tăng dài hạn vẫn nguyên vẹn với MACD bullish, nhưng EMA alignment mixed cho thấy đang gặp kháng cự",
-      "support_resistance": "Support mạnh tại vùng 25563, kháng cự gần nhất 25591.75",
-      "confluence_factors": ["RSI trong vùng bullish", "Trend bullish được duy trì"]
+      "bias": "NEUTRAL",
+      "trend": "Không xác định",
+      "key_level": 0,
+      "structure": "Dữ liệu thiếu",
+      "strength": "N/A",
+      "note": "Close = 0, tất cả indicator N/A"
     },
     "H4": {
-      "bias": "Bullish nhưng cảnh báo",
-      "key_insight": "EMA alignment full bullish nhưng RSI overbought và đang tại vùng kháng cử, cần consolidation",
-      "support_resistance": "Kháng cự mạnh tại 25591.75, support tại 25563",
-      "confluence_factors": ["MACD vẫn bullish", "RSI overbought cần điều chỉnh"]
+      "bias": "NEUTRAL", 
+      "trend": "Không xác định",
+      "key_level": 0,
+      "structure": "Dữ liệu thiếu",
+      "confluence": "N/A",
+      "note": "Close = 0, không có signal"
     },
     "H1": {
-      "bias": "Bullish",
-      "key_insight": "Duy trì xu hướng tăng với MACD và RSI đều bullish, hỗ trợ cho scenario continuation",
-      "support_resistance": "Support gần nhất 25574.5, kháng cự 25585.5",
-      "confluence_factors": ["Trend bullish nhất quán", "Momentum vẫn tích cực"]
+      "bias": "NEUTRAL",
+      "trend": "Không xác định", 
+      "momentum": "N/A",
+      "pattern": "Không có",
+      "note": "RSI = 0, MACD = 0"
     },
     "M15": {
-      "bias": "Neutral-Bullish",
-      "key_insight": "Bollinger Bands squeeze báo hiệu breakout sắp diễn ra, momentum đang suy yếu cần chờ direction",
-      "support_resistance": "Range hẹp 25580.5 - 25585.5",
-      "confluence_factors": ["BB squeeze pending breakout", "Volume bình thường", "Momentum yếu đi"]
+      "bias": "NEUTRAL",
+      "structure": "Không xác định",
+      "trigger_quality": "Không có",
+      "entry_zone": "N/A",
+      "note": "Tất cả indicator = 0"
     }
   },
-  "market_structure": {
-    "current_phase": "Consolidation trong uptrend",
-    "key_levels": {
-      "immediate_resistance": 25591.75,
-      "immediate_support": 25574.5,
-      "major_resistance": 25591.75,
-      "major_support": 25563
-    },
-    "structure_notes": "Đang test vùng kháng cự swing high, cần breakout để continuation hoặc pullback để test support"
+  "key_levels": {
+    "resistance": [0],
+    "support": [0],
+    "pivot": 0,
+    "day_high": 0,
+    "day_low": 0,
+    "swing_high": 0,
+    "swing_low": 0
   },
-  "trading_scenarios": {
-    "primary_scenario": {
-      "setup": "Bullish Continuation",
-      "probability": "60%",
-      "trigger": "Break và hold trên 25591.75 với volume",
-      "targets": ["25600", "25615"],
-      "stops": "25574.5",
-      "rationale": "D1 và H4 trend bullish, H1 hỗ trợ continuation"
+  "technical_indicators": {
+    "ema_alignment": "Không xác định",
+    "rsi_zone": "Neutral (0)",
+    "macd_state": "Flat (0)",
+    "bollinger_position": "Mid (0)",
+    "volume_profile": "Không có dữ liệu",
+    "atr_reading": 0
+  },
+  "strategy_scenarios": {
+    "primary": {
+      "name": "WAIT_FOR_DATA",
+      "description": "Chờ dữ liệu thị trường hợp lệ",
+      "bias": "NEUTRAL",
+      "entry_condition": "Khi có dữ liệu > 0",
+      "target": "N/A",
+      "stop_loss": "N/A", 
+      "risk_reward": "N/A",
+      "probability": "N/A"
     },
-    "alternative_scenario": {
-      "setup": "Pullback trong uptrend",
-      "probability": "40%",
-      "trigger": "Rejection tại 25591.75, break xuống 25580",
-      "targets": ["25563", "25550"],
-      "stops": "25595",
-      "rationale": "H4 RSI overbought, M15 momentum yếu, cần test lại support"
+    "alternative": {
+      "name": "SYSTEM_CHECK",
+      "description": "Kiểm tra kết nối TradingView",
+      "condition": "Nếu tiếp tục nhận dữ liệu = 0",
+      "action": "Restart webhook/Pine Script"
     }
   },
-  "risk_factors": {
-    "technical_risks": [
-      "H4 RSI overbought có thể gây áp lực bán",
-      "M15 momentum suy yếu trong BB squeeze",
-      "Conflicting EMA alignment trên D1"
-    ],
-    "fundamental_risks": [
-      "Tin tức kinh tế Mỹ có thể tác động mạnh đến Nasdaq",
-      "Sentiment thị trường công nghệ"
-    ],
-    "volatility_assessment": "Trung bình với ATR 4.23, cần cẩn trọng với breakout"
+  "risk_factors": [
+    "Dữ liệu thị trường không hợp lệ",
+    "Kết nối TradingView có thể bị lỗi",
+    "Thị trường có thể đóng cửa",
+    "Cần xác minh trạng thái Pine Script"
+  ],
+  "market_context": {
+    "session_note": "Session manual - có thể là test hoặc thị trường đóng",
+    "volatility": "Không xác định",
+    "liquidity": "Không xác định",
+    "news_risk": "Cần cập nhật lịch kinh tế"
   },
-  "action_checklist": {
-    "immediate_actions": [
-      "Monitor price action tại 25591.75 resistance",
-      "Chờ BB squeeze breakout direction trên M15",
-      "Theo dõi volume confirmation"
-    ],
-    "conditional_setups": [
-      "Nếu break 25591.75: long với target 25600-25615",
-      "Nếu reject tại 25591.75: short với target 25563",
-      "Stop loss theo scenario tương ứng"
-    ],
-    "monitoring_points": [
-      "H4 RSI có pullback khỏi overbought không",
-      "M15 momentum có cải thiện không",
-      "Volume có tăng theo breakout direction không"
-    ]
-  },
-  "next_session_outlook": {
-    "expected_scenario": "Breakout khỏi consolidation range",
-    "key_levels_to_watch": ["25591.75", "25580", "25563"],
-    "potential_catalysts": ["Technical breakout", "Volume expansion", "US market sentiment"],
-    "preparation_notes": "Chuẩn bị cho cả hai scenario bullish continuation và pullback correction"
-  }
+  "action_checklist": [
+    "Kiểm tra kết nối TradingView",
+    "Verify Pine Script hoạt động", 
+    "Xác nhận market hours",
+    "Test webhook endpoint",
+    "Chờ payload mới với dữ liệu hợp lệ"
+  ],
+  "next_review": "Khi nhận được dữ liệu market > 0",
+  "handover_notes": "Payload hiện tại không chứa dữ liệu thị trường thực. Cần troubleshoot system trước khi phân tích tiếp.",
+  "disclaimer": "Phân tích dựa trên dữ liệu không hợp lệ. Không sử dụng cho trading thực."
 },"docx_url":""}]}
