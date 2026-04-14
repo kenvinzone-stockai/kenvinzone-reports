@@ -181,14 +181,6 @@ body::after {
   padding: 8px 10px 20px;
 }
 
-.report-list-date-group {
-  padding: 10px 6px 6px;
-  font-size: 9px; font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--text-tertiary);
-  text-transform: uppercase;
-}
-
 .report-item {
   padding: 12px 14px;
   margin-bottom: 2px;
@@ -313,7 +305,7 @@ body::after {
 
 .report-content {
   padding: 28px;
-  max-width: 980px;
+  max-width: 1100px;
 }
 
 .hero-card {
@@ -539,7 +531,7 @@ body::after {
 .scen-row:hover { background: var(--bg-3); }
 .scen-id { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: var(--gold); min-width: 26px; }
 .scen-name { flex: 1; font-size: 12px; color: var(--text-secondary); font-weight: 500; }
-.scen-zone { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-tertiary); max-width: 90px; text-align: right; }
+.scen-zone { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-tertiary); max-width: 140px; text-align: right; }
 .scen-prob-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
 .scen-prob-val { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: var(--text-primary); }
 .prob-track { width: 56px; height: 3px; background: var(--bg-4); border-radius: 2px; overflow: hidden; }
@@ -563,6 +555,9 @@ body::after {
 }
 
 .summary-text { font-size: 14px; font-weight: 400; color: var(--text-secondary); line-height: 1.8; }
+.kv-block { margin-bottom: 10px; }
+.kv-label { color: var(--gold); font-weight: 600; text-transform: capitalize; }
+.kv-value { color: var(--text-secondary); }
 
 .welcome {
   display: flex; flex-direction: column;
@@ -667,7 +662,7 @@ body::after {
     <div class="filter-row" id="filter-instrument">
       <button class="filter-chip active" data-filter="instrument" data-value="all">Tất cả</button>
       <button class="filter-chip" data-filter="instrument" data-value="XAUUSD">XAUUSD</button>
-      <button class="filter-chip" data-filter="instrument" data-value="NQ">NQ / US100</button>
+      <button class="filter-chip" data-filter="instrument" data-value="NQ / US100">NQ / US100</button>
     </div>
   </div>
 
@@ -716,32 +711,103 @@ let allReports = [];
 let activeFilters = { instrument: 'all', bias_type: 'all' };
 let activeId = null;
 
-/**
- * normalize(r): hỗ trợ cả 2 dạng báo cáo:
- * - Cũ: fields trực tiếp (bias, summary, catalyst...)
- * - Mới: fields nằm trong r.raw (JSON string hoặc object)
- */
 function normalize(r) {
-  // Nếu không có field raw → báo cáo cũ, trả nguyên
   if (!r.raw) return r;
 
-  // Parse raw nếu là string
   let raw = r.raw;
   if (typeof raw === 'string') {
     try { raw = JSON.parse(raw); } catch(e) { return r; }
   }
 
-  // Merge raw vào r, raw có độ ưu tiên cao hơn
-  return Object.assign({}, r, {
-    bias:          raw.bias          || r.bias          || '—',
-    bias_type:     raw.bias_type     || r.bias_type     || 'neutral',
-    summary:       raw.summary       || r.summary       || '—',
-    catalyst:      raw.catalyst      || r.catalyst      || '—',
-    session_quote: raw.session_quote || r.session_quote || '—',
-    key_levels:    raw.key_levels    || r.key_levels    || { resistance: [], support: [], current: 0 },
-    timeframes:    raw.timeframes    || r.timeframes    || {},
-    scenarios:     raw.scenarios     || r.scenarios     || [],
-  });
+  const summary = raw.summary || raw.executive_summary || raw.executiveSummary || {};
+  const structure = raw.market_structure || raw.multi_timeframe_analysis || raw.multiTimeframeAnalysis || {};
+  const scenariosObj = raw.trading_scenarios || raw.scenario_matrix || raw.scenarios || {};
+  const catalystRaw = raw.catalyst_watch || raw.catalyst_context || raw.market_context || raw.catalyst || [];
+  const confidence = raw.confidence_factors || {};
+  const execution = raw.execution_plan || raw.trading_strategy || {};
+  const keyLevelsRaw = raw.key_levels || raw.keyLevels || {};
+
+  const bias =
+    summary.primary_bias ||
+    summary.bias_direction ||
+    summary.bias ||
+    raw.bias_primary ||
+    raw.bias ||
+    "Neutral";
+
+  const bias_type =
+    String(bias).toLowerCase().includes("bull") ? "bullish" :
+    String(bias).toLowerCase().includes("bear") ? "bearish" :
+    "neutral";
+
+  const summaryText =
+    summary.key_insight ||
+    summary.summary ||
+    summary.headline ||
+    raw.dashboard_summary ||
+    raw.telegram_summary ||
+    "—";
+
+  const catalyst =
+    Array.isArray(catalystRaw)
+      ? catalystRaw.join(" • ")
+      : typeof catalystRaw === "object" && catalystRaw !== null
+        ? Object.values(catalystRaw).flat().join(" • ")
+        : (catalystRaw || "—");
+
+  const timeframes = {
+    D1: structure.D1?.bias || structure.D1?.trend || "—",
+    H4: structure.H4?.bias || structure.H4?.trend || "—",
+    H1: structure.H1?.bias || structure.H1?.trend || "—",
+    M15: structure.M15?.bias || structure.M15?.trend || "—"
+  };
+
+  const scenarios = Object.entries(scenariosObj).map(([key, val], i) => ({
+    id: i + 1,
+    name: val?.bias || val?.scenario || key,
+    zone: val?.setup || val?.condition || val?.action || "—",
+    prob: val?.probability ? `${val.probability}%` : "—"
+  }));
+
+  const key_levels = {
+    resistance:
+      structure.H4?.critical_levels?.resistance ||
+      keyLevelsRaw.resistance ||
+      [],
+    support:
+      structure.H4?.critical_levels?.support ||
+      keyLevelsRaw.support ||
+      [],
+    current:
+      summary.current_price ||
+      keyLevelsRaw.currentPrice ||
+      r.price_current ||
+      0
+  };
+
+  const instrumentDisplay = r.instrument || raw.metadata?.instrument || summary.instrument || "N/A";
+
+  const sessionQuote =
+    summary.key_insight ||
+    execution.immediate_action ||
+    raw.next_review ||
+    "—";
+
+  return {
+    ...r,
+    raw,
+    instrument: instrumentDisplay,
+    bias,
+    bias_type,
+    summary: summaryText,
+    catalyst,
+    session_quote: sessionQuote,
+    key_levels,
+    timeframes,
+    scenarios,
+    execution,
+    confidence
+  };
 }
 
 async function loadReports() {
@@ -752,6 +818,7 @@ async function loadReports() {
       .map(normalize)
       .sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
     renderList();
+    if (!activeId && allReports.length) showReport(allReports[0].id);
   } catch(e) {
     document.getElementById('reportList').innerHTML =
       '<div style="padding:20px 16px;color:var(--text-tertiary);font-size:12px">Không tải được dữ liệu.</div>';
@@ -777,7 +844,7 @@ function renderList() {
       </div>
       <div class="ri-row2">
         <span class="ri-bias-pill ${r.bias_type}">${r.bias}</span>
-        <span class="ri-catalyst">${r.catalyst}</span>
+        <span class="ri-catalyst">${r.catalyst || '—'}</span>
       </div>
     </div>
   `).join('');
@@ -785,6 +852,16 @@ function renderList() {
 
 function fmt(n) {
   return typeof n === 'number' ? n.toLocaleString('vi-VN') : (n || '—');
+}
+
+function renderKV(obj) {
+  if (!obj || typeof obj !== 'object') return '<div class="summary-text">—</div>';
+  return Object.entries(obj).map(([k, v]) => `
+    <div class="kv-block">
+      <div class="kv-label">${String(k).replaceAll('_', ' ')}</div>
+      <div class="kv-value summary-text">${Array.isArray(v) ? v.join(' • ') : (typeof v === 'object' ? JSON.stringify(v) : v)}</div>
+    </div>
+  `).join('');
 }
 
 function showReport(id) {
@@ -850,10 +927,30 @@ function showReport(id) {
       <span class="scen-zone">${s.zone}</span>
       <div class="scen-prob-wrap">
         <span class="scen-prob-val">${s.prob}</span>
-        <div class="prob-track"><div class="prob-fill" style="width:${parseInt(s.prob)}%"></div></div>
+        <div class="prob-track">
+          <div class="prob-fill" style="width:${parseInt(s.prob) || 0}%"></div>
+        </div>
       </div>
     </div>
   `).join('');
+
+  const executionHtml = r.execution && Object.keys(r.execution).length
+    ? `
+      <div class="card">
+        <div class="card-title"><div class="card-title-dot"></div>Kế hoạch thực thi</div>
+        ${renderKV(r.execution)}
+      </div>
+    `
+    : '';
+
+  const confidenceHtml = r.confidence && Object.keys(r.confidence).length
+    ? `
+      <div class="card">
+        <div class="card-title"><div class="card-title-dot"></div>Confidence factors</div>
+        ${renderKV(r.confidence)}
+      </div>
+    `
+    : '';
 
   document.getElementById('reportContent').innerHTML = `
     <div class="report-content fade-up">
@@ -883,7 +980,7 @@ function showReport(id) {
 
           <div class="hero-quote-block">
             <div class="hero-quote-bar"></div>
-            <div class="hero-quote-text">${r.session_quote}</div>
+            <div class="hero-quote-text">${r.session_quote || '—'}</div>
           </div>
         </div>
       </div>
@@ -891,11 +988,11 @@ function showReport(id) {
       <div class="grid-2">
         <div class="card card-prominent">
           <div class="card-title"><div class="card-title-dot"></div>Tóm tắt phân tích</div>
-          <div class="summary-text">${r.summary}</div>
+          <div class="summary-text">${typeof r.summary === 'string' ? r.summary : JSON.stringify(r.summary)}</div>
         </div>
         <div class="card">
           <div class="card-title"><div class="card-title-dot"></div>Catalyst & Lịch tin</div>
-          <div class="catalyst-block">${r.catalyst}</div>
+          <div class="catalyst-block">${r.catalyst || '—'}</div>
         </div>
       </div>
 
@@ -921,6 +1018,11 @@ function showReport(id) {
         </div>
       </div>
 
+      <div class="grid-2">
+        ${executionHtml || '<div></div>'}
+        ${confidenceHtml || '<div></div>'}
+      </div>
+
     </div>
   `;
 
@@ -938,6 +1040,12 @@ document.querySelectorAll('.filter-chip').forEach(btn => {
     document.querySelectorAll(`[data-filter="${type}"]`).forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     renderList();
+    const filtered = allReports.filter(r => {
+      if (activeFilters.instrument !== 'all' && r.instrument !== activeFilters.instrument) return false;
+      if (activeFilters.bias_type !== 'all' && r.bias_type !== activeFilters.bias_type) return false;
+      return true;
+    });
+    if (filtered.length) showReport(filtered[0].id);
   });
 });
 
