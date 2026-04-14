@@ -1,107 +1,83 @@
-{"version":"1.0","reports":[{"id":"RPT-202604141728","datetime":"2026-04-14T17:28:44+07:00","date_display":"14/04/2026","time_display":"17:28","instrument":"","archetype":"Ban noi tiep","price_current":0,"raw":{
-  "analysis_id": "XAUUSD_M15_MANUAL_20240101_000000",
-  "timestamp": "2024-01-01T00:00:00Z",
+{"version":"1.0","reports":[{"id":"RPT-202604141728","datetime":"2026-04-14T17:28:46+07:00","date_display":"14/04/2026","time_display":"17:28","instrument":"","archetype":"Ban noi tiep","price_current":0,"raw":{
+  "archetype": "06:30",
   "instrument": "XAUUSD",
-  "product_type": "Gold CFD",
-  "timeframe": "M15",
-  "session_type": "manual",
-  "archetype": "Cập nhật thủ công",
-  "current_price": 0,
-  "market_hours": "Thị trường đóng cửa",
+  "timeframe": "15",
+  "session": "manual",
+  "timestamp": "2024-12-19 06:30:00",
   "executive_summary": {
-    "overall_bias": "NEUTRAL",
-    "confidence": "Rất thấp (10%)",
-    "primary_scenario": "Chờ dữ liệu market mới",
-    "risk_level": "Cao",
-    "key_message": "Payload không chứa dữ liệu thị trường hợp lệ. Tất cả indicator đều = 0 và trend = N/A. Cần chờ kết nối TradingView ổn định."
+    "title": "XAUUSD M15 - Phiên Thủ Công",
+    "bias": "NEUTRAL",
+    "confidence": 15,
+    "key_insight": "Dữ liệu thị trường không khả dụng - chờ tín hiệu từ hệ thống",
+    "risk_level": "HIGH"
   },
   "multi_timeframe_analysis": {
     "D1": {
-      "bias": "NEUTRAL",
       "trend": "Không xác định",
-      "key_level": 0,
-      "structure": "Dữ liệu thiếu",
-      "strength": "N/A",
-      "note": "Close = 0, tất cả indicator N/A"
+      "structure": "Không có dữ liệu",
+      "key_levels": "Chờ cập nhật",
+      "bias": "NEUTRAL",
+      "note": "Thiếu thông tin từ khung ngày"
     },
     "H4": {
-      "bias": "NEUTRAL", 
-      "trend": "Không xác định",
-      "key_level": 0,
-      "structure": "Dữ liệu thiếu",
-      "confluence": "N/A",
-      "note": "Close = 0, không có signal"
+      "trend": "Không xác định", 
+      "structure": "Không có dữ liệu",
+      "confluence": "Chờ tín hiệu",
+      "bias": "NEUTRAL",
+      "note": "Cần dữ liệu để xác định hướng H4"
     },
     "H1": {
-      "bias": "NEUTRAL",
-      "trend": "Không xác định", 
-      "momentum": "N/A",
-      "pattern": "Không có",
-      "note": "RSI = 0, MACD = 0"
+      "pattern": "Không xác định",
+      "momentum": "Chờ xác nhận",
+      "levels": "Thiếu thông tin",
+      "bias": "NEUTRAL"
     },
     "M15": {
-      "bias": "NEUTRAL",
-      "structure": "Không xác định",
-      "trigger_quality": "Không có",
-      "entry_zone": "N/A",
-      "note": "Tất cả indicator = 0"
+      "trigger": "Chưa có",
+      "entry_quality": "Không đánh giá được",
+      "immediate_action": "Chờ dữ liệu",
+      "bias": "NEUTRAL"
     }
   },
-  "key_levels": {
-    "resistance": [0],
-    "support": [0],
-    "pivot": 0,
-    "day_high": 0,
-    "day_low": 0,
-    "swing_high": 0,
-    "swing_low": 0
-  },
-  "technical_indicators": {
-    "ema_alignment": "Không xác định",
-    "rsi_zone": "Neutral (0)",
-    "macd_state": "Flat (0)",
-    "bollinger_position": "Mid (0)",
-    "volume_profile": "Không có dữ liệu",
-    "atr_reading": 0
-  },
-  "strategy_scenarios": {
-    "primary": {
-      "name": "WAIT_FOR_DATA",
-      "description": "Chờ dữ liệu thị trường hợp lệ",
-      "bias": "NEUTRAL",
-      "entry_condition": "Khi có dữ liệu > 0",
-      "target": "N/A",
-      "stop_loss": "N/A", 
-      "risk_reward": "N/A",
-      "probability": "N/A"
+  "strategy": {
+    "primary_scenario": {
+      "direction": "WAIT",
+      "setup": "Chờ dữ liệu từ hệ thống",
+      "entry": "Không thực hiện",
+      "stop_loss": "N/A",
+      "take_profit": "N/A",
+      "risk_reward": "N/A"
     },
-    "alternative": {
-      "name": "SYSTEM_CHECK",
-      "description": "Kiểm tra kết nối TradingView",
-      "condition": "Nếu tiếp tục nhận dữ liệu = 0",
-      "action": "Restart webhook/Pine Script"
+    "alternative_scenario": {
+      "condition": "Khi có dữ liệu đầy đủ",
+      "direction": "TBD",
+      "entry": "Theo tín hiệu mới",
+      "adjustment": "Đánh giá lại toàn bộ"
     }
   },
-  "risk_factors": [
-    "Dữ liệu thị trường không hợp lệ",
-    "Kết nối TradingView có thể bị lỗi",
-    "Thị trường có thể đóng cửa",
-    "Cần xác minh trạng thái Pine Script"
-  ],
   "market_context": {
-    "session_note": "Session manual - có thể là test hoặc thị trường đóng",
-    "volatility": "Không xác định",
-    "liquidity": "Không xác định",
-    "news_risk": "Cần cập nhật lịch kinh tế"
+    "session_notes": "Phiên thủ công - có thể là test hoặc gián đoạn dữ liệu",
+    "news_risk": "Kiểm tra lịch kinh tế cho vàng",
+    "liquidity": "Không xác định được do thiếu volume",
+    "correlation": "Theo dõi DXY và lợi suất trái phiếu Mỹ"
+  },
+  "risk_management": {
+    "overall_risk": "VERY HIGH",
+    "position_sizing": "Không giao dịch",
+    "max_exposure": "0%",
+    "key_risks": [
+      "Không có dữ liệu thị trường",
+      "Không thể đánh giá xu hướng",
+      "Risk/reward không tính được"
+    ]
   },
   "action_checklist": [
-    "Kiểm tra kết nối TradingView",
-    "Verify Pine Script hoạt động", 
-    "Xác nhận market hours",
-    "Test webhook endpoint",
-    "Chờ payload mới với dữ liệu hợp lệ"
+    "❌ Không thực hiện giao dịch cho đến khi có dữ liệu",
+    "⚠️ Kiểm tra kết nối TradingView",
+    "⚠️ Xác minh webhook hoạt động",
+    "⚠️ Theo dõi tin tức vàng thủ công",
+    "📋 Sẵn sàng phân tích khi dữ liệu trở lại"
   ],
-  "next_review": "Khi nhận được dữ liệu market > 0",
-  "handover_notes": "Payload hiện tại không chứa dữ liệu thị trường thực. Cần troubleshoot system trước khi phân tích tiếp.",
-  "disclaimer": "Phân tích dựa trên dữ liệu không hợp lệ. Không sử dụng cho trading thực."
+  "next_update": "Khi có dữ liệu mới từ hệ thống",
+  "handover_notes": "Payload hiện tại toàn bộ là 0/N/A - cần kiểm tra technical issue. Không thực hiện bất kỳ giao dịch nào cho đến khi dữ liệu được khôi phục đầy đủ."
 },"docx_url":""}]}
