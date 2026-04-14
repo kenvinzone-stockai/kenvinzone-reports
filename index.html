@@ -25,8 +25,6 @@
     --red-dim: rgba(255,75,110,0.12);
     --blue: #3b82f6;
     --blue-dim: rgba(59,130,246,0.12);
-    --purple: #a855f7;
-    --purple-dim: rgba(168,85,247,0.12);
     --text: #e2e8f0;
     --text2: #94a3b8;
     --text3: #64748b;
@@ -35,18 +33,15 @@
     --radius-sm: 8px;
     --radius-lg: 16px;
     --shadow: 0 4px 24px rgba(0,0,0,0.4);
-    --shadow-gold: 0 0 32px rgba(240,180,41,0.15);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
     background: var(--bg);
     color: var(--text);
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
     min-height: 100vh;
     overflow-x: hidden;
   }
@@ -72,26 +67,25 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
-    height: 60px;
+    padding: 0 20px;
+    height: 58px;
   }
 
   .nav-brand {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--gold);
-    letter-spacing: -0.5px;
     display: flex;
     align-items: center;
     gap: 10px;
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: -0.5px;
   }
 
   .nav-brand::before {
     content: '◆';
-    font-size: 12px;
-    color: var(--gold);
-    animation: pulse 2s ease-in-out infinite;
+    font-size: 11px;
+    animation: pulse 2s ease infinite;
   }
 
   @keyframes pulse {
@@ -105,17 +99,17 @@
     gap: 12px;
   }
 
-  .live-indicator {
-    display: flex;
+  .live-pill {
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--green);
-    padding: 4px 10px;
-    border-radius: 20px;
+    gap: 8px;
+    padding: 5px 12px;
+    border-radius: 999px;
     background: var(--green-dim);
     border: 1px solid rgba(0,208,132,0.2);
+    color: var(--green);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
   }
 
   .live-dot {
@@ -123,322 +117,344 @@
     height: 6px;
     border-radius: 50%;
     background: var(--green);
-    animation: blink 1.4s ease-in-out infinite;
+    animation: blink 1.2s ease infinite;
   }
 
   @keyframes blink {
     0%,100% { opacity: 1; }
-    50% { opacity: 0.2; }
+    50% { opacity: 0.25; }
   }
 
-  #last-updated {
+  .last-updated {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
     color: var(--text3);
   }
 
-  .filter-bar {
+  .layout {
     position: relative;
     z-index: 1;
-    padding: 16px 24px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    min-height: calc(100vh - 58px);
+  }
+
+  .sidebar {
+    border-right: 1px solid var(--border);
+    background: rgba(13,17,23,0.85);
+    backdrop-filter: blur(8px);
+  }
+
+  .sidebar-inner {
+    position: sticky;
+    top: 58px;
+    height: calc(100vh - 58px);
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+  }
+
+  .filters {
+    padding: 16px;
     border-bottom: 1px solid var(--border);
-    background: var(--bg2);
-    flex-wrap: wrap;
+    display: grid;
+    gap: 16px;
+  }
+
+  .filter-block {
+    display: grid;
+    gap: 8px;
   }
 
   .filter-label {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
-    color: var(--text3);
-    letter-spacing: 1px;
+    color: var(--text4);
     text-transform: uppercase;
-    margin-right: 4px;
+    letter-spacing: 1px;
   }
 
-  .filter-btn {
-    padding: 6px 16px;
-    border-radius: 20px;
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
     border: 1px solid var(--border2);
     background: var(--bg3);
     color: var(--text2);
+    border-radius: 999px;
+    padding: 6px 12px;
     font-family: 'DM Mono', monospace;
-    font-size: 12px;
+    font-size: 11px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.18s ease;
   }
 
-  .filter-btn:hover {
-    border-color: var(--gold);
+  .chip:hover {
     color: var(--gold);
+    border-color: var(--gold);
   }
 
-  .filter-btn.active {
+  .chip.active {
+    color: var(--gold);
+    border-color: var(--gold);
     background: var(--gold-dim);
-    border-color: var(--gold);
-    color: var(--gold);
     box-shadow: 0 0 12px var(--gold-glow);
   }
 
-  main {
-    position: relative;
-    z-index: 1;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  .report-list {
+    flex: 1;
+    overflow: auto;
+    padding: 12px;
+    display: grid;
+    gap: 10px;
   }
 
-  .loading-screen {
+  .report-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .report-item:hover {
+    border-color: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  .report-item.active {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, rgba(240,180,41,0.06) 0%, var(--bg3) 100%);
+    box-shadow: 0 0 20px rgba(240,180,41,0.08);
+  }
+
+  .ri-top {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .ri-inst {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  .ri-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text4);
+  }
+
+  .ri-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .badge {
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    border: 1px solid var(--border2);
+  }
+
+  .badge.bullish { color: var(--green); background: var(--green-dim); border-color: rgba(0,208,132,0.25); }
+  .badge.bearish { color: var(--red); background: var(--red-dim); border-color: rgba(255,75,110,0.25); }
+  .badge.neutral { color: var(--blue); background: var(--blue-dim); border-color: rgba(59,130,246,0.25); }
+  .badge.conf { color: var(--gold); background: var(--gold-dim); border-color: rgba(240,180,41,0.25); }
+
+  .ri-text {
+    color: var(--text3);
+    font-size: 12px;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .content {
+    min-width: 0;
+  }
+
+  .content-inner {
+    max-width: 1180px;
+    padding: 20px;
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+  }
+
+  .loading,
+  .empty {
+    min-height: calc(100vh - 140px);
+    display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
-    gap: 16px;
+    flex-direction: column;
+    gap: 14px;
     color: var(--text3);
     font-family: 'DM Mono', monospace;
     font-size: 13px;
   }
 
   .spinner {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
     border: 2px solid var(--border2);
     border-top-color: var(--gold);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    animation: spin 0.9s linear infinite;
   }
 
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  .empty-state {
-    text-align: center;
-    padding: 64px 32px;
-    color: var(--text3);
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-  }
-
-  .empty-state .icon {
-    font-size: 48px;
-    margin-bottom: 16px;
-    opacity: 0.3;
-  }
-
-  .report-card {
-    background: var(--bg2);
+  .hero {
+    background: linear-gradient(135deg, var(--bg3) 0%, var(--bg4) 100%);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    overflow: hidden;
     box-shadow: var(--shadow);
-    animation: fadeUp 0.45s ease both;
+    overflow: hidden;
   }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero {
-    padding: 28px 32px;
-    background: linear-gradient(135deg, var(--bg3) 0%, var(--bg4) 100%);
-    border-bottom: 1px solid var(--border);
+  .hero-inner {
+    padding: 28px;
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 24px;
+    gap: 20px;
     align-items: start;
   }
 
-  .instrument-row {
+  .hero-main {
+    min-width: 0;
+  }
+
+  .hero-line {
     display: flex;
+    gap: 10px;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
     flex-wrap: wrap;
+    margin-bottom: 10px;
   }
 
-  .instrument-name {
+  .hero-title {
     font-family: 'Syne', sans-serif;
-    font-size: 32px;
     font-weight: 800;
-    color: var(--text);
+    font-size: 34px;
     letter-spacing: -1px;
+    color: var(--text);
   }
 
-  .bias-badge,
-  .conf-badge,
-  .arch-badge {
+  .hero-pill {
     padding: 4px 10px;
-    border-radius: 20px;
+    border-radius: 999px;
     font-family: 'DM Mono', monospace;
     font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
     border: 1px solid var(--border2);
-    white-space: nowrap;
-  }
-
-  .arch-badge {
     color: var(--text3);
-    background: var(--bg);
+    background: var(--bg2);
   }
 
-  .bias-badge.bullish {
-    background: var(--green-dim);
-    color: var(--green);
-    border-color: rgba(0,208,132,0.3);
-  }
-
-  .bias-badge.bearish {
-    background: var(--red-dim);
-    color: var(--red);
-    border-color: rgba(255,75,110,0.3);
-  }
-
-  .bias-badge.neutral {
-    background: var(--blue-dim);
-    color: var(--blue);
-    border-color: rgba(59,130,246,0.3);
-  }
-
-  .conf-badge.high {
-    color: var(--gold);
-    border-color: rgba(240,180,41,0.3);
-    background: var(--gold-dim);
-  }
-
-  .conf-badge.medium {
-    color: var(--blue);
-    border-color: rgba(59,130,246,0.3);
-    background: var(--blue-dim);
-  }
-
-  .conf-badge.low {
-    color: var(--text3);
-    background: var(--bg);
-  }
+  .hero-pill.bullish { color: var(--green); background: var(--green-dim); border-color: rgba(0,208,132,0.25); }
+  .hero-pill.bearish { color: var(--red); background: var(--red-dim); border-color: rgba(255,75,110,0.25); }
+  .hero-pill.neutral { color: var(--blue); background: var(--blue-dim); border-color: rgba(59,130,246,0.25); }
+  .hero-pill.conf-high { color: var(--gold); background: var(--gold-dim); border-color: rgba(240,180,41,0.25); }
+  .hero-pill.conf-medium { color: var(--blue); background: var(--blue-dim); border-color: rgba(59,130,246,0.25); }
+  .hero-pill.conf-low { color: var(--text3); background: var(--bg2); }
 
   .hero-meta {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
-    margin-bottom: 12px;
     font-family: 'DM Mono', monospace;
     font-size: 11px;
-    color: var(--text3);
+    color: var(--text4);
+    margin-bottom: 14px;
   }
 
-  .insight-text {
+  .hero-insight {
     color: var(--text2);
-    line-height: 1.75;
+    line-height: 1.8;
+    max-width: 760px;
     font-size: 14px;
-    max-width: 700px;
-    font-weight: 300;
   }
 
-  .hero-right {
+  .hero-price {
     text-align: right;
   }
 
-  .price-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--text3);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .price-value {
-    font-family: 'DM Mono', monospace;
-    font-size: 36px;
-    font-weight: 500;
-    color: var(--gold);
-    letter-spacing: -1px;
-    text-shadow: 0 0 32px rgba(240,180,41,0.4);
-  }
-
-  .report-timestamp {
+  .hero-price-label {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
     color: var(--text4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .hero-price-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 38px;
+    color: var(--gold);
+    text-shadow: 0 0 28px rgba(240,180,41,0.25);
+  }
+
+  .hero-price-time {
     margin-top: 8px;
-  }
-
-  .section-full {
-    padding: 24px 32px;
-    border-top: 1px solid var(--border);
-  }
-
-  .section-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--border);
-  }
-
-  .section-grid > * {
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .section-grid > *:nth-child(3n) { border-right: none; }
-  .section-grid > *:last-child,
-  .section-grid > *:nth-last-child(2),
-  .section-grid > *:nth-last-child(3) { border-bottom: none; }
-
-  .section-block {
-    padding: 20px 24px;
-  }
-
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-  }
-
-  .two-col > * {
-    border-right: 1px solid var(--border);
-    border-top: 1px solid var(--border);
-  }
-
-  .two-col > *:last-child { border-right: none; }
-
-  .section-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Mono', monospace;
     font-size: 10px;
-    font-weight: 700;
+    color: var(--text4);
+  }
+
+  .panel {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .panel-body {
+    padding: 20px 22px;
+  }
+
+  .panel-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    color: var(--text3);
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--text3);
     margin-bottom: 16px;
     display: flex;
-    align-items: center;
     gap: 8px;
+    align-items: center;
   }
 
-  .section-title::before {
+  .panel-title::before {
     content: '';
     width: 3px;
     height: 12px;
-    background: var(--gold);
     border-radius: 2px;
-    flex-shrink: 0;
+    background: var(--gold);
   }
 
-  .summary-panel {
+  .summary-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 16px;
   }
 
   .summary-box,
-  .mini-panel {
+  .mini-box {
     background: var(--bg3);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -446,19 +462,19 @@
   }
 
   .summary-box p,
-  .mini-panel p {
+  .mini-box p {
     color: var(--text2);
-    line-height: 1.7;
+    line-height: 1.8;
     font-size: 14px;
   }
 
-  .mini-panel .mini-title {
+  .mini-title {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
     color: var(--text4);
     letter-spacing: 1px;
-    margin-bottom: 10px;
     text-transform: uppercase;
+    margin-bottom: 10px;
   }
 
   .mini-kv {
@@ -486,14 +502,12 @@
     background: var(--bg3);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 20px;
-    transition: border-color 0.2s;
+    padding: 18px;
   }
 
   .scenario-card.primary {
     border-color: rgba(240,180,41,0.35);
     background: linear-gradient(135deg, rgba(240,180,41,0.05) 0%, var(--bg3) 100%);
-    box-shadow: 0 0 24px rgba(240,180,41,0.08);
   }
 
   .scenario-card.alternative { border-color: rgba(59,130,246,0.25); }
@@ -501,95 +515,101 @@
 
   .scenario-type {
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
+    font-size: 10px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    letter-spacing: 2px;
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
 
   .scenario-type.primary { color: var(--gold); }
   .scenario-type.alternative { color: var(--blue); }
   .scenario-type.invalidation { color: var(--red); }
 
-  .scenario-bias-tag {
+  .scenario-bias {
     display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     margin-bottom: 10px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
   }
 
-  .scenario-bias-tag.bullish { background: var(--green-dim); color: var(--green); }
-  .scenario-bias-tag.bearish { background: var(--red-dim); color: var(--red); }
-  .scenario-bias-tag.neutral { background: var(--blue-dim); color: var(--blue); }
+  .scenario-bias.bullish { color: var(--green); background: var(--green-dim); }
+  .scenario-bias.bearish { color: var(--red); background: var(--red-dim); }
+  .scenario-bias.neutral { color: var(--blue); background: var(--blue-dim); }
 
   .scenario-setup {
     color: var(--text2);
+    line-height: 1.65;
     font-size: 13px;
-    line-height: 1.6;
     margin-bottom: 14px;
-    font-weight: 300;
   }
 
   .scenario-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 14px;
+    gap: 10px 12px;
+    margin-bottom: 12px;
   }
 
   .stat-label {
     font-family: 'DM Mono', monospace;
     font-size: 9px;
+    color: var(--text4);
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--text4);
-    margin-bottom: 2px;
+    margin-bottom: 3px;
   }
 
   .stat-value {
-    font-family: 'DM Mono', monospace;
     font-size: 13px;
     color: var(--text);
+    line-height: 1.5;
   }
 
   .stat-value.green { color: var(--green); }
   .stat-value.red { color: var(--red); }
   .stat-value.gold { color: var(--gold); }
 
-  .prob-bar-wrap { margin-top: 4px; }
-  .prob-bar-label {
+  .prob-wrap { margin-top: 8px; }
+  .prob-head {
     display: flex;
     justify-content: space-between;
     font-family: 'DM Mono', monospace;
     font-size: 10px;
-    color: var(--text3);
+    color: var(--text4);
     margin-bottom: 6px;
   }
 
-  .prob-bar-track {
+  .prob-track {
     height: 4px;
     background: var(--border);
-    border-radius: 2px;
+    border-radius: 999px;
     overflow: hidden;
   }
 
-  .prob-bar-fill {
+  .prob-fill {
     height: 100%;
-    border-radius: 2px;
-    transition: width 1s cubic-bezier(0.16,1,0.3,1);
     width: 0;
+    transition: width 0.9s ease;
   }
 
-  .prob-bar-fill.primary { background: linear-gradient(90deg, var(--gold2), var(--gold)); }
-  .prob-bar-fill.alternative { background: var(--blue); }
-  .prob-bar-fill.invalidation { background: var(--red); }
+  .prob-fill.primary { background: linear-gradient(90deg, var(--gold2), var(--gold)); }
+  .prob-fill.alternative { background: var(--blue); }
+  .prob-fill.invalidation { background: var(--red); }
+
+  .triple-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
 
   .tf-table {
     width: 100%;
@@ -603,31 +623,25 @@
     vertical-align: top;
   }
 
-  .tf-label {
+  .tf-name {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
-    font-weight: 500;
     color: var(--gold);
-    letter-spacing: 0.5px;
-    min-width: 48px;
+    width: 52px;
   }
 
   .tf-trend {
     display: inline-block;
     padding: 2px 8px;
-    border-radius: 4px;
+    border-radius: 999px;
+    font-family: 'DM Mono', monospace;
     font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 600;
     margin-right: 8px;
-    white-space: nowrap;
   }
 
-  .tf-trend.bullish { background: var(--green-dim); color: var(--green); }
-  .tf-trend.bearish { background: var(--red-dim); color: var(--red); }
-  .tf-trend.neutral,
-  .tf-trend.consolidation { background: var(--blue-dim); color: var(--blue); }
+  .tf-trend.bullish { color: var(--green); background: var(--green-dim); }
+  .tf-trend.bearish { color: var(--red); background: var(--red-dim); }
+  .tf-trend.neutral { color: var(--blue); background: var(--blue-dim); }
 
   .tf-desc {
     color: var(--text2);
@@ -635,235 +649,171 @@
     line-height: 1.5;
   }
 
-  .levels-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  .levels {
+    display: grid;
+    gap: 8px;
   }
 
-  .level-item {
+  .level {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 8px 12px;
+    padding: 10px 12px;
     border-radius: var(--radius-sm);
     background: var(--bg3);
-    font-family: 'DM Mono', monospace;
+    border: 1px solid var(--border);
   }
 
-  .level-dot {
+  .dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     flex-shrink: 0;
   }
 
-  .level-dot.resistance { background: var(--red); box-shadow: 0 0 8px rgba(255,75,110,0.5); }
-  .level-dot.support { background: var(--green); box-shadow: 0 0 8px rgba(0,208,132,0.5); }
-  .level-dot.current { background: var(--gold); box-shadow: 0 0 8px rgba(240,180,41,0.5); }
+  .dot.resistance { background: var(--red); box-shadow: 0 0 8px rgba(255,75,110,0.5); }
+  .dot.support { background: var(--green); box-shadow: 0 0 8px rgba(0,208,132,0.5); }
+  .dot.current { background: var(--gold); box-shadow: 0 0 8px rgba(240,180,41,0.5); }
 
   .level-type {
+    width: 76px;
+    font-family: 'DM Mono', monospace;
     font-size: 9px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    width: 80px;
-    color: var(--text3);
-    flex-shrink: 0;
+    color: var(--text4);
   }
 
   .level-price {
+    font-family: 'DM Mono', monospace;
     font-size: 13px;
     color: var(--text);
-    flex: 1;
   }
 
-  .level-desc {
-    font-size: 11px;
-    color: var(--text3);
-  }
-
-  .factors-columns {
+  .list-stack {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .factor-col-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .factor-col-title.bull { color: var(--green); }
-  .factor-col-title.bear { color: var(--red); }
-
-  .factor-list,
-  .risk-list,
-  .catalyst-list,
-  .checklist {
-    display: flex;
-    flex-direction: column;
     gap: 8px;
   }
 
-  .factor-item {
-    padding: 8px 12px;
-    border-radius: var(--radius-sm);
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--text2);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .factor-item.bull { background: rgba(0,208,132,0.06); border: 1px solid rgba(0,208,132,0.12); }
-  .factor-item.bear { background: rgba(255,75,110,0.06); border: 1px solid rgba(255,75,110,0.12); }
-
-  .risk-item {
-    padding: 10px 14px;
-    border-radius: var(--radius-sm);
-    background: rgba(255,75,110,0.05);
-    border: 1px solid rgba(255,75,110,0.12);
-    font-size: 13px;
-    color: var(--text2);
-    line-height: 1.5;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .catalyst-item {
-    padding: 12px 16px;
-    border-radius: var(--radius-sm);
+  .list-item {
     background: var(--bg3);
     border: 1px solid var(--border);
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .catalyst-name {
-    font-weight: 600;
-    color: var(--text);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    color: var(--text2);
     font-size: 13px;
-    margin-bottom: 2px;
+    line-height: 1.6;
   }
 
-  .catalyst-detail {
-    color: var(--text3);
-    font-size: 12px;
-    line-height: 1.5;
-  }
+  .list-item.bull { border-color: rgba(0,208,132,0.14); background: rgba(0,208,132,0.05); }
+  .list-item.bear { border-color: rgba(255,75,110,0.14); background: rgba(255,75,110,0.05); }
+  .list-item.risk { border-color: rgba(255,75,110,0.14); background: rgba(255,75,110,0.05); }
 
-  .matrix-table {
+  .matrix {
     width: 100%;
     border-collapse: collapse;
   }
 
-  .matrix-table th {
+  .matrix th {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text4);
     font-family: 'DM Mono', monospace;
     font-size: 9px;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--text4);
-    padding: 8px 12px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
+    text-transform: uppercase;
   }
 
-  .matrix-table td {
-    padding: 10px 12px;
+  .matrix td {
+    padding: 10px;
     border-bottom: 1px solid var(--border);
-    font-size: 12px;
     color: var(--text2);
+    font-size: 12px;
     vertical-align: top;
   }
 
-  .matrix-table tr:last-child td { border-bottom: none; }
+  .matrix tr:last-child td { border-bottom: none; }
 
   .exec-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 12px;
     margin-bottom: 14px;
   }
 
-  .exec-item {
-    padding: 14px 16px;
-    border-radius: var(--radius-sm);
+  .exec-card {
     background: var(--bg3);
     border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
   }
 
   .exec-key {
     font-family: 'DM Mono', monospace;
     font-size: 9px;
+    color: var(--text4);
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--text4);
     margin-bottom: 6px;
   }
 
   .exec-val {
-    font-size: 13px;
     color: var(--text);
+    font-size: 13px;
     line-height: 1.6;
   }
 
-  .check-item {
+  .checklist {
+    display: grid;
+    gap: 8px;
+  }
+
+  .check {
     display: flex;
-    align-items: center;
     gap: 10px;
+    align-items: center;
     padding: 8px 12px;
     border-radius: var(--radius-sm);
     background: var(--bg3);
     cursor: pointer;
-    transition: background 0.15s;
   }
 
-  .check-item:hover { background: var(--bg4); }
+  .check:hover { background: var(--bg4); }
 
   .check-box {
     width: 16px;
     height: 16px;
+    border: 1px solid var(--border2);
     border-radius: 4px;
-    border: 1.5px solid var(--border2);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.15s;
-    font-size: 10px;
     color: transparent;
+    font-size: 10px;
+    flex-shrink: 0;
   }
 
-  .check-item.checked .check-box {
+  .check.checked .check-box {
     background: var(--gold);
     border-color: var(--gold);
     color: var(--bg);
     font-weight: 700;
   }
 
-  .check-label {
-    font-size: 13px;
-    color: var(--text2);
+  .check.checked .check-text {
+    text-decoration: line-through;
+    color: var(--text4);
   }
 
-  .check-item.checked .check-label {
-    color: var(--text3);
-    text-decoration: line-through;
+  .check-text {
+    color: var(--text2);
+    font-size: 13px;
   }
 
   .scroll-top {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    right: 22px;
+    bottom: 22px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -873,80 +823,127 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 16px;
     box-shadow: 0 4px 20px rgba(240,180,41,0.4);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transition: opacity 0.25s ease;
     z-index: 99;
   }
 
   .scroll-top.visible {
     opacity: 1;
-    pointer-events: all;
+    pointer-events: auto;
   }
 
-  @media (max-width: 1000px) {
-    .scenarios-grid,
-    .section-grid,
-    .two-col,
-    .summary-panel,
-    .factors-columns {
+  @media (max-width: 1100px) {
+    .layout {
       grid-template-columns: 1fr;
     }
 
-    .section-grid > *,
-    .two-col > * {
+    .sidebar {
       border-right: none;
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero {
+    .sidebar-inner {
+      position: static;
+      height: auto;
+    }
+
+    .report-list {
+      max-height: 280px;
+    }
+
+    .summary-grid,
+    .scenarios-grid,
+    .triple-grid,
+    .dual-grid {
       grid-template-columns: 1fr;
     }
 
-    .hero-right {
+    .hero-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-price {
       text-align: left;
     }
   }
 
-  @media (max-width: 600px) {
-    main { padding: 12px; }
-    .section-full { padding: 16px; }
-    .hero { padding: 20px 16px; }
-    .instrument-name { font-size: 24px; }
-    .price-value { font-size: 28px; }
-    .nav, .filter-bar { padding-left: 12px; padding-right: 12px; }
+  @media (max-width: 640px) {
+    .nav, .filter-bar, .content-inner { padding-left: 12px; padding-right: 12px; }
+    .hero-inner, .panel-body { padding: 16px; }
+    .hero-title { font-size: 26px; }
+    .hero-price-value { font-size: 30px; }
   }
 </style>
 </head>
 <body>
-<nav class="nav">
-  <div class="nav-brand">KenvinZone</div>
-  <div class="nav-right">
-    <div class="live-indicator"><span class="live-dot"></span>TRỰC TIẾP</div>
-    <div id="last-updated">—</div>
+  <div class="nav">
+    <div class="nav-brand">KenvinZone</div>
+    <div class="nav-right">
+      <div class="live-pill"><span class="live-dot"></span>TRỰC TIẾP</div>
+      <div class="last-updated" id="lastUpdated">—</div>
+    </div>
   </div>
-</nav>
 
-<div class="filter-bar">
-  <span class="filter-label">Lọc theo</span>
-  <button class="filter-btn active" data-filter="ALL" onclick="setFilter('ALL', this)">TẤT CẢ</button>
-  <div id="filter-btns" style="display:flex;gap:10px;flex-wrap:wrap"></div>
-</div>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="filters">
+          <div class="filter-block">
+            <div class="filter-label">Instrument</div>
+            <div class="filter-row" id="instrumentFilters">
+              <button class="chip active" data-type="instrument" data-value="all">Tất cả</button>
+            </div>
+          </div>
+          <div class="filter-block">
+            <div class="filter-label">Bias</div>
+            <div class="filter-row" id="biasFilters">
+              <button class="chip active" data-type="bias" data-value="all">Tất cả</button>
+              <button class="chip" data-type="bias" data-value="bullish">Bullish</button>
+              <button class="chip" data-type="bias" data-value="bearish">Bearish</button>
+              <button class="chip" data-type="bias" data-value="neutral">Neutral</button>
+            </div>
+          </div>
+        </div>
 
-<main id="main-content">
-  <div class="loading-screen" id="loading">
-    <div class="spinner"></div>
-    <div>Đang tải dữ liệu thị trường…</div>
+        <div class="report-list" id="reportList">
+          <div class="loading">
+            <div class="spinner"></div>
+            <div>Đang tải báo cáo…</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="content-inner" id="content">
+        <div class="loading">
+          <div class="spinner"></div>
+          <div>Đang tải dữ liệu thị trường…</div>
+        </div>
+      </div>
+    </main>
   </div>
-</main>
 
-<div class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+  <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
 
 <script>
 const DATA_URL = 'reports.json';
-let allReports = [];
-let currentFilter = 'ALL';
+let reports = [];
+let filteredReports = [];
+let selectedId = null;
+let filters = { instrument: 'all', bias: 'all' };
+
+function esc(str) {
+  return String(str ?? '')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
 
 function safeStr(v, fallback = '—') {
   if (v === null || v === undefined || v === '') return fallback;
@@ -954,24 +951,15 @@ function safeStr(v, fallback = '—') {
   return String(v);
 }
 
+function safeObj(v) {
+  return v && typeof v === 'object' && !Array.isArray(v) ? v : {};
+}
+
 function safeArr(v) {
   if (Array.isArray(v)) return v;
   if (typeof v === 'string' && v.trim()) return [v];
   if (v && typeof v === 'object') return Object.values(v);
   return [];
-}
-
-function safeObj(v) {
-  return v && typeof v === 'object' && !Array.isArray(v) ? v : {};
-}
-
-function escHtml(str) {
-  return String(str)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#39;');
 }
 
 function normalizeInstrument(inst) {
@@ -989,54 +977,22 @@ function getBiasClass(bias) {
   return 'neutral';
 }
 
-function getConfClass(conf) {
-  if (typeof conf === 'number') {
-    if (conf >= 70) return 'high';
-    if (conf >= 45) return 'medium';
-    return 'low';
+function getConfidenceClass(v) {
+  if (typeof v === 'number') {
+    if (v >= 70) return 'conf-high';
+    if (v >= 45) return 'conf-medium';
+    return 'conf-low';
   }
-  const c = String(conf || '').toLowerCase();
-  if (c.includes('high') || c.includes('strong') || c.includes('cao')) return 'high';
-  if (c.includes('med') || c.includes('trung')) return 'medium';
-  return 'low';
+  const s = String(v || '').toLowerCase();
+  if (s.includes('high') || s.includes('strong') || s.includes('cao')) return 'conf-high';
+  if (s.includes('med') || s.includes('trung')) return 'conf-medium';
+  return 'conf-low';
 }
 
-function getTrendClass(trend) {
-  const t = String(trend || '').toLowerCase();
-  if (t.includes('bull') || t.includes('up') || t.includes('long')) return 'bullish';
-  if (t.includes('bear') || t.includes('down') || t.includes('short')) return 'bearish';
-  return 'neutral';
-}
-
-function toArrayOfText(v) {
-  if (Array.isArray(v)) {
-    return v.map(item => typeof item === 'object' ? safeStr(item.factor || item.description || item.name || item.title || item) : safeStr(item));
-  }
-  if (typeof v === 'object' && v) {
-    return Object.values(v).flat().map(item => typeof item === 'object' ? safeStr(item.factor || item.description || item.name || item.title || item) : safeStr(item));
-  }
-  if (typeof v === 'string' && v.trim()) return [v];
-  return [];
-}
-
-function parseProbability(v) {
-  if (v === null || v === undefined || v === '') return 0;
-  const n = Number(v);
-  if (!Number.isNaN(n)) return n > 1 ? n : n * 100;
-  const m = String(v).match(/(\d+(\.\d+)?)/);
-  return m ? Number(m[1]) : 0;
-}
-
-function fmtPrice(v) {
-  const n = Number(v);
-  if (Number.isFinite(n)) return n.toLocaleString('vi-VN', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
-  return safeStr(v);
-}
-
-function formatTs(ts) {
+function fmtTs(ts) {
   try {
     const d = new Date(ts);
-    if (Number.isNaN(d.getTime())) return String(ts);
+    if (isNaN(d.getTime())) return String(ts);
     return d.toLocaleString('vi-VN', {
       year: 'numeric',
       month: '2-digit',
@@ -1044,108 +1000,94 @@ function formatTs(ts) {
       hour: '2-digit',
       minute: '2-digit'
     });
-  } catch (e) {
+  } catch {
     return String(ts);
   }
 }
 
-function extractCurrentPrice(r, summary, keyLevels, exec) {
-  return r.price_current
-    || summary.current_price
-    || keyLevels.currentPrice
-    || keyLevels.current_price
-    || exec.current_price
-    || 0;
+function fmtPrice(v) {
+  const n = Number(v);
+  if (Number.isFinite(n)) {
+    return n.toLocaleString('vi-VN', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
+    });
+  }
+  return safeStr(v);
 }
 
-function normalizeScenario(name, data) {
-  const s = safeObj(data);
+function probValue(v) {
+  if (v === null || v === undefined || v === '') return 0;
+  const n = Number(v);
+  if (!Number.isNaN(n)) return n > 1 ? n : n * 100;
+  const m = String(v).match(/(\d+(\.\d+)?)/);
+  return m ? Number(m[1]) : 0;
+}
+
+function textArray(v) {
+  return safeArr(v).map(item => {
+    if (typeof item === 'object') {
+      return safeStr(item.factor || item.description || item.name || item.title || item.event || item);
+    }
+    return safeStr(item);
+  });
+}
+
+function normalizeScenario(key, v) {
+  const s = safeObj(v);
   if (!Object.keys(s).length) return null;
-
-  const bias = safeStr(s.bias || s.direction || s.type || name);
-  const setup = safeStr(s.setup || s.condition || s.trigger || s.description || s.action || '—');
-  const target = Array.isArray(s.target) ? s.target.map(fmtPrice).join(' → ') : safeStr(s.target || s.targets || s.tp || s.take_profit || '—');
-  const stop = safeStr(s.stop_loss || s.stop || s.sl || '—');
-  const rr = safeStr(s.risk_reward || s.rr || s.ratio || '—');
-  const probability = parseProbability(s.probability || s.prob || 0);
-
   return {
-    key: name,
-    label: name,
-    bias,
-    setup,
-    target,
-    stop,
-    rr,
-    probability
+    key,
+    bias: safeStr(s.bias || s.direction || s.type || key),
+    setup: safeStr(s.setup || s.condition || s.trigger || s.description || s.action || '—'),
+    target: Array.isArray(s.target) ? s.target.map(fmtPrice).join(' → ') : safeStr(s.target || s.targets || s.take_profit || s.tp || '—'),
+    stop: safeStr(s.stop_loss || s.stop || s.sl || '—'),
+    rr: safeStr(s.risk_reward || s.rr || s.ratio || '—'),
+    probability: probValue(s.probability || s.prob || 0)
   };
 }
 
-function normalizeReport(report) {
-  if (!report) return null;
-
-  let raw = report.raw !== undefined ? report.raw : report;
+function normalizeReport(r) {
+  let raw = r.raw !== undefined ? r.raw : r;
   if (typeof raw === 'string') {
     try {
       raw = JSON.parse(raw);
     } catch (e) {
-      console.error('JSON parse error:', e);
+      console.error('Parse raw error', e);
       return null;
     }
   }
-
   if (!raw || typeof raw !== 'object') return null;
 
   const summary = safeObj(raw.summary || raw.executive_summary || raw.executiveSummary);
   const structure = safeObj(raw.market_structure || raw.multi_timeframe_analysis || raw.multiTimeframeAnalysis);
-  const scenariosObj = safeObj(raw.trading_scenarios || raw.scenario_matrix || raw.scenarios);
   const confluence = safeObj(raw.confluence_analysis || raw.bias_logic);
+  const scenariosObj = safeObj(raw.trading_scenarios || raw.scenario_matrix || raw.scenarios);
   const execution = safeObj(raw.execution_plan || raw.trading_strategy);
-  const confidence = safeObj(raw.confidence_factors);
   const keyLevels = safeObj(raw.key_levels || raw.keyLevels);
-  const catalystRaw = raw.catalyst_watch || raw.catalyst_context || raw.market_context || raw.catalyst || [];
-  const risksRaw = raw.risk_factors || raw.risk_assessment || [];
-  const checklistRaw = raw.action_checklist || raw.actionChecklist || {};
+  const checklist = safeObj(raw.action_checklist || raw.actionChecklist);
 
-  const instrument = normalizeInstrument(report.instrument || summary.instrument || raw.instrument || raw.metadata?.instrument);
-  const price = extractCurrentPrice(report, summary, keyLevels, execution);
+  const instrument = normalizeInstrument(r.instrument || summary.instrument || raw.instrument || raw.metadata?.instrument);
+  const price = r.price_current || summary.current_price || keyLevels.currentPrice || keyLevels.current_price || 0;
   const bias = safeStr(summary.primary_bias || summary.bias_direction || summary.bias || raw.bias_primary || raw.bias || 'Neutral');
-  const confidenceValue = summary.confidence_level || summary.confidence || raw.confidence_level || raw.confidence || report.confidence || '';
-  const insight = safeStr(summary.key_insight || summary.summary || summary.headline || raw.dashboard_summary || raw.telegram_summary || '—');
-  const archetype = safeStr(report.archetype || raw.archetype || raw.metadata?.archetype || 'Báo cáo tự động');
-  const datetime = report.datetime || report.timestamp || raw.timestamp || new Date().toISOString();
-  const dateDisplay = report.date_display || formatTs(datetime).split(' ')[0];
-  const timeDisplay = report.time_display || (formatTs(datetime).split(' ')[1] || '—');
+  const confidence = summary.confidence_level || summary.confidence || raw.confidence || raw.confidence_level || 'N/A';
 
-  const bullish = toArrayOfText(confluence.bullish_confluence || confluence.bullish_factors || []);
-  const bearish = toArrayOfText(confluence.bearish_confluence || confluence.bearish_factors || []);
-  const riskFactors = toArrayOfText(risksRaw);
-  const catalysts = toArrayOfText(catalystRaw);
-
-  const actionItems = [
-    ...toArrayOfText(checklistRaw.immediate || []),
-    ...toArrayOfText(checklistRaw.pre_trade || []),
-    ...toArrayOfText(checklistRaw.monitoring || []),
-    ...toArrayOfText(execution.action_plan || execution.actions || execution.checklist || [])
-  ];
-
-  const tfRows = ['D1', 'H4', 'H1', 'M15']
-    .map(tf => {
-      const d = safeObj(structure[tf] || structure[tf.toLowerCase()]);
-      if (!Object.keys(d).length) return null;
-      return {
-        tf,
-        trend: safeStr(d.bias || d.trend || '—'),
-        description: [
-          safeStr(d.structure || d.market_structure || '', ''),
-          safeStr(d.intraday_story || '', ''),
-          safeStr(d.key_levels || '', ''),
-          safeStr(d.momentum || '', ''),
-          safeStr(d.trigger_setup || '', '')
-        ].filter(x => x && x !== '—').join(' · ')
-      };
-    })
-    .filter(Boolean);
+  const tfRows = ['D1', 'H4', 'H1', 'M15'].map(tf => {
+    const d = safeObj(structure[tf] || structure[tf.toLowerCase()]);
+    if (!Object.keys(d).length) return null;
+    return {
+      tf,
+      trend: safeStr(d.bias || d.trend || '—'),
+      description: [
+        safeStr(d.structure || '', ''),
+        safeStr(d.market_structure || '', ''),
+        safeStr(d.intraday_story || '', ''),
+        safeStr(d.key_levels || '', ''),
+        safeStr(d.momentum || '', ''),
+        safeStr(d.trigger_setup || '', '')
+      ].filter(x => x && x !== '—').join(' · ')
+    };
+  }).filter(Boolean);
 
   const scenarios = [
     normalizeScenario('primary_scenario', scenariosObj.primary_scenario),
@@ -1153,52 +1095,39 @@ function normalizeReport(report) {
     normalizeScenario('invalidation_scenario', scenariosObj.invalidation_scenario)
   ].filter(Boolean);
 
-  const primaryScenario = scenarios.find(s => s.key === 'primary_scenario') || null;
-  const alternativeScenario = scenarios.find(s => s.key === 'alternative_scenario') || null;
-  const invalidationScenario = scenarios.find(s => s.key === 'invalidation_scenario') || null;
-
-  const resistance = safeArr(
-    structure.H4?.critical_levels?.resistance
-    || keyLevels.resistance
-    || keyLevels.resistances
-    || []
-  ).map(fmtPrice);
-
-  const support = safeArr(
-    structure.H4?.critical_levels?.support
-    || keyLevels.support
-    || keyLevels.supports
-    || []
-  ).map(fmtPrice);
-
   return {
-    id: report.id || raw.id || `RPT-${Date.now()}`,
+    id: r.id || `RPT-${Date.now()}`,
     instrument,
     price,
+    priceFmt: fmtPrice(price),
     bias,
     biasClass: getBiasClass(bias),
-    confidenceValue,
-    confidenceClass: getConfClass(confidenceValue),
-    insight,
-    archetype,
-    datetime,
-    dateDisplay,
-    timeDisplay,
-    topTimestamp: formatTs(datetime),
+    confidence,
+    confidenceClass: getConfidenceClass(confidence),
+    insight: safeStr(summary.key_insight || summary.summary || summary.headline || raw.dashboard_summary || raw.telegram_summary || '—'),
+    archetype: safeStr(r.archetype || raw.archetype || raw.metadata?.archetype || 'Báo cáo tự động'),
+    datetime: r.datetime || raw.timestamp || new Date().toISOString(),
+    dateDisplay: r.date_display || fmtTs(r.datetime || raw.timestamp || new Date().toISOString()).split(' ')[0],
+    timeDisplay: r.time_display || (fmtTs(r.datetime || raw.timestamp || new Date().toISOString()).split(' ')[1] || '—'),
+    resistance: safeArr(structure.H4?.critical_levels?.resistance || keyLevels.resistance || keyLevels.resistances || []).map(fmtPrice),
+    support: safeArr(structure.H4?.critical_levels?.support || keyLevels.support || keyLevels.supports || []).map(fmtPrice),
     tfRows,
-    resistance,
-    support,
-    currentPrice: fmtPrice(price),
-    bullish,
-    bearish,
-    riskFactors,
-    catalysts,
-    actionItems,
+    bullish: textArray(confluence.bullish_confluence || confluence.bullish_factors || []),
+    bearish: textArray(confluence.bearish_confluence || confluence.bearish_factors || []),
+    risks: textArray(raw.risk_factors || raw.risk_assessment || []),
+    catalysts: textArray(raw.catalyst_watch || raw.catalyst_context || raw.market_context || []),
     execution,
+    actionItems: [
+      ...textArray(checklist.immediate || []),
+      ...textArray(checklist.pre_trade || []),
+      ...textArray(checklist.monitoring || []),
+      ...textArray(execution.action_plan || execution.actions || execution.checklist || [])
+    ],
     scenarios,
-    primaryScenario,
-    alternativeScenario,
-    invalidationScenario
+    primaryScenario: scenarios.find(x => x.key === 'primary_scenario') || null,
+    alternativeScenario: scenarios.find(x => x.key === 'alternative_scenario') || null,
+    invalidationScenario: scenarios.find(x => x.key === 'invalidation_scenario') || null,
+    docx: r.docx_url || ''
   };
 }
 
@@ -1207,106 +1136,106 @@ async function loadReports() {
     const res = await fetch(DATA_URL + '?t=' + Date.now());
     const json = await res.json();
 
-    let reports = [];
-    if (Array.isArray(json)) reports = json;
-    else if (Array.isArray(json.reports)) reports = json.reports;
-    else reports = [json];
+    let rawReports = [];
+    if (Array.isArray(json)) rawReports = json;
+    else if (Array.isArray(json.reports)) rawReports = json.reports;
+    else rawReports = [json];
 
-    allReports = reports
-      .map(normalizeReport)
-      .filter(Boolean)
+    reports = rawReports.map(normalizeReport).filter(Boolean)
       .sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
 
-    buildFilters();
-    render();
+    document.getElementById('lastUpdated').textContent = reports.length ? fmtTs(reports[0].datetime) : '—';
 
-    if (allReports.length) {
-      document.getElementById('last-updated').textContent = formatTs(allReports[0].datetime);
-    }
+    renderFilters();
+    applyFilters();
+
+    if (!selectedId && filteredReports.length) selectedId = filteredReports[0].id;
+    if (filteredReports.length && !filteredReports.some(r => r.id === selectedId)) selectedId = filteredReports[0].id;
+
+    renderList();
+    renderContent();
   } catch (e) {
-    document.getElementById('main-content').innerHTML = `
-      <div class="empty-state">
-        <div class="icon">⚠</div>
-        <div>Không thể tải reports.json</div>
-        <div style="margin-top:8px;font-size:11px;color:var(--text4)">${escHtml(e.message)}</div>
-      </div>
-    `;
+    document.getElementById('reportList').innerHTML = `<div class="empty">Không tải được report list</div>`;
+    document.getElementById('content').innerHTML = `<div class="empty"><div>Không thể tải reports.json</div><div>${esc(e.message)}</div></div>`;
   }
 }
 
-function buildFilters() {
-  const instruments = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
-  const wrap = document.getElementById('filter-btns');
-  wrap.innerHTML = instruments.map(inst => `
-    <button class="filter-btn" data-filter="${escHtml(inst)}" onclick="setFilter('${escHtml(inst).replace(/'/g, "\\'")}', this)">
-      ${escHtml(inst)}
-    </button>
-  `).join('');
+function renderFilters() {
+  const instWrap = document.getElementById('instrumentFilters');
+  const instruments = [...new Set(reports.map(r => r.instrument).filter(Boolean))];
+
+  instWrap.innerHTML = `
+    <button class="chip ${filters.instrument === 'all' ? 'active' : ''}" data-type="instrument" data-value="all">Tất cả</button>
+    ${instruments.map(inst => `
+      <button class="chip ${filters.instrument === inst ? 'active' : ''}" data-type="instrument" data-value="${esc(inst)}">${esc(inst)}</button>
+    `).join('')}
+  `;
+
+  document.querySelectorAll('.chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.type;
+      const value = btn.dataset.value;
+      filters[type] = value;
+
+      if (type === 'instrument') {
+        document.querySelectorAll('#instrumentFilters .chip').forEach(x => x.classList.remove('active'));
+      } else {
+        document.querySelectorAll('#biasFilters .chip').forEach(x => x.classList.remove('active'));
+      }
+      btn.classList.add('active');
+
+      applyFilters();
+      selectedId = filteredReports.length ? filteredReports[0].id : null;
+      renderList();
+      renderContent();
+    });
+  });
 }
 
-function setFilter(val, el) {
-  currentFilter = val;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  el.classList.add('active');
-  render();
+function applyFilters() {
+  filteredReports = reports.filter(r => {
+    if (filters.instrument !== 'all' && r.instrument !== filters.instrument) return false;
+    if (filters.bias !== 'all' && r.biasClass !== filters.bias) return false;
+    return true;
+  });
 }
 
-function render() {
-  const container = document.getElementById('main-content');
-  const filtered = currentFilter === 'ALL'
-    ? allReports
-    : allReports.filter(r => r.instrument === currentFilter);
-
-  if (!filtered.length) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <div class="icon">◈</div>
-        <div>Không có báo cáo nào cho <strong>${escHtml(currentFilter)}</strong></div>
-      </div>
-    `;
+function renderList() {
+  const wrap = document.getElementById('reportList');
+  if (!filteredReports.length) {
+    wrap.innerHTML = `<div class="empty">Không có báo cáo phù hợp</div>`;
     return;
   }
 
-  container.innerHTML = filtered.map((r, idx) => renderCard(r, idx)).join('');
-
-  setTimeout(() => {
-    document.querySelectorAll('.prob-bar-fill[data-pct]').forEach(el => {
-      el.style.width = el.dataset.pct + '%';
-    });
-  }, 80);
-}
-
-function renderHero(r) {
-  return `
-    <div class="hero">
-      <div class="hero-left">
-        <div class="instrument-row">
-          <div class="instrument-name">${escHtml(r.instrument)}</div>
-          <span class="arch-badge">${escHtml(r.archetype)}</span>
-          <span class="bias-badge ${r.biasClass}">${escHtml(r.bias)}</span>
-          <span class="conf-badge ${r.confidenceClass}">${escHtml(safeStr(r.confidenceValue, 'Confidence N/A'))}</span>
-        </div>
-        <div class="hero-meta">
-          <span>${escHtml(r.dateDisplay)}</span>
-          <span>${escHtml(r.timeDisplay)} UTC+7</span>
-          <span>${escHtml(r.id)}</span>
-        </div>
-        <div class="insight-text">${escHtml(r.insight)}</div>
+  wrap.innerHTML = filteredReports.map(r => `
+    <div class="report-item ${r.id === selectedId ? 'active' : ''}" data-id="${esc(r.id)}">
+      <div class="ri-top">
+        <div class="ri-inst">${esc(r.instrument)}</div>
+        <div class="ri-time">${esc(r.timeDisplay)}</div>
       </div>
-      <div class="hero-right">
-        <div class="price-label">Giá hiện tại</div>
-        <div class="price-value">${escHtml(r.currentPrice)}</div>
-        <div class="report-timestamp">${escHtml(r.topTimestamp)}</div>
+      <div class="ri-badges">
+        <span class="badge ${r.biasClass}">${esc(r.bias)}</span>
+        <span class="badge conf">${esc(safeStr(r.confidence, 'N/A'))}</span>
       </div>
+      <div class="ri-text">${esc(r.insight)}</div>
     </div>
-  `;
+  `).join('');
+
+  document.querySelectorAll('.report-item').forEach(el => {
+    el.addEventListener('click', () => {
+      selectedId = el.dataset.id;
+      renderList();
+      renderContent();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
 }
 
-function renderScenarioCard(label, cls, s) {
+function scenarioCard(label, cls, s) {
   if (!s) {
     return `
       <div class="scenario-card ${cls}">
-        <div class="scenario-type ${cls}">${escHtml(label)}</div>
+        <div class="scenario-type ${cls}">${esc(label)}</div>
         <div style="color:var(--text4);font-size:12px">Không có dữ liệu</div>
       </div>
     `;
@@ -1314,280 +1243,266 @@ function renderScenarioCard(label, cls, s) {
 
   return `
     <div class="scenario-card ${cls}">
-      <div class="scenario-type ${cls}">${escHtml(label)}</div>
-      <span class="scenario-bias-tag ${getBiasClass(s.bias)}">${escHtml(s.bias)}</span>
-      <div class="scenario-setup">${escHtml(s.setup)}</div>
+      <div class="scenario-type ${cls}">${esc(label)}</div>
+      <div class="scenario-bias ${getBiasClass(s.bias)}">${esc(s.bias)}</div>
+      <div class="scenario-setup">${esc(s.setup)}</div>
       <div class="scenario-stats">
         <div>
           <div class="stat-label">Mục tiêu</div>
-          <div class="stat-value green">${escHtml(s.target)}</div>
+          <div class="stat-value green">${esc(s.target)}</div>
         </div>
         <div>
           <div class="stat-label">Cắt lỗ</div>
-          <div class="stat-value red">${escHtml(s.stop)}</div>
+          <div class="stat-value red">${esc(s.stop)}</div>
         </div>
         <div>
           <div class="stat-label">R / R</div>
-          <div class="stat-value gold">${escHtml(s.rr)}</div>
+          <div class="stat-value gold">${esc(s.rr)}</div>
         </div>
       </div>
-      <div class="prob-bar-wrap">
-        <div class="prob-bar-label">
+      <div class="prob-wrap">
+        <div class="prob-head">
           <span>Xác suất</span>
           <span>${Math.round(s.probability || 0)}%</span>
         </div>
-        <div class="prob-bar-track">
-          <div class="prob-bar-fill ${cls}" data-pct="${Math.min(Math.round(s.probability || 0), 100)}"></div>
+        <div class="prob-track">
+          <div class="prob-fill ${cls}" data-pct="${Math.min(Math.round(s.probability || 0), 100)}"></div>
         </div>
       </div>
     </div>
   `;
 }
 
-function renderScenarios(r) {
-  return `
-    <div class="section-full">
-      <div class="section-title">Kịch Bản Giao Dịch</div>
-      <div class="scenarios-grid">
-        ${renderScenarioCard('★ Kịch bản chính', 'primary', r.primaryScenario)}
-        ${renderScenarioCard('◈ Kịch bản thay thế', 'alternative', r.alternativeScenario)}
-        ${renderScenarioCard('✕ Vô hiệu hóa', 'invalidation', r.invalidationScenario)}
-      </div>
-    </div>
-  `;
-}
+function renderContent() {
+  const container = document.getElementById('content');
+  const r = filteredReports.find(x => x.id === selectedId);
 
-function renderTimeframe(r) {
-  const rows = r.tfRows.map(row => `
+  if (!r) {
+    container.innerHTML = `<div class="empty"><div>Chọn một báo cáo từ danh sách bên trái</div></div>`;
+    return;
+  }
+
+  const tfRows = r.tfRows.length ? r.tfRows.map(row => `
     <tr>
-      <td class="tf-label">${escHtml(row.tf)}</td>
+      <td class="tf-name">${esc(row.tf)}</td>
       <td>
-        <span class="tf-trend ${getTrendClass(row.trend)}">${escHtml(row.trend)}</span>
-        <span class="tf-desc">${escHtml(row.description || '—')}</span>
+        <span class="tf-trend ${getBiasClass(row.trend)}">${esc(row.trend)}</span>
+        <span class="tf-desc">${esc(row.description || '—')}</span>
       </td>
     </tr>
-  `).join('');
+  `).join('') : `<tr><td colspan="2" class="tf-desc">Không có dữ liệu</td></tr>`;
 
-  return `
-    <div class="section-block">
-      <div class="section-title">Đa khung thời gian</div>
-      ${rows ? `<table class="tf-table"><tbody>${rows}</tbody></table>` : '<div style="color:var(--text4);font-size:12px">Không có dữ liệu</div>'}
-    </div>
-  `;
-}
-
-function renderKeyLevels(r) {
-  const items = [
+  const levelItems = [
     ...r.resistance.map(v => ({ type: 'Kháng cự', cls: 'resistance', price: v })),
-    { type: 'Hiện tại', cls: 'current', price: r.currentPrice, desc: 'Giá hiện tại' },
+    { type: 'Hiện tại', cls: 'current', price: r.priceFmt, desc: 'Giá hiện tại' },
     ...r.support.map(v => ({ type: 'Hỗ trợ', cls: 'support', price: v }))
   ];
 
-  return `
-    <div class="section-block">
-      <div class="section-title">Vùng giá quan trọng</div>
-      ${items.length ? `<div class="levels-wrap">
-        ${items.map(i => `
-          <div class="level-item">
-            <span class="level-dot ${i.cls}"></span>
-            <span class="level-type">${escHtml(i.type)}</span>
-            <span class="level-price">${escHtml(i.price)}</span>
-            ${i.desc ? `<span class="level-desc">${escHtml(i.desc)}</span>` : ''}
-          </div>
-        `).join('')}
-      </div>` : '<div style="color:var(--text4);font-size:12px">Không có dữ liệu vùng giá</div>'}
-    </div>
-  `;
-}
+  const matrixRows = r.scenarios.length ? r.scenarios.map(s => `
+    <tr>
+      <td>${esc(s.key)}</td>
+      <td><span class="scenario-bias ${getBiasClass(s.bias)}">${esc(s.bias)}</span></td>
+      <td>${esc(s.setup)}</td>
+      <td>${esc(s.target)}</td>
+      <td>${esc(s.stop)}</td>
+      <td>${esc(s.rr)}</td>
+      <td>${Math.round(s.probability || 0)}%</td>
+    </tr>
+  `).join('') : `<tr><td colspan="7">Không có dữ liệu</td></tr>`;
 
-function renderRisk(r) {
-  return `
-    <div class="section-block">
-      <div class="section-title">Radar rủi ro</div>
-      ${r.riskFactors.length ? `<div class="risk-list">
-        ${r.riskFactors.map(item => `
-          <div class="risk-item">
-            <span>⚡</span>
-            <span>${escHtml(item)}</span>
-          </div>
-        `).join('')}
-      </div>` : '<div style="color:var(--text4);font-size:12px">Không có rủi ro nào</div>'}
-    </div>
-  `;
-}
+  const execEntries = Object.entries(r.execution).filter(([k]) => !['key_levels','checklist','action_plan','actions'].includes(k));
 
-function renderConfluence(r) {
-  return `
-    <div class="section-block">
-      <div class="section-title">Yếu tố hỗ trợ / áp lực</div>
-      <div class="factors-columns">
-        <div>
-          <div class="factor-col-title bull">▲ Hỗ trợ tăng</div>
-          <div class="factor-list">
-            ${r.bullish.length ? r.bullish.map(item => `
-              <div class="factor-item bull"><span>↑</span><span>${escHtml(item)}</span></div>
-            `).join('') : '<div style="color:var(--text4);font-size:12px">Không có</div>'}
+  container.innerHTML = `
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-main">
+          <div class="hero-line">
+            <div class="hero-title">${esc(r.instrument)}</div>
+            <div class="hero-pill">${esc(r.archetype)}</div>
+            <div class="hero-pill ${r.biasClass}">${esc(r.bias)}</div>
+            <div class="hero-pill ${r.confidenceClass}">${esc(safeStr(r.confidence, 'N/A'))}</div>
           </div>
+          <div class="hero-meta">
+            <span>${esc(r.dateDisplay)}</span>
+            <span>${esc(r.timeDisplay)} UTC+7</span>
+            <span>${esc(r.id)}</span>
+          </div>
+          <div class="hero-insight">${esc(r.insight)}</div>
         </div>
-        <div>
-          <div class="factor-col-title bear">▼ Áp lực giảm</div>
-          <div class="factor-list">
-            ${r.bearish.length ? r.bearish.map(item => `
-              <div class="factor-item bear"><span>↓</span><span>${escHtml(item)}</span></div>
-            `).join('') : '<div style="color:var(--text4);font-size:12px">Không có</div>'}
-          </div>
+        <div class="hero-price">
+          <div class="hero-price-label">Giá hiện tại</div>
+          <div class="hero-price-value">${esc(r.priceFmt)}</div>
+          <div class="hero-price-time">${esc(fmtTs(r.datetime))}</div>
         </div>
       </div>
     </div>
-  `;
-}
 
-function renderCatalyst(r) {
-  return `
-    <div class="section-block">
-      <div class="section-title">Sự kiện cần theo dõi</div>
-      ${r.catalysts.length ? `<div class="catalyst-list">
-        ${r.catalysts.map((item, idx) => `
-          <div class="catalyst-item">
-            <span>${['📅','📊','🏦','📰','⚡','🌐','💹','📈'][idx % 8]}</span>
-            <div>
-              <div class="catalyst-name">${escHtml(item)}</div>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="panel-title">Tóm tắt điều hành</div>
+        <div class="summary-grid">
+          <div class="summary-box">
+            <p>${esc(r.insight)}</p>
+          </div>
+          <div class="mini-box">
+            <div class="mini-title">Snapshot</div>
+            <div class="mini-kv">
+              <div><strong>Bias:</strong> ${esc(r.bias)}</div>
+              <div><strong>Confidence:</strong> ${esc(safeStr(r.confidence, 'N/A'))}</div>
+              <div><strong>Instrument:</strong> ${esc(r.instrument)}</div>
+              <div><strong>Price:</strong> ${esc(r.priceFmt)}</div>
             </div>
           </div>
-        `).join('')}
-      </div>` : '<div style="color:var(--text4);font-size:12px">Không có sự kiện</div>'}
-    </div>
-  `;
-}
-
-function renderSummary(r) {
-  return `
-    <div class="section-full">
-      <div class="section-title">Tóm tắt điều hành</div>
-      <div class="summary-panel">
-        <div class="summary-box">
-          <p>${escHtml(r.insight)}</p>
         </div>
-        <div class="mini-panel">
-          <div class="mini-title">Snapshot</div>
-          <div class="mini-kv">
-            <div><strong>Bias:</strong> ${escHtml(r.bias)}</div>
-            <div><strong>Confidence:</strong> ${escHtml(safeStr(r.confidenceValue, 'N/A'))}</div>
-            <div><strong>Instrument:</strong> ${escHtml(r.instrument)}</div>
-            <div><strong>Price:</strong> ${escHtml(r.currentPrice)}</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <div class="panel-title">Kịch bản giao dịch</div>
+        <div class="scenarios-grid">
+          ${scenarioCard('★ Kịch bản chính', 'primary', r.primaryScenario)}
+          ${scenarioCard('◈ Kịch bản thay thế', 'alternative', r.alternativeScenario)}
+          ${scenarioCard('✕ Vô hiệu hóa', 'invalidation', r.invalidationScenario)}
+        </div>
+      </div>
+    </div>
+
+    <div class="triple-grid">
+      <div class="panel">
+        <div class="panel-body">
+          <div class="panel-title">Đa khung thời gian</div>
+          <table class="tf-table"><tbody>${tfRows}</tbody></table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-body">
+          <div class="panel-title">Vùng giá quan trọng</div>
+          <div class="levels">
+            ${levelItems.map(i => `
+              <div class="level">
+                <span class="dot ${i.cls}"></span>
+                <span class="level-type">${esc(i.type)}</span>
+                <span class="level-price">${esc(i.price)}</span>
+                ${i.desc ? `<span style="color:var(--text4);font-size:11px">${esc(i.desc)}</span>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-body">
+          <div class="panel-title">Radar rủi ro</div>
+          <div class="list-stack">
+            ${(r.risks.length ? r.risks : ['Không có rủi ro nào']).map(x => `
+              <div class="list-item risk">${esc(x)}</div>
+            `).join('')}
           </div>
         </div>
       </div>
     </div>
-  `;
-}
 
-function renderMatrix(r) {
-  const rows = r.scenarios;
+    <div class="dual-grid">
+      <div class="panel">
+        <div class="panel-body">
+          <div class="panel-title">Yếu tố hỗ trợ / áp lực</div>
+          <div class="dual-grid" style="gap:16px">
+            <div>
+              <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">▲ Hỗ trợ tăng</div>
+              <div class="list-stack">
+                ${(r.bullish.length ? r.bullish : ['Không có']).map(x => `<div class="list-item bull">${esc(x)}</div>`).join('')}
+              </div>
+            </div>
+            <div>
+              <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--red);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">▼ Áp lực giảm</div>
+              <div class="list-stack">
+                ${(r.bearish.length ? r.bearish : ['Không có']).map(x => `<div class="list-item bear">${esc(x)}</div>`).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  return `
-    <div>
-      <div class="section-title">Scenario matrix</div>
-      ${rows.length ? `<table class="matrix-table">
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Bias</th>
-            <th>Setup</th>
-            <th>Target</th>
-            <th>Stop</th>
-            <th>R/R</th>
-            <th>Probability</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${rows.map(s => `
+      <div class="panel">
+        <div class="panel-body">
+          <div class="panel-title">Sự kiện cần theo dõi</div>
+          <div class="list-stack">
+            ${(r.catalysts.length ? r.catalysts : ['Không có sự kiện']).map(x => `
+              <div class="list-item">${esc(x)}</div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <div class="panel-title">Scenario matrix</div>
+        <table class="matrix">
+          <thead>
             <tr>
-              <td>${escHtml(s.key)}</td>
-              <td><span class="scenario-bias-tag ${getBiasClass(s.bias)}">${escHtml(s.bias)}</span></td>
-              <td>${escHtml(s.setup)}</td>
-              <td>${escHtml(s.target)}</td>
-              <td>${escHtml(s.stop)}</td>
-              <td>${escHtml(s.rr)}</td>
-              <td>${Math.round(s.probability || 0)}%</td>
+              <th>Type</th>
+              <th>Bias</th>
+              <th>Setup</th>
+              <th>Target</th>
+              <th>Stop</th>
+              <th>R/R</th>
+              <th>Probability</th>
             </tr>
+          </thead>
+          <tbody>${matrixRows}</tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <div class="panel-title">Action plan</div>
+
+        ${execEntries.length ? `
+          <div class="exec-grid">
+            ${execEntries.map(([k,v]) => `
+              <div class="exec-card">
+                <div class="exec-key">${esc(k.replaceAll('_',' '))}</div>
+                <div class="exec-val">${esc(typeof v === 'object' ? JSON.stringify(v) : safeStr(v))}</div>
+              </div>
+            `).join('')}
+          </div>
+        ` : ''}
+
+        <div class="checklist">
+          ${(r.actionItems.length ? r.actionItems : [
+            'Confirm bias alignment across timeframes',
+            'Check confluence factors',
+            'Verify key level proximity',
+            'Set entry order',
+            'Place stop loss',
+            'Define take profit targets',
+            'Monitor catalyst events'
+          ]).map(x => `
+            <div class="check" onclick="this.classList.toggle('checked')">
+              <div class="check-box">✓</div>
+              <div class="check-text">${esc(x)}</div>
+            </div>
           `).join('')}
-        </tbody>
-      </table>` : '<div style="color:var(--text4);font-size:12px">Không có dữ liệu</div>'}
-    </div>
-  `;
-}
-
-function renderExecutionPlan(r) {
-  const exec = r.execution || {};
-  const entries = Object.entries(exec).filter(([k]) => !['key_levels', 'checklist', 'action_plan', 'actions'].includes(k));
-  const checklist = r.actionItems;
-
-  return `
-    <div>
-      <div class="section-title">Action plan</div>
-      ${entries.length ? `<div class="exec-grid">
-        ${entries.map(([k,v]) => `
-          <div class="exec-item">
-            <div class="exec-key">${escHtml(k.replaceAll('_', ' '))}</div>
-            <div class="exec-val">${escHtml(typeof v === 'object' ? JSON.stringify(v) : safeStr(v))}</div>
-          </div>
-        `).join('')}
-      </div>` : ''}
-
-      <div class="checklist">
-        ${(checklist.length ? checklist : [
-          'Confirm bias alignment across timeframes',
-          'Check confluence factors',
-          'Verify key level proximity',
-          'Set entry order',
-          'Place stop loss',
-          'Define take profit targets',
-          'Monitor catalyst events'
-        ]).map(item => `
-          <div class="check-item" onclick="toggleCheck(this)">
-            <div class="check-box">✓</div>
-            <div class="check-label">${escHtml(item)}</div>
-          </div>
-        `).join('')}
+        </div>
       </div>
     </div>
   `;
-}
 
-function renderCard(r, idx) {
-  return `
-    <div class="report-card" style="animation-delay:${idx * 0.08}s">
-      ${renderHero(r)}
-      ${renderSummary(r)}
-      ${renderScenarios(r)}
-      <div class="section-grid">
-        ${renderTimeframe(r)}
-        ${renderKeyLevels(r)}
-        ${renderRisk(r)}
-      </div>
-      <div class="two-col">
-        ${renderConfluence(r)}
-        ${renderCatalyst(r)}
-      </div>
-      <div class="section-full">
-        ${renderMatrix(r)}
-      </div>
-      <div class="section-full">
-        ${renderExecutionPlan(r)}
-      </div>
-    </div>
-  `;
-}
-
-function toggleCheck(el) {
-  el.classList.toggle('checked');
+  setTimeout(() => {
+    document.querySelectorAll('.prob-fill[data-pct]').forEach(el => {
+      el.style.width = el.dataset.pct + '%';
+    });
+  }, 60);
 }
 
 window.addEventListener('scroll', () => {
-  const st = document.getElementById('scroll-top');
-  if (window.scrollY > 400) st.classList.add('visible');
-  else st.classList.remove('visible');
+  const btn = document.getElementById('scrollTop');
+  if (window.scrollY > 320) btn.classList.add('visible');
+  else btn.classList.remove('visible');
 });
 
 loadReports();
