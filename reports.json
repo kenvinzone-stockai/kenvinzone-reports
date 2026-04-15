@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604151351","datetime":"2026-04-15T13:51:49+07:00","date_display":"15/04/2026","time_display":"13:51","instrument":"XAUUSD","archetype":"Báo cáo 4H – 13:51","price_current":"3320.5","raw":{
-  "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 10:30",
-  "timestamp": "2025-01-17T10:30:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202604151445","datetime":"2026-04-15T14:45:27+07:00","date_display":"15/04/2026","time_display":"14:45","instrument":"XAUUSD","archetype":"Báo cáo 4H – 14:45","price_current":"25997.75","raw":{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 14:30",
+  "timestamp": "2026-04-09T14:30:00+07:00",
   "summary": {
-    "primary_bias": "Chờ xác nhận",
-    "bias_direction": "Chờ xác nhận",
-    "confidence_level": "Thấp (25-49%)",
-    "current_price": 3320.5,
-    "key_insight": "Dữ liệu technical chưa được khởi tạo đầy đủ, price action cho thấy vùng 3315-3325 đang là range ngắn hạn. Cần chờ setup rõ ràng hơn.",
-    "headline": "XAUUSD chờ xác nhận bias tại vùng 3320.5"
+    "primary_bias": "Bullish",
+    "bias_direction": "Bullish",
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 25997.75,
+    "key_insight": "Nasdaq duy trì bias bullish mạnh trên D1 và H4 với full EMA alignment, nhưng xuất hiện dấu hiệu momentum yếu dần trên M15. Giá đang test vùng kháng cự gần swing high 26056.",
+    "headline": "NQ bullish bias tiếp tục, chờ breakout swing high 26056"
   },
   "market_structure": {
     "D1": {
-      "bias": "Neutral",
-      "trend": "Chưa xác định được xu hướng do thiếu dữ liệu",
-      "structure": "Mixed Range",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Neutral",
-      "key_levels": "Cần cập nhật dữ liệu để xác định vùng giá D1"
+      "bias": "Bullish",
+      "trend": "Xu hướng tăng mạnh với full bullish EMA alignment",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Bullish Zone",
+      "macd_bias": "Bullish",
+      "key_levels": "Vùng 25678-25602 là support mạnh, uptrend đang intact"
     },
     "H4": {
-      "bias": "Neutral",
-      "trend": "Sideways consolidation",
-      "structure": "Range bound chờ breakout",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Neutral",
-      "momentum": "Neutral",
+      "bias": "Bullish",
+      "trend": "Tiếp tục bullish với momentum mạnh",
+      "structure": "Higher highs đang được thiết lập",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Overbought",
+      "macd_bias": "Bullish",
+      "momentum": "Expanding",
       "critical_levels": {
-        "resistance": [3325, 3330],
-        "support": [3315, 3310]
+        "resistance": [26056, 26100],
+        "support": [25965, 25950]
       }
     },
     "H1": {
-      "bias": "Neutral",
-      "trend": "Consolidation ngắn hạn",
-      "intraday_story": "Price action cho thấy accumulation tại vùng 3320",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Neutral"
+      "bias": "Bullish",
+      "trend": "Duy trì bullish nhưng có dấu hiệu chậm lại",
+      "intraday_story": "H1 cho thấy bullish bias nhưng MACD đã chuyển bearish, cần quan sát",
+      "rsi_zone": "Bullish Zone",
+      "macd_bias": "Bearish"
     },
     "M15": {
-      "bias": "Neutral",
-      "trend": "Sideways với bias nhẹ bullish",
-      "trigger_setup": "Chờ breakout khỏi range 3315-3325",
-      "structure": "Higher low tại 3315 vs Open 3318",
-      "momentum": "Neutral",
-      "candle_pattern": "None"
+      "bias": "Bullish",
+      "trend": "Bullish nhưng momentum đang yếu dần",
+      "trigger_setup": "Bullish Pin Bar formation tại support EMA20",
+      "structure": "Mixed/Range Structure",
+      "momentum": "Weakening",
+      "candle_pattern": "Bullish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 3320.5,
-    "resistance": [3325, 3330],
-    "support": [3315, 3310],
-    "swing_high": 3325,
-    "swing_low": 3315,
-    "prev_day_high": 3330,
-    "prev_day_low": 3310
+    "current_price": 25997.75,
+    "resistance": [26056, 26100],
+    "support": [25964.75, 25950],
+    "swing_high": 26056,
+    "swing_low": 25964.75,
+    "prev_day_high": 26001.5,
+    "prev_day_low": 25557.75
   },
   "confluence_analysis": {
-    "bullish_factors": ["Price holding above session open 3318", "Higher low formation tại 3315", "Rejection từ support 3315"],
-    "bearish_factors": ["Thiếu momentum mạnh", "Range bound action", "Volume không rõ ràng"],
-    "dominant_bias": "Mixed"
+    "bullish_factors": ["Full EMA alignment trên D1 và H4", "RSI trong bullish zone trên D1", "MACD bullish trên H4", "Bullish Pin Bar trên M15"],
+    "bearish_factors": ["RSI overbought trên H4", "MACD bearish trên H1 và M15", "Momentum weakening trên M15"],
+    "dominant_bias": "Bullish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Break và hold trên 3325 với volume confirmation",
-      "target": [3330, 3335],
-      "stop_loss": 3315,
-      "risk_reward": "1:2.0",
-      "probability": 45
+      "setup": "Breakout swing high 26056 với volume confirmation",
+      "target": [26100, 26150],
+      "stop_loss": 25950,
+      "risk_reward": "1:2.2",
+      "probability": 65
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Break xuống dưới 3315 với momentum",
-      "target": [3310],
-      "stop_loss": 3325,
+      "bias": "Bullish",
+      "setup": "Pullback về EMA20 (25994) rồi bounce",
+      "target": [26040],
+      "stop_loss": 25965,
       "risk_reward": "1:1.5",
-      "probability": 40
+      "probability": 55
     },
     "invalidation_scenario": {
-      "bias": "Neutral",
-      "setup": "Tiếp tục range bound trong 3315-3325",
-      "target": [3320],
-      "stop_loss": 3305,
-      "risk_reward": "1:0.3",
-      "probability": 15
+      "bias": "Bearish",
+      "setup": "Break dưới swing low 25964.75",
+      "target": [25920],
+      "stop_loss": 26000,
+      "risk_reward": "1:1.3",
+      "probability": 25
     }
   },
-  "risk_factors": ["Thiếu dữ liệu technical đầy đủ", "Volume không rõ ràng", "Market structure chưa được xác nhận"],
-  "catalyst_watch": ["US Dollar strength", "Fed policy updates"],
+  "risk_factors": ["RSI H4 đã overbought", "MACD divergence trên timeframe nhỏ", "Volume chưa thực sự mạnh"],
+  "catalyst_watch": ["US Tech earnings season", "Fed policy signals"],
   "execution_plan": {
-    "entry_zone": "3325+ cho long, 3315- cho short",
-    "entry_condition": "Chờ breakout confirmed với candle close",
-    "position_sizing": "Giảm size do low confidence",
-    "session_focus": "London-NY overlap",
-    "key_time": "NY session open 22:30"
+    "entry_zone": "25994-26000 hoặc breakout 26056",
+    "entry_condition": "Bullish Pin Bar bounce từ EMA20 hoặc breakout confirmation",
+    "position_sizing": "Conservative do momentum yếu dần",
+    "session_focus": "US session opening hours",
+    "key_time": "15:30-16:30 US market open"
   },
   "action_checklist": {
-    "immediate": ["Monitor breakout 3325 resistance", "Watch support 3315 hold"],
-    "pre_trade": ["Confirm volume on breakout", "Set alerts tại key levels"],
-    "monitoring": ["Track US session momentum", "Watch for pattern completion"]
+    "immediate": ["Theo dõi reaction tại swing high 26056", "Kiểm tra volume confirmation"],
+    "pre_trade": ["Confirm EMA20 hold làm support", "Đợi volume spike"],
+    "monitoring": ["MACD histogram changes", "RSI divergence signals"]
   },
-  "dashboard_summary": "XAUUSD consolidating tại 3320.5 trong range 3315-3325, chờ breakout direction với confidence thấp do thiếu data.",
-  "telegram_summary": "🟡 XAUUSD 3320.5 | Range 3315-3325 | Chờ breakout | Low confidence do thiếu technical data | Monitor 3325 resistance & 3315 support"
+  "dashboard_summary": "NQ duy trì bias bullish mạnh nhưng momentum đang yếu dần. Chờ breakout 26056 hoặc pullback EMA20.",
+  "telegram_summary": "📈 NQ: Bullish bias tiếp tục, test swing high 26056. Entry: breakout hoặc pullback EMA20. Target: 26100-26150. SL: 25950. RR: 1:2.2"
 },"docx_url":""}]}
