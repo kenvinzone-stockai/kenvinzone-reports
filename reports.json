@@ -1,4 +1,111 @@
-{"version":"1.0","reports":[{"id":"RPT-202604151045","datetime":"2026-04-15T10:45:31+07:00","date_display":"15/04/2026","time_display":"10:45","instrument":"XAUUSD","archetype":"Báo cáo 4H – 10:45","price_current":"4828.34","raw":{
+{"version":"1.0","reports":[{"id":"RPT-202604151145","datetime":"2026-04-15T11:45:34+07:00","date_display":"15/04/2026","time_display":"11:45","instrument":"XAUUSD","archetype":"Báo cáo 4H – 11:45","price_current":"3320.5","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 10:30",
+  "timestamp": "2025-01-15T10:30:00+07:00",
+  "summary": {
+    "primary_bias": "Chờ xác nhận",
+    "bias_direction": "Chờ xác nhận",
+    "confidence_level": "Thấp (25-49%)",
+    "current_price": 3320.5,
+    "key_insight": "Dữ liệu kỹ thuật chưa khởi tạo, chỉ có thông tin giá cơ bản. Vàng đang giao dịch quanh 3320.5 với biến động từ 3315-3325.",
+    "headline": "XAUUSD thiếu dữ liệu kỹ thuật - chờ tín hiệu từ các khung thời gian"
+  },
+  "market_structure": {
+    "D1": {
+      "bias": "Neutral",
+      "trend": "Không xác định - thiếu dữ liệu kỹ thuật",
+      "structure": "Mixed Range",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
+      "macd_bias": "Neutral",
+      "key_levels": "Chưa xác định được vùng giá chính"
+    },
+    "H4": {
+      "bias": "Neutral",
+      "trend": "Chưa có dữ liệu trend H4",
+      "structure": "Chưa xác định cấu trúc",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
+      "macd_bias": "Neutral",
+      "momentum": "Neutral",
+      "critical_levels": {
+        "resistance": [3325, 3330],
+        "support": [3315, 3310]
+      }
+    },
+    "H1": {
+      "bias": "Neutral",
+      "trend": "Chưa có dữ liệu H1",
+      "intraday_story": "Thiếu thông tin để xây dựng câu chuyện intraday",
+      "rsi_zone": "Neutral",
+      "macd_bias": "Neutral"
+    },
+    "M15": {
+      "bias": "Neutral",
+      "trend": "Chưa có dữ liệu M15",
+      "trigger_setup": "Chờ khởi tạo chỉ báo kỹ thuật",
+      "structure": "Chưa xác định",
+      "momentum": "Neutral",
+      "candle_pattern": "None"
+    }
+  },
+  "key_levels": {
+    "current_price": 3320.5,
+    "resistance": [3325, 3330],
+    "support": [3315, 3310],
+    "swing_high": 3325,
+    "swing_low": 3315,
+    "prev_day_high": 3325,
+    "prev_day_low": 3315
+  },
+  "confluence_analysis": {
+    "bullish_factors": ["Giá hiện tại ở trên mid-range 3318-3325"],
+    "bearish_factors": ["Thiếu momentum rõ ràng", "Chưa có xác nhận từ chỉ báo kỹ thuật"],
+    "dominant_bias": "Mixed"
+  },
+  "trading_scenarios": {
+    "primary_scenario": {
+      "bias": "Neutral",
+      "setup": "Chờ dữ liệu kỹ thuật khởi tạo và tín hiệu rõ ràng từ các khung thời gian lớn",
+      "target": [3330, 3335],
+      "stop_loss": 3310,
+      "risk_reward": "1:1.5",
+      "probability": 40
+    },
+    "alternative_scenario": {
+      "bias": "Bullish",
+      "setup": "Nếu break trên 3325 với volume",
+      "target": [3335],
+      "stop_loss": 3315,
+      "risk_reward": "1:2",
+      "probability": 35
+    },
+    "invalidation_scenario": {
+      "bias": "Bearish",
+      "setup": "Break dưới 3315 với momentum",
+      "target": [3300],
+      "stop_loss": 3325,
+      "risk_reward": "1:1.5",
+      "probability": 25
+    }
+  },
+  "risk_factors": ["Thiếu dữ liệu kỹ thuật để xác nhận bias", "Range nhỏ có thể breakout bất ngờ", "Không có thông tin về sentiment thị trường"],
+  "catalyst_watch": ["Khởi tạo chỉ báo kỹ thuật", "Tín hiệu breakout từ range 3315-3325"],
+  "execution_plan": {
+    "entry_zone": "Chờ xác nhận breakout khỏi range 3315-3325",
+    "entry_condition": "Cần dữ liệu kỹ thuật đầy đủ từ các khung thời gian",
+    "position_sizing": "Giảm size do thiếu thông tin xác nhận",
+    "session_focus": "London-NY overlap",
+    "key_time": "Chờ khởi tạo dữ liệu trong 1-2 candle tới"
+  },
+  "action_checklist": {
+    "immediate": ["Theo dõi khởi tạo chỉ báo kỹ thuật", "Quan sát breakout khỏi range hiện tại"],
+    "pre_trade": ["Đợi xác nhận từ EMA alignment", "Kiểm tra RSI và MACD khi có dữ liệu"],
+    "monitoring": ["Theo dõi volume khi breakout", "Cập nhật bias khi có đủ dữ liệu kỹ thuật"]
+  },
+  "dashboard_summary": "XAUUSD thiếu dữ liệu kỹ thuật, đang trong range 3315-3325, chờ tín hiệu rõ ràng.",
+  "telegram_summary": "🟡 XAUUSD 3320.5 - Thiếu data kỹ thuật. Range 3315-3325. Chờ breakout + volume xác nhận bias. Risk thấp do thiếu thông tin."
+},"docx_url":""},{"version":"1.0","reports":[{"id":"RPT-202604151045","datetime":"2026-04-15T10:45:31+07:00","date_display":"15/04/2026","time_display":"10:45","instrument":"XAUUSD","archetype":"Báo cáo 4H – 10:45","price_current":"4828.34","raw":{
   "instrument": "XAUUSD",
   "archetype": "Báo cáo 4H – 10:30",
   "timestamp": "2026-04-15T10:30:00+07:00",
@@ -132,4 +239,4 @@
   },
   "dashboard_summary": "XAUUSD bullish bias được duy trì với setup mua tại pullback 4825-4827, target 4836-4851.",
   "telegram_summary": "🟢 GOLD: Bullish bias, mua pullback 4825-27, target 4836-51, SL 4817. Chú ý momentum yếu. Risk: Trung bình ⚠️"
-},"docx_url":""}]}
+},"docx_url":""}]}]}
