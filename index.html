@@ -1003,56 +1003,75 @@ function normalizeReport(r) {
 }
 
 // ============================================================
+// LOCALSTORAGE HISTORY — lưu tối đa 50 báo cáo
+// ============================================================
+const STORAGE_KEY = 'kenvinzone_reports_v1';
+const MAX_REPORTS = 50;
+
+function loadFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw) || [];
+  } catch(e) { return []; }
+}
+
+function saveToStorage(reports) {
+  try {
+    // Chỉ lưu raw data gốc, không lưu object đã normalize
+    const toSave = reports.slice(0, MAX_REPORTS);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+  } catch(e) {
+    console.warn('localStorage full, clearing old data');
+    try { localStorage.removeItem(STORAGE_KEY); } catch(e2) {}
+  }
+}
+
+// ============================================================
 // LOAD DATA
 // ============================================================
-async function tryFetchMonth(monthKey) {
+async function tryFetch(url) {
   try {
-    const url = getDataUrl(monthKey) + '?t=' + Date.now();
-    const res = await fetch(url);
+    const res = await fetch(url + '?t=' + Date.now());
     if (!res.ok) return [];
     const json = await res.json();
     let rawReports = [];
     if (Array.isArray(json)) rawReports = json;
     else if (Array.isArray(json.reports)) rawReports = json.reports;
     else rawReports = [json];
-    return rawReports.map(normalizeReport).filter(Boolean);
-  } catch(e) {
-    return [];
-  }
+    return rawReports;
+  } catch(e) { return []; }
 }
 
 async function loadReports() {
-  // Try current month first, then fallback to reports.json
-  const monthsToTry = [currentMonth, null]; // null = reports.json
-  
-  let loaded = [];
-  
-  for (const mk of monthsToTry) {
-    const reports = await tryFetchMonth(mk || '');
-    if (reports.length > 0) {
-      loaded = [...loaded, ...reports];
-    }
-  }
+  // 1. Fetch báo cáo mới nhất từ GitHub
+  const freshRaw = await tryFetch('reports.json');
 
-  // Also try previous months if we have none
-  if (loaded.length === 0) {
-    const pastMonths = getMonthsToCheck().slice(1);
-    for (const mk of pastMonths) {
-      const reports = await tryFetchMonth(mk);
-      if (reports.length > 0) {
-        loaded = [...loaded, ...reports];
-        break;
-      }
-    }
-  }
+  // 2. Load lịch sử từ localStorage
+  const storedRaw = loadFromStorage();
 
-  // Deduplicate by id
+  // 3. Merge: báo cáo mới + lịch sử cũ, deduplicate theo id
+  const allRaw = [...freshRaw, ...storedRaw];
   const seen = new Set();
-  allReports = loaded.filter(r => {
-    if (seen.has(r.id)) return false;
-    seen.add(r.id);
+  const mergedRaw = allRaw.filter(r => {
+    const id = r.id || r.datetime;
+    if (!id || seen.has(id)) return false;
+    seen.add(id);
     return true;
-  }).sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
+  }).slice(0, MAX_REPORTS);
+
+  // 4. Lưu lại vào localStorage
+  saveToStorage(mergedRaw);
+
+  // 5. Normalize để hiển thị
+  const seen2 = new Set();
+  allReports = mergedRaw.map(normalizeReport).filter(Boolean)
+    .filter(r => {
+      if (seen2.has(r.id)) return false;
+      seen2.add(r.id);
+      return true;
+    })
+    .sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
 
   // Build available months
   const monthSet = new Set(allReports.map(r => r.monthKey));
