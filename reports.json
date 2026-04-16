@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604161359","datetime":"2026-04-16T13:59:00+07:00","date_display":"16/04/2026","time_display":"13:59","instrument":"USATECM2026","archetype":"Báo cáo 4H – 13:59","price_current":"88888.88","raw":{
-  "instrument": "NQ/US100",
-  "archetype": "Báo cáo 4H – 10:00",
-  "timestamp": "2025-02-17T10:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202604161415","datetime":"2026-04-16T14:15:32+07:00","date_display":"16/04/2026","time_display":"14:15","instrument":"USATECM2026","archetype":"Báo cáo 4H – 14:15","price_current":"26458.5","raw":{
+  "instrument": "US Tech M2026 (NQ/US100)",
+  "archetype": "Báo cáo 4H – 14:00",
+  "timestamp": "2026-04-07T14:15:00+07:00",
   "summary": {
-    "primary_bias": "Chờ xác nhận",
-    "bias_direction": "Chờ xác nhận",
-    "confidence_level": "Thấp (25-49%)",
-    "current_price": 88888.88,
-    "key_insight": "Dữ liệu technical không đầy đủ để xác định bias rõ ràng. Giá đang dao động trong phiên với volatility nhẹ từ 88666-88999.",
-    "headline": "NQ cần thêm dữ liệu để xác định hướng rõ ràng"
+    "primary_bias": "Bullish",
+    "bias_direction": "Bullish",
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 26458.5,
+    "key_insight": "Trend D1/H4 vẫn mạnh với EMA alignment bullish, nhưng RSI overbought và divergence MACD M15/H1 cho tín hiệu chậm lại ngắn hạn. Cần theo dõi vùng 26460 resistance cho breakout tiếp theo.",
+    "headline": "Bullish trend nguyên vẹn nhưng có dấu hiệu chậm lại ngắn hạn"
   },
   "market_structure": {
     "D1": {
-      "bias": "Neutral",
-      "trend": "Không xác định do thiếu dữ liệu technical",
-      "structure": "Mixed Range",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Bearish",
-      "key_levels": "Chưa xác định được vùng giá D1"
+      "bias": "Bullish",
+      "trend": "Uptrend mạnh với EMA alignment hoàn toàn bullish",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Overbought",
+      "macd_bias": "Bullish",
+      "key_levels": "Vùng 26000-26100 là support structure mạnh"
     },
     "H4": {
-      "bias": "Neutral",
-      "trend": "Sideways trong phiên hiện tại",
-      "structure": "Range-bound giữa 88666-88999",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Bearish",
-      "momentum": "Neutral",
+      "bias": "Bullish",
+      "trend": "Continuation bullish với momentum mạnh",
+      "structure": "Higher highs formation",
+      "ema_alignment": "Full Bullish",
+      "rsi_zone": "Overbought",
+      "macd_bias": "Bullish",
+      "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [88999.99, 89100],
-        "support": [88666.66, 88500]
+        "resistance": [26460, 26484.25],
+        "support": [26415, 26379]
       }
     },
     "H1": {
-      "bias": "Neutral",
-      "trend": "Consolidation pattern",
-      "intraday_story": "Giá dao động trong range hẹp, chờ breakout",
-      "rsi_zone": "Neutral",
+      "bias": "Bullish",
+      "trend": "Bullish nhưng có dấu hiệu phân kỳ MACD",
+      "intraday_story": "Trend vẫn up nhưng momentum bắt đầu giảm",
+      "rsi_zone": "Overbought",
       "macd_bias": "Bearish"
     },
     "M15": {
       "bias": "Neutral",
-      "trend": "Range trading",
-      "trigger_setup": "Chờ break trên 89000 hoặc dưới 88660",
-      "structure": "Inside bar formation",
+      "trend": "Mixed range với EMA support",
+      "trigger_setup": "Bearish pin bar tại resistance 26460",
+      "structure": "Mixed/Range Structure",
       "momentum": "Neutral",
-      "candle_pattern": "None"
+      "candle_pattern": "Bearish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 88888.88,
-    "resistance": [88999.99, 89100],
-    "support": [88666.66, 88500],
-    "swing_high": 88999.99,
-    "swing_low": 88666.66,
-    "prev_day_high": 89000,
-    "prev_day_low": 88600
+    "current_price": 26458.5,
+    "resistance": [26460, 26484.25],
+    "support": [26415, 26379],
+    "swing_high": 26460,
+    "swing_low": 26415,
+    "prev_day_high": 26375.75,
+    "prev_day_low": 25932.5
   },
   "confluence_analysis": {
-    "bullish_factors": ["Giá trên mid-range 88800", "Potential support tại 88666", "Volume tương đối ổn định"],
-    "bearish_factors": ["Thiếu momentum rõ ràng", "Không có signal mạnh từ indicators", "Range hẹp cho thấy thiếu interest"],
-    "dominant_bias": "Mixed"
+    "bullish_factors": ["D1/H4 trend mạnh", "EMA alignment hoàn toàn bullish", "Price trên tất cả EMAs"],
+    "bearish_factors": ["RSI overbought đa khung", "MACD divergence H1/M15", "Bearish pin bar M15"],
+    "dominant_bias": "Bullish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Break và hold trên 89000 với volume confirmation",
-      "target": [89200, 89400],
-      "stop_loss": 88800,
+      "setup": "Chờ pullback về 26415-26430 rồi long trở lại",
+      "target": [26500, 26550],
+      "stop_loss": 26390,
       "risk_reward": "1:2.0",
-      "probability": 45
+      "probability": 65
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Break dưới 88660 với momentum",
-      "target": [88400],
-      "stop_loss": 88900,
+      "bias": "Bullish",
+      "setup": "Break 26460 với volume confirmation",
+      "target": [26484.25],
+      "stop_loss": 26430,
       "risk_reward": "1:1.5",
-      "probability": 40
+      "probability": 45
     },
     "invalidation_scenario": {
-      "bias": "Neutral",
-      "setup": "Tiếp tục range trading trong 88660-89000",
-      "target": [88800],
-      "stop_loss": 88600,
-      "risk_reward": "1:1.0",
-      "probability": 15
+      "bias": "Bearish",
+      "setup": "Break xuống 26415 với momentum",
+      "target": [26379],
+      "stop_loss": 26460,
+      "risk_reward": "1:1.8",
+      "probability": 25
     }
   },
-  "risk_factors": ["Thiếu dữ liệu technical đầy đủ", "Volume thấp có thể tạo false breakout", "Market có thể gap tại opening"],
-  "catalyst_watch": ["US Tech earnings", "Fed policy updates"],
+  "risk_factors": ["RSI overbought có thể trigger correction", "MACD divergence báo hiệu momentum yếu", "Pin bar rejection tại resistance"],
+  "catalyst_watch": ["Volume breakout 26460", "RSI exit overbought territory"],
   "execution_plan": {
-    "entry_zone": "Break 89000 hoặc 88660",
-    "entry_condition": "Đợi confirmation candle với volume",
-    "position_sizing": "Conservative 1-2% risk",
-    "session_focus": "US opening session",
-    "key_time": "22:30-02:00 ICT"
+    "entry_zone": "26415-26430 hoặc break 26460",
+    "entry_condition": "Pullback với bullish reversal hoặc momentum breakout",
+    "position_sizing": "Giảm size do RSI overbought",
+    "session_focus": "US session",
+    "key_time": "15:30-16:00 UTC+7"
   },
   "action_checklist": {
-    "immediate": ["Monitor breakout levels", "Kiểm tra volume patterns"],
-    "pre_trade": ["Confirm technical setup", "Set proper risk management"],
-    "monitoring": ["Track 89000 resistance", "Watch 88660 support"]
+    "immediate": ["Monitor 26460 rejection", "Watch volume confirmation"],
+    "pre_trade": ["Confirm pullback completion", "Check RSI exit overbought"],
+    "monitoring": ["Track MACD convergence", "Watch EMA support levels"]
   },
-  "dashboard_summary": "NQ đang range 88666-89000, chờ breakout direction với volume confirmation.",
-  "telegram_summary": "🔄 NQ range 88666-89000. Chờ break + volume. Target: Bull 89200-89400, Bear 88400. Risk: Low data quality."
+  "dashboard_summary": "US Tech bullish trend còn nguyên vẹn nhưng có tín hiệu chậm lại ngắn hạn do RSI overbought và MACD divergence.",
+  "telegram_summary": "📈 US TECH: Bullish trend mạnh D1/H4 nhưng RSI overbought. Chờ pullback 26415-26430 để long. Target 26500+ 🎯"
 },"docx_url":""}]}
