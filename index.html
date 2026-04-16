@@ -1003,9 +1003,25 @@ function normalizeReport(r) {
 }
 
 // ============================================================
-// LOAD DATA — từ reports.json + history.json trên GitHub
+// LOAD DATA — từ reports.json + history.json + localStorage backup
 // ============================================================
 const MAX_REPORTS = 50;
+const STORAGE_KEY = 'kenvinzone_reports_v2';
+
+function loadFromStorage() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch(e) { return []; }
+}
+
+function saveToStorage(reports) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(reports.slice(0, MAX_REPORTS)));
+  } catch(e) {
+    try { localStorage.removeItem(STORAGE_KEY); } catch(e2) {}
+  }
+}
 
 async function tryFetch(url) {
   try {
@@ -1019,20 +1035,26 @@ async function tryFetch(url) {
 }
 
 async function loadReports() {
-  // Load song song cả 2 file
+  // Load song song: reports.json mới + history.json tích lũy
   const [freshRaw, historyRaw] = await Promise.all([
     tryFetch('reports.json'),
     tryFetch('history.json')
   ]);
 
-  // Merge: mới trước, lịch sử sau, deduplicate theo id
+  // Load thêm từ localStorage làm backup
+  const storedRaw = loadFromStorage();
+
+  // Merge tất cả: mới nhất trước, deduplicate theo id
   const seen = new Set();
-  const mergedRaw = [...freshRaw, ...historyRaw].filter(r => {
+  const mergedRaw = [...freshRaw, ...historyRaw, ...storedRaw].filter(r => {
     const id = r.id || r.datetime;
     if (!id || seen.has(id)) return false;
     seen.add(id);
     return true;
   }).slice(0, MAX_REPORTS);
+
+  // Lưu lại vào localStorage làm backup
+  saveToStorage(mergedRaw);
 
   // Normalize để hiển thị
   const seen2 = new Set();
