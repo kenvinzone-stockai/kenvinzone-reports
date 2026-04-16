@@ -1,0 +1,58 @@
+name: Merge reports into history
+
+on:
+  push:
+    paths:
+      - 'reports.json'
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Merge reports.json into history.json
+        run: |
+          python3 << 'EOF'
+          import json
+
+          # Đọc báo cáo mới
+          with open('reports.json', 'r', encoding='utf-8') as f:
+              new_data = json.load(f)
+
+          new_reports = new_data.get('reports', [])
+
+          # Đọc lịch sử cũ
+          try:
+              with open('history.json', 'r', encoding='utf-8') as f:
+                  old_data = json.load(f)
+              old_reports = old_data.get('reports', [])
+          except:
+              old_reports = []
+
+          # Merge: mới trước, cũ sau, deduplicate theo id
+          seen = set()
+          merged = []
+          for r in new_reports + old_reports:
+              rid = r.get('id', '')
+              if rid and rid not in seen:
+                  seen.add(rid)
+                  merged.append(r)
+
+          # Giữ tối đa 50
+          merged = merged[:50]
+
+          # Ghi lại history.json
+          with open('history.json', 'w', encoding='utf-8') as f:
+              json.dump({"version": "1.0", "reports": merged}, f, ensure_ascii=False)
+
+          print(f"history.json updated: {len(merged)} reports")
+          EOF
+
+      - name: Commit history.json
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add history.json
+          git diff --staged --quiet || git commit -m "Auto update history.json"
+          git push
