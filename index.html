@@ -1003,67 +1003,38 @@ function normalizeReport(r) {
 }
 
 // ============================================================
-// LOCALSTORAGE HISTORY — lưu tối đa 50 báo cáo
+// LOAD DATA — từ reports.json + history.json trên GitHub
 // ============================================================
-const STORAGE_KEY = 'kenvinzone_reports_v1';
 const MAX_REPORTS = 50;
 
-function loadFromStorage() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    return JSON.parse(raw) || [];
-  } catch(e) { return []; }
-}
-
-function saveToStorage(reports) {
-  try {
-    // Chỉ lưu raw data gốc, không lưu object đã normalize
-    const toSave = reports.slice(0, MAX_REPORTS);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
-  } catch(e) {
-    console.warn('localStorage full, clearing old data');
-    try { localStorage.removeItem(STORAGE_KEY); } catch(e2) {}
-  }
-}
-
-// ============================================================
-// LOAD DATA
-// ============================================================
 async function tryFetch(url) {
   try {
     const res = await fetch(url + '?t=' + Date.now());
     if (!res.ok) return [];
     const json = await res.json();
-    let rawReports = [];
-    if (Array.isArray(json)) rawReports = json;
-    else if (Array.isArray(json.reports)) rawReports = json.reports;
-    else rawReports = [json];
-    return rawReports;
+    if (Array.isArray(json)) return json;
+    if (Array.isArray(json.reports)) return json.reports;
+    return [json];
   } catch(e) { return []; }
 }
 
 async function loadReports() {
-  // 1. Fetch báo cáo mới nhất từ GitHub
-  const freshRaw = await tryFetch('reports.json');
+  // Load song song cả 2 file
+  const [freshRaw, historyRaw] = await Promise.all([
+    tryFetch('reports.json'),
+    tryFetch('history.json')
+  ]);
 
-  // 2. Load lịch sử từ localStorage
-  const storedRaw = loadFromStorage();
-
-  // 3. Merge: báo cáo mới + lịch sử cũ, deduplicate theo id
-  const allRaw = [...freshRaw, ...storedRaw];
+  // Merge: mới trước, lịch sử sau, deduplicate theo id
   const seen = new Set();
-  const mergedRaw = allRaw.filter(r => {
+  const mergedRaw = [...freshRaw, ...historyRaw].filter(r => {
     const id = r.id || r.datetime;
     if (!id || seen.has(id)) return false;
     seen.add(id);
     return true;
   }).slice(0, MAX_REPORTS);
 
-  // 4. Lưu lại vào localStorage
-  saveToStorage(mergedRaw);
-
-  // 5. Normalize để hiển thị
+  // Normalize để hiển thị
   const seen2 = new Set();
   allReports = mergedRaw.map(normalizeReport).filter(Boolean)
     .filter(r => {
