@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604201415","datetime":"2026-04-20T14:15:27+07:00","date_display":"20/04/2026","time_display":"14:15","instrument":"USATECM2026","archetype":"Báo cáo 4H – 14:15","price_current":"26702.5","raw":{
-  "instrument": "NQ/US100",
-  "archetype": "Báo cáo 4H – 14:00",
-  "timestamp": "2026-04-17T14:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202604201430","datetime":"2026-04-20T14:30:30+07:00","date_display":"20/04/2026","time_display":"14:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 14:30","price_current":"4797.81","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 14:30",
+  "timestamp": "2026-04-18T14:30:00+07:00",
   "summary": {
-    "primary_bias": "Bullish",
-    "bias_direction": "Bullish",
-    "confidence_level": "Trung bình (50-74%)",
-    "current_price": 26702.5,
-    "key_insight": "NQ duy trì xu hướng tăng đa khung với EMA alignment bullish mạnh trên D1-H4. Tuy nhiên RSI overbought cảnh báo momentum có thể chậm lại ngắn hạn.",
-    "headline": "NQ bullish mạnh nhưng cần cảnh giác RSI overbought"
+    "primary_bias": "Chờ xác nhận",
+    "bias_direction": "Chờ xác nhận",
+    "confidence_level": "Thấp (25-49%)",
+    "current_price": 4797.81,
+    "key_insight": "D1/H4/H1 trend bullish nhưng M15 bearish với doji signal. Bollinger Bands squeeze báo hiệu breakout sắp tới, cần xác nhận hướng.",
+    "headline": "Vàng trong trạng thái squeeze chờ breakout quyết định"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng mạnh với EMA alignment hoàn hảo",
+      "trend": "Xu hướng tăng chính trên D1",
       "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Overbought",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bullish",
-      "key_levels": "Vùng kháng cự quan trọng quanh 26881, hỗ trợ mạnh tại 26530"
+      "key_levels": "Prev day high 4889.42 là resistance chính, support tại 4767.6"
     },
     "H4": {
       "bias": "Bullish",
-      "trend": "Tiếp tục xu hướng tăng với EMA alignment bullish",
-      "structure": "Duy trì cấu trúc tăng với higher highs",
-      "ema_alignment": "Full Bullish",
-      "rsi_zone": "Overbought",
+      "trend": "Bullish nhưng có dấu hiệu chậm lại",
+      "structure": "Cấu trúc tăng còn nguyên vẹn",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bearish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [26713.75, 26843.5],
-        "support": [26680, 26630]
+        "resistance": [4814.62, 4889.42],
+        "support": [4779.69, 4767.6]
       }
     },
     "H1": {
       "bias": "Bullish",
-      "trend": "Bullish nhưng momentum giảm do MACD bearish",
-      "intraday_story": "Price action tích cực nhưng momentum indicators cho tín hiệu phân kỳ",
-      "rsi_zone": "Bullish Zone",
+      "trend": "Duy trì bullish trend",
+      "intraday_story": "H1 bullish nhưng momentum giảm với MACD bearish",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bearish"
     },
     "M15": {
-      "bias": "Bullish",
-      "trend": "Ngắn hạn bullish với expanding momentum",
-      "trigger_setup": "Bullish Pin Bar formation với high volume confirmation",
-      "structure": "LH/LL - Bearish Structure",
+      "bias": "Bearish",
+      "trend": "Short-term bearish pressure",
+      "trigger_setup": "BB squeeze với doji pattern chờ breakout",
+      "structure": "Mixed/Range Structure",
       "momentum": "Expanding",
-      "candle_pattern": "Bullish Pin Bar"
+      "candle_pattern": "Doji"
     }
   },
   "key_levels": {
-    "current_price": 26702.5,
-    "resistance": [26713.75, 26843.5],
-    "support": [26680, 26630],
-    "swing_high": 26713.75,
-    "swing_low": 26610.5,
-    "prev_day_high": 26881.25,
-    "prev_day_low": 26439
+    "current_price": 4797.81,
+    "resistance": [4805.74, 4814.62],
+    "support": [4794.23, 4779.69],
+    "swing_high": 4796.07,
+    "swing_low": 4779.69,
+    "prev_day_high": 4889.42,
+    "prev_day_low": 4767.6
   },
   "confluence_analysis": {
-    "bullish_factors": ["Full EMA alignment D1-H4", "Bullish Pin Bar M15", "High volume confirmation", "Price above all major EMAs"],
-    "bearish_factors": ["RSI overbought D1-H4", "MACD bearish divergence H4-H1", "M15 structure shows LH/LL pattern"],
-    "dominant_bias": "Bullish"
+    "bullish_factors": ["D1/H4/H1 trend bullish", "MACD histogram tăng", "Price above key support 4779.69"],
+    "bearish_factors": ["M15 bearish với EMA full bearish", "H4/H1 MACD bearish divergence", "Doji pattern cho thấy indecision"],
+    "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Pullback về vùng 26680-26670 để entry long với confluence EMA20",
-      "target": [26750, 26800],
-      "stop_loss": 26650,
-      "risk_reward": "1:2.3",
-      "probability": 65
+      "setup": "Breakout khỏi BB squeeze lên trên 4805.74 với volume confirmation",
+      "target": [4814.62, 4825.00],
+      "stop_loss": 4790.00,
+      "risk_reward": "1:2.1",
+      "probability": 45
     },
     "alternative_scenario": {
-      "bias": "Bullish",
-      "setup": "Breakout trên 26714 với volume confirmation cho push lên 26850",
-      "target": [26850],
-      "stop_loss": 26680,
-      "risk_reward": "1:4.2",
+      "bias": "Bearish",
+      "setup": "Breakdown khỏi squeeze xuống dưới 4790 với M15 momentum",
+      "target": [4779.69],
+      "stop_loss": 4805.74,
+      "risk_reward": "1:1.5",
       "probability": 35
     },
     "invalidation_scenario": {
       "bias": "Bearish",
-      "setup": "Break dưới 26650 với momentum mạnh invalidate bullish bias",
-      "target": [26600],
-      "stop_loss": 26720,
-      "risk_reward": "1:2.5",
-      "probability": 25
+      "setup": "Break xuống dưới 4779.69 với volume mạnh",
+      "target": [4767.6],
+      "stop_loss": 4790.00,
+      "risk_reward": "1:1.1",
+      "probability": 20
     }
   },
-  "risk_factors": ["RSI overbought có thể trigger pullback", "MACD bearish divergence H4-H1", "Volume có thể giảm trong session"],
-  "catalyst_watch": ["US tech earnings season", "Fed policy updates"],
+  "risk_factors": ["Conflicting signals giữa các timeframe", "BB squeeze có thể false breakout", "Volume chỉ ở mức normal"],
+  "catalyst_watch": ["US Dollar strength", "Fed policy signals"],
   "execution_plan": {
-    "entry_zone": "26680-26670 pullback zone",
-    "entry_condition": "Bounce từ EMA20 với bullish candle confirmation",
-    "position_sizing": "Conservative 1-2% risk do RSI overbought",
-    "session_focus": "US session opening",
-    "key_time": "15:30 market open"
+    "entry_zone": "Chờ breakout khỏi range 4790-4805",
+    "entry_condition": "Breakout với candle confirmation và volume tăng",
+    "position_sizing": "Position nhỏ do uncertainty cao",
+    "session_focus": "US session cho volatility cao hơn",
+    "key_time": "Theo dõi trong 2-3 candle tới"
   },
   "action_checklist": {
-    "immediate": ["Monitor RSI levels cho pullback signal", "Watch volume at resistance 26714"],
-    "pre_trade": ["Confirm EMA20 holding as support", "Check broader market sentiment"],
-    "monitoring": ["Track MACD histogram recovery", "Monitor volume profile"]
+    "immediate": ["Theo dõi BB squeeze breakout", "Watch volume confirmation"],
+    "pre_trade": ["Chờ clear breakout signal", "Xác nhận không có news impact"],
+    "monitoring": ["Track M15 momentum change", "Monitor higher timeframe alignment"]
   },
-  "dashboard_summary": "NQ bullish mạnh đa khung nhưng RSI overbought cảnh báo pullback ngắn hạn. Setup chờ dip buy tại EMA20.",
-  "telegram_summary": "🟢 NQ Bullish mạnh 26702 | RSI overbought cảnh báo pullback | Chờ dip buy 26680-26670 | Target 26750-26800 📈"
+  "dashboard_summary": "Vàng trong BB squeeze chờ breakout. Conflicting signals giữa timeframes cần patience.",
+  "telegram_summary": "🟡XAUUSD 4797.81 - BB squeeze chờ breakout. D1/H4 bullish vs M15 bearish. Chờ xác nhận hướng breakout above 4805 hoặc below 4790. Risk management ketat! 📊"
 },"docx_url":""}]}
