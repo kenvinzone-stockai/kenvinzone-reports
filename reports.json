@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604201045","datetime":"2026-04-20T10:45:27+07:00","date_display":"20/04/2026","time_display":"10:45","instrument":"XAUUSD","archetype":"Báo cáo 4H – 10:45","price_current":"4793.68","raw":{
-  "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 10:30",
-  "timestamp": "2026-04-15T10:30:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202604201415","datetime":"2026-04-20T14:15:27+07:00","date_display":"20/04/2026","time_display":"14:15","instrument":"USATECM2026","archetype":"Báo cáo 4H – 14:15","price_current":"26702.5","raw":{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 14:00",
+  "timestamp": "2026-04-17T14:00:00+07:00",
   "summary": {
-    "primary_bias": "Chờ xác nhận",
-    "bias_direction": "Chờ xác nhận",
-    "confidence_level": "Thấp (25-49%)",
-    "current_price": 4793.68,
-    "key_insight": "Thị trường đang trong tình trạng xung đột đa khung với D1/H4/H1 bullish nhưng M15 bearish structure. Price đang test vùng support quan trọng 4790-4795.",
-    "headline": "XAUUSD xung đột đa khung - chờ breakout direction khỏi squeeze"
+    "primary_bias": "Bullish",
+    "bias_direction": "Bullish",
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 26702.5,
+    "key_insight": "NQ duy trì xu hướng tăng đa khung với EMA alignment bullish mạnh trên D1-H4. Tuy nhiên RSI overbought cảnh báo momentum có thể chậm lại ngắn hạn.",
+    "headline": "NQ bullish mạnh nhưng cần cảnh giác RSI overbought"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng dài hạn được duy trì",
-      "structure": "Mixed Range",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
+      "trend": "Xu hướng tăng mạnh với EMA alignment hoàn hảo",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Overbought",
       "macd_bias": "Bullish",
-      "key_levels": "Vùng 4767-4889 là range quan trọng D1"
+      "key_levels": "Vùng kháng cự quan trọng quanh 26881, hỗ trợ mạnh tại 26530"
     },
     "H4": {
       "bias": "Bullish",
-      "trend": "Bullish nhưng momentum suy yếu",
-      "structure": "Mixed consolidation pattern",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
+      "trend": "Tiếp tục xu hướng tăng với EMA alignment bullish",
+      "structure": "Duy trì cấu trúc tăng với higher highs",
+      "ema_alignment": "Full Bullish",
+      "rsi_zone": "Overbought",
       "macd_bias": "Bearish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [4814.62, 4829.82],
-        "support": [4788.84, 4767.60]
+        "resistance": [26713.75, 26843.5],
+        "support": [26680, 26630]
       }
     },
     "H1": {
       "bias": "Bullish",
-      "trend": "Bullish structure nhưng momentum giảm",
-      "intraday_story": "Price đang test support trong trend bullish H1",
-      "rsi_zone": "Neutral",
+      "trend": "Bullish nhưng momentum giảm do MACD bearish",
+      "intraday_story": "Price action tích cực nhưng momentum indicators cho tín hiệu phân kỳ",
+      "rsi_zone": "Bullish Zone",
       "macd_bias": "Bearish"
     },
     "M15": {
-      "bias": "Bearish",
-      "trend": "Lower highs, lower lows bearish structure",
-      "trigger_setup": "BB squeeze breakout pending - chờ direction",
-      "structure": "LH/LL Bearish Structure",
-      "momentum": "Weakening",
-      "candle_pattern": "None"
+      "bias": "Bullish",
+      "trend": "Ngắn hạn bullish với expanding momentum",
+      "trigger_setup": "Bullish Pin Bar formation với high volume confirmation",
+      "structure": "LH/LL - Bearish Structure",
+      "momentum": "Expanding",
+      "candle_pattern": "Bullish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 4793.68,
-    "resistance": [4802.12, 4814.62],
-    "support": [4788.84, 4767.60],
-    "swing_high": 4814.62,
-    "swing_low": 4737.08,
-    "prev_day_high": 4889.42,
-    "prev_day_low": 4767.60
+    "current_price": 26702.5,
+    "resistance": [26713.75, 26843.5],
+    "support": [26680, 26630],
+    "swing_high": 26713.75,
+    "swing_low": 26610.5,
+    "prev_day_high": 26881.25,
+    "prev_day_low": 26439
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 trend bullish", "H4/H1 bias bullish", "MACD histogram tăng", "Price trên major support 4767"],
-    "bearish_factors": ["M15 bearish structure", "EMA full bearish alignment M15", "H4/H1 MACD bearish", "Low volume", "Price dưới EMA 20/50/200"],
-    "dominant_bias": "Mixed"
+    "bullish_factors": ["Full EMA alignment D1-H4", "Bullish Pin Bar M15", "High volume confirmation", "Price above all major EMAs"],
+    "bearish_factors": ["RSI overbought D1-H4", "MACD bearish divergence H4-H1", "M15 structure shows LH/LL pattern"],
+    "dominant_bias": "Bullish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Bounce từ support 4788-4790 với xác nhận bullish M15",
-      "target": [4802.12, 4814.62],
-      "stop_loss": 4785.00,
-      "risk_reward": "1:2.4",
-      "probability": 45
+      "setup": "Pullback về vùng 26680-26670 để entry long với confluence EMA20",
+      "target": [26750, 26800],
+      "stop_loss": 26650,
+      "risk_reward": "1:2.3",
+      "probability": 65
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Break support 4788 với volume tăng và M15 confirmation",
-      "target": [4767.60],
-      "stop_loss": 4795.00,
-      "risk_reward": "1:3.5",
+      "bias": "Bullish",
+      "setup": "Breakout trên 26714 với volume confirmation cho push lên 26850",
+      "target": [26850],
+      "stop_loss": 26680,
+      "risk_reward": "1:4.2",
       "probability": 35
     },
     "invalidation_scenario": {
-      "bias": "Neutral",
-      "setup": "Sideways consolidation trong range 4788-4802",
-      "target": [4800.00],
-      "stop_loss": 4785.00,
-      "risk_reward": "1:1",
-      "probability": 20
+      "bias": "Bearish",
+      "setup": "Break dưới 26650 với momentum mạnh invalidate bullish bias",
+      "target": [26600],
+      "stop_loss": 26720,
+      "risk_reward": "1:2.5",
+      "probability": 25
     }
   },
-  "risk_factors": ["Xung đột signal đa khung", "BB squeeze có thể breakout false", "Low volume môi trường", "NFP/CPI catalyst risk"],
-  "catalyst_watch": ["US NFP data", "Fed speakers", "DXY movement"],
+  "risk_factors": ["RSI overbought có thể trigger pullback", "MACD bearish divergence H4-H1", "Volume có thể giảm trong session"],
+  "catalyst_watch": ["US tech earnings season", "Fed policy updates"],
   "execution_plan": {
-    "entry_zone": "4788-4790 support test hoặc 4802 resistance break",
-    "entry_condition": "M15 structure confirmation + volume spike",
-    "position_sizing": "Reduced size do mixed signals",
-    "session_focus": "London/NY overlap",
-    "key_time": "14:30-16:00 GMT+7"
+    "entry_zone": "26680-26670 pullback zone",
+    "entry_condition": "Bounce từ EMA20 với bullish candle confirmation",
+    "position_sizing": "Conservative 1-2% risk do RSI overbought",
+    "session_focus": "US session opening",
+    "key_time": "15:30 market open"
   },
   "action_checklist": {
-    "immediate": ["Monitor 4788 support level", "Watch BB squeeze breakout direction"],
-    "pre_trade": ["Confirm M15 structure alignment", "Check volume confirmation"],
-    "monitoring": ["DXY correlation", "4788/4802 level reaction", "MACD divergence M15"]
+    "immediate": ["Monitor RSI levels cho pullback signal", "Watch volume at resistance 26714"],
+    "pre_trade": ["Confirm EMA20 holding as support", "Check broader market sentiment"],
+    "monitoring": ["Track MACD histogram recovery", "Monitor volume profile"]
   },
-  "dashboard_summary": "XAUUSD trong giai đoạn xung đột đa khung với BB squeeze pending breakout. Chờ confirmation direction.",
-  "telegram_summary": "🥇 XAUUSD mixed signals - D1/H4 bull vs M15 bear. Price @ 4793.68 test support 4788. BB squeeze breakout pending. Chờ direction confirmation. Risk ⚠️"
+  "dashboard_summary": "NQ bullish mạnh đa khung nhưng RSI overbought cảnh báo pullback ngắn hạn. Setup chờ dip buy tại EMA20.",
+  "telegram_summary": "🟢 NQ Bullish mạnh 26702 | RSI overbought cảnh báo pullback | Chờ dip buy 26680-26670 | Target 26750-26800 📈"
 },"docx_url":""}]}
