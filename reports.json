@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604211830","datetime":"2026-04-21T18:30:27+07:00","date_display":"21/04/2026","time_display":"18:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 18:30","price_current":"4783.52","raw":{
-  "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 18:30",
-  "timestamp": "2026-04-09T18:30:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202604212215","datetime":"2026-04-21T22:15:25+07:00","date_display":"21/04/2026","time_display":"22:15","instrument":"USATECM2026","archetype":"Báo cáo 4H – 22:15","price_current":"26759.75","raw":{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 22:00",
+  "timestamp": "2026-04-21T22:00:00+07:00",
   "summary": {
-    "primary_bias": "Chờ xác nhận",
-    "bias_direction": "Chờ xác nhận",
-    "confidence_level": "Thấp (25-49%)",
-    "current_price": 4783.52,
-    "key_insight": "Xung đột đa khung với D1 Bullish nhưng H4 Bearish. M15 có Bullish Pin Bar nhưng trong xu hướng giảm. BB Squeeze báo hiệu breakout sắp tới.",
-    "headline": "Vàng đang trong vùng xung đột đa khung, chờ xác nhận hướng breakout"
+    "primary_bias": "Bullish",
+    "bias_direction": "Bullish",
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 26759.75,
+    "key_insight": "D1 và H4 cùng bias Bullish với EMA alignment mạnh, nhưng M15 xuất hiện divergence với MACD Bearish và RSI ở vùng yếu. Cần chờ xác nhận breakout swing high 26900.75.",
+    "headline": "NQ giữ bias Bullish nhưng cần vượt 26900 để xác nhận"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Bullish trend với MACD Bullish",
-      "structure": "Mixed Range",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
+      "trend": "Xu hướng tăng mạnh với EMA alignment hoàn hảo",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Overbought",
       "macd_bias": "Bullish",
-      "key_levels": "Prev day range 4737-4827, close tại 4783 gần giữa range"
+      "key_levels": "Vùng support mạnh tại 26715, resistance quan trọng 26900"
     },
     "H4": {
-      "bias": "Bearish",
-      "trend": "Bearish trend với MACD Bearish",
-      "structure": "Bearish structure với áp lực giảm",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
+      "bias": "Bullish",
+      "trend": "Tiếp tục xu hướng tăng với cấu trúc HH/HL",
+      "structure": "HH/HL Bullish với momentum đang chững lại",
+      "ema_alignment": "Full Bullish",
+      "rsi_zone": "Bullish Zone",
       "macd_bias": "Bearish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [4792.71, 4797.11],
-        "support": [4772.42, 4775.84]
+        "resistance": [26900.75, 26950],
+        "support": [26725.25, 26661.25]
       }
     },
     "H1": {
       "bias": "Bullish",
-      "trend": "Bullish trend nhưng RSI trong Bearish Zone",
-      "intraday_story": "H1 Bullish bias nhưng có dấu hiệu yếu dần với MACD Bearish",
-      "rsi_zone": "Bearish Zone",
+      "trend": "Duy trì trend tăng nhưng momentum chậm lại",
+      "intraday_story": "Price action cho thấy sự phân vân khi MACD chuyển Bearish trong trend Bullish",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bearish"
     },
     "M15": {
-      "bias": "Bearish",
-      "trend": "Bearish trend với LH/LL structure",
-      "trigger_setup": "Bullish Pin Bar trong BB Squeeze, có thể là reversal signal",
-      "structure": "LH/LL - Bearish Structure",
-      "momentum": "Weakening",
+      "bias": "Neutral",
+      "trend": "Mixed signals với Bullish structure nhưng momentum indicators yếu",
+      "trigger_setup": "Bullish Pin Bar tại 26759.75, chờ break 26770 để xác nhận",
+      "structure": "Mixed/Range Structure",
+      "momentum": "Expanding",
       "candle_pattern": "Bullish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 4783.52,
-    "resistance": [4792.71, 4797.11],
-    "support": [4772.42, 4775.84],
-    "swing_high": 4792.71,
-    "swing_low": 4772.42,
-    "prev_day_high": 4827.68,
-    "prev_day_low": 4737.08
+    "current_price": 26759.75,
+    "resistance": [26900.75, 26856.25],
+    "support": [26725.25, 26661.25],
+    "swing_high": 26900.75,
+    "swing_low": 26725.25,
+    "prev_day_high": 26823.75,
+    "prev_day_low": 26533.75
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 Bullish trend", "M15 Bullish Pin Bar", "MACD histogram tăng (+0.87)"],
-    "bearish_factors": ["H4 Bearish trend", "M15 Full Bearish EMA alignment", "Price dưới tất cả EMA"],
-    "dominant_bias": "Mixed"
+    "bullish_factors": ["D1 Full Bullish EMA alignment", "H4 HH/HL structure intact", "Bullish Pin Bar formation M15"],
+    "bearish_factors": ["MACD divergence H4/H1/M15", "RSI M15 ở Bearish Zone", "Momentum weakening H4"],
+    "dominant_bias": "Bullish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Long nếu break trên 4790 với volume confirmation sau BB Squeeze breakout",
-      "target": [4797.11, 4810.36],
-      "stop_loss": 4775.84,
+      "setup": "Break và hold trên 26900.75 với volume confirmation",
+      "target": [26950, 27000],
+      "stop_loss": 26661.25,
       "risk_reward": "1:2.0",
-      "probability": 45
+      "probability": 65
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Short nếu break dưới 4775 với rejection tại resistance",
-      "target": [4772.42],
-      "stop_loss": 4790.39,
+      "bias": "Neutral",
+      "setup": "Range trading giữa 26725-26900 khi thiếu momentum",
+      "target": [26850],
+      "stop_loss": 26700,
       "risk_reward": "1:1.5",
-      "probability": 35
+      "probability": 25
     },
     "invalidation_scenario": {
       "bias": "Bearish",
-      "setup": "Break dưới 4772 invalidate Bullish Pin Bar",
-      "target": [4760],
-      "stop_loss": 4785,
-      "risk_reward": "1:1.8",
-      "probability": 20
+      "setup": "Break xuống 26661.25 với volume mạnh",
+      "target": [26533.75],
+      "stop_loss": 26725.25,
+      "risk_reward": "1:2.0",
+      "probability": 10
     }
   },
-  "risk_factors": ["Xung đột đa khung tạo whipsaw", "BB Squeeze có thể breakout fake", "Volume thấp (0.98 ratio)"],
-  "catalyst_watch": ["US Dollar movement", "Fed policy expectations"],
+  "risk_factors": ["MACD divergence đa khung thời gian", "RSI M15 ở vùng yếu trong uptrend", "Volume chỉ ở mức Normal"],
+  "catalyst_watch": ["US Tech earnings season", "Fed policy signals"],
   "execution_plan": {
-    "entry_zone": "4785-4790 cho Long, 4775-4780 cho Short",
-    "entry_condition": "Chờ breakout khỏi BB Squeeze với volume confirmation",
-    "position_sizing": "Giảm size 50% do uncertainty cao",
-    "session_focus": "US session opening",
-    "key_time": "London-NY overlap 20:00-22:00"
+    "entry_zone": "26770-26780 sau break swing high",
+    "entry_condition": "Break 26900.75 với close mạnh + volume tăng",
+    "position_sizing": "Conservative 1-2% risk do mixed signals",
+    "session_focus": "US evening session",
+    "key_time": "22:00-02:00 UTC+7"
   },
   "action_checklist": {
-    "immediate": ["Monitor BB Squeeze breakout direction", "Watch volume tại key levels"],
-    "pre_trade": ["Confirm direction với 2 candles liên tiếp", "Set alerts tại 4790 và 4775"],
-    "monitoring": ["Theo dõi USD strength", "Watch rejection tại swing levels"]
+    "immediate": ["Monitor break 26900.75", "Watch volume confirmation"],
+    "pre_trade": ["Confirm D1 trend intact", "Check news catalyst"],
+    "monitoring": ["MACD histogram recovery", "RSI exit Bearish Zone M15"]
   },
-  "dashboard_summary": "Vàng trong trạng thái indecision với D1 Bull vs H4 Bear. M15 Pin Bar + BB Squeeze signal breakout sắp tới.",
-  "telegram_summary": "🥇 XAUUSD 4783: Xung đột đa khung D1📈 vs H4📉. M15 Pin Bar + BB Squeeze⚡ Chờ breakout 4790↗️ hoặc 4775↘️. Size nhỏ! #GoldTrading"
+  "dashboard_summary": "NQ duy trì bias Bullish D1/H4 nhưng có divergence warning M15. Key level 26900.75.",
+  "telegram_summary": "🟡 NQ: Bullish bias D1/H4 vs MACD divergence M15. Key: break 26900.75. Risk 26661. Target 26950-27000. Conservative size."
 },"docx_url":""}]}
