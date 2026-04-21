@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604211815","datetime":"2026-04-21T18:15:26+07:00","date_display":"21/04/2026","time_display":"18:15","instrument":"USATECM2026","archetype":"Báo cáo 4H – 18:15","price_current":"26853.75","raw":{
-  "instrument": "NQ/US100",
-  "archetype": "Báo cáo 4H – 18:00",
-  "timestamp": "2026-04-15T18:15:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202604211830","datetime":"2026-04-21T18:30:27+07:00","date_display":"21/04/2026","time_display":"18:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 18:30","price_current":"4783.52","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 18:30",
+  "timestamp": "2026-04-09T18:30:00+07:00",
   "summary": {
-    "primary_bias": "Bullish",
-    "bias_direction": "Bullish",
-    "confidence_level": "Cao (75%+)",
-    "current_price": 26853.75,
-    "key_insight": "NQ đang trong xu hướng tăng mạnh với cấu trúc HH/HL bullish trên tất cả khung thời gian. RSI D1/H4 overbought nhưng momentum vẫn duy trì tích cực.",
-    "headline": "NQ tiếp tục xu hướng tăng với momentum bullish mạnh"
+    "primary_bias": "Chờ xác nhận",
+    "bias_direction": "Chờ xác nhận",
+    "confidence_level": "Thấp (25-49%)",
+    "current_price": 4783.52,
+    "key_insight": "Xung đột đa khung với D1 Bullish nhưng H4 Bearish. M15 có Bullish Pin Bar nhưng trong xu hướng giảm. BB Squeeze báo hiệu breakout sắp tới.",
+    "headline": "Vàng đang trong vùng xung đột đa khung, chờ xác nhận hướng breakout"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng mạnh với EMA alignment hoàn toàn bullish",
-      "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Overbought",
+      "trend": "Bullish trend với MACD Bullish",
+      "structure": "Mixed Range",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bullish",
-      "key_levels": "Vùng giá trên 26850 cho thấy sức mạnh của bulls"
+      "key_levels": "Prev day range 4737-4827, close tại 4783 gần giữa range"
     },
     "H4": {
-      "bias": "Bullish",
-      "trend": "Tiếp tục xu hướng tăng với EMA alignment bullish",
-      "structure": "Cấu trúc bullish được duy trì",
-      "ema_alignment": "Full Bullish",
-      "rsi_zone": "Overbought",
+      "bias": "Bearish",
+      "trend": "Bearish trend với MACD Bearish",
+      "structure": "Bearish structure với áp lực giảm",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bearish",
-      "momentum": "Neutral",
+      "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [26881.75, 26900],
-        "support": [26837, 26815.8]
+        "resistance": [4792.71, 4797.11],
+        "support": [4772.42, 4775.84]
       }
     },
     "H1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng ngắn hạn được duy trì",
-      "intraday_story": "Giá duy trì trên các EMA chính với MACD bullish",
-      "rsi_zone": "Bullish Zone",
-      "macd_bias": "Bullish"
+      "trend": "Bullish trend nhưng RSI trong Bearish Zone",
+      "intraday_story": "H1 Bullish bias nhưng có dấu hiệu yếu dần với MACD Bearish",
+      "rsi_zone": "Bearish Zone",
+      "macd_bias": "Bearish"
     },
     "M15": {
-      "bias": "Bullish",
-      "trend": "Bullish với cấu trúc HH/HL rõ ràng",
-      "trigger_setup": "Pullback về vùng 26837-26815 để entry long",
-      "structure": "HH/HL - Bullish Structure",
-      "momentum": "Neutral",
-      "candle_pattern": "None"
+      "bias": "Bearish",
+      "trend": "Bearish trend với LH/LL structure",
+      "trigger_setup": "Bullish Pin Bar trong BB Squeeze, có thể là reversal signal",
+      "structure": "LH/LL - Bearish Structure",
+      "momentum": "Weakening",
+      "candle_pattern": "Bullish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 26853.75,
-    "resistance": [26881.75, 26900],
-    "support": [26837, 26815.8],
-    "swing_high": 26856.25,
-    "swing_low": 26795.5,
-    "prev_day_high": 26823.75,
-    "prev_day_low": 26533.75
+    "current_price": 4783.52,
+    "resistance": [4792.71, 4797.11],
+    "support": [4772.42, 4775.84],
+    "swing_high": 4792.71,
+    "swing_low": 4772.42,
+    "prev_day_high": 4827.68,
+    "prev_day_low": 4737.08
   },
   "confluence_analysis": {
-    "bullish_factors": ["Full EMA alignment trên tất cả khung", "Cấu trúc HH/HL bullish rõ ràng", "MACD bullish trên D1, H1, M15"],
-    "bearish_factors": ["RSI overbought trên D1/H4", "MACD bearish trên H4", "Volume cao có thể báo hiệu đỉnh ngắn hạn"],
-    "dominant_bias": "Bullish"
+    "bullish_factors": ["D1 Bullish trend", "M15 Bullish Pin Bar", "MACD histogram tăng (+0.87)"],
+    "bearish_factors": ["H4 Bearish trend", "M15 Full Bearish EMA alignment", "Price dưới tất cả EMA"],
+    "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Long pullback về vùng support 26837-26815 với confirmation",
-      "target": [26900, 26950],
-      "stop_loss": 26795,
-      "risk_reward": "1:2.8",
-      "probability": 75
+      "setup": "Long nếu break trên 4790 với volume confirmation sau BB Squeeze breakout",
+      "target": [4797.11, 4810.36],
+      "stop_loss": 4775.84,
+      "risk_reward": "1:2.0",
+      "probability": 45
     },
     "alternative_scenario": {
-      "bias": "Bullish",
-      "setup": "Breakout trên 26881.75 với volume confirmation",
-      "target": [26920],
-      "stop_loss": 26837,
-      "risk_reward": "1:2.1",
-      "probability": 65
+      "bias": "Bearish",
+      "setup": "Short nếu break dưới 4775 với rejection tại resistance",
+      "target": [4772.42],
+      "stop_loss": 4790.39,
+      "risk_reward": "1:1.5",
+      "probability": 35
     },
     "invalidation_scenario": {
       "bias": "Bearish",
-      "setup": "Break dưới 26795.5 với volume cao",
-      "target": [26750],
-      "stop_loss": 26837,
+      "setup": "Break dưới 4772 invalidate Bullish Pin Bar",
+      "target": [4760],
+      "stop_loss": 4785,
       "risk_reward": "1:1.8",
       "probability": 20
     }
   },
-  "risk_factors": ["RSI overbought có thể gây pullback", "MACD divergence trên H4", "Volume cao có thể báo hiệu exhaustion"],
-  "catalyst_watch": ["Tin tức Fed policy", "Earnings tech stocks"],
+  "risk_factors": ["Xung đột đa khung tạo whipsaw", "BB Squeeze có thể breakout fake", "Volume thấp (0.98 ratio)"],
+  "catalyst_watch": ["US Dollar movement", "Fed policy expectations"],
   "execution_plan": {
-    "entry_zone": "26837-26815 hoặc breakout 26881.75",
-    "entry_condition": "Confirmation candle + volume support",
-    "position_sizing": "Conservative 1-2% risk do overbought",
-    "session_focus": "US session overlap",
-    "key_time": "New York open"
+    "entry_zone": "4785-4790 cho Long, 4775-4780 cho Short",
+    "entry_condition": "Chờ breakout khỏi BB Squeeze với volume confirmation",
+    "position_sizing": "Giảm size 50% do uncertainty cao",
+    "session_focus": "US session opening",
+    "key_time": "London-NY overlap 20:00-22:00"
   },
   "action_checklist": {
-    "immediate": ["Theo dõi price action tại resistance 26881.75", "Watch for pullback opportunity"],
-    "pre_trade": ["Confirm volume on entry", "Set proper risk management"],
-    "monitoring": ["Watch RSI divergence", "Monitor MACD crossover trên H4"]
+    "immediate": ["Monitor BB Squeeze breakout direction", "Watch volume tại key levels"],
+    "pre_trade": ["Confirm direction với 2 candles liên tiếp", "Set alerts tại 4790 và 4775"],
+    "monitoring": ["Theo dõi USD strength", "Watch rejection tại swing levels"]
   },
-  "dashboard_summary": "NQ trong xu hướng tăng mạnh với cấu trúc bullish rõ ràng, cần chú ý RSI overbought để timing entry tốt hơn.",
-  "telegram_summary": "🚀 NQ bullish mạnh 26853 | Target 26900-26950 | Entry pullback 26837-26815 | Risk: RSI overbought ⚠️"
+  "dashboard_summary": "Vàng trong trạng thái indecision với D1 Bull vs H4 Bear. M15 Pin Bar + BB Squeeze signal breakout sắp tới.",
+  "telegram_summary": "🥇 XAUUSD 4783: Xung đột đa khung D1📈 vs H4📉. M15 Pin Bar + BB Squeeze⚡ Chờ breakout 4790↗️ hoặc 4775↘️. Size nhỏ! #GoldTrading"
 },"docx_url":""}]}
