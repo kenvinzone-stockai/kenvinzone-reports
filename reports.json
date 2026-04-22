@@ -1,49 +1,49 @@
-{"version":"1.0","reports":[{"id":"RPT-202604222215","datetime":"2026-04-22T22:15:29+07:00","date_display":"22/04/2026","time_display":"22:15","instrument":"USATECM2026","archetype":"Báo cáo 4H – 22:15","price_current":"26974","raw":{
+{"version":"1.0","reports":[{"id":"RPT-202604222218","datetime":"2026-04-22T22:18:29+07:00","date_display":"22/04/2026","time_display":"22:18","instrument":"USATECM2026","archetype":"Báo cáo 4H – 22:18","price_current":"26974","raw":{
   "instrument": "NQ/US100",
   "archetype": "Báo cáo 4H – 22:00",
-  "timestamp": "2026-04-15T22:00:00+07:00",
+  "timestamp": "2026-04-25T22:15:00+07:00",
   "summary": {
     "primary_bias": "Bullish",
     "bias_direction": "Bullish",
     "confidence_level": "Cao (75%+)",
     "current_price": 26974,
-    "key_insight": "NQ duy trì xu hướng tăng mạnh với cấu trúc HH/HL bullish trên M15, EMA alignment hoàn toàn bullish trên tất cả khung thời gian. Tuy nhiên RSI overbought trên D1/H4/H1 cần theo dõi pullback.",
-    "headline": "NQ bullish mạnh nhưng RSI overbought đa khung"
+    "key_insight": "Nasdaq duy trì momentum tăng mạnh với cấu trúc HH/HL rõ ràng trên tất cả khung. RSI vào vùng overbought đa khung nhưng MACD vẫn bullish, báo hiệu xu hướng tăng còn chưa hết sức.",
+    "headline": "NQ bullish mạnh - RSI overbought nhưng momentum chưa suy yếu"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng mạnh với EMA alignment hoàn toàn bullish",
+      "trend": "Xu hướng tăng mạnh với EMA alignment hoàn hảo",
       "structure": "HH/HL Bullish",
       "ema_alignment": "Full Bullish Alignment",
       "rsi_zone": "Overbought",
       "macd_bias": "Bullish",
-      "key_levels": "Vùng kháng cự quan trọng quanh 27000, hỗ trợ tại vùng EMA200"
+      "key_levels": "Vùng kháng cự quan trọng quanh 27000, hỗ trợ mạnh tại 26800"
     },
     "H4": {
       "bias": "Bullish",
-      "trend": "Tiếp tục xu hướng tăng với EMA alignment bullish",
-      "structure": "Cấu trúc tăng được duy trì",
-      "ema_alignment": "Full Bullish",
+      "trend": "Tăng mạnh nhưng MACD bắt đầu phân kỳ bearish",
+      "structure": "HH/HL với signs of momentum weakening",
+      "ema_alignment": "Full Bullish Alignment",
       "rsi_zone": "Overbought",
       "macd_bias": "Bearish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [27005.75, 27050],
-        "support": [26890, 26850]
+        "resistance": [27000, 27050],
+        "support": [26850, 26800]
       }
     },
     "H1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng ngắn hạn với RSI overbought",
-      "intraday_story": "Giá duy trì trên các EMA chính, momentum bullish nhưng RSI cao",
+      "trend": "Tiếp tục xu hướng tăng với RSI cao",
+      "intraday_story": "Giá test vùng 27000 và có signs of consolidation",
       "rsi_zone": "Overbought",
       "macd_bias": "Bullish"
     },
     "M15": {
       "bias": "Bullish",
-      "trend": "Cấu trúc HH/HL bullish rõ ràng",
-      "trigger_setup": "Doji tại vùng cao cho thấy sự do dự, chờ breakout hoặc pullback",
+      "trend": "Cấu trúc tăng rõ ràng nhưng momentum nén lại",
+      "trigger_setup": "Doji pattern tại vùng cao - chờ breakout hoặc pullback",
       "structure": "HH/HL - Bullish Structure",
       "momentum": "Neutral",
       "candle_pattern": "Doji"
@@ -51,58 +51,58 @@
   },
   "key_levels": {
     "current_price": 26974,
-    "resistance": [27005.75, 27050],
-    "support": [26890, 26850],
+    "resistance": [27000, 27050],
+    "support": [26850, 26800],
     "swing_high": 26899.25,
     "swing_low": 26810.5,
     "prev_day_high": 26900.75,
     "prev_day_low": 26550.75
   },
   "confluence_analysis": {
-    "bullish_factors": ["EMA alignment hoàn toàn bullish trên tất cả khung", "Cấu trúc HH/HL bullish trên M15", "Giá trên tất cả EMA chính"],
-    "bearish_factors": ["RSI overbought trên D1/H4/H1", "MACD bearish trên H4", "Doji pattern cho thấy sự do dự"],
+    "bullish_factors": ["Full EMA alignment trên tất cả khung", "Cấu trúc HH/HL rõ ràng", "MACD bullish trên D1 và H1", "Volume bình thường hỗ trợ momentum"],
+    "bearish_factors": ["RSI overbought đa khung", "MACD bearish divergence trên H4", "Doji pattern báo hiệu indecision", "Giá gần resistance 27000"],
     "dominant_bias": "Bullish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Pullback về vùng EMA20 (26890) hoặc EMA50 (26850) để long",
-      "target": [27000, 27050],
-      "stop_loss": 26820,
-      "risk_reward": "1:2.2",
+      "setup": "Breakout 27000 với volume confirmation hoặc pullback về EMA20 (26890) để buy",
+      "target": [27050, 27100],
+      "stop_loss": 26800,
+      "risk_reward": "1:2.8",
       "probability": 70
     },
     "alternative_scenario": {
-      "bias": "Bullish",
-      "setup": "Breakout trên 27005 với volume confirmation",
-      "target": [27080],
-      "stop_loss": 26950,
-      "risk_reward": "1:2.3",
-      "probability": 60
+      "bias": "Neutral",
+      "setup": "Consolidation trong range 26850-27000, trade breakout direction",
+      "target": [27000],
+      "stop_loss": 26820,
+      "risk_reward": "1:1.5",
+      "probability": 25
     },
     "invalidation_scenario": {
       "bias": "Bearish",
-      "setup": "Phá vỡ dưới EMA200 (26773) với volume cao",
+      "setup": "Break xuống 26800 với volume, RSI overbought correction",
       "target": [26700],
-      "stop_loss": 26800,
-      "risk_reward": "1:2.7",
-      "probability": 25
+      "stop_loss": 26900,
+      "risk_reward": "1:2",
+      "probability": 5
     }
   },
-  "risk_factors": ["RSI overbought đa khung có thể gây correction", "MACD bearish divergence trên H4", "Volume bình thường không xác nhận breakout mạnh"],
-  "catalyst_watch": ["Phá vỡ vùng kháng cự 27000-27005", "Pullback test EMA20/50 support"],
+  "risk_factors": ["RSI overbought có thể trigger correction", "MACD bearish divergence trên H4", "Doji pattern có thể báo hiệu reversal"],
+  "catalyst_watch": ["US GDP data", "Fed speakers events"],
   "execution_plan": {
-    "entry_zone": "26890-26850 cho long, hoặc breakout 27005",
-    "entry_condition": "Pullback có rejection candle tại support hoặc breakout với volume",
+    "entry_zone": "26890-26920 (pullback) hoặc breakout 27000",
+    "entry_condition": "Breakout 27000 với green candle + volume hoặc bounce từ EMA20",
     "position_sizing": "Conservative do RSI overbought",
-    "session_focus": "London/NY overlap",
-    "key_time": "22:00-02:00 GMT+7"
+    "session_focus": "US session continuation",
+    "key_time": "22:30 (potential volatility spike)"
   },
   "action_checklist": {
-    "immediate": ["Theo dõi reaction tại 27000 resistance", "Quan sát volume tại breakout levels"],
-    "pre_trade": ["Xác nhận pullback pattern tại EMA support", "Kiểm tra divergence signals"],
-    "monitoring": ["RSI exit overbought zone", "MACD histogram changes"]
+    "immediate": ["Monitor breakout 27000 level", "Watch for volume confirmation"],
+    "pre_trade": ["Confirm EMA20 holding as support", "Check broader market sentiment"],
+    "monitoring": ["RSI divergence signals", "Volume expansion on moves"]
   },
-  "dashboard_summary": "NQ bullish mạnh với EMA alignment hoàn hảo nhưng RSI overbought đa khung cảnh báo pullback ngắn hạn.",
-  "telegram_summary": "🔥NQ BULLISH mạnh! Cấu trúc HH/HL + EMA alignment hoàn hảo. ⚠️RSI overbought → chờ pullback 26890-26850 long target 27000+"
+  "dashboard_summary": "NQ bullish mạnh với full EMA alignment nhưng RSI overbought đa khung. Chờ breakout 27000 hoặc pullback về 26890.",
+  "telegram_summary": "🟢 NQ: Bullish mạnh, RSI overbought. Chờ breakout 27000 hoặc pullback 26890. Target 27050-27100. SL 26800."
 },"docx_url":""}]}
