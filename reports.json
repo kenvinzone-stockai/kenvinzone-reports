@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604242215","datetime":"2026-04-24T22:15:34+07:00","date_display":"24/04/2026","time_display":"22:15","instrument":"USATECM2026","archetype":"Báo cáo 4H – 22:15","price_current":"27316","raw":{
-  "instrument": "NQ/US100",
-  "archetype": "Báo cáo 4H – 22:00",
-  "timestamp": "2026-04-04T22:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202604242230","datetime":"2026-04-24T22:30:27+07:00","date_display":"24/04/2026","time_display":"22:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 22:30","price_current":"4722.05","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 22:30",
+  "timestamp": "2026-04-22T22:30:00+07:00",
   "summary": {
-    "primary_bias": "Bullish",
-    "bias_direction": "Bullish",
-    "confidence_level": "Cao (75%+)",
-    "current_price": 27316,
-    "key_insight": "US100 duy trì xu hướng tăng mạnh với đồng thuận đa khung D1-H4-H1. RSI vào vùng overbought nhưng momentum vẫn tích cực, chờ pullback về EMA20 (27229) để tìm entry.",
-    "headline": "NQ đạt đỉnh mới 27316, duy trì bias tăng mạnh đa khung"
+    "primary_bias": "Chờ xác nhận",
+    "bias_direction": "Chờ xác nhận",
+    "confidence_level": "Thấp (25-49%)",
+    "current_price": 4722.05,
+    "key_insight": "Xung đột tín hiệu giữa các khung thời gian với D1 Bullish nhưng H4/H1 Bearish. M15 cho tín hiệu Bullish với momentum yếu.",
+    "headline": "XAUUSD trong vùng tranh chấp, chờ breakout rõ ràng"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng mạnh với full EMA alignment",
-      "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Overbought",
+      "trend": "Xu hướng tăng dài hạn còn nguyên vẹn",
+      "structure": "Mixed Range",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bullish",
-      "key_levels": "Vùng 27300+ là đỉnh mới, support mạnh tại 27000"
+      "key_levels": "Vùng kháng cự quan trọng tại 4753.59, hỗ trợ mạnh 4664.45"
     },
     "H4": {
-      "bias": "Bullish",
-      "trend": "Tiếp tục xu hướng tăng với momentum tích cực",
-      "structure": "HH/HL pattern duy trì",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Overbought",
+      "bias": "Bearish",
+      "trend": "Điều chỉnh ngắn hạn trong xu hướng tăng dài hạn",
+      "structure": "Cấu trúc điều chỉnh với áp lực bán",
+      "ema_alignment": "Full Bearish",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bullish",
-      "momentum": "Expanding",
+      "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [27362.5, 27400],
-        "support": [27229, 27167]
+        "resistance": [4733.95, 4740.25],
+        "support": [4718.58, 4689.5]
       }
     },
     "H1": {
-      "bias": "Bullish",
-      "trend": "Duy trì trend tăng với cấu trúc tích cực",
-      "intraday_story": "Price action mạnh từ 27129 lên đỉnh 27316, có thể test lại EMA zones",
+      "bias": "Bearish",
+      "trend": "Xu hướng giảm ngắn hạn",
+      "intraday_story": "Áp lực bán trong phiên với RSI vẫn trong vùng tích cực",
       "rsi_zone": "Bullish Zone",
       "macd_bias": "Bullish"
     },
     "M15": {
       "bias": "Bullish",
-      "trend": "Bullish với cấu trúc HH/HL",
-      "trigger_setup": "Bullish Pin Bar formation sau test low 27285",
+      "trend": "Phục hồi ngắn hạn với momentum yếu",
+      "trigger_setup": "Doji pattern cho thấy sự do dự của thị trường",
       "structure": "HH/HL - Bullish Structure",
       "momentum": "Weakening",
-      "candle_pattern": "Bullish Pin Bar"
+      "candle_pattern": "Doji"
     }
   },
   "key_levels": {
-    "current_price": 27316,
-    "resistance": [27362.5, 27400],
-    "support": [27229, 27167],
-    "swing_high": 27362.5,
-    "swing_low": 27129.25,
-    "prev_day_high": 27154.75,
-    "prev_day_low": 26680.25
+    "current_price": 4722.05,
+    "resistance": [4733.95, 4740.25],
+    "support": [4718.58, 4689.5],
+    "swing_high": 4740.25,
+    "swing_low": 4689.5,
+    "prev_day_high": 4753.59,
+    "prev_day_low": 4664.45
   },
   "confluence_analysis": {
-    "bullish_factors": ["Full EMA alignment trên tất cả khung", "Bullish structure D1-H4-H1-M15", "Bullish Pin Bar M15", "MACD bullish D1-H4-H1", "Price trên tất cả EMAs"],
-    "bearish_factors": ["RSI overbought D1-H4", "MACD bearish M15", "Momentum weakening M15", "BB squeeze chờ breakout", "Volume ratio thấp 0.89"],
-    "dominant_bias": "Bullish"
+    "bullish_factors": ["D1 trend vẫn Bullish", "MACD Bullish across timeframes", "M15 structure HH/HL"],
+    "bearish_factors": ["H4 Full Bearish EMA alignment", "H4 và H1 trend Bearish", "M15 momentum weakening"],
+    "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
-      "bias": "Bullish",
-      "setup": "Mua trên pullback về vùng EMA20 (27229) hoặc breakout 27362.5",
-      "target": [27400, 27450],
-      "stop_loss": 27150,
+      "bias": "Neutral",
+      "setup": "Chờ breakout khỏi vùng 4718-4733 với volume xác nhận",
+      "target": [4740.25, 4753.59],
+      "stop_loss": 4710.0,
       "risk_reward": "1:2.2",
-      "probability": 75
+      "probability": 45
     },
     "alternative_scenario": {
       "bias": "Bullish",
-      "setup": "Scalp buy nếu hold trên 27285 với momentum recovery",
-      "target": [27350],
-      "stop_loss": 27280,
-      "risk_reward": "1:1.8",
-      "probability": 60
+      "setup": "Break above 4733.95 với volume tăng",
+      "target": [4740.25],
+      "stop_loss": 4718.58,
+      "risk_reward": "1:1.2",
+      "probability": 35
     },
     "invalidation_scenario": {
       "bias": "Bearish",
-      "setup": "Break xuống dưới 27150 với volume confirm",
-      "target": [27050],
-      "stop_loss": 27200,
-      "risk_reward": "1:2.0",
+      "setup": "Break below 4718.58 với momentum mạnh",
+      "target": [4689.5],
+      "stop_loss": 4726.37,
+      "risk_reward": "1:2.8",
       "probability": 20
     }
   },
-  "risk_factors": ["RSI overbought có thể gây pullback sâu", "MACD divergence M15 báo hiệu momentum yếu", "Volume thấp thiếu conviction"],
-  "catalyst_watch": ["US Tech earnings season", "Fed policy decision"],
+  "risk_factors": ["Xung đột tín hiệu đa khung thời gian", "Momentum M15 đang yếu", "Volume bình thường không hỗ trợ breakout"],
+  "catalyst_watch": ["US session volatility", "Economic data impact"],
   "execution_plan": {
-    "entry_zone": "27229-27250 (EMA20 zone) hoặc breakout 27362.5",
-    "entry_condition": "Bullish rejection tại EMA20 hoặc strong breakout với volume",
-    "position_sizing": "50% size do RSI overbought",
-    "session_focus": "US session mở cửa",
-    "key_time": "22:30-23:30 EST"
+    "entry_zone": "4718-4733 consolidation range",
+    "entry_condition": "Chờ breakout rõ ràng với volume xác nhận",
+    "position_sizing": "Position size thấp do uncertainty cao",
+    "session_focus": "US evening session",
+    "key_time": "22:30-00:00 UTC+7"
   },
   "action_checklist": {
-    "immediate": ["Monitor price reaction tại 27316 level", "Watch for pullback quality về EMA zones"],
-    "pre_trade": ["Confirm volume tăng trên breakout", "Check broader market sentiment", "Set alerts tại 27229 và 27362"],
-    "monitoring": ["Track RSI exit từ overbought", "Monitor MACD histogram recovery M15"]
+    "immediate": ["Monitor breakout khỏi range 4718-4733", "Watch volume confirmation"],
+    "pre_trade": ["Xác nhận direction với H1 close", "Check news catalyst"],
+    "monitoring": ["Track momentum indicators", "Monitor H4 EMA alignment changes"]
   },
-  "dashboard_summary": "NQ bullish mạnh đa khung, đạt 27316. Chờ pullback EMA20 (27229) hoặc breakout 27362.5.",
-  "telegram_summary": "🔥 NQ 27316 (+377 from prev close) | Bias: BULLISH | Entry: 27229 pullback hoặc 27362 BO | Target: 27400-450 | SL: 27150 📈"
+  "dashboard_summary": "XAUUSD trong giai đoạn consolidation với tín hiệu xung đột. Chờ breakout rõ ràng.",
+  "telegram_summary": "🟡 XAUUSD 4722 - Tín hiệu xung đột D1↗️ vs H4↘️. Range 4718-4733. Chờ breakout với vol xác nhận. Risk thấp."
 },"docx_url":""}]}
