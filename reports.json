@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202604290615","datetime":"2026-04-29T06:15:27+07:00","date_display":"29/04/2026","time_display":"06:15","instrument":"USATECM2026","archetype":"Báo cáo 4H – 06:15","price_current":"27218.5","raw":{
-  "instrument": "NQ/US100",
-  "archetype": "Báo cáo 4H – 06:00",
-  "timestamp": "2026-05-15T06:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202604290630","datetime":"2026-04-29T06:30:30+07:00","date_display":"29/04/2026","time_display":"06:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 06:30","price_current":"4592.21","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 06:30",
+  "timestamp": "2026-05-23T06:30:00+07:00",
   "summary": {
     "primary_bias": "Bearish",
     "bias_direction": "Bearish",
     "confidence_level": "Trung bình (50-74%)",
-    "current_price": 27218.5,
-    "key_insight": "Xung đột đa khung với D1-H1 Bullish nhưng H4 MACD Bearish và M15 trend Bearish. Bollinger Bands squeeze báo hiệu breakout sắp tới.",
-    "headline": "NQ trong vùng xung đột đa khung, chờ breakout từ BB squeeze"
+    "current_price": 4592.21,
+    "key_insight": "XAUUSD đang trong xu hướng giảm đa khung H4-H1 với RSI H4 oversold. M15 xuất hiện Bullish Pin Bar trong vùng Bollinger Squeeze, cảnh báo pullback ngắn hạn.",
+    "headline": "Gold bearish bias với cảnh báo pullback từ vùng oversold"
   },
   "market_structure": {
     "D1": {
-      "bias": "Bullish",
-      "trend": "Xu hướng tăng mạnh với EMA full bullish alignment",
-      "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Overbought",
-      "macd_bias": "Bullish",
-      "key_levels": "Vùng cao 27500+ đã test, support mạnh tại 27000"
+      "bias": "Neutral",
+      "trend": "Bullish nhưng momentum suy yếu",
+      "structure": "Mixed Range - xu hướng tăng dài hạn gặp kháng cự",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Bearish Zone",
+      "macd_bias": "Bearish",
+      "key_levels": "Vùng 4554-4701 là range lớn D1"
     },
     "H4": {
-      "bias": "Neutral",
-      "trend": "Trend bullish nhưng momentum yếu dần",
-      "structure": "Mixed Range Structure",
-      "ema_alignment": "Full Bullish",
-      "rsi_zone": "Neutral",
+      "bias": "Bearish",
+      "trend": "Xu hướng giảm rõ ràng",
+      "structure": "LH/LL Bearish với momentum mạnh",
+      "ema_alignment": "Full Bearish Alignment",
+      "rsi_zone": "Oversold",
       "macd_bias": "Bearish",
-      "momentum": "Weakening",
+      "momentum": "Expanding",
       "critical_levels": {
-        "resistance": [27250, 27300],
-        "support": [27150, 27100]
+        "resistance": [4599.72, 4601.39],
+        "support": [4591.16, 4589.17]
       }
     },
     "H1": {
-      "bias": "Bullish",
-      "trend": "Duy trì bias bullish với MACD positive",
-      "intraday_story": "Consolidation sau rally mạnh, RSI neutral cho thấy còn room tăng",
-      "rsi_zone": "Neutral",
+      "bias": "Bearish",
+      "trend": "Tiếp tục xu hướng giảm nhưng MACD bắt đầu bullish divergence",
+      "intraday_story": "Áp lực bán mạnh nhưng có dấu hiệu suy yếu momentum",
+      "rsi_zone": "Bearish Zone",
       "macd_bias": "Bullish"
     },
     "M15": {
-      "bias": "Bearish",
-      "trend": "Pullback bearish trong cấu trúc range lớn",
-      "trigger_setup": "BB squeeze breakout pending với volume thấp",
+      "bias": "Neutral",
+      "trend": "Bearish nhưng có tín hiệu đảo chiều ngắn hạn",
+      "trigger_setup": "Bullish Pin Bar tại support trong Bollinger Squeeze",
       "structure": "Mixed/Range Structure",
-      "momentum": "Weakening",
-      "candle_pattern": "None"
+      "momentum": "Expanding",
+      "candle_pattern": "Bullish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 27218.5,
-    "resistance": [27250.5, 27300],
-    "support": [27145.75, 27100],
-    "swing_high": 27223.5,
-    "swing_low": 27145.75,
-    "prev_day_high": 27511.25,
-    "prev_day_low": 27008.25
+    "current_price": 4592.21,
+    "resistance": [4599.72, 4601.39],
+    "support": [4591.16, 4589.17],
+    "swing_high": 4599.72,
+    "swing_low": 4591.16,
+    "prev_day_high": 4701.23,
+    "prev_day_low": 4554.71
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 trend Bullish + EMA alignment", "H1 MACD Bullish", "RSI 60.1 chưa overbought"],
-    "bearish_factors": ["H4 MACD Bearish divergence", "M15 trend Bearish", "BB squeeze cho breakout xuống"],
-    "dominant_bias": "Mixed"
+    "bullish_factors": ["RSI H4 oversold cho pullback", "MACD H1 bullish divergence", "Bullish Pin Bar M15 tại support"],
+    "bearish_factors": ["Full Bearish EMA alignment H4", "MACD D1/H4 bearish", "Giá dưới EMA20/50/200"],
+    "dominant_bias": "Bearish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bearish",
-      "setup": "BB squeeze breakout xuống dưới 27180, break swing low 27145",
-      "target": [27100, 27050],
-      "stop_loss": 27250,
-      "risk_reward": "1:2.2",
-      "probability": 55
+      "setup": "Chờ pullback về 4597-4599 để short continuation",
+      "target": [4589.17, 4585.00],
+      "stop_loss": 4602.00,
+      "risk_reward": "1:2.0",
+      "probability": 65
     },
     "alternative_scenario": {
       "bias": "Bullish",
-      "setup": "Bounce từ support 27150 với volume tăng",
-      "target": [27280],
-      "stop_loss": 27130,
+      "setup": "Long pullback từ oversold H4 nếu hold trên 4591",
+      "target": [4597.26],
+      "stop_loss": 4589.00,
       "risk_reward": "1:1.8",
-      "probability": 35
+      "probability": 30
     },
     "invalidation_scenario": {
       "bias": "Bullish",
-      "setup": "Break trên 27250 với momentum mạnh",
-      "target": [27350],
-      "stop_loss": 27180,
-      "risk_reward": "1:1.4",
-      "probability": 10
+      "setup": "Break và close trên 4602 invalidate bearish bias",
+      "target": [4610.00],
+      "stop_loss": 4595.00,
+      "risk_reward": "1:2.3",
+      "probability": 5
     }
   },
-  "risk_factors": ["Xung đột tín hiệu đa khung", "Volume thấp 0.39 thiếu conviction", "BB squeeze có thể breakout fake"],
-  "catalyst_watch": ["US Tech earnings season", "Fed policy update"],
+  "risk_factors": ["RSI H4 oversold có thể gây pullback mạnh", "Bollinger Squeeze báo hiệu breakout bất ngờ", "Volume thấp giảm độ tin cậy breakout"],
+  "catalyst_watch": ["Phản ứng tại support 4589-4591", "Breakout direction từ Bollinger Squeeze"],
   "execution_plan": {
-    "entry_zone": "27180-27150 cho short, 27150-27160 cho long",
-    "entry_condition": "Chờ BB breakout với volume confirmation",
-    "position_sizing": "Giảm size do xung đột tín hiệu",
-    "session_focus": "London-NY overlap",
-    "key_time": "07:00-09:00 GMT+7"
+    "entry_zone": "Vùng 4597-4599 cho short hoặc 4591-4592 cho long pullback",
+    "entry_condition": "Confirmation candle sau khi test key level",
+    "position_sizing": "Conservative do mixed signals",
+    "session_focus": "London open volatility",
+    "key_time": "07:00-09:00 GMT+7 cho breakout direction"
   },
   "action_checklist": {
-    "immediate": ["Monitor BB breakout direction", "Watch volume spike"],
-    "pre_trade": ["Confirm H4 MACD divergence", "Check support/resistance hold"],
-    "monitoring": ["RSI momentum shift", "EMA 200 reaction at 27267"]
+    "immediate": ["Monitor reaction tại 4591 support", "Watch for Bollinger Squeeze breakout direction"],
+    "pre_trade": ["Confirm volume expansion on breakout", "Check correlation với DXY"],
+    "monitoring": ["RSI divergence signals", "EMA reclaim/rejection patterns"]
   },
-  "dashboard_summary": "NQ trong giai đoạn consolidation với xung đột đa khung, BB squeeze chờ breakout quyết định hướng.",
-  "telegram_summary": "🔄 NQ 27218 - Xung đột đa khung. BB squeeze breakout pending. Watch 27150 support vs 27250 resistance. Entry chờ direction confirm."
+  "dashboard_summary": "XAUUSD bearish bias nhưng H4 oversold. Chờ pullback để short hoặc long bounce ngắn hạn.",
+  "telegram_summary": "🥇 GOLD: Bearish bias, H4 oversold. Chờ pullback 4597-99 short target 4589. Alt: long bounce từ 4591 target 4597. Risk: BB squeeze breakout"
 },"docx_url":""}]}
