@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202605080615","datetime":"2026-05-08T06:15:29+07:00","date_display":"08/05/2026","time_display":"06:15","instrument":"NAS100","archetype":"Báo cáo 4H – 06:15","price_current":"28505.9","raw":{
-  "instrument": "NAS100",
-  "archetype": "Báo cáo 4H – 06:00",
-  "timestamp": "2026-04-22T06:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202605080630","datetime":"2026-05-08T06:30:29+07:00","date_display":"08/05/2026","time_display":"06:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 06:30","price_current":"4696.5","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 06:30",
+  "timestamp": "2024-01-01T06:30:00+07:00",
   "summary": {
-    "primary_bias": "Chờ xác nhận",
-    "bias_direction": "Chờ xác nhận",
-    "confidence_level": "Thấp (25-49%)",
-    "current_price": 28505.9,
-    "key_insight": "NAS100 trong trạng thái xung đột tín hiệu với D1 bullish mạnh nhưng momentum ngắn hạn yếu. Bollinger Bands squeeze báo hiệu breakout sắp tới.",
-    "headline": "NAS100 chờ breakout từ vùng nén giá, xung đột tín hiệu đa khung"
+    "primary_bias": "Bearish",
+    "bias_direction": "Bearish",
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 4696.5,
+    "key_insight": "H4 Bearish với D1 Bullish tạo xung đột. M15 có Bullish Pin Bar nhưng cấu trúc LH/LL Bearish với momentum yếu. Vùng kháng cự quan trọng 4719-4720.",
+    "headline": "Xung đột đa khung - chờ xác nhận hướng từ H4"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng mạnh với EMA alignment hoàn hảo",
+      "trend": "Xu hướng tăng dài hạn còn nguyên vẹn",
       "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Overbought",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bullish",
-      "key_levels": "Vùng kháng cự mạnh tại 28822.65, hỗ trợ tại 28413.4"
+      "key_levels": "Vùng hỗ trợ D1 tại 4684-4685, kháng cự tại 4764"
     },
     "H4": {
-      "bias": "Neutral",
-      "trend": "Bullish nhưng có dấu hiệu chậm lại",
-      "structure": "Cấu trúc bullish nhưng momentum suy yếu",
-      "ema_alignment": "Full Bullish",
+      "bias": "Bearish",
+      "trend": "Điều chỉnh giảm trong xu hướng tăng lớn",
+      "structure": "Cấu trúc điều chỉnh Bearish ngắn hạn",
+      "ema_alignment": "Mixed",
       "rsi_zone": "Bullish Zone",
-      "macd_bias": "Bearish",
+      "macd_bias": "Bullish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [28644.2, 28822.65],
-        "support": [28461.2, 28432.3]
+        "resistance": [4719.24, 4720.54],
+        "support": [4684.83, 4676.28]
       }
     },
     "H1": {
-      "bias": "Neutral",
-      "trend": "Bullish nhưng thiếu momentum",
-      "intraday_story": "Giá dao động trong range hẹp, chờ catalyst để xác định hướng",
+      "bias": "Bullish",
+      "trend": "Phục hồi ngắn hạn trong điều chỉnh",
+      "intraday_story": "Tạo đáy tại 4681 và phục hồi, nhưng gặp kháng cự tại vùng 4700",
       "rsi_zone": "Neutral",
       "macd_bias": "Bearish"
     },
     "M15": {
       "bias": "Neutral",
-      "trend": "Mixed/Range với momentum nén lại",
-      "trigger_setup": "Bollinger Bands squeeze - chờ breakout direction",
-      "structure": "Mixed/Range Structure",
-      "momentum": "Neutral",
-      "candle_pattern": "None"
+      "trend": "Consolidation sau Bullish Pin Bar",
+      "trigger_setup": "Bullish Pin Bar tại 4691-4696, chờ breakout khỏi BB squeeze",
+      "structure": "LH/LL Bearish Structure",
+      "momentum": "Weakening",
+      "candle_pattern": "Bullish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 28505.9,
-    "resistance": [28644.2, 28822.65],
-    "support": [28461.2, 28432.3],
-    "swing_high": 28644.2,
-    "swing_low": 28461.2,
-    "prev_day_high": 28822.65,
-    "prev_day_low": 28432.3
+    "current_price": 4696.5,
+    "resistance": [4719.24, 4720.54],
+    "support": [4684.83, 4676.28],
+    "swing_high": 4719.24,
+    "swing_low": 4676.28,
+    "prev_day_high": 4764.73,
+    "prev_day_low": 4684.61
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 Full EMA Bullish Alignment", "Giá trên EMA200", "Trend dài hạn tích cực"],
-    "bearish_factors": ["MACD bearish đa khung H4-H1-M15", "RSI M15 trong vùng bearish", "Momentum yếu ngắn hạn"],
+    "bullish_factors": ["D1 MACD Bullish", "H4 RSI Bullish Zone", "M15 Bullish Pin Bar", "Giá trên EMA200 (4684.83)"],
+    "bearish_factors": ["H4 trend Bearish", "M15 LH/LL structure", "M15 momentum yếu", "Giá dưới EMA20-50", "Volume thấp"],
     "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
-      "bias": "Bullish",
-      "setup": "Breakout bullish từ Bollinger squeeze trên 28530, xác nhận bởi volume tăng",
-      "target": [28600, 28644.2],
-      "stop_loss": 28461.2,
-      "risk_reward": "1:2.1",
-      "probability": 45
+      "bias": "Bearish",
+      "setup": "Rejection tại vùng kháng cự 4719-4720, xác nhận bằng break dưới 4684",
+      "target": [4676.28, 4650.00],
+      "stop_loss": 4720.00,
+      "risk_reward": "1:2.0",
+      "probability": 60
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Breakdown dưới 28461.2 với volume confirmation",
-      "target": [28432.3],
-      "stop_loss": 28530,
-      "risk_reward": "1:1.5",
+      "bias": "Bullish",
+      "setup": "Break trên 4720 với volume tăng, xác nhận continuation D1",
+      "target": [4740.00],
+      "stop_loss": 4684.00,
+      "risk_reward": "1:1.2",
       "probability": 35
     },
     "invalidation_scenario": {
       "bias": "Bearish",
-      "setup": "Phá vỡ dưới 28432.3 - support D1 key",
-      "target": [28350],
-      "stop_loss": 28500,
-      "risk_reward": "1:1.2",
-      "probability": 20
+      "setup": "Break dưới 4676 với volume, test lại 4650-4660",
+      "target": [4650.00],
+      "stop_loss": 4690.00,
+      "risk_reward": "1:1.9",
+      "probability": 25
     }
   },
-  "risk_factors": ["Xung đột tín hiệu đa khung thời gian", "Volume thấp thiếu conviction", "RSI overbought D1 có thể điều chỉnh"],
-  "catalyst_watch": ["US session mở cửa", "Volume breakout confirmation"],
+  "risk_factors": ["Volume thấp giảm độ tin cậy", "Xung đột tín hiệu đa khung", "BB squeeze có thể breakout bất ngờ"],
+  "catalyst_watch": ["US session volume", "Breakout khỏi BB squeeze"],
   "execution_plan": {
-    "entry_zone": "Chờ breakout khỏi range 28461-28530",
-    "entry_condition": "Breakout có volume confirmation + MACD convergence",
-    "position_sizing": "Giảm size do tín hiệu mixed",
-    "session_focus": "US pre-market và regular session",
-    "key_time": "14:30-15:30 (US session open)"
+    "entry_zone": "Vùng 4719-4720 cho short, 4721+ cho long",
+    "entry_condition": "Xác nhận direction bằng break key level với volume",
+    "position_sizing": "Giảm size do mixed signals",
+    "session_focus": "US session 21:30-01:00",
+    "key_time": "Theo dõi breakout BB squeeze"
   },
   "action_checklist": {
-    "immediate": ["Monitor Bollinger Bands breakout", "Theo dõi volume pattern"],
-    "pre_trade": ["Chờ volume confirmation", "Kiểm tra MACD convergence"],
-    "monitoring": ["Follow price action tại key levels", "Watch for momentum shift signals"]
+    "immediate": ["Theo dõi price action tại 4719-4720", "Chờ xác nhận volume breakout"],
+    "pre_trade": ["Xác định clear direction", "Set alerts tại key levels"],
+    "monitoring": ["Volume confirmation", "H4 structure development"]
   },
-  "dashboard_summary": "NAS100 trong trạng thái nén giá với tín hiệu xung đột. D1 bullish mạnh nhưng momentum ngắn hạn yếu.",
-  "telegram_summary": "🟡 NAS100 28505.9 | Mixed signals - D1 bullish vs short-term weakness | Wait BB breakout | Key: 28461-28644 | Vol: Low ⚠️"
+  "dashboard_summary": "XAUUSD trong trạng thái xung đột đa khung với D1 Bullish nhưng H4 Bearish. M15 có Pin Bar Bullish trong BB squeeze.",
+  "telegram_summary": "🟡 XAUUSD: Mixed signals. D1↗️ vs H4↘️. Chờ breakout 4720↗️ hoặc 4684↘️. BB squeeze pending. Vol thấp - thận trọng!"
 },"docx_url":""}]}
