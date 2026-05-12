@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202605121015","datetime":"2026-05-12T10:15:29+07:00","date_display":"12/05/2026","time_display":"10:15","instrument":"NAS100","archetype":"Báo cáo 4H – 10:15","price_current":"29229.5","raw":{
-  "instrument": "NAS100",
-  "archetype": "Báo cáo 4H – 10:00",
-  "timestamp": "2026-05-14T10:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202605121030","datetime":"2026-05-12T10:30:27+07:00","date_display":"12/05/2026","time_display":"10:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 10:30","price_current":"4723.85","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 10:30",
+  "timestamp": "2024-01-21T10:30:00+07:00",
   "summary": {
     "primary_bias": "Bearish",
     "bias_direction": "Bearish",
     "confidence_level": "Trung bình (50-74%)",
-    "current_price": 29229.5,
-    "key_insight": "Xung đột tín hiệu: D1 H4 vẫn bullish nhưng momentum đang yếu đi với MACD bearish divergence. M15 xuất hiện cấu trúc LH/LL bearish trong bối cảnh giá test lại vùng kháng cự 29250-29260.",
-    "headline": "NAS100 trong giai đoạn điều chỉnh ngắn hạn từ vùng overbought"
+    "current_price": 4723.85,
+    "key_insight": "Vàng đang trong xu hướng tăng đa khung nhưng gặp áp lực điều chỉnh ngắn hạn. RSI M15 vùng Bearish kết hợp Pin Bar Bearish cho tín hiệu pullback về vùng 4720-4708.",
+    "headline": "Gold pullback ngắn hạn trong xu hướng tăng chính"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng mạnh với EMA alignment hoàn hảo",
+      "trend": "Xu hướng tăng chính với MACD Bullish",
       "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Overbought",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bullish",
-      "key_levels": "Vùng overbought cần điều chỉnh, support mạnh tại 29068"
+      "key_levels": "Vùng 4648-4748 là range chính của phiên trước"
     },
     "H4": {
       "bias": "Bullish",
-      "trend": "Vẫn bullish nhưng xuất hiện dấu hiệu suy yếu",
-      "structure": "Cấu trúc bullish chính vẫn nguyên vẹn",
-      "ema_alignment": "Full Bullish",
-      "rsi_zone": "Overbought",
+      "trend": "Xu hướng tăng nhưng MACD đang Bearish divergence",
+      "structure": "Bullish Structure với dấu hiệu chững lại",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Bullish Zone",
       "macd_bias": "Bearish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [29260, 29344],
-        "support": [29150, 29068]
+        "resistance": [4748.88, 4773.55],
+        "support": [4720.33, 4708.2]
       }
     },
     "H1": {
-      "bias": "Neutral",
-      "trend": "Sideway trong xu hướng tăng lớn",
-      "intraday_story": "Giá consolidate dưới kháng cự 29250-29260 với momentum yếu đi",
+      "bias": "Bullish",
+      "trend": "Xu hướng tăng với MACD Bullish",
+      "intraday_story": "Duy trì bias tăng intraday nhưng cần xem phản ứng tại 4720",
       "rsi_zone": "Neutral",
-      "macd_bias": "Bearish"
+      "macd_bias": "Bullish"
     },
     "M15": {
       "bias": "Bearish",
-      "trend": "Bearish correction pattern",
-      "trigger_setup": "Break below 29214 (current low) xác nhận điều chỉnh",
-      "structure": "LH/LL - Bearish Structure",
-      "momentum": "Weakening",
-      "candle_pattern": "None"
+      "trend": "Bullish Structure nhưng momentum yếu",
+      "trigger_setup": "Pin Bar Bearish tại resistance với RSI Bearish Zone",
+      "structure": "HH/HL Bullish Structure",
+      "momentum": "Neutral",
+      "candle_pattern": "Bearish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 29229.5,
-    "resistance": [29260, 29344],
-    "support": [29214, 29150],
-    "swing_high": 29344.95,
-    "swing_low": 29116.7,
-    "prev_day_high": 29364,
-    "prev_day_low": 29112.1
+    "current_price": 4723.85,
+    "resistance": [4733.48, 4748.88],
+    "support": [4720.33, 4708.2],
+    "swing_high": 4773.55,
+    "swing_low": 4720.33,
+    "prev_day_high": 4748.88,
+    "prev_day_low": 4648.21
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 EMA full bullish alignment", "H4 trend vẫn bullish", "Price trên EMA200 xa"],
-    "bearish_factors": ["RSI overbought đa khung", "MACD bearish H4 H1 M15", "M15 cấu trúc LH/LL bearish", "Momentum weakening"],
-    "dominant_bias": "Bearish"
+    "bullish_factors": ["D1 MACD Bullish", "H1 MACD Bullish", "M15 Full EMA Bullish Alignment"],
+    "bearish_factors": ["M15 RSI Bearish Zone", "M15 MACD Bearish", "H4 MACD Bearish", "Pin Bar Bearish"],
+    "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bearish",
-      "setup": "Short nếu break 29214 với volume xác nhận, target pullback về 29150-29116",
-      "target": [29150, 29116],
-      "stop_loss": 29270,
-      "risk_reward": "1:2.0",
+      "setup": "Short pullback từ resistance 4730-4733 với Pin Bar confirmation",
+      "target": [4720.33, 4708.2],
+      "stop_loss": 4735,
+      "risk_reward": "1:2.1",
       "probability": 65
     },
     "alternative_scenario": {
       "bias": "Bullish",
-      "setup": "Long nếu reclaim 29260 và break 29280 với RSI reset",
-      "target": [29320],
-      "stop_loss": 29200,
-      "risk_reward": "1:1.5",
-      "probability": 30
+      "setup": "Long nếu hold được support 4720 với reversal candle",
+      "target": [4735],
+      "stop_loss": 4715,
+      "risk_reward": "1:3",
+      "probability": 35
     },
     "invalidation_scenario": {
       "bias": "Bullish",
-      "setup": "Break trực tiếp 29344 swing high bỏ qua điều chỉnh",
-      "target": [29400],
-      "stop_loss": 29280,
-      "risk_reward": "1:1.8",
-      "probability": 5
+      "setup": "Break trên 4735 invalidate bearish bias ngắn hạn",
+      "target": [4748],
+      "stop_loss": 4720,
+      "risk_reward": "1:1.6",
+      "probability": 25
     }
   },
-  "risk_factors": ["Overbought kéo dài có thể deep correction", "MACD divergence đa khung", "Volume thấp trong rally gần đây"],
-  "catalyst_watch": ["US CPI data", "Fed speech trong tuần"],
+  "risk_factors": ["Mixed EMA alignment trên H4/D1 tạo uncertainty", "Volume normal không đủ mạnh confirm breakout", "Conflict MACD giữa các timeframe"],
+  "catalyst_watch": ["Phản ứng tại support 4720.33", "Break/hold vùng 4708-4720"],
   "execution_plan": {
-    "entry_zone": "29210-29220 cho short hoặc 29260-29270 cho long",
-    "entry_condition": "Đợi break 29214 hoặc reclaim 29260 với xác nhận",
-    "position_sizing": "Position size nhỏ do xung đột tín hiệu",
-    "session_focus": "US session 21:30-04:00 GMT+7",
-    "key_time": "10:30 GMT+7 - theo dõi reaction tại support 29214"
+    "entry_zone": "4730-4733 cho short, 4720-4722 cho long",
+    "entry_condition": "Confirmation candle tại key levels với RSI divergence",
+    "position_sizing": "Conservative 0.5-1% risk do mixed signals",
+    "session_focus": "London/NY overlap",
+    "key_time": "Theo dõi 11:00-12:00 GMT+7"
   },
   "action_checklist": {
-    "immediate": ["Monitor break 29214 level", "Watch volume confirmation"],
-    "pre_trade": ["Xác nhận break/hold key levels", "Check US market sentiment"],
-    "monitoring": ["MACD histogram changes", "RSI reset signals"]
+    "immediate": ["Monitor 4720.33 support reaction", "Watch for volume confirmation"],
+    "pre_trade": ["Confirm pin bar close below 4730", "Check RSI momentum divergence"],
+    "monitoring": ["Track H4 MACD histogram", "Monitor break of 4708.2"]
   },
-  "dashboard_summary": "NAS100 trong giai đoạn xung đột tín hiệu với bias bearish ngắn hạn từ overbought, chờ break 29214 xác nhận.",
-  "telegram_summary": "📊 NAS100: Bearish correction từ overbought. Watch break 29214 → target 29150-29116. SL 29270. Confluence MACD bearish đa khung vs D1 bullish structure."
+  "dashboard_summary": "Gold trong pullback ngắn hạn từ resistance với mixed signals đa khung, ưu tiên short scalp về 4720-4708.",
+  "telegram_summary": "🥇 XAUUSD: Bearish pullback ngắn hạn. Pin Bar tại 4730. Target: 4720-4708. SL: 4735. Mixed signals - trade conservative. ⚠️"
 },"docx_url":""}]}
