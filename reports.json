@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202605181815","datetime":"2026-05-18T18:15:29+07:00","date_display":"18/05/2026","time_display":"18:15","instrument":"NAS100","archetype":"Báo cáo 4H – 18:15","price_current":"29007.3","raw":{
-  "instrument": "NQ/US100",
-  "archetype": "Báo cáo 4H – 18:00",
-  "timestamp": "2024-12-19T18:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202605181830","datetime":"2026-05-18T18:30:28+07:00","date_display":"18/05/2026","time_display":"18:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 18:30","price_current":"4536.22","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 18:30",
+  "timestamp": "2025-01-07T18:30:00+07:00",
   "summary": {
     "primary_bias": "Bearish",
     "bias_direction": "Bearish",
-    "confidence_level": "Trung bình (50-74%)",
-    "current_price": 29007.3,
-    "key_insight": "Xung đột đa khung với D1 Bullish nhưng H4 MACD chuyển Bearish. M15 xuất hiện Bearish Engulfing với Full Bearish EMA alignment, tín hiệu điều chỉnh ngắn hạn mạnh.",
-    "headline": "NQ xung đột đa khung - chờ breakout quyết định hướng"
+    "confidence_level": "Cao (75%+)",
+    "current_price": 4536.22,
+    "key_insight": "Vàng đang trong momentum giảm mạnh với alignment bearish trên H4/H1 và M15. D1 bullish nhưng RSI và MACD đang yếu, tạo divergence cho xu hướng giảm ngắn hạn.",
+    "headline": "Gold bearish momentum mạnh, test support 4530 - 4525"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng dài hạn với Full Bullish EMA alignment",
-      "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Bullish Zone",
-      "macd_bias": "Bullish",
-      "key_levels": "Vùng kháng cự chính 29626 (prev day high), hỗ trợ 28983"
+      "trend": "Bullish nhưng đang gặp áp lực điều chỉnh",
+      "structure": "Mixed Range",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Bearish Zone",
+      "macd_bias": "Bearish",
+      "key_levels": "Range 4511-4665, currently mid-range với áp lực giảm"
     },
     "H4": {
-      "bias": "Neutral",
-      "trend": "Bullish structure nhưng momentum yếu dần",
-      "structure": "Bullish nhưng có dấu hiệu chậm lại",
-      "ema_alignment": "Full Bullish",
-      "rsi_zone": "Neutral",
+      "bias": "Bearish",
+      "trend": "Bearish momentum expanding",
+      "structure": "LH/LL Bearish structure developing",
+      "ema_alignment": "Full Bearish Alignment",
+      "rsi_zone": "Bearish Zone",
       "macd_bias": "Bearish",
-      "momentum": "Weakening",
+      "momentum": "Expanding",
       "critical_levels": {
-        "resistance": [29151.25, 29626.35],
-        "support": [28893.3, 28829.3]
+        "resistance": [4541.77, 4547.73],
+        "support": [4530.00, 4525.03]
       }
     },
     "H1": {
-      "bias": "Neutral",
-      "trend": "Bullish trend nhưng RSI vào vùng Bearish Zone",
-      "intraday_story": "Xu hướng tăng gặp áp lực điều chỉnh với MACD vẫn Bullish",
+      "bias": "Bearish",
+      "trend": "Bearish với MACD divergence bullish nhẹ",
+      "intraday_story": "Downtrend tiếp tục nhưng có tín hiệu divergence MACD có thể tạo bounce ngắn",
       "rsi_zone": "Bearish Zone",
       "macd_bias": "Bullish"
     },
     "M15": {
       "bias": "Bearish",
-      "trend": "Bearish với Full Bearish EMA alignment",
-      "trigger_setup": "Bearish Engulfing pattern với momentum Expanding",
-      "structure": "HH/HL - Bullish Structure bị thách thức",
+      "trend": "Strong bearish momentum với BB squeeze breakout",
+      "trigger_setup": "BB squeeze breakout bearish, test support 4530",
+      "structure": "HH/HL - Bullish Structure",
       "momentum": "Expanding",
-      "candle_pattern": "Bearish Engulfing"
+      "candle_pattern": "None"
     }
   },
   "key_levels": {
-    "current_price": 29007.3,
-    "resistance": [29151.25, 29626.35],
-    "support": [28893.3, 28829.3],
-    "swing_high": 29151.25,
-    "swing_low": 28893.3,
-    "prev_day_high": 29626.35,
-    "prev_day_low": 28983.8
+    "current_price": 4536.22,
+    "resistance": [4541.77, 4547.73],
+    "support": [4530.00, 4525.03],
+    "swing_high": 4559.83,
+    "swing_low": 4529.72,
+    "prev_day_high": 4665.31,
+    "prev_day_low": 4511.27
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 Full Bullish EMA", "H4 Bullish structure", "H1 MACD Bullish"],
-    "bearish_factors": ["M15 Bearish Engulfing", "H4 MACD Bearish", "M15 Full Bearish EMA", "Price dưới EMA20/50"],
-    "dominant_bias": "Mixed"
+    "bullish_factors": ["D1 trend vẫn bullish", "H1 MACD divergence", "Volume normal không panic sell"],
+    "bearish_factors": ["H4 Full Bearish Alignment", "M15 BB breakout bearish", "RSI bearish trên tất cả timeframes", "Price dưới EMA20/50"],
+    "dominant_bias": "Bearish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bearish",
-      "setup": "Break xuống dưới 28955 (low 5 bar) với volume confirmation",
-      "target": [28893.3, 28829.3],
-      "stop_loss": 29097.85,
+      "setup": "Break và retest 4530, target swing low 4525-4520",
+      "target": [4525.03, 4520.00],
+      "stop_loss": 4542.00,
       "risk_reward": "1:2.2",
-      "probability": 65
+      "probability": 75
     },
     "alternative_scenario": {
       "bias": "Bullish",
-      "setup": "Reclaim 29097.85 và break 29151.25 với momentum",
-      "target": [29300],
-      "stop_loss": 28955.9,
-      "risk_reward": "1:1.8",
-      "probability": 30
+      "setup": "Bounce từ support 4530-4525, target retest resistance",
+      "target": [4542.00],
+      "stop_loss": 4525.00,
+      "risk_reward": "1:1.5",
+      "probability": 25
     },
     "invalidation_scenario": {
-      "bias": "Bearish",
-      "setup": "Break xuống 28829.3 với volume spike",
-      "target": [28700],
-      "stop_loss": 28955.9,
-      "risk_reward": "1:1.5",
-      "probability": 5
+      "bias": "Bullish",
+      "setup": "Break trên 4547 với volume mạnh",
+      "target": [4555.00],
+      "stop_loss": 4530.00,
+      "risk_reward": "1:1.8",
+      "probability": 15
     }
   },
-  "risk_factors": ["Xung đột tín hiệu đa khung", "Volume thấp có thể tạo false breakout", "Vùng support mạnh 28893-28829"],
-  "catalyst_watch": ["US session volume pickup", "Tech sector news flow"],
+  "risk_factors": ["BB squeeze có thể tạo volatility cao", "H1 MACD divergence có thể gây bounce bất ngờ", "End of day positioning có thể thay đổi momentum"],
+  "catalyst_watch": ["US session volume", "End of day rebalancing"],
   "execution_plan": {
-    "entry_zone": "28955-29000 cho short, 29100-29151 cho long",
-    "entry_condition": "Breakout với volume confirmation và retest",
-    "position_sizing": "Conservative do tín hiệu mixed",
-    "session_focus": "US session 21:30-02:00",
-    "key_time": "21:30 - market open volume surge"
+    "entry_zone": "4535-4530 break và retest",
+    "entry_condition": "Confirm break 4530 với candle close dưới support",
+    "position_sizing": "Conservative 0.5-1% risk do volatility",
+    "session_focus": "US evening session",
+    "key_time": "19:00-20:00 UTC+7 volume increase"
   },
   "action_checklist": {
-    "immediate": ["Monitor 28955 support break", "Watch volume pickup signals"],
-    "pre_trade": ["Confirm breakout direction với retest", "Check correlation với SPX/QQQ"],
-    "monitoring": ["Volume expansion tại breakout", "EMA reclaim/rejection patterns"]
+    "immediate": ["Watch 4530 support test", "Monitor BB squeeze resolution"],
+    "pre_trade": ["Confirm break với volume", "Set tight stops do BB squeeze"],
+    "monitoring": ["H1 MACD momentum shift", "US session volume pattern"]
   },
-  "dashboard_summary": "NQ xung đột đa khung với D1 Bullish vs M15 Bearish setup. Key level 28955 quyết định hướng ngắn hạn.",
-  "telegram_summary": "🔄 NQ 29007 - Mixed signals. Watch 28955 break for short to 28893 hoặc reclaim 29097 for bounce. Volume key! #NQ #TechAnalysis"
+  "dashboard_summary": "XAUUSD bearish momentum mạnh, test critical support 4530. BB squeeze breakout pending với high probability bearish continuation.",
+  "telegram_summary": "🔴 GOLD BEARISH: Test support 4530, target 4525-4520. Stop 4542. RR 1:2.2. Watch BB squeeze breakout! ⚠️"
 },"docx_url":""}]}
