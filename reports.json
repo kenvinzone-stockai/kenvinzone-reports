@@ -1,49 +1,49 @@
-{"version":"1.0","reports":[{"id":"RPT-202605180932","datetime":"2026-05-18T09:32:07+07:00","date_display":"18/05/2026","time_display":"09:32","instrument":"NAS100","archetype":"Báo cáo 4H – 09:32","price_current":"29211.7","raw":{
-  "instrument": "NQ/US100",
+{"version":"1.0","reports":[{"id":"RPT-202605180932","datetime":"2026-05-18T09:32:16+07:00","date_display":"18/05/2026","time_display":"09:32","instrument":"NAS100","archetype":"Báo cáo 4H – 09:32","price_current":"29211.7","raw":{
+  "instrument": "NAS100",
   "archetype": "Báo cáo 4H – 18:00",
-  "timestamp": "2026-05-15T18:15:00+07:00",
+  "timestamp": "2026-05-15T18:00:00+07:00",
   "summary": {
     "primary_bias": "Bearish",
     "bias_direction": "Bearish",
     "confidence_level": "Trung bình (50-74%)",
     "current_price": 29211.7,
-    "key_insight": "NQ đang trong tình thế xung đột khung thời gian với D1 Bullish nhưng H4-H1-M15 đồng loạt chuyển Bearish. Giá test vùng kháng cự 29340-29360 và cho tín hiệu rejection xuống.",
-    "headline": "NQ correction từ vùng kháng cự quan trọng, bias ngắn hạn Bearish"
+    "key_insight": "Nas100 đang trong tình trạng xung đột khung thời gian với D1-H4 Bullish nhưng H1-M15 đã chuyển Bearish. Giá đang test vùng EMA20 trong bối cảnh momentum giảm mạnh.",
+    "headline": "Nas100 xung đột đa khung - chờ xác nhận hướng đột phá"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng dài hạn với EMA alignment Bullish hoàn chỉnh",
+      "trend": "Xu hướng tăng dài hạn với EMA alignment đầy đủ",
       "structure": "HH/HL Bullish",
       "ema_alignment": "Full Bullish Alignment",
       "rsi_zone": "Overbought",
       "macd_bias": "Bullish",
-      "key_levels": "Vùng kháng cự mạnh tại 29600-29670, hỗ trợ tại 29340"
+      "key_levels": "Vùng 29600-29700 là kháng cự mạnh"
     },
     "H4": {
-      "bias": "Bearish",
-      "trend": "Chuyển từ Bullish sang Bearish với MACD divergence âm",
-      "structure": "Bắt đầu tạo LH tại 29361, test breakdown 29340",
+      "bias": "Bullish",
+      "trend": "Duy trì xu hướng tăng nhưng momentum suy yếu",
+      "structure": "Bullish structure nhưng có dấu hiệu chậm lại",
       "ema_alignment": "Full Bullish",
       "rsi_zone": "Neutral",
       "macd_bias": "Bearish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [29340, 29361],
-        "support": [29142, 29071]
+        "resistance": [29361.95, 29400],
+        "support": [29071.5, 29142]
       }
     },
     "H1": {
       "bias": "Bearish",
-      "trend": "Downtrend ngắn hạn với RSI vùng Bearish",
-      "intraday_story": "Rejection mạnh từ resistance 29340-29360, momentum giảm rõ rệt",
+      "trend": "Chuyển hướng giảm với RSI vùng Bearish",
+      "intraday_story": "Áp lực bán tăng trong phiên, MACD chuyển Bearish",
       "rsi_zone": "Bearish Zone",
       "macd_bias": "Bearish"
     },
     "M15": {
       "bias": "Bearish",
-      "trend": "Bearish momentum đang expanding với LH/LL structure",
-      "trigger_setup": "Breakdown 29200 với expanding momentum",
+      "trend": "Xu hướng giảm rõ ràng với cấu trúc LH/LL",
+      "trigger_setup": "Full Bearish Alignment trên M15 với momentum mở rộng",
       "structure": "LH/LL - Bearish Structure",
       "momentum": "Expanding",
       "candle_pattern": "None"
@@ -51,58 +51,58 @@
   },
   "key_levels": {
     "current_price": 29211.7,
-    "resistance": [29261.5, 29340.15],
-    "support": [29142, 29071.5],
+    "resistance": [29261.5, 29361.95],
+    "support": [29071.5, 29094.05],
     "swing_high": 29361.95,
     "swing_low": 29071.5,
     "prev_day_high": 29673.35,
     "prev_day_low": 29340.15
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 trend vẫn Bullish", "EMA alignment dài hạn tích cực", "Volume bình thường không có panic selling"],
-    "bearish_factors": ["H4-H1-M15 đồng loạt Bearish", "Rejection từ resistance 29340-29360", "MACD divergence âm trên H4", "RSI H1 vùng Bearish"],
+    "bullish_factors": ["D1 Full Bullish Alignment", "H4 vẫn Bullish structure", "Volume bình thường không có panic selling"],
+    "bearish_factors": ["M15 Full Bearish Alignment", "H1-H4 MACD chuyển Bearish", "RSI D1 Overbought", "Momentum H4 suy yếu"],
     "dominant_bias": "Bearish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bearish",
-      "setup": "Short khi breakdown 29200 với volume tăng, target test support 29142-29071",
-      "target": [29142, 29071],
+      "setup": "Short khi retest thất bại vùng EMA20 (29217) hoặc break xuống dưới 29190",
+      "target": [29142, 29071.5],
       "stop_loss": 29270,
-      "risk_reward": "1:2.4",
+      "risk_reward": "1:2.8",
       "probability": 65
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Pullback đến 29240-29250 rồi continuation down",
-      "target": [29100],
-      "stop_loss": 29280,
+      "bias": "Bullish",
+      "setup": "Long nếu reclaim được 29250 với volume tăng mạnh",
+      "target": [29300],
+      "stop_loss": 29180,
       "risk_reward": "1:1.8",
-      "probability": 25
+      "probability": 30
     },
     "invalidation_scenario": {
       "bias": "Bullish",
-      "setup": "Recovery trên 29270 và retest 29340 thành công",
-      "target": [29400],
-      "stop_loss": 29180,
-      "risk_reward": "1:1.4",
-      "probability": 10
+      "setup": "Strong breakout trên 29270 với volume spike",
+      "target": [29361.95],
+      "stop_loss": 29200,
+      "risk_reward": "1:2.1",
+      "probability": 5
     }
   },
-  "risk_factors": ["Xung đột bias giữa D1 Bullish vs các khung ngắn Bearish", "Vùng support 29071-29142 rất quan trọng", "Volume thấp có thể tạo fake breakdowns"],
-  "catalyst_watch": ["Phản ứng tại support 29142", "US session opening volume"],
+  "risk_factors": ["Xung đột khung thời gian D1-H4 vs H1-M15", "Vùng Overbought trên D1 có thể reversal", "Volume thấp có thể tạo false breakout"],
+  "catalyst_watch": ["Phản ứng tại support 29142", "Volume confirmation trên các breakout"],
   "execution_plan": {
-    "entry_zone": "Breakdown 29200 hoặc pullback 29240-29250",
-    "entry_condition": "Confirm breakdown với volume tăng và candle rejection",
-    "position_sizing": "Conservative do xung đột multi-timeframe",
-    "session_focus": "US session",
-    "key_time": "19:30-22:00 GMT+7"
+    "entry_zone": "29190-29220 cho short, 29250-29270 cho long",
+    "entry_condition": "Chờ xác nhận momentum và volume",
+    "position_sizing": "Giảm size do xung đột khung thời gian",
+    "session_focus": "NY session",
+    "key_time": "18:30-19:30 cho direction confirmation"
   },
   "action_checklist": {
-    "immediate": ["Monitor breakdown 29200", "Watch volume confirmation"],
-    "pre_trade": ["Confirm H4 close below 29200", "Check US market sentiment"],
-    "monitoring": ["Support reaction tại 29142", "Volume profile changes"]
+    "immediate": ["Monitor phản ứng tại EMA20", "Theo dõi volume patterns"],
+    "pre_trade": ["Xác nhận direction trên H1", "Check news catalyst"],
+    "monitoring": ["Watch support 29142 reaction", "Monitor volume confirmation"]
   },
-  "dashboard_summary": "NQ correction từ resistance, bias ngắn hạn Bearish nhưng cần thận trọng do D1 vẫn Bullish.",
-  "telegram_summary": "🔻 NQ: Bearish bias ngắn hạn. Entry: breakdown 29200, Target: 29142-29071, SL: 29270. Thận trọng do D1 vẫn tích cực. RR: 1:2.4"
+  "dashboard_summary": "Nas100 xung đột đa khung với bias ngắn hạn Bearish chiếm ưu thế. Chờ xác nhận tại các level quan trọng.",
+  "telegram_summary": "🔴 NAS100: Bearish bias ngắn hạn | Entry: Short 29190 | Target: 29142-29071 | SL: 29270 | RR: 1:2.8 📉"
 },"docx_url":""}]}
