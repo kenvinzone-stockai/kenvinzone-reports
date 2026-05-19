@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202605191815","datetime":"2026-05-19T18:15:30+07:00","date_display":"19/05/2026","time_display":"18:15","instrument":"NAS100","archetype":"Báo cáo 4H – 18:15","price_current":"28815.25","raw":{
-  "instrument": "NQ/US100",
-  "archetype": "Báo cáo 4H – 18:00",
-  "timestamp": "2026-05-16T18:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202605191830","datetime":"2026-05-19T18:30:27+07:00","date_display":"19/05/2026","time_display":"18:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 18:30","price_current":"4539.32","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 18:30",
+  "timestamp": "2026-05-15T18:30:00+07:00",
   "summary": {
     "primary_bias": "Bearish",
     "bias_direction": "Bearish",
     "confidence_level": "Trung bình (50-74%)",
-    "current_price": 28815.25,
-    "key_insight": "Xung đột giữa D1/H4 Bullish và H1/M15 Bearish tạo tình huống điều chỉnh ngắn hạn. MACD bearish đồng loạt các khung thời gian cảnh báo momentum yếu.",
-    "headline": "NQ trong vùng điều chỉnh với bias bearish ngắn hạn"
+    "current_price": 4539.32,
+    "key_insight": "Vàng đang trong xu hướng giảm đa khung H4-H1-M15 với EMA alignment bearish mạnh. Tuy nhiên MACD xuất hiện tín hiệu bullish divergence có thể tạo bounce ngắn hạn.",
+    "headline": "XAU bearish bias chờ test support 4536-4530 với risk bounce từ MACD divergence"
   },
   "market_structure": {
     "D1": {
-      "bias": "Bullish",
-      "trend": "Xu hướng tăng dài hạn với EMA Full Bullish Alignment",
-      "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Bullish Zone",
-      "macd_bias": "Bearish",
-      "key_levels": "Vùng giá D1 từ 28717.4 đến 29321.8"
-    },
-    "H4": {
-      "bias": "Bullish",
-      "trend": "Duy trì xu hướng tăng với EMA alignment tích cực",
-      "structure": "Cấu trúc tăng với điều chỉnh hiện tại",
-      "ema_alignment": "Full Bullish",
+      "bias": "Neutral",
+      "trend": "Bullish dài hạn nhưng đang điều chỉnh",
+      "structure": "Mixed Range sau pullback từ đỉnh cao",
+      "ema_alignment": "Mixed",
       "rsi_zone": "Bearish Zone",
       "macd_bias": "Bearish",
+      "key_levels": "Range giữa 4480-4584, đang test middle zone"
+    },
+    "H4": {
+      "bias": "Bearish",
+      "trend": "Downtrend rõ ràng từ rejection zone 4589",
+      "structure": "LH/LL Bearish với momentum suy yếu",
+      "ema_alignment": "Full Bearish Alignment",
+      "rsi_zone": "Bearish Zone",
+      "macd_bias": "Bullish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [28939.65, 29026.55],
-        "support": [28741.00, 28786.80]
+        "resistance": [4548.03, 4559.31],
+        "support": [4536.02, 4525.75]
       }
     },
     "H1": {
       "bias": "Bearish",
-      "trend": "Điều chỉnh bearish trong cấu trúc tăng lớn",
-      "intraday_story": "Pressure bán ngắn hạn với MACD bearish divergence",
+      "trend": "Tiếp tục downtrend nhưng momentum giảm dần",
+      "intraday_story": "Rejection từ EMA resistance, đang hướng về support zone",
       "rsi_zone": "Bearish Zone",
       "macd_bias": "Bearish"
     },
     "M15": {
       "bias": "Bearish",
-      "trend": "Bearish với Full EMA Bearish Alignment",
-      "trigger_setup": "Bearish Pin Bar với Bollinger Band expansion",
-      "structure": "Mixed/Range Structure",
-      "momentum": "Weakening",
-      "candle_pattern": "Bearish Pin Bar"
+      "trend": "Bearish với momentum nén lại",
+      "trigger_setup": "Chờ break below 4536 support hoặc bounce từ current level",
+      "structure": "Mixed/Range Structure cho thấy indecision",
+      "momentum": "Neutral",
+      "candle_pattern": "None"
     }
   },
   "key_levels": {
-    "current_price": 28815.25,
-    "resistance": [28851.65, 28939.65],
-    "support": [28741.00, 28717.40],
-    "swing_high": 29026.55,
-    "swing_low": 28741.00,
-    "prev_day_high": 29321.80,
-    "prev_day_low": 28717.40
+    "current_price": 4539.32,
+    "resistance": [4548.03, 4559.31],
+    "support": [4536.02, 4525.75],
+    "swing_high": 4559.31,
+    "swing_low": 4536.02,
+    "prev_day_high": 4584.21,
+    "prev_day_low": 4480.41
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 Full Bullish EMA Alignment", "H4 duy trì cấu trúc tăng", "D1 RSI trong Bullish Zone"],
-    "bearish_factors": ["MACD bearish đồng loạt các khung", "M15 Full Bearish EMA Alignment", "Bearish Pin Bar pattern"],
-    "dominant_bias": "Mixed"
+    "bullish_factors": ["MACD bullish divergence H4", "RSI oversold territory", "Approaching key support 4536"],
+    "bearish_factors": ["Full bearish EMA alignment H4", "Lower highs structure", "Below all major EMAs"],
+    "dominant_bias": "Bearish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bearish",
-      "setup": "Short pullback về vùng 28820-28830 với confirmation M15",
-      "target": [28760.00, 28741.00],
-      "stop_loss": 28860.00,
-      "risk_reward": "1:1.8",
+      "setup": "Break below 4536 support với volume confirmation",
+      "target": [4525.75, 4520.00],
+      "stop_loss": 4548.00,
+      "risk_reward": "1:2.0",
       "probability": 65
     },
     "alternative_scenario": {
       "bias": "Bullish",
-      "setup": "Long nếu hold được support 28741 và tái test thành công",
-      "target": [28880.00],
-      "stop_loss": 28720.00,
-      "risk_reward": "1:3.2",
+      "setup": "Bounce từ 4536 support với MACD positive divergence",
+      "target": [4548.00],
+      "stop_loss": 4530.00,
+      "risk_reward": "1:1.5",
       "probability": 30
     },
     "invalidation_scenario": {
-      "bias": "Bearish",
-      "setup": "Break below 28741 với volume confirmation",
-      "target": [28680.00],
-      "stop_loss": 28780.00,
-      "risk_reward": "1:1.5",
-      "probability": 25
+      "bias": "Bullish",
+      "setup": "Break above 4548 resistance với strong momentum",
+      "target": [4559.00],
+      "stop_loss": 4535.00,
+      "risk_reward": "1:1.2",
+      "probability": 15
     }
   },
-  "risk_factors": ["Xung đột bias đa khung thời gian", "MACD bearish divergence có thể là false signal", "Volume normal không xác nhận breakout mạnh"],
-  "catalyst_watch": ["US Tech earnings season", "Fed policy meeting minutes"],
+  "risk_factors": ["MACD bullish divergence có thể tạo bounce mạnh", "Volume thấp giảm độ tin cậy breakout", "Approaching major support zone"],
+  "catalyst_watch": ["US Dollar strength", "Fed policy signals"],
   "execution_plan": {
-    "entry_zone": "Vùng 28820-28830 cho short setup",
-    "entry_condition": "Bearish confirmation trên M15 với volume tăng",
-    "position_sizing": "Giảm size do xung đột bias",
-    "session_focus": "US session đầu và London close",
-    "key_time": "18:30-19:30 UTC+7"
+    "entry_zone": "4536-4538 cho short, 4536-4534 cho long bounce",
+    "entry_condition": "Chờ break 4536 với volume hoặc rejection candle tại support",
+    "position_sizing": "Reduced size do conflicting signals",
+    "session_focus": "NY session overlap",
+    "key_time": "19:00-20:00 GMT+7 cho volatility spike"
   },
   "action_checklist": {
-    "immediate": ["Theo dõi reaction tại support 28741", "Watch MACD cross trên M15"],
-    "pre_trade": ["Confirm direction với volume", "Set alert tại key levels"],
-    "monitoring": ["Track D1/H4 bias changes", "Monitor US session volatility"]
+    "immediate": ["Monitor 4536 support reaction", "Watch MACD histogram development"],
+    "pre_trade": ["Confirm volume on breakout", "Check USD strength"],
+    "monitoring": ["RSI oversold bounce signals", "EMA 20 reclaim attempts"]
   },
-  "dashboard_summary": "NQ đang trong tình huống xung đột bias với D1/H4 bullish nhưng H1/M15 bearish, tạo cơ hội trade ngắn hạn.",
-  "telegram_summary": "🔴 NQ 28815 - Bias bearish ngắn hạn, target 28760-28741, SL 28860. Xung đột đa khung, giảm size. #NQ #Bearish"
+  "dashboard_summary": "XAU bearish bias H4-H1-M15 nhưng MACD divergence warn. Key level 4536 support.",
+  "telegram_summary": "🥇XAU: Bearish bias chờ test 4536 support. Risk bounce từ MACD divergence. Entry: break 4536 target 4525-4520 SL 4548. Confidence: 65%"
 },"docx_url":""}]}
