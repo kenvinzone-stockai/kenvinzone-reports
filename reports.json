@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202605191524","datetime":"2026-05-19T15:24:26+07:00","date_display":"19/05/2026","time_display":"15:24","instrument":"XAUUSD","archetype":"Báo cáo 4H – 15:24","price_current":"0","raw":{
-  "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 14:30",
-  "timestamp": "2024-12-28T14:30:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202605191815","datetime":"2026-05-19T18:15:30+07:00","date_display":"19/05/2026","time_display":"18:15","instrument":"NAS100","archetype":"Báo cáo 4H – 18:15","price_current":"28815.25","raw":{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 18:00",
+  "timestamp": "2026-05-16T18:00:00+07:00",
   "summary": {
-    "primary_bias": "Chờ xác nhận",
-    "bias_direction": "Chờ xác nhận",
-    "confidence_level": "Thấp (25-49%)",
-    "current_price": 2620,
-    "key_insight": "Dữ liệu thị trường chưa sẵn sàng, tất cả indicators đang ở trạng thái N/A. Cần chờ cập nhật dữ liệu từ TradingView để có thể phân tích chính xác.",
-    "headline": "Standby - Chờ cập nhật dữ liệu market"
+    "primary_bias": "Bearish",
+    "bias_direction": "Bearish",
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 28815.25,
+    "key_insight": "Xung đột giữa D1/H4 Bullish và H1/M15 Bearish tạo tình huống điều chỉnh ngắn hạn. MACD bearish đồng loạt các khung thời gian cảnh báo momentum yếu.",
+    "headline": "NQ trong vùng điều chỉnh với bias bearish ngắn hạn"
   },
   "market_structure": {
     "D1": {
-      "bias": "Neutral",
-      "trend": "Chờ xác nhận từ dữ liệu",
-      "structure": "Mixed Range",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Neutral",
-      "key_levels": "Pending data update"
+      "bias": "Bullish",
+      "trend": "Xu hướng tăng dài hạn với EMA Full Bullish Alignment",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Bullish Zone",
+      "macd_bias": "Bearish",
+      "key_levels": "Vùng giá D1 từ 28717.4 đến 29321.8"
     },
     "H4": {
-      "bias": "Neutral",
-      "trend": "Chờ xác nhận từ dữ liệu",
-      "structure": "Mixed Range",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Neutral",
-      "momentum": "Neutral",
+      "bias": "Bullish",
+      "trend": "Duy trì xu hướng tăng với EMA alignment tích cực",
+      "structure": "Cấu trúc tăng với điều chỉnh hiện tại",
+      "ema_alignment": "Full Bullish",
+      "rsi_zone": "Bearish Zone",
+      "macd_bias": "Bearish",
+      "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [2630, 2640],
-        "support": [2610, 2600]
+        "resistance": [28939.65, 29026.55],
+        "support": [28741.00, 28786.80]
       }
     },
     "H1": {
-      "bias": "Neutral",
-      "trend": "Chờ xác nhận từ dữ liệu",
-      "intraday_story": "Thiếu dữ liệu để xây dựng câu chuyện intraday",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Neutral"
+      "bias": "Bearish",
+      "trend": "Điều chỉnh bearish trong cấu trúc tăng lớn",
+      "intraday_story": "Pressure bán ngắn hạn với MACD bearish divergence",
+      "rsi_zone": "Bearish Zone",
+      "macd_bias": "Bearish"
     },
     "M15": {
-      "bias": "Neutral",
-      "trend": "Chờ xác nhận từ dữ liệu",
-      "trigger_setup": "Standby cho signal confirmation",
-      "structure": "Mixed Range",
-      "momentum": "Neutral",
-      "candle_pattern": "None"
+      "bias": "Bearish",
+      "trend": "Bearish với Full EMA Bearish Alignment",
+      "trigger_setup": "Bearish Pin Bar với Bollinger Band expansion",
+      "structure": "Mixed/Range Structure",
+      "momentum": "Weakening",
+      "candle_pattern": "Bearish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 2620,
-    "resistance": [2630, 2640],
-    "support": [2610, 2600],
-    "swing_high": 2635,
-    "swing_low": 2605,
-    "prev_day_high": 2632,
-    "prev_day_low": 2608
+    "current_price": 28815.25,
+    "resistance": [28851.65, 28939.65],
+    "support": [28741.00, 28717.40],
+    "swing_high": 29026.55,
+    "swing_low": 28741.00,
+    "prev_day_high": 29321.80,
+    "prev_day_low": 28717.40
   },
   "confluence_analysis": {
-    "bullish_factors": ["Vàng trong xu hướng tăng dài hạn", "Support zone 2600-2610", "Year-end positioning"],
-    "bearish_factors": ["Dollar strength potential", "Profit taking pressure", "Technical correction risk"],
+    "bullish_factors": ["D1 Full Bullish EMA Alignment", "H4 duy trì cấu trúc tăng", "D1 RSI trong Bullish Zone"],
+    "bearish_factors": ["MACD bearish đồng loạt các khung", "M15 Full Bearish EMA Alignment", "Bearish Pin Bar pattern"],
     "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
-      "bias": "Bullish",
-      "setup": "Break trên 2630 với volume confirmation",
-      "target": [2640, 2650],
-      "stop_loss": 2615,
-      "risk_reward": "1:2.0",
-      "probability": 45
+      "bias": "Bearish",
+      "setup": "Short pullback về vùng 28820-28830 với confirmation M15",
+      "target": [28760.00, 28741.00],
+      "stop_loss": 28860.00,
+      "risk_reward": "1:1.8",
+      "probability": 65
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Break dưới 2610 support zone",
-      "target": [2600],
-      "stop_loss": 2625,
-      "risk_reward": "1:1.5",
-      "probability": 40
+      "bias": "Bullish",
+      "setup": "Long nếu hold được support 28741 và tái test thành công",
+      "target": [28880.00],
+      "stop_loss": 28720.00,
+      "risk_reward": "1:3.2",
+      "probability": 30
     },
     "invalidation_scenario": {
-      "bias": "Neutral",
-      "setup": "Sideways consolidation 2610-2630",
-      "target": [2620],
-      "stop_loss": 2605,
-      "risk_reward": "1:1.0",
-      "probability": 15
+      "bias": "Bearish",
+      "setup": "Break below 28741 với volume confirmation",
+      "target": [28680.00],
+      "stop_loss": 28780.00,
+      "risk_reward": "1:1.5",
+      "probability": 25
     }
   },
-  "risk_factors": ["Thiếu dữ liệu technical analysis", "End-year low liquidity", "News flow uncertainty"],
-  "catalyst_watch": ["US Dollar Index movement", "Year-end portfolio rebalancing"],
+  "risk_factors": ["Xung đột bias đa khung thời gian", "MACD bearish divergence có thể là false signal", "Volume normal không xác nhận breakout mạnh"],
+  "catalyst_watch": ["US Tech earnings season", "Fed policy meeting minutes"],
   "execution_plan": {
-    "entry_zone": "Chờ breakout confirmation zone",
-    "entry_condition": "Data update + clear signal confirmation",
-    "position_sizing": "Giảm size do uncertainty",
-    "session_focus": "US session",
-    "key_time": "Chờ data feed hoạt động"
+    "entry_zone": "Vùng 28820-28830 cho short setup",
+    "entry_condition": "Bearish confirmation trên M15 với volume tăng",
+    "position_sizing": "Giảm size do xung đột bias",
+    "session_focus": "US session đầu và London close",
+    "key_time": "18:30-19:30 UTC+7"
   },
   "action_checklist": {
-    "immediate": ["Kiểm tra kết nối TradingView", "Verify data feed status"],
-    "pre_trade": ["Wait for valid data", "Confirm market hours"],
-    "monitoring": ["Data feed restoration", "Price action when data returns"]
+    "immediate": ["Theo dõi reaction tại support 28741", "Watch MACD cross trên M15"],
+    "pre_trade": ["Confirm direction với volume", "Set alert tại key levels"],
+    "monitoring": ["Track D1/H4 bias changes", "Monitor US session volatility"]
   },
-  "dashboard_summary": "Market data đang pending, chờ TradingView cập nhật để có analysis chính xác.",
-  "telegram_summary": "⏳ XAUUSD: Standby - Data pending. Chờ TradingView update để analysis. Current est: ~2620 zone."
+  "dashboard_summary": "NQ đang trong tình huống xung đột bias với D1/H4 bullish nhưng H1/M15 bearish, tạo cơ hội trade ngắn hạn.",
+  "telegram_summary": "🔴 NQ 28815 - Bias bearish ngắn hạn, target 28760-28741, SL 28860. Xung đột đa khung, giảm size. #NQ #Bearish"
 },"docx_url":""}]}
