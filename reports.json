@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202605211433","datetime":"2026-05-21T14:33:41+07:00","date_display":"21/05/2026","time_display":"14:33","instrument":"XAUUSD","archetype":"Báo cáo 4H – 14:33","price_current":"4512.89","raw":{
+{"version":"1.0","reports":[{"id":"RPT-202605211435","datetime":"2026-05-21T14:35:26+07:00","date_display":"21/05/2026","time_display":"14:35","instrument":"XAUUSD","archetype":"Báo cáo 4H – 14:35","price_current":"0","raw":{
   "instrument": "XAUUSD",
   "archetype": "Báo cáo 4H – 14:30",
-  "timestamp": "2026-05-18T14:30:00+07:00",
+  "timestamp": "2024-01-15T14:30:00+07:00",
   "summary": {
-    "primary_bias": "Bearish",
-    "bias_direction": "Bearish",
-    "confidence_level": "Cao (75%+)",
-    "current_price": 4512.89,
-    "key_insight": "Vàng đang trong xu hướng giảm mạnh với H4 và M15 đồng thuận bearish, giá test vùng support quan trọng 4511-4514. Structure bearish LH/LL được xác nhận với momentum expanding.",
-    "headline": "XAUUSD bearish breakdown, test support 4511-4514"
+    "primary_bias": "Chờ xác nhận",
+    "bias_direction": "Chờ xác nhận",
+    "confidence_level": "Thấp (25-49%)",
+    "current_price": 2020.00,
+    "key_insight": "Dữ liệu thị trường hiện tại không khả dụng hoặc chưa được cập nhật. Cần chờ tín hiệu mới từ các khung thời gian để xác định bias và setup giao dịch.",
+    "headline": "Thị trường vàng đang trong giai đoạn chờ dữ liệu"
   },
   "market_structure": {
     "D1": {
-      "bias": "Bearish",
-      "trend": "Xu hướng bullish dài hạn nhưng đang điều chỉnh",
+      "bias": "Neutral",
+      "trend": "Không xác định do thiếu dữ liệu",
       "structure": "Mixed Range",
       "ema_alignment": "Mixed",
-      "rsi_zone": "Bearish Zone",
-      "macd_bias": "Bearish",
-      "key_levels": "Vùng support chính 4453-4513, resistance 4552-4570"
+      "rsi_zone": "Neutral",
+      "macd_bias": "Neutral",
+      "key_levels": "Cần cập nhật dữ liệu để xác định vùng giá D1"
     },
     "H4": {
-      "bias": "Bearish",
-      "trend": "Xu hướng giảm rõ ràng với momentum mạnh",
-      "structure": "LH/LL Bearish Structure được xác nhận",
-      "ema_alignment": "Full Bearish",
-      "rsi_zone": "Bearish Zone",
-      "macd_bias": "Bullish",
-      "momentum": "Expanding",
+      "bias": "Neutral",
+      "trend": "Không xác định",
+      "structure": "Chưa có cấu trúc rõ ràng",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
+      "macd_bias": "Neutral",
+      "momentum": "Neutral",
       "critical_levels": {
-        "resistance": [4530.44, 4540.33],
-        "support": [4511.74, 4500.00]
+        "resistance": [2030.00, 2040.00],
+        "support": [2010.00, 2000.00]
       }
     },
     "H1": {
-      "bias": "Bearish",
-      "trend": "Tiếp tục xu hướng giảm từ H4",
-      "intraday_story": "Giá test support quan trọng sau khi break structure",
+      "bias": "Neutral",
+      "trend": "Không xác định",
+      "intraday_story": "Thị trường đang trong trạng thái chờ đợi",
       "rsi_zone": "Neutral",
-      "macd_bias": "Bearish"
+      "macd_bias": "Neutral"
     },
     "M15": {
-      "bias": "Bearish",
-      "trend": "Bearish momentum expanding với breakdown",
-      "trigger_setup": "Bearish Pin Bar tại resistance, BB squeeze breakout pending",
-      "structure": "LH/LL Bearish Structure",
-      "momentum": "Expanding",
-      "candle_pattern": "Bearish Pin Bar"
+      "bias": "Neutral",
+      "trend": "Không xác định",
+      "trigger_setup": "Chờ breakout hoặc rejection tại key levels",
+      "structure": "Range-bound",
+      "momentum": "Neutral",
+      "candle_pattern": "None"
     }
   },
   "key_levels": {
-    "current_price": 4512.89,
-    "resistance": [4530.44, 4540.33],
-    "support": [4511.74, 4500.00],
-    "swing_high": 4540.33,
-    "swing_low": 4527.29,
-    "prev_day_high": 4552.92,
-    "prev_day_low": 4453.55
+    "current_price": 2020.00,
+    "resistance": [2030.00, 2040.00],
+    "support": [2010.00, 2000.00],
+    "swing_high": 2035.00,
+    "swing_low": 2005.00,
+    "prev_day_high": 2032.00,
+    "prev_day_low": 2008.00
   },
   "confluence_analysis": {
-    "bullish_factors": ["H4 MACD cho tín hiệu bullish divergence", "Giá gần vùng support dài hạn", "RSI H1 ở neutral zone"],
-    "bearish_factors": ["H4 Full Bearish EMA alignment", "M15 Bearish Pin Bar tại resistance", "LH/LL structure được xác nhận", "RSI D1 và H4 trong vùng bearish", "BB squeeze breakout pending xuống"],
-    "dominant_bias": "Bearish"
+    "bullish_factors": ["Vàng vẫn trong xu hướng tăng dài hạn", "Support tâm lý tại 2000"],
+    "bearish_factors": ["Áp lực từ USD mạnh", "Uncertainty về Fed policy"],
+    "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
-      "bias": "Bearish",
-      "setup": "Short tại retest 4520-4525 hoặc break 4511 với confirmation",
-      "target": [4500.00, 4485.00],
-      "stop_loss": 4535.00,
-      "risk_reward": "1:2.8",
-      "probability": 75
+      "bias": "Neutral",
+      "setup": "Chờ breakout khỏi range hiện tại với volume xác nhận",
+      "target": [2035.00, 2045.00],
+      "stop_loss": 2005.00,
+      "risk_reward": "1:2.0",
+      "probability": 40
     },
     "alternative_scenario": {
       "bias": "Bearish",
-      "setup": "Break support 4511 với volume confirmation",
-      "target": [4485.00],
-      "stop_loss": 4520.00,
-      "risk_reward": "1:3.2",
-      "probability": 65
+      "setup": "Break below 2010 support với momentum mạnh",
+      "target": [2000.00],
+      "stop_loss": 2025.00,
+      "risk_reward": "1:1.5",
+      "probability": 35
     },
     "invalidation_scenario": {
       "bias": "Bullish",
-      "setup": "Reclaim 4530 và break 4540 với strong momentum",
-      "target": [4560.00],
-      "stop_loss": 4510.00,
-      "risk_reward": "1:1.5",
+      "setup": "Strong breakout above 2035 với volume spike",
+      "target": [2050.00],
+      "stop_loss": 2020.00,
+      "risk_reward": "1:2.5",
       "probability": 25
     }
   },
-  "risk_factors": ["MACD H4 cho tín hiệu bullish có thể tạo reversal", "Vùng support 4511-4514 có thể tạo bounce mạnh", "Volume thấp có thể không sustain breakout"],
-  "catalyst_watch": ["Tin tức kinh tế Mỹ chiều nay", "DXY movement ảnh hưởng đến vàng"],
+  "risk_factors": ["Thiếu dữ liệu thị trường real-time", "Volatility cao trong session hiện tại", "News events có thể impact mạnh"],
+  "catalyst_watch": ["Fed speeches", "US economic data", "Geopolitical developments"],
   "execution_plan": {
-    "entry_zone": "4520-4525 cho short hoặc break 4511",
-    "entry_condition": "Retest resistance với rejection hoặc break support với volume",
-    "position_sizing": "Conservative 1-2% risk do gần support major",
-    "session_focus": "US session opening volatility",
-    "key_time": "15:00-16:00 US economic data release"
+    "entry_zone": "Chờ xác nhận breakout hoặc rejection",
+    "entry_condition": "Breakout với volume + momentum confirmation",
+    "position_sizing": "Giảm size do uncertainty cao",
+    "session_focus": "London/NY overlap",
+    "key_time": "15:30-17:00 GMT+7"
   },
   "action_checklist": {
-    "immediate": ["Monitor giá action tại 4511-4514", "Watch for H4 MACD confirmation"],
-    "pre_trade": ["Confirm break với volume", "Set alerts tại key levels 4511 và 4525"],
-    "monitoring": ["Track DXY correlation", "Monitor US session volume surge"]
+    "immediate": ["Cập nhật dữ liệu market", "Monitor key levels 2010-2035"],
+    "pre_trade": ["Confirm data feed", "Check economic calendar"],
+    "monitoring": ["Volume patterns", "Break confirmation candles"]
   },
-  "dashboard_summary": "XAUUSD bearish momentum expanding, test critical support 4511-4514 với high probability breakdown scenario.",
-  "telegram_summary": "🥇 XAUUSD Bearish Alert: Test support 4511-4514, target 4500-4485. Short setup tại 4520-4525 retest. SL: 4535. RR: 1:2.8 📉"
+  "dashboard_summary": "XAUUSD đang trong trạng thái chờ dữ liệu. Thị trường cần breakout rõ ràng để xác định hướng tiếp theo.",
+  "telegram_summary": "🥇 XAUUSD: Chờ dữ liệu cập nhật. Range 2010-2035. Breakout = direction. Giảm size trading. ⏰"
 },"docx_url":""}]}
