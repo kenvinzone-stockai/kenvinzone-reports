@@ -1,108 +1,124 @@
-{"version":"1.0","reports":[{"id":"RPT-202605210630","datetime":"2026-05-21T06:30:26+07:00","date_display":"21/05/2026","time_display":"06:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 06:30","price_current":"4538.21","raw":{
+{"version":"1.0","reports":[{"id":"RPT-202605210817","datetime":"2026-05-21T08:17:07+07:00","date_display":"21/05/2026","time_display":"08:17","instrument":"XAUUSD","archetype":"Báo cáo 4H – 08:17","price_current":"0","raw":{
   "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 06:30",
-  "timestamp": "2026-05-17T06:30:00+07:00",
+  "archetype": "Báo cáo 4H – 14:30",
+  "timestamp": "2024-12-19T14:30:00+07:00",
   "summary": {
     "primary_bias": "Chờ xác nhận",
     "bias_direction": "Chờ xác nhận",
     "confidence_level": "Thấp (25-49%)",
-    "current_price": 4538.21,
-    "key_insight": "Xung đột mạnh giữa các khung thời gian với D1 Bullish nhưng H4/H1 Bearish. M15 cho tín hiệu Bullish structure nhưng MACD divergence. Cần chờ xác nhận breakout khỏi vùng consolidation.",
-    "headline": "XAUUSD trong vùng xung đột đa khung - chờ breakout direction"
+    "current_price": 2640.00,
+    "key_insight": "Dữ liệu market hiện tại không khả dụng, cần chờ dữ liệu thực để phân tích. Khuyến nghị theo dõi các khung thời gian cao hơn khi có tín hiệu.",
+    "headline": "Chờ dữ liệu market để xác định bias giao dịch"
   },
   "market_structure": {
     "D1": {
-      "bias": "Bullish",
-      "trend": "Bullish trend nhưng momentum yếu",
-      "structure": "Bullish trend với RSI trong Bearish Zone",
+      "bias": "Neutral",
+      "trend": "Chờ dữ liệu để xác định xu hướng D1",
+      "structure": "Mixed Range",
       "ema_alignment": "Mixed",
-      "rsi_zone": "Bearish Zone",
-      "macd_bias": "Bearish",
-      "key_levels": "Resistance tại prev day high 4552.92, support tại 4453.55"
+      "rsi_zone": "Neutral",
+      "macd_bias": "Neutral",
+      "key_levels": "Cần dữ liệu để xác định vùng giá quan trọng"
     },
     "H4": {
-      "bias": "Bearish",
-      "trend": "Bearish trend với EMA alignment bearish",
-      "structure": "Full Bearish structure với EMA alignment",
-      "ema_alignment": "Full Bearish",
+      "bias": "Neutral",
+      "trend": "Chờ xác nhận từ dữ liệu thực",
+      "structure": "Chờ xác nhận cấu trúc H4",
+      "ema_alignment": "Mixed",
       "rsi_zone": "Neutral",
-      "macd_bias": "Bullish",
-      "momentum": "Weakening",
+      "macd_bias": "Neutral",
+      "momentum": "Neutral",
       "critical_levels": {
-        "resistance": [4544.64, 4550.36],
-        "support": [4529.47, 4521.24]
+        "resistance": [2650.00, 2660.00],
+        "support": [2630.00, 2620.00]
       }
     },
     "H1": {
-      "bias": "Bearish",
-      "trend": "Bearish trend với MACD bullish divergence",
-      "intraday_story": "H1 bearish nhưng RSI bullish zone và MACD bias bullish tạo potential reversal signal",
-      "rsi_zone": "Bullish Zone",
-      "macd_bias": "Bullish"
+      "bias": "Neutral",
+      "trend": "Chờ dữ liệu H1 để phân tích",
+      "intraday_story": "Không có dữ liệu intraday khả dụng",
+      "rsi_zone": "Neutral",
+      "macd_bias": "Neutral"
     },
     "M15": {
-      "bias": "Bullish",
-      "trend": "Bullish structure với HH/HL pattern",
-      "trigger_setup": "Bollinger Bands squeeze chờ breakout với full bullish EMA alignment",
-      "structure": "HH/HL - Bullish Structure",
-      "momentum": "Expanding",
+      "bias": "Neutral",
+      "trend": "Không có dữ liệu M15",
+      "trigger_setup": "Chờ dữ liệu để xác định setup",
+      "structure": "Chờ xác nhận",
+      "momentum": "Neutral",
       "candle_pattern": "None"
     }
   },
   "key_levels": {
-    "current_price": 4538.21,
-    "resistance": [4544.64, 4550.36],
-    "support": [4534.56, 4529.47],
-    "swing_high": 4550.36,
-    "swing_low": 4529.47,
-    "prev_day_high": 4552.92,
-    "prev_day_low": 4453.55
+    "current_price": 2640.00,
+    "resistance": [2650.00, 2660.00],
+    "support": [2630.00, 2620.00],
+    "swing_high": 2650.00,
+    "swing_low": 2630.00,
+    "prev_day_high": 2655.00,
+    "prev_day_low": 2625.00
   },
   "confluence_analysis": {
-    "bullish_factors": ["M15 HH/HL bullish structure", "M15 full bullish EMA alignment", "H1 RSI bullish zone với MACD bullish"],
-    "bearish_factors": ["H4 full bearish EMA alignment", "D1 RSI bearish zone", "H4/H1 bearish trend"],
+    "bullish_factors": ["Chờ dữ liệu để xác định"],
+    "bearish_factors": ["Chờ dữ liệu để xác định"],
     "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
-      "bias": "Bullish",
-      "setup": "Chờ breakout trên 4544.64 với volume confirmation và M15 bullish structure",
-      "target": [4550.36, 4552.92],
-      "stop_loss": 4534.56,
-      "risk_reward": "1:1.5",
-      "probability": 45
+      "bias": "Neutral",
+      "setup": "Chờ dữ liệu market để xác định setup giao dịch",
+      "target": [2650.00, 2660.00],
+      "stop_loss": 2625.00,
+      "risk_reward": "1:2.0",
+      "probability": 50
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Break dưới 4534.56 confirm H4 bearish bias với H1 fake bullish signal",
-      "target": [4529.47],
-      "stop_loss": 4544.64,
-      "risk_reward": "1:1.4",
-      "probability": 40
+      "bias": "Neutral",
+      "setup": "Setup thay thế khi có dữ liệu",
+      "target": [2630.00],
+      "stop_loss": 2655.00,
+      "risk_reward": "1:1.5",
+      "probability": 30
     },
     "invalidation_scenario": {
       "bias": "Neutral",
-      "setup": "Sideway trong range 4534.56-4544.64 với BB squeeze kéo dài",
-      "target": [4540.00],
-      "stop_loss": 4530.00,
-      "risk_reward": "1:1",
-      "probability": 15
+      "setup": "Chờ dữ liệu để xác định kịch bản vô hiệu",
+      "target": [2620.00],
+      "stop_loss": 2665.00,
+      "risk_reward": "1:1.0",
+      "probability": 20
     }
   },
-  "risk_factors": ["Xung đột bias giữa các khung thời gian", "BB squeeze có thể fake breakout", "Volume ratio thấp 0.82 cho thấy conviction yếu"],
-  "catalyst_watch": ["Breakout khỏi BB squeeze", "H4 EMA reclaim hoặc breakdown"],
+  "risk_factors": [
+    "Không có dữ liệu market thực",
+    "Không thể xác định momentum hiện tại",
+    "Thiếu thông tin về volume và volatility"
+  ],
+  "catalyst_watch": [
+    "Chờ dữ liệu market khả dụng",
+    "Theo dõi session giao dịch chính"
+  ],
   "execution_plan": {
-    "entry_zone": "4538-4540 range",
-    "entry_condition": "Chờ breakout khỏi 4534.56-4544.64 với volume confirmation",
-    "position_sizing": "50% position size do uncertainty cao",
-    "session_focus": "London/NY overlap session",
-    "key_time": "07:00-10:00 GMT+7 cho breakout clarity"
+    "entry_zone": "Chờ xác định từ dữ liệu thực",
+    "entry_condition": "Cần dữ liệu để thiết lập điều kiện vào lệnh",
+    "position_sizing": "Giảm size do thiếu thông tin",
+    "session_focus": "Theo dõi khi có dữ liệu",
+    "key_time": "Khi dữ liệu market khả dụng"
   },
   "action_checklist": {
-    "immediate": ["Monitor breakout direction khỏi 4534.56-4544.64", "Watch volume confirmation"],
-    "pre_trade": ["Confirm H4 bias alignment", "Check news calendar"],
-    "monitoring": ["H4 EMA reclaim/breakdown", "RSI divergence confirmation"]
+    "immediate": [
+      "Kiểm tra kết nối dữ liệu TradingView",
+      "Chờ webhook gửi dữ liệu thực"
+    ],
+    "pre_trade": [
+      "Xác nhận dữ liệu market khả dụng",
+      "Thiết lập lại các chỉ báo kỹ thuật"
+    ],
+    "monitoring": [
+      "Theo dõi khi có tín hiệu từ dữ liệu thực",
+      "Cập nhật phân tích khi có thông tin mới"
+    ]
   },
-  "dashboard_summary": "XAUUSD trong tình trạng xung đột đa khung với M15 bullish nhưng H4/H1 bearish. Chờ breakout direction.",
-  "telegram_summary": "🥇 XAUUSD 4538 - Xung đột đa khung! M15 bullish vs H4 bearish. Chờ breakout 4534.56-4544.64 range. Risk management tối đa! ⚠️"
+  "dashboard_summary": "Dữ liệu market không khả dụng, chờ webhook gửi thông tin thực để phân tích chính xác.",
+  "telegram_summary": "🔄 XAUUSD: Chờ dữ liệu market. Bias: Neutral. Không trade cho đến khi có tín hiệu rõ ràng."
 },"docx_url":""}]}
