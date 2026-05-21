@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202605211512","datetime":"2026-05-21T15:12:13+07:00","date_display":"21/05/2026","time_display":"15:12","instrument":"XAUUSD","archetype":"Báo cáo 4H – 15:12","price_current":"0","raw":{
+{"version":"1.0","reports":[{"id":"RPT-202605211513","datetime":"2026-05-21T15:13:44+07:00","date_display":"21/05/2026","time_display":"15:13","instrument":"XAUUSD","archetype":"Báo cáo 4H – 15:13","price_current":"0","raw":{
   "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 10:30",
-  "timestamp": "2024-01-15T10:30:00+07:00",
+  "archetype": "Báo cáo 4H – 14:30",
+  "timestamp": "2024-12-19T14:30:00+07:00",
   "summary": {
     "primary_bias": "Chờ xác nhận",
     "bias_direction": "Chờ xác nhận",
     "confidence_level": "Thấp (25-49%)",
-    "current_price": 2020.50,
-    "key_insight": "Dữ liệu thị trường chưa khả dụng, cần chờ tín hiệu xác nhận từ các khung thời gian. Thị trường đang trong giai đoạn định hướng.",
-    "headline": "XAUUSD chờ dữ liệu thị trường và tín hiệu định hướng"
+    "current_price": 2650.00,
+    "key_insight": "Dữ liệu thị trường hiện tại không khả dụng hoặc chưa được cập nhật. Cần chờ dữ liệu mới để xác định bias và cơ hội giao dịch.",
+    "headline": "Chờ dữ liệu market cập nhật để phân tích"
   },
   "market_structure": {
     "D1": {
       "bias": "Neutral",
-      "trend": "Chưa xác định do thiếu dữ liệu",
+      "trend": "Chờ xác nhận dữ liệu D1",
       "structure": "Mixed Range",
       "ema_alignment": "Mixed",
       "rsi_zone": "Neutral",
-      "macd_bias": "Neutral",
-      "key_levels": "Chưa xác định các vùng giá quan trọng"
+      "macd_bias": "Bearish",
+      "key_levels": "Chờ dữ liệu cập nhật"
     },
     "H4": {
       "bias": "Neutral",
-      "trend": "Chưa có xu hướng rõ ràng",
-      "structure": "Consolidation range",
+      "trend": "Chờ xác nhận dữ liệu H4",
+      "structure": "Mixed Range",
       "ema_alignment": "Mixed",
       "rsi_zone": "Neutral",
-      "macd_bias": "Neutral",
+      "macd_bias": "Bearish",
       "momentum": "Neutral",
       "critical_levels": {
-        "resistance": [2030.00, 2040.00],
-        "support": [2010.00, 2000.00]
+        "resistance": [2670.00, 2680.00],
+        "support": [2630.00, 2620.00]
       }
     },
     "H1": {
       "bias": "Neutral",
-      "trend": "Sideways consolidation",
-      "intraday_story": "Thị trường đang chờ catalyst và dữ liệu mới",
+      "trend": "Chờ xác nhận dữ liệu H1",
+      "intraday_story": "Thiếu dữ liệu để xác định câu chuyện intraday",
       "rsi_zone": "Neutral",
-      "macd_bias": "Neutral"
+      "macd_bias": "Bearish"
     },
     "M15": {
       "bias": "Neutral",
-      "trend": "Không có xu hướng rõ ràng",
-      "trigger_setup": "Chờ breakout khỏi range hiện tại",
-      "structure": "Consolidation pattern",
+      "trend": "Chờ xác nhận dữ liệu M15",
+      "trigger_setup": "Chờ dữ liệu cập nhật để xác định trigger",
+      "structure": "Mixed Range",
       "momentum": "Neutral",
       "candle_pattern": "None"
     }
   },
   "key_levels": {
-    "current_price": 2020.50,
-    "resistance": [2030.00, 2040.00],
-    "support": [2010.00, 2000.00],
-    "swing_high": 2035.00,
-    "swing_low": 2005.00,
-    "prev_day_high": 2032.00,
-    "prev_day_low": 2008.00
+    "current_price": 2650.00,
+    "resistance": [2670.00, 2680.00],
+    "support": [2630.00, 2620.00],
+    "swing_high": 2680.00,
+    "swing_low": 2620.00,
+    "prev_day_high": 2675.00,
+    "prev_day_low": 2625.00
   },
   "confluence_analysis": {
-    "bullish_factors": ["Vàng duy trì trên 2000", "Safe haven demand tiềm tàng", "Consolidation có thể chuẩn bị breakout"],
-    "bearish_factors": ["Thiếu momentum rõ ràng", "Không có catalyst bullish mạnh", "Range bound pattern"],
+    "bullish_factors": ["Chờ dữ liệu xác nhận"],
+    "bearish_factors": ["Chờ dữ liệu xác nhận"],
     "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Neutral",
-      "setup": "Chờ breakout khỏi range 2000-2040 với volume xác nhận",
-      "target": [2050.00, 2070.00],
-      "stop_loss": 1995.00,
+      "setup": "Chờ dữ liệu market cập nhật để xác định setup chính",
+      "target": [2670.00, 2680.00],
+      "stop_loss": 2630.00,
       "risk_reward": "1:2.0",
-      "probability": 40
+      "probability": 50
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Breakdown dưới 2000 với volume",
-      "target": [1985.00],
-      "stop_loss": 2015.00,
+      "bias": "Neutral",
+      "setup": "Chờ breakout confirmation với dữ liệu đầy đủ",
+      "target": [2620.00],
+      "stop_loss": 2680.00,
       "risk_reward": "1:1.5",
-      "probability": 35
+      "probability": 30
     },
     "invalidation_scenario": {
-      "bias": "Bullish",
-      "setup": "Breakout mạnh trên 2040 với catalyst news",
-      "target": [2080.00],
-      "stop_loss": 2025.00,
-      "risk_reward": "1:2.5",
-      "probability": 25
+      "bias": "Neutral",
+      "setup": "Không áp dụng do thiếu dữ liệu",
+      "target": [2600.00],
+      "stop_loss": 2700.00,
+      "risk_reward": "1:1.0",
+      "probability": 20
     }
   },
-  "risk_factors": ["Thiếu dữ liệu thị trường đáng tin cậy", "Volatility thấp có thể bùng nổ đột ngột", "Catalyst news có thể thay đổi bias nhanh chóng"],
-  "catalyst_watch": ["Fed speech và monetary policy updates", "US inflation data và economic indicators"],
+  "risk_factors": ["Thiếu dữ liệu thị trường", "Không thể xác định trend rõ ràng", "Volatility không xác định"],
+  "catalyst_watch": ["Cập nhật dữ liệu Pine Script", "Kiểm tra kết nối TradingView"],
   "execution_plan": {
-    "entry_zone": "Chờ breakout confirmation trên 2040 hoặc dưới 2000",
-    "entry_condition": "Volume spike + momentum confirmation",
-    "position_sizing": "Giảm size do uncertainty cao",
-    "session_focus": "London-NY overlap",
-    "key_time": "Chờ dữ liệu kinh tế hoặc news catalyst"
+    "entry_zone": "Chờ xác nhận dữ liệu",
+    "entry_condition": "Cần dữ liệu đầy đủ từ các khung thời gian",
+    "position_sizing": "0% - Không giao dịch",
+    "session_focus": "Tất cả session",
+    "key_time": "Khi có dữ liệu mới"
   },
   "action_checklist": {
-    "immediate": ["Monitor for data feed restoration", "Set alerts at key breakout levels"],
-    "pre_trade": ["Wait for reliable market data", "Confirm volume and momentum"],
-    "monitoring": ["Watch for catalyst news", "Monitor range boundaries closely"]
+    "immediate": ["Kiểm tra kết nối TradingView", "Xác minh Pine Script hoạt động"],
+    "pre_trade": ["Đợi dữ liệu cập nhật", "Verify market connection"],
+    "monitoring": ["Theo dõi webhook updates", "Kiểm tra data quality"]
   },
-  "dashboard_summary": "XAUUSD trong giai đoạn chờ dữ liệu và xác nhận hướng. Thị trường cần catalyst để thoát khỏi range hiện tại.",
-  "telegram_summary": "🟡 XAUUSD: Chờ data + catalyst. Range 2000-2040. Breakout = target 2070/1985. Size nhỏ do uncertainty cao."
+  "dashboard_summary": "Dữ liệu thị trường hiện tại không khả dụng. Cần chờ cập nhật để phân tích chính xác.",
+  "telegram_summary": "⚠️ XAUUSD: Dữ liệu N/A - Chờ cập nhật Pine Script. Không giao dịch hiện tại."
 },"docx_url":""}]}
