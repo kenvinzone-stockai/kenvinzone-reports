@@ -2,153 +2,325 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0a0e1a" />
 <title>KenvinZone — Strategy Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap');
 
   :root {
-    --bg: #080a0f;
-    --bg2: #0d1117;
-    --bg3: #111620;
-    --bg4: #161c2a;
-    --bg5: #1b2232;
-    --border: #1e2738;
-    --border2: #252f45;
-    --gold: #f0b429;
-    --gold2: #e09b10;
-    --gold-dim: rgba(240,180,41,0.12);
-    --gold-glow: rgba(240,180,41,0.25);
-    --green: #00d084;
-    --green-dim: rgba(0,208,132,0.12);
-    --red: #ff4b6e;
-    --red-dim: rgba(255,75,110,0.12);
-    --blue: #3b82f6;
-    --blue-dim: rgba(59,130,246,0.12);
-    --text: #e2e8f0;
-    --text2: #94a3b8;
-    --text3: #64748b;
-    --text4: #475569;
-    --radius: 12px;
-    --radius-sm: 8px;
-    --radius-lg: 16px;
-    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+    /* Obsidian Gold theme */
+    --bg-0: #0a0e1a;
+    --bg-1: #0f1420;
+    --bg-2: #161c2e;
+    --bg-3: #1c2338;
+    --bg-4: #232c44;
+    --border-1: #1f2940;
+    --border-2: #2a3553;
+    --border-3: #364263;
+
+    --gold: #fbbf24;
+    --gold-2: #f59e0b;
+    --gold-3: #d97706;
+    --gold-soft: rgba(251,191,36,0.10);
+    --gold-glow: rgba(251,191,36,0.30);
+
+    --emerald: #10b981;
+    --emerald-soft: rgba(16,185,129,0.10);
+    --rose: #f43f5e;
+    --rose-soft: rgba(244,63,94,0.10);
+    --sky: #38bdf8;
+    --sky-soft: rgba(56,189,248,0.10);
+
+    --text-0: #f1f5f9;
+    --text-1: #cbd5e1;
+    --text-2: #94a3b8;
+    --text-3: #64748b;
+    --text-4: #475569;
+
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
+    --shadow-2: 0 4px 16px rgba(0,0,0,0.35);
+    --shadow-3: 0 12px 40px rgba(0,0,0,0.45);
+    --shadow-gold: 0 0 24px rgba(251,191,36,0.20);
+
+    --font-display: 'Syne', system-ui, sans-serif;
+    --font-mono: 'DM Mono', ui-monospace, monospace;
+    --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
+    background: var(--bg-0);
+    color: var(--text-0);
+    font-family: var(--font-body);
     min-height: 100vh;
     overflow-x: hidden;
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
   }
 
+  /* Tabular numerals for mono font */
+  .mono, [class*="mono"] { font-variant-numeric: tabular-nums; }
+
+  /* Ambient background */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(240,180,41,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 40% at 90% 90%, rgba(59,130,246,0.04) 0%, transparent 60%);
+      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(251,191,36,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 40% at 90% 90%, rgba(56,189,248,0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 30% at 10% 80%, rgba(244,63,94,0.03) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
   }
 
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 80%);
+  }
+
+  /* ========== NAV ========== */
   .nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(8,10,15,0.92);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
+    background: rgba(10,14,26,0.75);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid var(--border-1);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    height: 58px;
+    height: 60px;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-family: 'Syne', sans-serif;
-    font-size: 20px;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 19px;
     font-weight: 800;
-    color: var(--gold);
     letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-3) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
-  .nav-brand::before {
-    content: '◆';
-    font-size: 11px;
-    animation: pulse 2s ease infinite;
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-3) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-0);
+    font-size: 14px;
+    font-weight: 900;
+    box-shadow: var(--shadow-gold);
+    position: relative;
   }
 
-  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .brand-mark::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 11px;
+    border: 1px solid rgba(251,191,36,0.3);
+    animation: ring 3s ease infinite;
+  }
+
+  @keyframes ring {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+  }
 
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
   }
 
   .live-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 5px 12px;
+    padding: 6px 13px;
     border-radius: 999px;
-    background: var(--green-dim);
-    border: 1px solid rgba(0,208,132,0.2);
-    color: var(--green);
-    font-family: 'DM Mono', monospace;
+    background: var(--emerald-soft);
+    border: 1px solid rgba(16,185,129,0.25);
+    color: var(--emerald);
+    font-family: var(--font-mono);
     font-size: 11px;
+    font-weight: 500;
   }
 
   .live-dot {
     width: 6px; height: 6px;
     border-radius: 50%;
-    background: var(--green);
-    animation: blink 1.2s ease infinite;
+    background: var(--emerald);
+    position: relative;
   }
 
-  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+  .live-dot::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: var(--emerald);
+    opacity: 0.4;
+    animation: ping 1.5s ease-out infinite;
+  }
+
+  @keyframes ping {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
 
   .last-updated {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--text3);
+    color: var(--text-3);
   }
 
+  /* ========== LAYOUT ========== */
   .layout {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 320px 1fr;
-    min-height: calc(100vh - 58px);
+    grid-template-columns: 340px 1fr;
+    min-height: calc(100vh - 60px);
   }
 
   .sidebar {
-    border-right: 1px solid var(--border);
-    background: rgba(13,17,23,0.85);
-    backdrop-filter: blur(8px);
+    border-right: 1px solid var(--border-1);
+    background: rgba(15,20,32,0.6);
+    backdrop-filter: blur(12px);
   }
 
   .sidebar-inner {
     position: sticky;
-    top: 58px;
-    height: calc(100vh - 58px);
+    top: 60px;
+    height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
   }
 
+  /* ========== SEARCH ========== */
+  .search-block {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border-1);
+  }
+
+  .search-input {
+    width: 100%;
+    background: var(--bg-2);
+    border: 1px solid var(--border-2);
+    color: var(--text-0);
+    padding: 9px 14px 9px 34px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 13px;
+    outline: none;
+    transition: all 0.18s var(--ease-out);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 11px center;
+  }
+
+  .search-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold-soft);
+  }
+
+  .search-input::placeholder { color: var(--text-4); }
+
+  /* ========== FILTERS ========== */
+  .month-selector {
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border-1);
+  }
+
+  .month-select {
+    width: 100%;
+    background: var(--bg-2);
+    border: 1px solid var(--border-2);
+    color: var(--text-0);
+    border-radius: var(--radius-sm);
+    padding: 8px 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.18s var(--ease-out);
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 32px;
+  }
+
+  .month-select:focus { border-color: var(--gold); }
+
+  .time-filter {
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border-1);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+
+  .tf-btn {
+    padding: 6px 4px;
+    border-radius: var(--radius-xs);
+    border: 1px solid var(--border-2);
+    background: var(--bg-2);
+    color: var(--text-3);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.18s var(--ease-out);
+  }
+
+  .tf-btn:hover { color: var(--gold); border-color: var(--border-3); }
+  .tf-btn.active {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: var(--gold-soft);
+    box-shadow: 0 0 12px var(--gold-soft);
+  }
+
   .filters {
-    padding: 16px;
-    border-bottom: 1px solid var(--border);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-1);
     display: grid;
     gap: 12px;
   }
@@ -156,11 +328,11 @@
   .filter-block { display: grid; gap: 8px; }
 
   .filter-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--text4);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-4);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
   }
 
   .filter-row {
@@ -170,75 +342,62 @@
   }
 
   .chip {
-    border: 1px solid var(--border2);
-    background: var(--bg3);
-    color: var(--text2);
+    border: 1px solid var(--border-2);
+    background: var(--bg-2);
+    color: var(--text-2);
     border-radius: 999px;
-    padding: 5px 10px;
-    font-family: 'DM Mono', monospace;
+    padding: 5px 11px;
+    font-family: var(--font-mono);
     font-size: 10px;
     cursor: pointer;
-    transition: all 0.18s ease;
+    transition: all 0.18s var(--ease-out);
   }
 
-  .chip:hover { color: var(--gold); border-color: var(--gold); }
-
+  .chip:hover { color: var(--gold); border-color: var(--border-3); }
   .chip.active {
     color: var(--gold);
     border-color: var(--gold);
-    background: var(--gold-dim);
-    box-shadow: 0 0 12px var(--gold-glow);
+    background: var(--gold-soft);
+    box-shadow: 0 0 12px var(--gold-soft);
   }
 
-  /* Month selector */
-  .month-selector {
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  /* ========== STATS BAR ========== */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    padding: 0;
+    border-bottom: 1px solid var(--border-1);
+    background: var(--border-1);
   }
 
-  .month-select {
-    flex: 1;
-    background: var(--bg3);
-    border: 1px solid var(--border2);
-    color: var(--text);
-    border-radius: var(--radius-sm);
-    padding: 6px 10px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .month-select:focus { border-color: var(--gold); }
-
-  /* Time filter tabs */
-  .time-filter {
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    gap: 4px;
-  }
-
-  .tf-btn {
-    flex: 1;
-    padding: 5px 8px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border2);
-    background: var(--bg3);
-    color: var(--text3);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    cursor: pointer;
+  .stat-cell {
+    padding: 10px 12px;
+    background: var(--bg-1);
     text-align: center;
-    transition: all 0.18s ease;
   }
 
-  .tf-btn:hover { color: var(--gold); border-color: var(--gold); }
-  .tf-btn.active { color: var(--gold); border-color: var(--gold); background: var(--gold-dim); }
+  .stat-cell .num {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
 
+  .stat-cell .lbl {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .num.bull { color: var(--emerald); }
+  .num.bear { color: var(--rose); }
+  .num.total { color: var(--gold); }
+
+  /* ========== REPORT LIST ========== */
   .report-list {
     flex: 1;
     overflow: auto;
@@ -246,129 +405,237 @@
     display: grid;
     gap: 8px;
     align-content: start;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-3) transparent;
   }
 
-  /* Date group header */
+  .report-list::-webkit-scrollbar { width: 6px; }
+  .report-list::-webkit-scrollbar-track { background: transparent; }
+  .report-list::-webkit-scrollbar-thumb { background: var(--border-3); border-radius: 3px; }
+
   .date-group-header {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--text4);
+    color: var(--text-4);
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 4px 0;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 4px;
+    padding: 6px 2px;
     margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .date-group-header:first-child { margin-top: 0; }
 
+  .date-group-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-1);
+  }
+
   .report-count {
-    float: right;
-    background: var(--bg4);
+    background: var(--bg-3);
+    border: 1px solid var(--border-2);
     border-radius: 999px;
-    padding: 1px 6px;
+    padding: 1px 7px;
     font-size: 9px;
+    color: var(--text-2);
   }
 
   .report-item {
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
     border-radius: var(--radius);
-    padding: 12px;
+    padding: 12px 14px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s var(--ease-out);
+    position: relative;
+    overflow: hidden;
   }
 
-  .report-item:hover { border-color: var(--gold); transform: translateY(-1px); }
+  .report-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: transparent;
+    transition: background 0.2s var(--ease-out);
+  }
+
+  .report-item:hover {
+    border-color: var(--border-3);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-2);
+  }
 
   .report-item.active {
     border-color: var(--gold);
-    background: linear-gradient(135deg, rgba(240,180,41,0.06) 0%, var(--bg3) 100%);
-    box-shadow: 0 0 20px rgba(240,180,41,0.08);
+    background: linear-gradient(135deg, var(--gold-soft) 0%, var(--bg-2) 60%);
+    box-shadow: 0 0 0 1px var(--gold-soft), var(--shadow-2);
   }
+
+  .report-item.active::before { background: var(--gold); }
 
   .ri-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
-  .ri-inst { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text); }
-  .ri-time { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text4); }
+  .ri-inst {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-0);
+  }
+
+  .ri-time {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-4);
+  }
 
   .ri-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
 
   .badge {
-    padding: 2px 7px;
+    padding: 2px 8px;
     border-radius: 999px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 9px;
-    border: 1px solid var(--border2);
+    font-weight: 500;
+    border: 1px solid var(--border-2);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
   }
 
-  .badge.bullish { color: var(--green); background: var(--green-dim); border-color: rgba(0,208,132,0.25); }
-  .badge.bearish { color: var(--red); background: var(--red-dim); border-color: rgba(255,75,110,0.25); }
-  .badge.neutral { color: var(--blue); background: var(--blue-dim); border-color: rgba(59,130,246,0.25); }
-  .badge.conf { color: var(--gold); background: var(--gold-dim); border-color: rgba(240,180,41,0.25); }
+  .badge.bullish { color: var(--emerald); background: var(--emerald-soft); border-color: rgba(16,185,129,0.25); }
+  .badge.bearish { color: var(--rose); background: var(--rose-soft); border-color: rgba(244,63,94,0.25); }
+  .badge.neutral { color: var(--sky); background: var(--sky-soft); border-color: rgba(56,189,248,0.25); }
+  .badge.conf { color: var(--gold); background: var(--gold-soft); border-color: rgba(251,191,36,0.25); }
 
   .ri-text {
-    color: var(--text3);
-    font-size: 11px;
-    line-height: 1.5;
+    color: var(--text-2);
+    font-size: 12px;
+    line-height: 1.55;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
+  /* ========== CONTENT ========== */
   .content { min-width: 0; }
 
   .content-inner {
     max-width: 1180px;
-    padding: 20px;
+    padding: 24px;
     margin: 0 auto;
     display: grid;
-    gap: 18px;
+    gap: 20px;
   }
 
-  .loading, .empty {
-    min-height: calc(100vh - 140px);
+  /* ========== SKELETON LOADER ========== */
+  .skeleton-stack { display: grid; gap: 20px; padding: 24px; }
+  .skel {
+    background: linear-gradient(90deg, var(--bg-2) 0%, var(--bg-3) 50%, var(--bg-2) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease infinite;
+    border-radius: var(--radius);
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .skel-hero { height: 220px; border-radius: var(--radius-lg); }
+  .skel-row { height: 140px; }
+  .skel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .skel-card { height: 200px; }
+
+  .empty {
+    min-height: calc(100vh - 200px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 14px;
-    color: var(--text3);
-    font-family: 'DM Mono', monospace;
+    gap: 12px;
+    color: var(--text-3);
+    font-family: var(--font-mono);
     font-size: 13px;
+    text-align: center;
+    padding: 24px;
   }
 
-  .spinner {
-    width: 34px; height: 34px;
+  .empty-icon {
+    width: 56px; height: 56px;
     border-radius: 50%;
-    border: 2px solid var(--border2);
-    border-top-color: var(--gold);
-    animation: spin 0.9s linear infinite;
+    background: var(--bg-2);
+    border: 1px solid var(--border-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 4px;
   }
 
-  @keyframes spin { to { transform: rotate(360deg); } }
+  .empty-action {
+    margin-top: 8px;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--gold);
+    background: var(--gold-soft);
+    color: var(--gold);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.18s var(--ease-out);
+  }
 
+  .empty-action:hover { background: var(--gold); color: var(--bg-0); }
+
+  /* ========== HERO ========== */
   .hero {
-    background: linear-gradient(135deg, var(--bg3) 0%, var(--bg4) 100%);
-    border: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%);
+    border: 1px solid var(--border-2);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-3);
     overflow: hidden;
+    position: relative;
+    animation: fadeUp 0.5s var(--ease-out);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-glow), transparent);
   }
 
   .hero-inner {
-    padding: 28px;
+    padding: 32px;
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 20px;
+    gap: 24px;
     align-items: start;
   }
 
@@ -377,357 +644,717 @@
     gap: 10px;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 10px;
-  }
-
-  .hero-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 34px;
-    letter-spacing: -1px;
-    color: var(--text);
-  }
-
-  .hero-pill {
-    padding: 4px 10px;
-    border-radius: 999px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    border: 1px solid var(--border2);
-    color: var(--text3);
-    background: var(--bg2);
-  }
-
-  .hero-pill.bullish { color: var(--green); background: var(--green-dim); border-color: rgba(0,208,132,0.25); }
-  .hero-pill.bearish { color: var(--red); background: var(--red-dim); border-color: rgba(255,75,110,0.25); }
-  .hero-pill.neutral { color: var(--blue); background: var(--blue-dim); border-color: rgba(59,130,246,0.25); }
-  .hero-pill.conf-high { color: var(--gold); background: var(--gold-dim); border-color: rgba(240,180,41,0.25); }
-  .hero-pill.conf-medium { color: var(--blue); background: var(--blue-dim); border-color: rgba(59,130,246,0.25); }
-  .hero-pill.conf-low { color: var(--text3); background: var(--bg2); }
-
-  .hero-meta {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--text4);
     margin-bottom: 14px;
   }
 
-  .hero-insight { color: var(--text2); line-height: 1.8; max-width: 760px; font-size: 14px; }
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: -1.5px;
+    color: var(--text-0);
+    line-height: 1;
+  }
+
+  .hero-pill {
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--border-2);
+    color: var(--text-2);
+    background: var(--bg-1);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .hero-pill.bullish { color: var(--emerald); background: var(--emerald-soft); border-color: rgba(16,185,129,0.3); }
+  .hero-pill.bearish { color: var(--rose); background: var(--rose-soft); border-color: rgba(244,63,94,0.3); }
+  .hero-pill.neutral { color: var(--sky); background: var(--sky-soft); border-color: rgba(56,189,248,0.3); }
+  .hero-pill.conf-high { color: var(--gold); background: var(--gold-soft); border-color: rgba(251,191,36,0.3); }
+  .hero-pill.conf-medium { color: var(--sky); background: var(--sky-soft); border-color: rgba(56,189,248,0.3); }
+  .hero-pill.conf-low { color: var(--text-3); background: var(--bg-1); }
+
+  .hero-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-4);
+    margin-bottom: 16px;
+  }
+
+  .hero-meta span { display: inline-flex; align-items: center; gap: 5px; }
+
+  .hero-insight {
+    color: var(--text-1);
+    line-height: 1.75;
+    max-width: 720px;
+    font-size: 14px;
+  }
 
   .hero-price { text-align: right; }
 
   .hero-price-label {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--text4);
+    color: var(--text-4);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
   }
 
   .hero-price-value {
-    font-family: 'DM Mono', monospace;
-    font-size: 38px;
+    font-family: var(--font-mono);
+    font-size: 42px;
+    font-weight: 500;
     color: var(--gold);
-    text-shadow: 0 0 28px rgba(240,180,41,0.25);
+    text-shadow: 0 0 32px rgba(251,191,36,0.25);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
   }
 
   .hero-price-time {
-    margin-top: 8px;
-    font-family: 'DM Mono', monospace;
+    margin-top: 10px;
+    font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--text4);
+    color: var(--text-4);
   }
 
+  .hero-sparkline {
+    margin-top: 14px;
+    height: 32px;
+    width: 160px;
+    margin-left: auto;
+  }
+
+  /* ========== PANEL ========== */
   .panel {
-    background: var(--bg2);
-    border: 1px solid var(--border);
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-2);
     overflow: hidden;
+    animation: fadeUp 0.5s var(--ease-out) both;
   }
 
-  .panel-body { padding: 20px 22px; }
+  .panel-body { padding: 22px 24px; }
 
   .panel-title {
-    font-family: 'Syne', sans-serif;
+    font-family: var(--font-display);
     font-size: 11px;
-    color: var(--text3);
+    font-weight: 700;
+    color: var(--text-2);
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
   }
 
   .panel-title::before {
     content: '';
-    width: 3px; height: 12px;
+    width: 3px;
+    height: 14px;
     border-radius: 2px;
-    background: var(--gold);
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-3) 100%);
+    box-shadow: 0 0 8px var(--gold-glow);
   }
 
-  .summary-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
+  /* ========== SUMMARY ========== */
+  .summary-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; }
 
   .summary-box, .mini-box {
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
     border-radius: var(--radius);
-    padding: 18px;
+    padding: 20px;
   }
 
-  .summary-box p, .mini-box p { color: var(--text2); line-height: 1.8; font-size: 14px; }
+  .summary-box p, .mini-box p { color: var(--text-1); line-height: 1.8; font-size: 14px; }
 
   .mini-title {
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--text4);
+    color: var(--text-4);
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
-  .mini-kv { display: grid; gap: 8px; }
-  .mini-kv div { color: var(--text2); font-size: 13px; line-height: 1.6; }
-  .mini-kv strong { color: var(--gold); }
+  .mini-kv { display: grid; gap: 10px; }
+  .mini-kv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border-1);
+  }
+  .mini-kv-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .mini-kv-key {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .mini-kv-val {
+    color: var(--text-0);
+    font-size: 13px;
+    font-family: var(--font-mono);
+    text-align: right;
+  }
+  .mini-kv-val.gold { color: var(--gold); }
 
+  /* ========== SCENARIOS ========== */
   .scenarios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
   .scenario-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
     border-radius: var(--radius);
-    padding: 18px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .scenario-card.primary { border-color: rgba(240,180,41,0.35); background: linear-gradient(135deg, rgba(240,180,41,0.05) 0%, var(--bg3) 100%); }
-  .scenario-card.alternative { border-color: rgba(59,130,246,0.25); }
-  .scenario-card.invalidation { border-color: rgba(255,75,110,0.25); }
+  .scenario-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border-2);
+  }
 
-  .scenario-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+  .scenario-card.primary { border-color: rgba(251,191,36,0.3); background: linear-gradient(135deg, rgba(251,191,36,0.04) 0%, var(--bg-2) 100%); }
+  .scenario-card.primary::after { background: linear-gradient(90deg, var(--gold), var(--gold-3)); }
+  .scenario-card.alternative { border-color: rgba(56,189,248,0.25); }
+  .scenario-card.alternative::after { background: var(--sky); }
+  .scenario-card.invalidation { border-color: rgba(244,63,94,0.25); }
+  .scenario-card.invalidation::after { background: var(--rose); }
+
+  .scenario-type {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
   .scenario-type.primary { color: var(--gold); }
-  .scenario-type.alternative { color: var(--blue); }
-  .scenario-type.invalidation { color: var(--red); }
+  .scenario-type.alternative { color: var(--sky); }
+  .scenario-type.invalidation { color: var(--rose); }
 
   .scenario-bias {
     display: inline-block;
-    margin-bottom: 10px;
-    padding: 3px 8px;
+    margin-bottom: 12px;
+    padding: 3px 9px;
     border-radius: 999px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
-  .scenario-bias.bullish { color: var(--green); background: var(--green-dim); }
-  .scenario-bias.bearish { color: var(--red); background: var(--red-dim); }
-  .scenario-bias.neutral { color: var(--blue); background: var(--blue-dim); }
+  .scenario-bias.bullish { color: var(--emerald); background: var(--emerald-soft); }
+  .scenario-bias.bearish { color: var(--rose); background: var(--rose-soft); }
+  .scenario-bias.neutral { color: var(--sky); background: var(--sky-soft); }
 
-  .scenario-setup { color: var(--text2); line-height: 1.65; font-size: 13px; margin-bottom: 14px; }
+  .scenario-setup { color: var(--text-1); line-height: 1.65; font-size: 13px; margin-bottom: 16px; }
 
-  .scenario-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px; margin-bottom: 12px; }
+  .scenario-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; margin-bottom: 14px; }
 
-  .stat-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text4); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
-  .stat-value { font-size: 13px; color: var(--text); line-height: 1.5; }
-  .stat-value.green { color: var(--green); }
-  .stat-value.red { color: var(--red); }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .stat-value {
+    font-size: 13px;
+    color: var(--text-0);
+    line-height: 1.5;
+    font-family: var(--font-mono);
+  }
+  .stat-value.green { color: var(--emerald); }
+  .stat-value.red { color: var(--rose); }
   .stat-value.gold { color: var(--gold); }
 
-  .prob-wrap { margin-top: 8px; }
-  .prob-head { display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text4); margin-bottom: 6px; }
-  .prob-track { height: 4px; background: var(--border); border-radius: 999px; overflow: hidden; }
-  .prob-fill { height: 100%; width: 0; transition: width 0.9s ease; }
-  .prob-fill.primary { background: linear-gradient(90deg, var(--gold2), var(--gold)); }
-  .prob-fill.alternative { background: var(--blue); }
-  .prob-fill.invalidation { background: var(--red); }
+  .prob-wrap { margin-top: 10px; }
+  .prob-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-4);
+    margin-bottom: 7px;
+  }
+  .prob-track { height: 5px; background: var(--bg-3); border-radius: 999px; overflow: hidden; }
+  .prob-fill {
+    height: 100%;
+    width: 0;
+    transition: width 0.5s var(--ease-out);
+    border-radius: 999px;
+  }
+  .prob-fill.primary { background: linear-gradient(90deg, var(--gold-3), var(--gold)); box-shadow: 0 0 8px var(--gold-glow); }
+  .prob-fill.alternative { background: var(--sky); }
+  .prob-fill.invalidation { background: var(--rose); }
 
+  /* ========== GRIDS ========== */
   .triple-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
+  /* ========== TF TABLE ========== */
   .tf-table { width: 100%; border-collapse: collapse; }
-  .tf-table tr { border-bottom: 1px solid var(--border); }
+  .tf-table tr { border-bottom: 1px solid var(--border-1); }
   .tf-table tr:last-child { border-bottom: none; }
-  .tf-table td { padding: 10px 12px; vertical-align: top; }
+  .tf-table td { padding: 12px 8px; vertical-align: top; }
 
-  .tf-name { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); width: 52px; }
+  .tf-name {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gold);
+    width: 56px;
+    font-weight: 500;
+  }
 
   .tf-trend {
     display: inline-block;
     padding: 2px 8px;
     border-radius: 999px;
-    font-family: 'DM Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
     margin-right: 8px;
+    margin-bottom: 4px;
   }
 
-  .tf-trend.bullish { color: var(--green); background: var(--green-dim); }
-  .tf-trend.bearish { color: var(--red); background: var(--red-dim); }
-  .tf-trend.neutral { color: var(--blue); background: var(--blue-dim); }
+  .tf-trend.bullish { color: var(--emerald); background: var(--emerald-soft); }
+  .tf-trend.bearish { color: var(--rose); background: var(--rose-soft); }
+  .tf-trend.neutral { color: var(--sky); background: var(--sky-soft); }
 
-  .tf-desc { color: var(--text2); font-size: 12px; line-height: 1.5; }
+  .tf-desc { color: var(--text-1); font-size: 12px; line-height: 1.55; }
 
+  /* ========== LEVELS ========== */
   .levels { display: grid; gap: 8px; }
 
   .level {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
+    gap: 12px;
+    padding: 11px 14px;
     border-radius: var(--radius-sm);
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    transition: all 0.18s var(--ease-out);
   }
 
-  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .dot.resistance { background: var(--red); box-shadow: 0 0 8px rgba(255,75,110,0.5); }
-  .dot.support { background: var(--green); box-shadow: 0 0 8px rgba(0,208,132,0.5); }
-  .dot.current { background: var(--gold); box-shadow: 0 0 8px rgba(240,180,41,0.5); }
+  .level:hover { border-color: var(--border-3); }
 
-  .level-type { width: 76px; font-family: 'DM Mono', monospace; font-size: 9px; text-transform: uppercase; color: var(--text4); }
-  .level-price { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text); }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot.resistance { background: var(--rose); box-shadow: 0 0 10px rgba(244,63,94,0.5); }
+  .dot.support { background: var(--emerald); box-shadow: 0 0 10px rgba(16,185,129,0.5); }
+  .dot.current { background: var(--gold); box-shadow: 0 0 10px rgba(251,191,36,0.6); }
 
+  .level-type {
+    width: 80px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    color: var(--text-3);
+    letter-spacing: 0.8px;
+  }
+  .level-price {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-0);
+    flex: 1;
+  }
+
+  /* ========== LISTS ========== */
   .list-stack { display: grid; gap: 8px; }
 
   .list-item {
-    background: var(--bg3);
-    border: 1px solid var(--border);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
     border-radius: var(--radius-sm);
-    padding: 10px 12px;
-    color: var(--text2);
+    padding: 11px 13px;
+    color: var(--text-1);
     font-size: 13px;
     line-height: 1.6;
   }
 
-  .list-item.bull { border-color: rgba(0,208,132,0.14); background: rgba(0,208,132,0.05); }
-  .list-item.bear { border-color: rgba(255,75,110,0.14); background: rgba(255,75,110,0.05); }
-  .list-item.risk { border-color: rgba(255,75,110,0.14); background: rgba(255,75,110,0.05); }
+  .list-item.bull { border-color: rgba(16,185,129,0.15); background: rgba(16,185,129,0.04); }
+  .list-item.bear { border-color: rgba(244,63,94,0.15); background: rgba(244,63,94,0.04); }
+  .list-item.risk { border-color: rgba(244,63,94,0.15); background: rgba(244,63,94,0.04); }
 
-  .matrix { width: 100%; border-collapse: collapse; }
-  .matrix th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text4); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
-  .matrix td { padding: 10px; border-bottom: 1px solid var(--border); color: var(--text2); font-size: 12px; vertical-align: top; }
+  /* ========== MATRIX ========== */
+  .matrix-wrap { overflow-x: auto; }
+  .matrix { width: 100%; border-collapse: collapse; min-width: 600px; }
+  .matrix th {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-1);
+    color: var(--text-4);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .matrix td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-1);
+    color: var(--text-1);
+    font-size: 12px;
+    vertical-align: top;
+  }
   .matrix tr:last-child td { border-bottom: none; }
+  .matrix tr:hover td { background: var(--bg-2); }
 
-  .exec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 14px; }
+  /* ========== ACTION PLAN ========== */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
 
-  .exec-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
-  .exec-key { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text4); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .exec-val { color: var(--text); font-size: 13px; line-height: 1.6; }
+  .exec-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+  }
+  .exec-key {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .exec-val { color: var(--text-0); font-size: 13px; line-height: 1.6; }
 
   .checklist { display: grid; gap: 8px; }
 
   .check {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
-    padding: 8px 12px;
+    padding: 10px 14px;
     border-radius: var(--radius-sm);
-    background: var(--bg3);
+    background: var(--bg-2);
+    border: 1px solid var(--border-1);
     cursor: pointer;
+    transition: all 0.18s var(--ease-out);
   }
 
-  .check:hover { background: var(--bg4); }
+  .check:hover { background: var(--bg-3); }
 
   .check-box {
-    width: 16px; height: 16px;
-    border: 1px solid var(--border2);
-    border-radius: 4px;
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--border-3);
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: transparent;
-    font-size: 10px;
+    font-size: 12px;
     flex-shrink: 0;
+    transition: all 0.18s var(--ease-spring);
   }
 
-  .check.checked .check-box { background: var(--gold); border-color: var(--gold); color: var(--bg); font-weight: 700; }
-  .check.checked .check-text { text-decoration: line-through; color: var(--text4); }
-  .check-text { color: var(--text2); font-size: 13px; }
+  .check.checked .check-box {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--bg-0);
+    font-weight: 700;
+    transform: scale(1.05);
+  }
+  .check.checked .check-text { text-decoration: line-through; color: var(--text-4); }
+  .check-text { color: var(--text-1); font-size: 13px; line-height: 1.5; }
 
+  /* ========== FAB (Mobile only) ========== */
+  .fab {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: calc(20px + var(--safe-bottom));
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-3) 100%);
+    color: var(--bg-0);
+    border: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(251,191,36,0.4), 0 0 0 1px rgba(251,191,36,0.5);
+    z-index: 90;
+    font-size: 22px;
+    transition: all 0.25s var(--ease-spring);
+  }
+
+  .fab:hover { transform: translateY(-2px) scale(1.05); }
+  .fab:active { transform: scale(0.95); }
+
+  .fab-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: var(--rose);
+    color: white;
+    font-size: 10px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bg-0);
+  }
+
+  /* ========== BOTTOM SHEET (Mobile only) ========== */
+  .sheet-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-out);
+  }
+
+  .sheet-backdrop.open {
+    display: block;
+    opacity: 1;
+  }
+
+  .bottom-sheet {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-1);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    box-shadow: 0 -8px 32px rgba(0,0,0,0.5);
+    z-index: 201;
+    transform: translateY(100%);
+    transition: transform 0.35s var(--ease-out);
+    max-height: 88vh;
+    flex-direction: column;
+    padding-bottom: var(--safe-bottom);
+  }
+
+  .bottom-sheet.open {
+    display: flex;
+    transform: translateY(0);
+  }
+
+  .sheet-handle {
+    width: 100%;
+    padding: 10px 0 6px;
+    display: flex;
+    justify-content: center;
+    cursor: grab;
+    touch-action: none;
+  }
+
+  .sheet-handle::before {
+    content: '';
+    width: 40px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--border-3);
+  }
+
+  .sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 18px 14px;
+    border-bottom: 1px solid var(--border-1);
+  }
+
+  .sheet-title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-0);
+  }
+
+  .sheet-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg-3);
+    border: 1px solid var(--border-2);
+    color: var(--text-2);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s var(--ease-out);
+  }
+
+  .sheet-close:hover { background: var(--bg-4); color: var(--text-0); }
+
+  .sheet-content {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ========== TOAST ========== */
+  .toast-container {
+    position: fixed;
+    top: 78px;
+    right: 16px;
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+  }
+
+  .toast {
+    background: var(--bg-2);
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    color: var(--text-0);
+    font-size: 13px;
+    box-shadow: var(--shadow-3), 0 0 0 1px var(--gold-soft);
+    pointer-events: auto;
+    cursor: pointer;
+    animation: toastIn 0.4s var(--ease-spring), toastOut 0.4s var(--ease-out) 4.5s forwards;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 320px;
+  }
+
+  .toast::before {
+    content: '🔔';
+    font-size: 16px;
+  }
+
+  @keyframes toastIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes toastOut {
+    to { opacity: 0; transform: translateX(20px); }
+  }
+
+  /* ========== SCROLL TOP ========== */
   .scroll-top {
     position: fixed;
-    right: 22px; bottom: 22px;
-    width: 40px; height: 40px;
+    right: 20px;
+    bottom: calc(20px + var(--safe-bottom));
+    width: 42px; height: 42px;
     border-radius: 50%;
-    background: var(--gold);
-    color: var(--bg);
+    background: var(--bg-3);
+    border: 1px solid var(--border-3);
+    color: var(--gold);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(240,180,41,0.4);
+    box-shadow: var(--shadow-2);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s ease;
-    z-index: 99;
-    font-size: 16px;
+    transition: all 0.25s var(--ease-out);
+    z-index: 89;
+    font-size: 18px;
   }
 
   .scroll-top.visible { opacity: 1; pointer-events: auto; }
+  .scroll-top:hover { background: var(--bg-4); transform: translateY(-2px); }
 
-  /* Stats bar */
-  .stats-bar {
-    display: flex;
-    gap: 12px;
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
-  }
-
-  .stat-pill {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--text3);
-  }
-
-  .stat-pill span { color: var(--text2); font-weight: 500; }
-
+  /* ========== RESPONSIVE ========== */
   @media (max-width: 1100px) {
     .layout { grid-template-columns: 1fr; }
-    .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
-    .sidebar-inner { position: static; height: auto; }
-    .report-list { max-height: 300px; }
-    .summary-grid, .scenarios-grid, .triple-grid, .dual-grid { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .fab { display: flex; }
+    .scroll-top { right: 88px; }
+    .summary-grid, .scenarios-grid, .triple-grid, .dual-grid {
+      grid-template-columns: 1fr;
+    }
     .hero-inner { grid-template-columns: 1fr; }
     .hero-price { text-align: left; }
+    .hero-sparkline { margin-left: 0; }
   }
 
   @media (max-width: 640px) {
-    .nav, .content-inner { padding-left: 12px; padding-right: 12px; }
-    .hero-inner, .panel-body { padding: 16px; }
-    .hero-title { font-size: 26px; }
-    .hero-price-value { font-size: 30px; }
+    .nav { padding: 0 14px; }
+    .last-updated { display: none; }
+    .content-inner { padding: 16px; gap: 14px; }
+    .hero-inner { padding: 22px; }
+    .panel-body { padding: 18px 20px; }
+    .hero-title { font-size: 28px; }
+    .hero-price-value { font-size: 32px; }
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>
 </head>
 <body>
+
+  <!-- ========== NAV ========== -->
   <div class="nav">
-    <div class="nav-brand">KenvinZone</div>
+    <div class="nav-brand">
+      <div class="brand-mark">K</div>
+      <span>KenvinZone</span>
+    </div>
     <div class="nav-right">
-      <div class="live-pill"><span class="live-dot"></span>TRỰC TIẾP</div>
+      <div class="live-pill"><span class="live-dot"></span>LIVE</div>
       <div class="last-updated" id="lastUpdated">—</div>
     </div>
   </div>
 
+  <!-- ========== LAYOUT ========== -->
   <div class="layout">
+
+    <!-- Sidebar (desktop) -->
     <aside class="sidebar">
       <div class="sidebar-inner">
+        <div class="search-block">
+          <input type="text" id="searchInput" class="search-input" placeholder="Tìm báo cáo, insight, sự kiện..." />
+        </div>
 
-        <!-- Month selector -->
         <div class="month-selector">
           <select class="month-select" id="monthSelect">
             <option value="">Đang tải...</option>
           </select>
         </div>
 
-        <!-- Time filter -->
         <div class="time-filter">
           <button class="tf-btn active" data-time="all">Tất cả</button>
           <button class="tf-btn" data-time="today">Hôm nay</button>
@@ -735,7 +1362,6 @@
           <button class="tf-btn" data-time="month">Tháng này</button>
         </div>
 
-        <!-- Instrument + Bias filters -->
         <div class="filters">
           <div class="filter-block">
             <div class="filter-label">Instrument</div>
@@ -747,34 +1373,69 @@
             <div class="filter-label">Bias</div>
             <div class="filter-row" id="biasFilters">
               <button class="chip active" data-type="bias" data-value="all">Tất cả</button>
-              <button class="chip" data-type="bias" data-value="bullish">Bullish</button>
-              <button class="chip" data-type="bias" data-value="bearish">Bearish</button>
-              <button class="chip" data-type="bias" data-value="neutral">Neutral</button>
+              <button class="chip" data-type="bias" data-value="bullish">▲ Bullish</button>
+              <button class="chip" data-type="bias" data-value="bearish">▼ Bearish</button>
+              <button class="chip" data-type="bias" data-value="neutral">◆ Neutral</button>
             </div>
           </div>
         </div>
 
-        <!-- Stats -->
         <div class="stats-bar" id="statsBar">
-          <div class="stat-pill">Tổng: <span id="statTotal">0</span></div>
-          <div class="stat-pill">Bullish: <span id="statBull" style="color:var(--green)">0</span></div>
-          <div class="stat-pill">Bearish: <span id="statBear" style="color:var(--red)">0</span></div>
+          <div class="stat-cell"><div class="num total" id="statTotal">0</div><div class="lbl">Tổng</div></div>
+          <div class="stat-cell"><div class="num bull" id="statBull">0</div><div class="lbl">Bull</div></div>
+          <div class="stat-cell"><div class="num bear" id="statBear">0</div><div class="lbl">Bear</div></div>
         </div>
 
         <div class="report-list" id="reportList">
-          <div class="loading"><div class="spinner"></div><div>Đang tải báo cáo…</div></div>
+          <div class="skeleton-stack" style="padding:12px">
+            <div class="skel" style="height:80px;border-radius:14px"></div>
+            <div class="skel" style="height:80px;border-radius:14px"></div>
+            <div class="skel" style="height:80px;border-radius:14px"></div>
+          </div>
         </div>
       </div>
     </aside>
 
+    <!-- Content -->
     <main class="content">
       <div class="content-inner" id="content">
-        <div class="loading"><div class="spinner"></div><div>Đang tải dữ liệu thị trường…</div></div>
+        <div class="skeleton-stack">
+          <div class="skel skel-hero"></div>
+          <div class="skel skel-row"></div>
+          <div class="skel-grid">
+            <div class="skel skel-card"></div>
+            <div class="skel skel-card"></div>
+            <div class="skel skel-card"></div>
+          </div>
+        </div>
       </div>
     </main>
   </div>
 
-  <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+  <!-- ========== MOBILE BOTTOM SHEET ========== -->
+  <div class="sheet-backdrop" id="sheetBackdrop"></div>
+  <div class="bottom-sheet" id="bottomSheet">
+    <div class="sheet-handle" id="sheetHandle"></div>
+    <div class="sheet-header">
+      <div class="sheet-title">Danh sách báo cáo</div>
+      <button class="sheet-close" id="sheetClose" aria-label="Đóng">✕</button>
+    </div>
+    <div class="sheet-content" id="sheetContent">
+      <!-- Mobile sidebar content goes here -->
+    </div>
+  </div>
+
+  <!-- ========== FAB (Mobile) ========== -->
+  <button class="fab" id="fabBtn" aria-label="Mở danh sách báo cáo">
+    📋
+    <span class="fab-badge" id="fabBadge" style="display:none">0</span>
+  </button>
+
+  <!-- ========== SCROLL TOP ========== -->
+  <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Lên đầu trang">↑</div>
+
+  <!-- ========== TOAST ========== -->
+  <div class="toast-container" id="toastContainer"></div>
 
 <script>
 // ============================================================
@@ -812,6 +1473,12 @@ function getBiasClass(bias) {
   return 'neutral';
 }
 
+function getBiasIcon(cls) {
+  if (cls === 'bullish') return '▲';
+  if (cls === 'bearish') return '▼';
+  return '◆';
+}
+
 function getConfidenceClass(v) {
   if (typeof v === 'number') {
     if (v >= 70) return 'conf-high';
@@ -830,6 +1497,19 @@ function fmtTs(ts) {
     if (isNaN(d.getTime())) return String(ts);
     return d.toLocaleString('vi-VN', { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
   } catch { return String(ts); }
+}
+
+function fmtRelativeTime(ts) {
+  try {
+    const d = new Date(ts);
+    if (isNaN(d.getTime())) return '—';
+    const diff = (Date.now() - d.getTime()) / 1000;
+    if (diff < 60) return 'vừa xong';
+    if (diff < 3600) return `${Math.floor(diff/60)} phút trước`;
+    if (diff < 86400) return `${Math.floor(diff/3600)} giờ trước`;
+    if (diff < 604800) return `${Math.floor(diff/86400)} ngày trước`;
+    return fmtTs(ts);
+  } catch { return '—'; }
 }
 
 function fmtPrice(v) {
@@ -853,14 +1533,9 @@ function textArray(v) {
   });
 }
 
-// ============================================================
-// MONTH FILE MANAGEMENT
-// ============================================================
 function getMonthKey(date) {
   const d = new Date(date);
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  return `${y}-${m}`;
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
 }
 
 function getMonthLabel(key) {
@@ -869,41 +1544,30 @@ function getMonthLabel(key) {
   return `${months[parseInt(m)-1]} ${y}`;
 }
 
-function getDataUrl(monthKey) {
-  if (!monthKey) {
-    // fallback to old reports.json
-    return 'reports.json';
-  }
-  return `reports-${monthKey}.json`;
-}
-
-function getCurrentMonthKey() {
-  return getMonthKey(new Date());
-}
-
-// Generate list of months to try (current + past 6)
-function getMonthsToCheck() {
-  const months = [];
-  const now = new Date();
-  for (let i = 0; i < 6; i++) {
-    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
-    months.push(getMonthKey(d));
-  }
-  return months;
-}
-
 // ============================================================
 // STATE
 // ============================================================
 let allReports = [];
 let filteredReports = [];
 let selectedId = null;
-let filters = { instrument: 'all', bias: 'all', time: 'all' };
+let filters = { instrument: 'all', bias: 'all', time: 'all', search: '' };
 let availableMonths = [];
-let currentMonth = getCurrentMonthKey();
+let lastReportId = null;
+let pollTimer = null;
+
+// Persistent checklist state
+const CHECKLIST_KEY = 'kenvinzone_checklist_v1';
+function loadChecklistState() {
+  try { return JSON.parse(localStorage.getItem(CHECKLIST_KEY) || '{}'); }
+  catch { return {}; }
+}
+function saveChecklistState(state) {
+  try { localStorage.setItem(CHECKLIST_KEY, JSON.stringify(state)); } catch {}
+}
+let checklistState = loadChecklistState();
 
 // ============================================================
-// NORMALIZE REPORT
+// NORMALIZE
 // ============================================================
 function normalizeScenario(key, v) {
   const s = safeObj(v);
@@ -1003,7 +1667,7 @@ function normalizeReport(r) {
 }
 
 // ============================================================
-// LOAD DATA — từ reports.json + history.json + localStorage backup
+// LOAD DATA
 // ============================================================
 const MAX_REPORTS = 50;
 const STORAGE_KEY = 'kenvinzone_reports_v2';
@@ -1015,11 +1679,21 @@ function loadFromStorage() {
   } catch(e) { return []; }
 }
 
+// LRU-friendly save with graceful degradation
 function saveToStorage(reports) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(reports.slice(0, MAX_REPORTS)));
-  } catch(e) {
-    try { localStorage.removeItem(STORAGE_KEY); } catch(e2) {}
+  let attempt = reports.slice(0, MAX_REPORTS);
+  for (let i = 0; i < 5; i++) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(attempt));
+      return;
+    } catch(e) {
+      // Quota exceeded — shrink and retry
+      if (attempt.length <= 5) {
+        try { localStorage.removeItem(STORAGE_KEY); } catch {}
+        return;
+      }
+      attempt = attempt.slice(0, Math.floor(attempt.length * 0.7));
+    }
   }
 }
 
@@ -1034,17 +1708,14 @@ async function tryFetch(url) {
   } catch(e) { return []; }
 }
 
-async function loadReports() {
-  // Load song song: reports.json mới + history.json tích lũy
+async function loadReports(showToast = false) {
   const [freshRaw, historyRaw] = await Promise.all([
     tryFetch('reports.json'),
     tryFetch('history.json')
   ]);
 
-  // Load thêm từ localStorage làm backup
   const storedRaw = loadFromStorage();
 
-  // Merge tất cả: mới nhất trước, deduplicate theo id
   const seen = new Set();
   const mergedRaw = [...freshRaw, ...historyRaw, ...storedRaw].filter(r => {
     const id = r.id || r.datetime;
@@ -1053,12 +1724,10 @@ async function loadReports() {
     return true;
   }).slice(0, MAX_REPORTS);
 
-  // Lưu lại vào localStorage làm backup
   saveToStorage(mergedRaw);
 
-  // Normalize để hiển thị
   const seen2 = new Set();
-  allReports = mergedRaw.map(normalizeReport).filter(Boolean)
+  const newReports = mergedRaw.map(normalizeReport).filter(Boolean)
     .filter(r => {
       if (seen2.has(r.id)) return false;
       seen2.add(r.id);
@@ -1066,15 +1735,21 @@ async function loadReports() {
     })
     .sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
 
-  // Build available months
+  // Detect new report for toast
+  if (showToast && newReports.length > 0 && lastReportId && newReports[0].id !== lastReportId) {
+    showNewReportToast(newReports[0]);
+  }
+  if (newReports.length > 0) lastReportId = newReports[0].id;
+
+  allReports = newReports;
+
   const monthSet = new Set(allReports.map(r => r.monthKey));
   availableMonths = [...monthSet].sort().reverse();
 
-  // Update month selector
   updateMonthSelector();
 
   if (allReports.length > 0) {
-    document.getElementById('lastUpdated').textContent = fmtTs(allReports[0].datetime);
+    document.getElementById('lastUpdated').textContent = fmtRelativeTime(allReports[0].datetime);
   }
 
   renderFilters();
@@ -1090,8 +1765,10 @@ async function loadReports() {
 
 function updateMonthSelector() {
   const sel = document.getElementById('monthSelect');
+  const prev = sel.value;
   sel.innerHTML = `<option value="all">📅 Tất cả tháng</option>` +
-    availableMonths.map(mk => `<option value="${mk}" ${mk === currentMonth ? 'selected' : ''}>${getMonthLabel(mk)}</option>`).join('');
+    availableMonths.map(mk => `<option value="${mk}" ${mk === prev ? 'selected' : ''}>${getMonthLabel(mk)}</option>`).join('');
+  if (!prev) sel.value = 'all';
 }
 
 // ============================================================
@@ -1100,28 +1777,35 @@ function updateMonthSelector() {
 function isInTimeRange(r, range) {
   const now = new Date();
   const d = r.dateObj;
-  if (range === 'today') {
-    return d.toDateString() === now.toDateString();
-  }
+  if (range === 'today') return d.toDateString() === now.toDateString();
   if (range === 'week') {
     const weekAgo = new Date(now);
     weekAgo.setDate(weekAgo.getDate() - 7);
     return d >= weekAgo;
   }
-  if (range === 'month') {
-    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
-  }
+  if (range === 'month') return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
   return true;
+}
+
+function matchSearch(r, query) {
+  if (!query) return true;
+  const q = query.toLowerCase();
+  return [
+    r.instrument, r.bias, r.insight, r.archetype,
+    ...r.bullish, ...r.bearish, ...r.risks, ...r.catalysts,
+    ...r.actionItems
+  ].some(x => String(x).toLowerCase().includes(q));
 }
 
 function applyFilters() {
   const monthFilter = document.getElementById('monthSelect')?.value || 'all';
-  
+
   filteredReports = allReports.filter(r => {
     if (filters.instrument !== 'all' && r.instrument !== filters.instrument) return false;
     if (filters.bias !== 'all' && r.biasClass !== filters.bias) return false;
     if (filters.time !== 'all' && !isInTimeRange(r, filters.time)) return false;
-    if (monthFilter !== 'all' && r.monthKey !== monthFilter) return false;
+    if (monthFilter !== 'all' && monthFilter !== '' && r.monthKey !== monthFilter) return false;
+    if (!matchSearch(r, filters.search)) return false;
     return true;
   });
 }
@@ -1135,66 +1819,77 @@ function updateStats() {
 // ============================================================
 // RENDER FILTERS
 // ============================================================
-function renderFilters() {
-  const instWrap = document.getElementById('instrumentFilters');
-  const instruments = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
-
-  instWrap.innerHTML = `
-    <button class="chip ${filters.instrument === 'all' ? 'active' : ''}" data-type="instrument" data-value="all">Tất cả</button>
-    ${instruments.map(inst => `<button class="chip ${filters.instrument === inst ? 'active' : ''}" data-type="instrument" data-value="${esc(inst)}">${esc(inst)}</button>`).join('')}
-  `;
-
+function attachFilterHandlers() {
   document.querySelectorAll('.chip').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.onclick = () => {
       const type = btn.dataset.type;
       const value = btn.dataset.value;
       filters[type] = value;
-      if (type === 'instrument') document.querySelectorAll('#instrumentFilters .chip').forEach(x => x.classList.remove('active'));
-      else document.querySelectorAll('#biasFilters .chip').forEach(x => x.classList.remove('active'));
-      btn.classList.add('active');
-      applyFilters();
-      selectedId = filteredReports.length ? filteredReports[0].id : null;
-      renderList();
-      renderContent();
-      updateStats();
-    });
+      // Sync active class across both sidebar + sheet
+      document.querySelectorAll(`.chip[data-type="${type}"]`).forEach(x => x.classList.remove('active'));
+      document.querySelectorAll(`.chip[data-type="${type}"][data-value="${value}"]`).forEach(x => x.classList.add('active'));
+      applyFiltersAndRender();
+    };
   });
 
-  // Time filter buttons
   document.querySelectorAll('.tf-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.onclick = () => {
       filters.time = btn.dataset.time;
       document.querySelectorAll('.tf-btn').forEach(x => x.classList.remove('active'));
-      btn.classList.add('active');
-      applyFilters();
-      selectedId = filteredReports.length ? filteredReports[0].id : null;
-      renderList();
-      renderContent();
-      updateStats();
-    });
+      document.querySelectorAll(`.tf-btn[data-time="${filters.time}"]`).forEach(x => x.classList.add('active'));
+      applyFiltersAndRender();
+    };
   });
 
-  // Month select
-  document.getElementById('monthSelect').addEventListener('change', () => {
-    applyFilters();
-    selectedId = filteredReports.length ? filteredReports[0].id : null;
-    renderList();
-    renderContent();
-    updateStats();
-  });
+  const monthSel = document.getElementById('monthSelect');
+  if (monthSel) {
+    monthSel.onchange = () => applyFiltersAndRender();
+  }
+
+  const searchEl = document.getElementById('searchInput');
+  if (searchEl) {
+    let searchTimer;
+    searchEl.oninput = (e) => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        filters.search = e.target.value.trim();
+        applyFiltersAndRender();
+      }, 200);
+    };
+  }
+}
+
+function applyFiltersAndRender() {
+  applyFilters();
+  selectedId = filteredReports.length ? filteredReports[0].id : null;
+  renderList();
+  renderContent();
+  updateStats();
+  updateFabBadge();
+}
+
+function renderFilters() {
+  const instruments = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
+  const instrumentHtml = `
+    <button class="chip ${filters.instrument === 'all' ? 'active' : ''}" data-type="instrument" data-value="all">Tất cả</button>
+    ${instruments.map(inst => `<button class="chip ${filters.instrument === inst ? 'active' : ''}" data-type="instrument" data-value="${esc(inst)}">${esc(inst)}</button>`).join('')}
+  `;
+  document.getElementById('instrumentFilters').innerHTML = instrumentHtml;
 }
 
 // ============================================================
-// RENDER LIST (grouped by date)
+// RENDER LIST
 // ============================================================
-function renderList() {
-  const wrap = document.getElementById('reportList');
+function renderReportListHtml() {
   if (!filteredReports.length) {
-    wrap.innerHTML = `<div class="empty" style="min-height:100px">Không có báo cáo phù hợp</div>`;
-    return;
+    return `
+      <div class="empty" style="min-height:200px">
+        <div class="empty-icon">📭</div>
+        <div>Không có báo cáo phù hợp</div>
+        <button class="empty-action" onclick="resetFilters()">Xoá bộ lọc</button>
+      </div>`;
   }
 
-  // Group by date
   const groups = {};
   filteredReports.forEach(r => {
     const key = r.dateDisplay;
@@ -1204,7 +1899,7 @@ function renderList() {
 
   let html = '';
   Object.entries(groups).forEach(([date, reports]) => {
-    html += `<div class="date-group-header">${esc(date)} <span class="report-count">${reports.length}</span></div>`;
+    html += `<div class="date-group-header">${esc(date)}<span class="report-count">${reports.length}</span></div>`;
     reports.forEach(r => {
       html += `
         <div class="report-item ${r.id === selectedId ? 'active' : ''}" data-id="${esc(r.id)}">
@@ -1213,7 +1908,7 @@ function renderList() {
             <div class="ri-time">${esc(r.timeDisplay)}</div>
           </div>
           <div class="ri-badges">
-            <span class="badge ${r.biasClass}">${esc(r.bias)}</span>
+            <span class="badge ${r.biasClass}">${getBiasIcon(r.biasClass)} ${esc(r.bias)}</span>
             <span class="badge conf">${esc(safeStr(r.confidence, 'N/A'))}</span>
           </div>
           <div class="ri-text">${esc(r.insight)}</div>
@@ -1222,16 +1917,119 @@ function renderList() {
     });
   });
 
-  wrap.innerHTML = html;
+  return html;
+}
 
+function renderList() {
+  const html = renderReportListHtml();
+  const wrap = document.getElementById('reportList');
+  if (wrap) wrap.innerHTML = html;
+
+  // Also update mobile sheet
+  const sheetContent = document.getElementById('sheetContent');
+  if (sheetContent) {
+    sheetContent.innerHTML = `
+      <div class="search-block">
+        <input type="text" id="searchInputMobile" class="search-input" placeholder="Tìm báo cáo, insight, sự kiện..." value="${esc(filters.search)}" />
+      </div>
+      <div class="month-selector">
+        <select class="month-select" id="monthSelectMobile">
+          ${availableMonths.length === 0 ? '<option value="all">📅 Tất cả tháng</option>' :
+            `<option value="all">📅 Tất cả tháng</option>` + availableMonths.map(mk => `<option value="${mk}">${getMonthLabel(mk)}</option>`).join('')}
+        </select>
+      </div>
+      <div class="time-filter" id="timeFilterMobile">
+        <button class="tf-btn ${filters.time==='all'?'active':''}" data-time="all">Tất cả</button>
+        <button class="tf-btn ${filters.time==='today'?'active':''}" data-time="today">Hôm nay</button>
+        <button class="tf-btn ${filters.time==='week'?'active':''}" data-time="week">Tuần này</button>
+        <button class="tf-btn ${filters.time==='month'?'active':''}" data-time="month">Tháng này</button>
+      </div>
+      <div class="filters">
+        <div class="filter-block">
+          <div class="filter-label">Instrument</div>
+          <div class="filter-row" id="instrumentFiltersMobile"></div>
+        </div>
+        <div class="filter-block">
+          <div class="filter-label">Bias</div>
+          <div class="filter-row">
+            <button class="chip ${filters.bias==='all'?'active':''}" data-type="bias" data-value="all">Tất cả</button>
+            <button class="chip ${filters.bias==='bullish'?'active':''}" data-type="bias" data-value="bullish">▲ Bullish</button>
+            <button class="chip ${filters.bias==='bearish'?'active':''}" data-type="bias" data-value="bearish">▼ Bearish</button>
+            <button class="chip ${filters.bias==='neutral'?'active':''}" data-type="bias" data-value="neutral">◆ Neutral</button>
+          </div>
+        </div>
+      </div>
+      <div class="report-list" style="height:auto;flex:none;padding:12px 16px 20px">
+        ${html}
+      </div>
+    `;
+
+    // Sync month
+    const ms = document.getElementById('monthSelectMobile');
+    const original = document.getElementById('monthSelect');
+    if (ms && original) ms.value = original.value;
+
+    // Build instruments for mobile
+    const instruments = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
+    document.getElementById('instrumentFiltersMobile').innerHTML = `
+      <button class="chip ${filters.instrument === 'all' ? 'active' : ''}" data-type="instrument" data-value="all">Tất cả</button>
+      ${instruments.map(inst => `<button class="chip ${filters.instrument === inst ? 'active' : ''}" data-type="instrument" data-value="${esc(inst)}">${esc(inst)}</button>`).join('')}
+    `;
+
+    // Mobile search input
+    const sm = document.getElementById('searchInputMobile');
+    if (sm) {
+      let timer;
+      sm.oninput = (e) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          filters.search = e.target.value.trim();
+          const desktop = document.getElementById('searchInput');
+          if (desktop) desktop.value = filters.search;
+          applyFiltersAndRender();
+        }, 200);
+      };
+    }
+
+    // Mobile month select sync
+    const msMobile = document.getElementById('monthSelectMobile');
+    if (msMobile) {
+      msMobile.onchange = () => {
+        document.getElementById('monthSelect').value = msMobile.value;
+        applyFiltersAndRender();
+      };
+    }
+  }
+
+  // Re-attach all filter handlers (they exist in both sidebar + sheet now)
+  attachFilterHandlers();
+
+  // Click on report items
   document.querySelectorAll('.report-item').forEach(el => {
     el.addEventListener('click', () => {
       selectedId = el.dataset.id;
       renderList();
       renderContent();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Mobile: close sheet + scroll content into view
+      if (window.innerWidth <= 1100) {
+        closeSheet();
+        setTimeout(() => {
+          const content = document.querySelector('.content');
+          if (content) content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     });
   });
+}
+
+function resetFilters() {
+  filters = { instrument: 'all', bias: 'all', time: 'all', search: '' };
+  document.getElementById('monthSelect').value = 'all';
+  const s = document.getElementById('searchInput');
+  if (s) s.value = '';
+  applyFiltersAndRender();
 }
 
 // ============================================================
@@ -1241,13 +2039,13 @@ function scenarioCard(label, cls, s) {
   if (!s) return `
     <div class="scenario-card ${cls}">
       <div class="scenario-type ${cls}">${esc(label)}</div>
-      <div style="color:var(--text4);font-size:12px">Không có dữ liệu</div>
+      <div style="color:var(--text-4);font-size:12px">Không có dữ liệu</div>
     </div>`;
 
   return `
     <div class="scenario-card ${cls}">
       <div class="scenario-type ${cls}">${esc(label)}</div>
-      <div class="scenario-bias ${getBiasClass(s.bias)}">${esc(s.bias)}</div>
+      <div class="scenario-bias ${getBiasClass(s.bias)}">${getBiasIcon(getBiasClass(s.bias))} ${esc(s.bias)}</div>
       <div class="scenario-setup">${esc(s.setup)}</div>
       <div class="scenario-stats">
         <div><div class="stat-label">Mục tiêu</div><div class="stat-value green">${esc(s.target)}</div></div>
@@ -1255,10 +2053,44 @@ function scenarioCard(label, cls, s) {
         <div><div class="stat-label">R / R</div><div class="stat-value gold">${esc(s.rr)}</div></div>
       </div>
       <div class="prob-wrap">
-        <div class="prob-head"><span>Xác suất</span><span>${Math.round(s.probability || 0)}%</span></div>
+        <div class="prob-head"><span>Xác suất</span><span class="mono">${Math.round(s.probability || 0)}%</span></div>
         <div class="prob-track"><div class="prob-fill ${cls}" data-pct="${Math.min(Math.round(s.probability||0),100)}"></div></div>
       </div>
     </div>`;
+}
+
+function buildBiasSparkline(reports, instrument) {
+  // Get last 10 reports of same instrument
+  const series = reports
+    .filter(x => x.instrument === instrument)
+    .slice(0, 10)
+    .reverse()
+    .map(x => x.biasClass === 'bullish' ? 1 : x.biasClass === 'bearish' ? -1 : 0);
+
+  if (series.length < 2) return '';
+
+  const w = 160, h = 32, pad = 2;
+  const stepX = (w - pad * 2) / (series.length - 1);
+  const points = series.map((v, i) => {
+    const x = pad + i * stepX;
+    const y = h / 2 - (v * (h / 2 - pad));
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+
+  const lastV = series[series.length - 1];
+  const color = lastV > 0 ? 'var(--emerald)' : lastV < 0 ? 'var(--rose)' : 'var(--sky)';
+
+  return `
+    <svg class="hero-sparkline" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="sparkGrad" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="${color}" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="${color}" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <polyline points="${points}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polygon points="${points} ${w-pad},${h} ${pad},${h}" fill="url(#sparkGrad)"/>
+    </svg>`;
 }
 
 function renderContent() {
@@ -1266,7 +2098,12 @@ function renderContent() {
   const r = filteredReports.find(x => x.id === selectedId);
 
   if (!r) {
-    container.innerHTML = `<div class="empty"><div>Chọn một báo cáo từ danh sách bên trái</div></div>`;
+    container.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">📊</div>
+        <div>Chọn một báo cáo từ danh sách để xem chi tiết</div>
+        ${window.innerWidth <= 1100 ? '<button class="empty-action" onclick="openSheet()">Mở danh sách</button>' : ''}
+      </div>`;
     return;
   }
 
@@ -1274,7 +2111,7 @@ function renderContent() {
     <tr>
       <td class="tf-name">${esc(row.tf)}</td>
       <td>
-        <span class="tf-trend ${getBiasClass(row.trend)}">${esc(row.trend)}</span>
+        <span class="tf-trend ${getBiasClass(row.trend)}">${getBiasIcon(getBiasClass(row.trend))} ${esc(row.trend)}</span>
         <span class="tf-desc">${esc(row.description || '—')}</span>
       </td>
     </tr>`).join('') : `<tr><td colspan="2" class="tf-desc">Không có dữ liệu</td></tr>`;
@@ -1287,16 +2124,21 @@ function renderContent() {
 
   const matrixRows = r.scenarios.length ? r.scenarios.map(s => `
     <tr>
-      <td>${esc(s.key)}</td>
+      <td class="mono">${esc(s.key.replace('_scenario',''))}</td>
       <td><span class="scenario-bias ${getBiasClass(s.bias)}">${esc(s.bias)}</span></td>
       <td>${esc(s.setup)}</td>
-      <td>${esc(s.target)}</td>
-      <td>${esc(s.stop)}</td>
-      <td>${esc(s.rr)}</td>
-      <td>${Math.round(s.probability||0)}%</td>
+      <td class="mono">${esc(s.target)}</td>
+      <td class="mono">${esc(s.stop)}</td>
+      <td class="mono">${esc(s.rr)}</td>
+      <td class="mono">${Math.round(s.probability||0)}%</td>
     </tr>`).join('') : `<tr><td colspan="7">Không có dữ liệu</td></tr>`;
 
   const execEntries = Object.entries(r.execution).filter(([k]) => !['key_levels','checklist','action_plan','actions'].includes(k));
+
+  // Get persistent checklist state for this report
+  const reportChecks = checklistState[r.id] || {};
+
+  const sparkline = buildBiasSparkline(allReports, r.instrument);
 
   container.innerHTML = `
     <div class="hero">
@@ -1305,13 +2147,13 @@ function renderContent() {
           <div class="hero-line">
             <div class="hero-title">${esc(r.instrument)}</div>
             <div class="hero-pill">${esc(r.archetype)}</div>
-            <div class="hero-pill ${r.biasClass}">${esc(r.bias)}</div>
+            <div class="hero-pill ${r.biasClass}">${getBiasIcon(r.biasClass)} ${esc(r.bias)}</div>
             <div class="hero-pill ${r.confidenceClass}">${esc(safeStr(r.confidence,'N/A'))}</div>
           </div>
           <div class="hero-meta">
-            <span>${esc(r.dateDisplay)}</span>
-            <span>${esc(r.timeDisplay)} UTC+7</span>
-            <span>${esc(r.id)}</span>
+            <span>📅 ${esc(r.dateDisplay)}</span>
+            <span>🕐 ${esc(r.timeDisplay)} UTC+7</span>
+            <span>🏷 ${esc(r.id)}</span>
           </div>
           <div class="hero-insight">${esc(r.insight)}</div>
         </div>
@@ -1319,11 +2161,12 @@ function renderContent() {
           <div class="hero-price-label">Giá hiện tại</div>
           <div class="hero-price-value">${esc(r.priceFmt)}</div>
           <div class="hero-price-time">${esc(fmtTs(r.datetime))}</div>
+          ${sparkline}
         </div>
       </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" style="animation-delay:0.05s">
       <div class="panel-body">
         <div class="panel-title">Tóm tắt điều hành</div>
         <div class="summary-grid">
@@ -1331,17 +2174,17 @@ function renderContent() {
           <div class="mini-box">
             <div class="mini-title">Snapshot</div>
             <div class="mini-kv">
-              <div><strong>Bias:</strong> ${esc(r.bias)}</div>
-              <div><strong>Confidence:</strong> ${esc(safeStr(r.confidence,'N/A'))}</div>
-              <div><strong>Instrument:</strong> ${esc(r.instrument)}</div>
-              <div><strong>Price:</strong> ${esc(r.priceFmt)}</div>
+              <div class="mini-kv-row"><span class="mini-kv-key">Bias</span><span class="mini-kv-val">${esc(r.bias)}</span></div>
+              <div class="mini-kv-row"><span class="mini-kv-key">Confidence</span><span class="mini-kv-val">${esc(safeStr(r.confidence,'N/A'))}</span></div>
+              <div class="mini-kv-row"><span class="mini-kv-key">Instrument</span><span class="mini-kv-val">${esc(r.instrument)}</span></div>
+              <div class="mini-kv-row"><span class="mini-kv-key">Price</span><span class="mini-kv-val gold">${esc(r.priceFmt)}</span></div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" style="animation-delay:0.1s">
       <div class="panel-body">
         <div class="panel-title">Kịch bản giao dịch</div>
         <div class="scenarios-grid">
@@ -1353,13 +2196,13 @@ function renderContent() {
     </div>
 
     <div class="triple-grid">
-      <div class="panel">
+      <div class="panel" style="animation-delay:0.15s">
         <div class="panel-body">
           <div class="panel-title">Đa khung thời gian</div>
           <table class="tf-table"><tbody>${tfRows}</tbody></table>
         </div>
       </div>
-      <div class="panel">
+      <div class="panel" style="animation-delay:0.2s">
         <div class="panel-body">
           <div class="panel-title">Vùng giá quan trọng</div>
           <div class="levels">
@@ -1368,12 +2211,11 @@ function renderContent() {
                 <span class="dot ${i.cls}"></span>
                 <span class="level-type">${esc(i.type)}</span>
                 <span class="level-price">${esc(i.price)}</span>
-                ${i.desc ? `<span style="color:var(--text4);font-size:11px">${esc(i.desc)}</span>` : ''}
               </div>`).join('')}
           </div>
         </div>
       </div>
-      <div class="panel">
+      <div class="panel" style="animation-delay:0.25s">
         <div class="panel-body">
           <div class="panel-title">Radar rủi ro</div>
           <div class="list-stack">
@@ -1384,22 +2226,22 @@ function renderContent() {
     </div>
 
     <div class="dual-grid">
-      <div class="panel">
+      <div class="panel" style="animation-delay:0.3s">
         <div class="panel-body">
           <div class="panel-title">Yếu tố hỗ trợ / áp lực</div>
           <div class="dual-grid" style="gap:16px">
             <div>
-              <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--green);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">▲ Hỗ trợ tăng</div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--emerald);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">▲ Hỗ trợ tăng</div>
               <div class="list-stack">${(r.bullish.length ? r.bullish : ['Không có']).map(x => `<div class="list-item bull">${esc(x)}</div>`).join('')}</div>
             </div>
             <div>
-              <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--red);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">▼ Áp lực giảm</div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--rose);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">▼ Áp lực giảm</div>
               <div class="list-stack">${(r.bearish.length ? r.bearish : ['Không có']).map(x => `<div class="list-item bear">${esc(x)}</div>`).join('')}</div>
             </div>
           </div>
         </div>
       </div>
-      <div class="panel">
+      <div class="panel" style="animation-delay:0.35s">
         <div class="panel-body">
           <div class="panel-title">Sự kiện cần theo dõi</div>
           <div class="list-stack">
@@ -1409,21 +2251,23 @@ function renderContent() {
       </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" style="animation-delay:0.4s">
       <div class="panel-body">
-        <div class="panel-title">Scenario matrix</div>
-        <table class="matrix">
-          <thead>
-            <tr>
-              <th>Type</th><th>Bias</th><th>Setup</th><th>Target</th><th>Stop</th><th>R/R</th><th>Probability</th>
-            </tr>
-          </thead>
-          <tbody>${matrixRows}</tbody>
-        </table>
+        <div class="panel-title">Ma trận kịch bản</div>
+        <div class="matrix-wrap">
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th>Type</th><th>Bias</th><th>Setup</th><th>Target</th><th>Stop</th><th>R/R</th><th>Probability</th>
+              </tr>
+            </thead>
+            <tbody>${matrixRows}</tbody>
+          </table>
+        </div>
       </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" style="animation-delay:0.45s">
       <div class="panel-body">
         <div class="panel-title">Action plan</div>
         ${execEntries.length ? `
@@ -1443,22 +2287,182 @@ function renderContent() {
             'Place stop loss',
             'Define take profit targets',
             'Monitor catalyst events'
-          ]).map(x => `
-            <div class="check" onclick="this.classList.toggle('checked')">
+          ]).map((x, i) => {
+            const checked = reportChecks[i] ? 'checked' : '';
+            return `
+            <div class="check ${checked}" data-report="${esc(r.id)}" data-idx="${i}">
               <div class="check-box">✓</div>
               <div class="check-text">${esc(x)}</div>
-            </div>`).join('')}
+            </div>`;
+          }).join('')}
         </div>
       </div>
     </div>
   `;
 
+  // Animate probability bars
   setTimeout(() => {
     document.querySelectorAll('.prob-fill[data-pct]').forEach(el => {
       el.style.width = el.dataset.pct + '%';
     });
-  }, 60);
+  }, 100);
+
+  // Attach persistent checklist handlers
+  document.querySelectorAll('.check').forEach(el => {
+    el.onclick = () => {
+      const reportId = el.dataset.report;
+      const idx = el.dataset.idx;
+      el.classList.toggle('checked');
+      if (!checklistState[reportId]) checklistState[reportId] = {};
+      checklistState[reportId][idx] = el.classList.contains('checked');
+      saveChecklistState(checklistState);
+    };
+  });
 }
+
+// ============================================================
+// BOTTOM SHEET
+// ============================================================
+function openSheet() {
+  document.getElementById('sheetBackdrop').classList.add('open');
+  document.getElementById('bottomSheet').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSheet() {
+  document.getElementById('sheetBackdrop').classList.remove('open');
+  document.getElementById('bottomSheet').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Swipe-down to close
+function setupSheetGestures() {
+  const sheet = document.getElementById('bottomSheet');
+  const handle = document.getElementById('sheetHandle');
+  let startY = 0;
+  let currentY = 0;
+  let isDragging = false;
+
+  const handleStart = (y) => {
+    isDragging = true;
+    startY = y;
+    sheet.style.transition = 'none';
+  };
+
+  const handleMove = (y) => {
+    if (!isDragging) return;
+    currentY = y - startY;
+    if (currentY > 0) {
+      sheet.style.transform = `translateY(${currentY}px)`;
+    }
+  };
+
+  const handleEnd = () => {
+    if (!isDragging) return;
+    isDragging = false;
+    sheet.style.transition = '';
+    if (currentY > 100) {
+      closeSheet();
+    } else {
+      sheet.style.transform = '';
+    }
+    currentY = 0;
+  };
+
+  handle.addEventListener('touchstart', (e) => handleStart(e.touches[0].clientY), { passive: true });
+  handle.addEventListener('touchmove', (e) => handleMove(e.touches[0].clientY), { passive: true });
+  handle.addEventListener('touchend', handleEnd);
+
+  handle.addEventListener('mousedown', (e) => handleStart(e.clientY));
+  document.addEventListener('mousemove', (e) => handleMove(e.clientY));
+  document.addEventListener('mouseup', handleEnd);
+}
+
+// ============================================================
+// FAB BADGE (count of unseen reports)
+// ============================================================
+function updateFabBadge() {
+  const badge = document.getElementById('fabBadge');
+  if (filteredReports.length > 0) {
+    badge.textContent = filteredReports.length;
+    badge.style.display = 'flex';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+function showNewReportToast(report) {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<div>Báo cáo mới: <strong>${esc(report.instrument)}</strong> · ${esc(report.bias)}</div>`;
+  toast.onclick = () => {
+    selectedId = report.id;
+    renderList();
+    renderContent();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    toast.remove();
+  };
+  container.appendChild(toast);
+  setTimeout(() => toast.remove(), 5000);
+}
+
+// ============================================================
+// KEYBOARD SHORTCUTS
+// ============================================================
+function setupKeyboardShortcuts() {
+  document.addEventListener('keydown', (e) => {
+    // Don't trigger when typing
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+
+    const idx = filteredReports.findIndex(r => r.id === selectedId);
+
+    if (e.key === 'j' && idx < filteredReports.length - 1) {
+      selectedId = filteredReports[idx + 1].id;
+      renderList();
+      renderContent();
+    } else if (e.key === 'k' && idx > 0) {
+      selectedId = filteredReports[idx - 1].id;
+      renderList();
+      renderContent();
+    } else if (e.key === '/') {
+      e.preventDefault();
+      document.getElementById('searchInput')?.focus();
+    } else if (e.key === 'Escape') {
+      closeSheet();
+    }
+  });
+}
+
+// ============================================================
+// SMART POLLING (pause when hidden)
+// ============================================================
+function startPolling() {
+  stopPolling();
+  pollTimer = setInterval(() => loadReports(true), 60000);
+}
+function stopPolling() {
+  if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopPolling();
+  } else {
+    loadReports(true);
+    startPolling();
+  }
+});
+
+// Update relative time every 30s
+setInterval(() => {
+  if (allReports.length > 0) {
+    document.getElementById('lastUpdated').textContent = fmtRelativeTime(allReports[0].datetime);
+  }
+}, 30000);
 
 // ============================================================
 // INIT
@@ -1469,8 +2473,15 @@ window.addEventListener('scroll', () => {
   else btn.classList.remove('visible');
 });
 
-loadReports();
-setInterval(loadReports, 60000);
+document.getElementById('fabBtn').addEventListener('click', openSheet);
+document.getElementById('sheetClose').addEventListener('click', closeSheet);
+document.getElementById('sheetBackdrop').addEventListener('click', closeSheet);
+
+setupSheetGestures();
+setupKeyboardShortcuts();
+
+loadReports(false);
+startPolling();
 </script>
 </body>
 </html>
