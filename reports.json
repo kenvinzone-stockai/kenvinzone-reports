@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202605291415","datetime":"2026-05-29T14:15:31+07:00","date_display":"29/05/2026","time_display":"14:15","instrument":"NAS100","archetype":"Báo cáo 4H – 14:15","price_current":"30247.8","raw":{
-  "instrument": "NQ/US100",
-  "archetype": "Báo cáo 4H – 14:00",
-  "timestamp": "2025-01-03T14:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202605291430","datetime":"2026-05-29T14:30:33+07:00","date_display":"29/05/2026","time_display":"14:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 14:30","price_current":"4514.03","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 14:30",
+  "timestamp": "2024-12-21T14:30:00+07:00",
   "summary": {
-    "primary_bias": "Bullish",
-    "bias_direction": "Bullish",
-    "confidence_level": "Trung bình (50-74%)",
-    "current_price": 30247.8,
-    "key_insight": "NQ duy trì xu hướng tăng đa khung với EMA alignment bullish từ D1-H1. Tuy nhiên RSI D1 overbought và xuất hiện bearish pin bar M15 báo hiệu khả năng pullback ngắn hạn.",
-    "headline": "NQ bullish nhưng cảnh giác pullback từ vùng cao"
+    "primary_bias": "Chờ xác nhận",
+    "bias_direction": "Chờ xác nhận",
+    "confidence_level": "Thấp (25-49%)",
+    "current_price": 4514.03,
+    "key_insight": "Thị trường đang có xung đột tín hiệu đa khung với M15 Bullish nhưng H4/H1 Bearish. RSI D1 trong vùng Bearish Zone tạo áp lực giảm nhưng MACD H4/H1 cho tín hiệu Bullish.",
+    "headline": "Vàng trong vùng dao động chờ xác nhận hướng đi tiếp theo"
   },
   "market_structure": {
     "D1": {
-      "bias": "Neutral",
-      "trend": "Xu hướng tăng mạnh nhưng RSI overbought báo hiệu cần điều chỉnh",
-      "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Overbought",
+      "bias": "Bearish",
+      "trend": "Bullish nhưng RSI trong vùng Bearish Zone",
+      "structure": "Mixed Range",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Bearish Zone",
       "macd_bias": "Bearish",
-      "key_levels": "Vùng kháng cự mạnh quanh 30270, hỗ trợ chính tại 29690"
+      "key_levels": "Đang test vùng kháng cự quan trọng"
     },
     "H4": {
-      "bias": "Bullish",
-      "trend": "Xu hướng tăng vững chắc với momentum tích cực",
-      "structure": "HH/HL Bullish structure được duy trì",
-      "ema_alignment": "Full Bullish",
-      "rsi_zone": "Bullish Zone",
+      "bias": "Mixed",
+      "trend": "Bearish với MACD đảo chiều Bullish",
+      "structure": "Đang trong xu hướng giảm ngắn hạn",
+      "ema_alignment": "Full Bearish",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bullish",
-      "momentum": "Expanding",
+      "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [30270, 30285],
-        "support": [30225, 30190]
+        "resistance": [4520.45, 4523.96],
+        "support": [4494.83, 4489.05]
       }
     },
     "H1": {
-      "bias": "Bullish",
-      "trend": "Tiếp tục xu hướng tăng với momentum ổn định",
-      "intraday_story": "H1 duy trì bias bullish với RSI trong vùng tích cực, MACD còn bullish",
+      "bias": "Mixed",
+      "trend": "Bearish với tín hiệu đảo chiều",
+      "intraday_story": "Xu hướng giảm ngắn hạn nhưng RSI và MACD cho tín hiệu Bullish",
       "rsi_zone": "Bullish Zone",
       "macd_bias": "Bullish"
     },
     "M15": {
-      "bias": "Bearish",
-      "trend": "Xuất hiện dấu hiệu đảo chiều ngắn hạn",
-      "trigger_setup": "Bearish pin bar tại vùng cao báo hiệu pressure bán",
-      "structure": "LH/LL - Bearish Structure",
-      "momentum": "Neutral",
-      "candle_pattern": "Bearish Pin Bar"
+      "bias": "Bullish",
+      "trend": "Bullish với cấu trúc HH/HL",
+      "trigger_setup": "Full Bullish Alignment với momentum đang suy yếu",
+      "structure": "HH/HL - Bullish Structure",
+      "momentum": "Weakening",
+      "candle_pattern": "None"
     }
   },
   "key_levels": {
-    "current_price": 30247.8,
-    "resistance": [30271.1, 30283.7],
-    "support": [30225, 30190],
-    "swing_high": 30193,
-    "swing_low": 30139.6,
-    "prev_day_high": 30271.1,
-    "prev_day_low": 29693.8
+    "current_price": 4514.03,
+    "resistance": [4520.45, 4523.96],
+    "support": [4494.83, 4489.05],
+    "swing_high": 4520.45,
+    "swing_low": 4494.83,
+    "prev_day_high": 4516.77,
+    "prev_day_low": 4366.46
   },
   "confluence_analysis": {
-    "bullish_factors": ["EMA alignment bullish từ D1-H4-H1", "H4 MACD bullish divergence", "Price trên tất cả EMA chính"],
-    "bearish_factors": ["RSI D1 overbought", "MACD D1 bearish", "Bearish pin bar M15"],
-    "dominant_bias": "Bullish"
+    "bullish_factors": ["M15 Full Bullish Alignment", "MACD H4/H1 Bullish", "RSI H1 Bullish Zone", "Price trên EMA20"],
+    "bearish_factors": ["H4/H1 trend Bearish", "D1 RSI Bearish Zone", "D1 MACD Bearish", "H4 EMA Full Bearish"],
+    "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Chờ pullback về vùng 30225-30190 để long với confluence EMA support",
-      "target": [30270, 30285],
-      "stop_loss": 30175,
-      "risk_reward": "1:2.2",
-      "probability": 65
+      "setup": "Chờ break và retest vùng 4520-4521 với volume xác nhận",
+      "target": [4530, 4540],
+      "stop_loss": 4505,
+      "risk_reward": "1:2.0",
+      "probability": 45
     },
     "alternative_scenario": {
       "bias": "Bearish",
-      "setup": "Break below 30225 support với volume confirmation",
-      "target": [30190],
-      "stop_loss": 30260,
+      "setup": "Nếu thất bại tại kháng cự 4520 và break support 4494",
+      "target": [4485],
+      "stop_loss": 4525,
       "risk_reward": "1:1.5",
-      "probability": 25
+      "probability": 35
     },
     "invalidation_scenario": {
-      "bias": "Bearish",
-      "setup": "Break và close dưới 30175 hủy bỏ bias bullish",
-      "target": [30140],
-      "stop_loss": 30200,
-      "risk_reward": "1:1.4",
-      "probability": 10
+      "bias": "Neutral",
+      "setup": "Sideway trong range 4494-4520",
+      "target": [4507],
+      "stop_loss": 4490,
+      "risk_reward": "1:1.0",
+      "probability": 20
     }
   },
-  "risk_factors": ["RSI D1 overbought có thể gây sell-off", "MACD D1 bearish divergence", "Bearish pin bar M15 tại resistance"],
-  "catalyst_watch": ["US NFP data cuối tuần", "Fed meeting minutes"],
+  "risk_factors": ["Xung đột tín hiệu đa khung thời gian", "Volume thấp trong phiên", "RSI D1 trong vùng Bearish"],
+  "catalyst_watch": ["Break kháng cự 4520.45", "Phản ứng tại support 4494.83"],
   "execution_plan": {
-    "entry_zone": "30225-30190",
-    "entry_condition": "Pullback về EMA support với bullish reversal pattern",
-    "position_sizing": "Conservative 1-2% account",
-    "session_focus": "US session mở cửa",
-    "key_time": "15:30-16:00 (US market open)"
+    "entry_zone": "4515-4520 cho long, 4494-4490 cho short",
+    "entry_condition": "Chờ xác nhận break với volume và candle pattern",
+    "position_sizing": "Reduced size do uncertainty cao",
+    "session_focus": "US session",
+    "key_time": "15:00-16:00 chờ breakout"
   },
   "action_checklist": {
-    "immediate": ["Theo dõi reaction tại 30225", "Watch volume confirmation"],
-    "pre_trade": ["Confirm support hold tại EMA cluster", "Wait for bullish reversal signal"],
-    "monitoring": ["RSI divergence formation", "MACD cross confirmation"]
+    "immediate": ["Monitor level 4520.45", "Watch volume confirmation"],
+    "pre_trade": ["Confirm direction break", "Set proper stop loss"],
+    "monitoring": ["Volume expansion", "Multi-timeframe alignment"]
   },
-  "dashboard_summary": "NQ bullish bias nhưng cần pullback healthy về 30225-30190 cho cơ hội entry tốt hơn",
-  "telegram_summary": "🟢 NQ bullish bias duy trì. Chờ pullback 30225-30190 để long target 30270-30285. Cảnh giác RSI D1 overbought."
+  "dashboard_summary": "XAUUSD trong giai đoạn xung đột tín hiệu đa khung, chờ break kháng cự 4520 hoặc support 4494 để xác định hướng đi.",
+  "telegram_summary": "🥇 XAUUSD 4514 - Mixed signals, chờ break 4520↗️ hoặc 4494↘️. Reduced size trade. #GoldAnalysis"
 },"docx_url":""}]}
