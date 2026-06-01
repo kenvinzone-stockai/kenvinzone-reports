@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202606012230","datetime":"2026-06-01T22:30:45+07:00","date_display":"01/06/2026","time_display":"22:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 22:30","price_current":"4468.36","raw":{
-  "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 22:30",
-  "timestamp": "2026-05-26T22:30:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202606020615","datetime":"2026-06-02T06:15:32+07:00","date_display":"02/06/2026","time_display":"06:15","instrument":"NAS100","archetype":"Báo cáo 4H – 06:15","price_current":"30394.85","raw":{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 06:00",
+  "timestamp": "2025-01-09T06:00:00.000+07:00",
   "summary": {
     "primary_bias": "Bearish",
     "bias_direction": "Bearish",
-    "confidence_level": "Cao (75%+)",
-    "current_price": 4468.36,
-    "key_insight": "Vàng đang trong xu hướng giảm mạnh đa khung với H4-H1-M15 đồng loạt bearish. D1 mixed tạo xung đột nhưng momentum ngắn hạn vẫn yếu với RSI vùng oversold và MACD bearish.",
-    "headline": "Vàng tiếp tục xu hướng giảm với confluence bearish đa khung"
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 30394.85,
+    "key_insight": "NQ trong trạng thái xung đột: D1-H4 EMA Bullish nhưng MACD Bearish toàn bộ khung. RSI M15 vùng Bearish với momentum suy yếu. Giá test vùng 30390-400 cần theo dõi breakdown.",
+    "headline": "NQ divergence: EMA Bullish vs MACD Bearish cross-timeframe"
   },
   "market_structure": {
     "D1": {
-      "bias": "Neutral",
-      "trend": "Bullish nhưng đang chuyển sang sideways",
-      "structure": "Mixed Range",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Bearish Zone",
+      "bias": "Mixed",
+      "trend": "Bullish với EMA alignment nhưng MACD divergence",
+      "structure": "HH/HL Bullish structure với dấu hiệu suy yếu",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Overbought",
       "macd_bias": "Bearish",
-      "key_levels": "Vùng 4489-4595 với pressure tại 4543"
+      "key_levels": "Range 30224-30624, current near mid-range"
     },
     "H4": {
-      "bias": "Bearish",
-      "trend": "Bearish với momentum mạnh",
-      "structure": "LH/LL Bearish Structure",
-      "ema_alignment": "Full Bearish Alignment",
-      "rsi_zone": "Bearish Zone",
+      "bias": "Mixed",
+      "trend": "Bullish trend nhưng momentum chuyển Bearish",
+      "structure": "Bullish structure với MACD negative divergence",
+      "ema_alignment": "Full Bullish",
+      "rsi_zone": "Bullish Zone",
       "macd_bias": "Bearish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [4478.37, 4495.88],
-        "support": [4447.56, 4440.65]
+        "resistance": [30455, 30486.5],
+        "support": [30376.3, 30334.49]
       }
     },
     "H1": {
-      "bias": "Bearish",
-      "trend": "Bearish continuation",
-      "intraday_story": "Giá tiếp tục test support với áp lực bán mạnh",
-      "rsi_zone": "Bearish Zone",
+      "bias": "Neutral",
+      "trend": "Bullish trend với momentum neutral",
+      "intraday_story": "Consolidation sau move up, MACD bearish divergence",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bearish"
     },
     "M15": {
       "bias": "Bearish",
-      "trend": "Bearish với LH/LL structure",
-      "trigger_setup": "Bullish Pin Bar tại support - potential short-term bounce",
-      "structure": "LH/LL - Bearish Structure",
+      "trend": "Sideways với bias bearish",
+      "trigger_setup": "Break below 30376 với volume confirmation",
+      "structure": "Mixed/Range Structure",
       "momentum": "Weakening",
-      "candle_pattern": "Bullish Pin Bar"
+      "candle_pattern": "None"
     }
   },
   "key_levels": {
-    "current_price": 4468.36,
-    "resistance": [4478.37, 4495.88],
-    "support": [4447.56, 4440.65],
-    "swing_high": 4512.93,
-    "swing_low": 4447.56,
-    "prev_day_high": 4595.09,
-    "prev_day_low": 4489.05
+    "current_price": 30394.85,
+    "resistance": [30455, 30486.5],
+    "support": [30376.3, 30334.49],
+    "swing_high": 30624.15,
+    "swing_low": 30224.4,
+    "prev_day_high": 30624.15,
+    "prev_day_low": 30224.4
   },
   "confluence_analysis": {
-    "bullish_factors": ["Bullish Pin Bar M15", "RSI oversold territory", "Price near major support 4447"],
-    "bearish_factors": ["Full bearish EMA alignment H4", "MACD bearish đa khung", "LH/LL structure maintained", "Volume normal - không có buying pressure"],
-    "dominant_bias": "Bearish"
+    "bullish_factors": ["Full EMA alignment D1-H4", "Price above 200 EMA", "Bullish trend intact higher timeframes"],
+    "bearish_factors": ["MACD bearish across all timeframes", "RSI M15 bearish zone", "Momentum weakening", "Low volume environment"],
+    "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bearish",
-      "setup": "Short trên retest EMA20 (4478) hoặc breakdown dưới 4447",
-      "target": [4440.65, 4420.00],
-      "stop_loss": 4485.00,
-      "risk_reward": "1:2.8",
-      "probability": 75
+      "setup": "Break below 30376 support với volume confirmation, target test 30334 EMA200",
+      "target": [30334, 30300],
+      "stop_loss": 30420,
+      "risk_reward": "1:2.0",
+      "probability": 65
     },
     "alternative_scenario": {
       "bias": "Bullish",
-      "setup": "Pin Bar bounce từ 4447 support với volume confirmation",
-      "target": [4478.37],
-      "stop_loss": 4440.00,
-      "risk_reward": "1:1.2",
+      "setup": "Rejection tại 30376 support với bullish reversal signals",
+      "target": [30455],
+      "stop_loss": 30360,
+      "risk_reward": "1:1.7",
       "probability": 25
     },
     "invalidation_scenario": {
       "bias": "Bullish",
-      "setup": "Break và hold trên 4495 với volume spike",
-      "target": [4512.93],
-      "stop_loss": 4485.00,
-      "risk_reward": "1:1.8",
-      "probability": 15
+      "setup": "Strong break above 30455 resistance invalidates bearish thesis",
+      "target": [30500],
+      "stop_loss": 30420,
+      "risk_reward": "1:1.3",
+      "probability": 10
     }
   },
-  "risk_factors": ["Pin Bar có thể tạo bounce ngắn hạn", "RSI oversold - risk reversal", "Low volume - thiếu conviction"],
-  "catalyst_watch": ["US session volume surge", "Safe haven flows"],
+  "risk_factors": ["MACD-EMA divergence tạo uncertainty", "Low volume có thể fake breakout", "Range-bound structure chưa rõ hướng"],
+  "catalyst_watch": ["US data release", "Volume pickup confirmation"],
   "execution_plan": {
-    "entry_zone": "4447-4450 hoặc 4478-4480",
-    "entry_condition": "Breakdown 4447 với volume hoặc failed retest EMA20",
-    "position_sizing": "Conservative 1-2% risk do pin bar warning",
-    "session_focus": "US session overlap",
-    "key_time": "23:00-01:00 UTC+7"
+    "entry_zone": "30370-30380 breakdown zone",
+    "entry_condition": "Break 30376 với M15 close confirmation + volume",
+    "position_sizing": "Reduce size do mixed signals",
+    "session_focus": "London/NY overlap",
+    "key_time": "Theo dõi 14:00-16:00 GMT+7"
   },
   "action_checklist": {
-    "immediate": ["Monitor 4447 support reaction", "Watch for volume confirmation"],
-    "pre_trade": ["Confirm breakdown với candle close", "Check US session volume"],
-    "monitoring": ["Track EMA20 retest", "Monitor RSI divergence"]
+    "immediate": ["Monitor 30376 support level", "Watch volume for breakdown confirmation"],
+    "pre_trade": ["Wait for M15 close below 30376", "Confirm no major news pending"],
+    "monitoring": ["MACD histogram development", "Volume pattern changes"]
   },
-  "dashboard_summary": "XAUUSD bearish đa khung nhưng pin bar M15 cảnh báo bounce ngắn hạn từ 4447",
-  "telegram_summary": "🥇XAUUSD: Bearish bias mạnh | Entry: Short 4478 retest hoặc breakdown 4447 | Target: 4440-4420 | SL: 4485 | Risk: Pin bar bounce warning"
+  "dashboard_summary": "NQ trong trạng thái xung đột EMA Bullish vs MACD Bearish. Chờ confirmation tại 30376 support.",
+  "telegram_summary": "🔸NQ 30394: EMA↗️ vs MACD↘️ conflict. Key level 30376 support. Break = target 30334. Mixed signals - reduce size. Vol watch needed."
 },"docx_url":""}]}
