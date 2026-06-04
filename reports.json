@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202606040630","datetime":"2026-06-04T06:30:41+07:00","date_display":"04/06/2026","time_display":"06:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 06:30","price_current":"4450.81","raw":{
-  "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 06:30",
-  "timestamp": "2026-05-21T06:30:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202606041015","datetime":"2026-06-04T10:15:32+07:00","date_display":"04/06/2026","time_display":"10:15","instrument":"NAS100","archetype":"Báo cáo 4H – 10:15","price_current":"30381.35","raw":{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 10:00",
+  "timestamp": "2025-01-11T10:00:00+07:00",
   "summary": {
     "primary_bias": "Bearish",
     "bias_direction": "Bearish",
     "confidence_level": "Trung bình (50-74%)",
-    "current_price": 4450.81,
-    "key_insight": "Vàng trong tình huống xung đột đa khung với D1 Bullish nhưng H4/H1 Bearish. M15 có Bullish Engulfing pattern tạo phản ứng ngắn hạn nhưng chưa đủ mạnh để thay đổi bias giảm tổng thể.",
-    "headline": "XAUUSD xung đột đa khung, bias Bearish chờ breakout"
+    "current_price": 30381.35,
+    "key_insight": "Xung đột giữa bias Bullish D1/H4 và Bearish M15. MACD đang cho tín hiệu Bearish đa khung, price action M15 phá vỡ cấu trúc Bullish ngắn hạn.",
+    "headline": "NQ consolidation với bias Bearish ngắn hạn, chờ breakout direction"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng dài hạn nhưng momentum yếu",
-      "structure": "Mixed Range",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Bearish Zone",
+      "trend": "Xu hướng tăng D1 với EMA alignment mạnh",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Overbought",
       "macd_bias": "Bearish",
-      "key_levels": "Vùng kháng cự 4496.63 và hỗ trợ 4426.21"
+      "key_levels": "Vùng resistance tại 30755, support quan trọng 30426"
     },
     "H4": {
-      "bias": "Bearish",
-      "trend": "Điều chỉnh giảm trong cấu trúc lớn",
-      "structure": "Cấu trúc giảm với Full Bearish EMA alignment",
-      "ema_alignment": "Full Bearish",
-      "rsi_zone": "Bearish Zone",
+      "bias": "Bullish",
+      "trend": "Tiếp tục xu hướng tăng H4",
+      "structure": "Cấu trúc HH/HL duy trì",
+      "ema_alignment": "Full Bullish",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bearish",
       "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [4453.03, 4472.5],
-        "support": [4434.82, 4426.21]
+        "resistance": [30472.65, 30642.35],
+        "support": [30313.5, 30295.3]
       }
     },
     "H1": {
       "bias": "Bearish",
-      "trend": "Giảm nhưng có dấu hiệu phân kỳ MACD",
-      "intraday_story": "Xu hướng giảm ngắn hạn với MACD chuyển Bullish tạo tín hiệu trái chiều",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Bullish"
+      "trend": "Đảo chiều sang Bearish H1",
+      "intraday_story": "Momentum Bullish yếu dần, RSI vào vùng Bearish",
+      "rsi_zone": "Bearish Zone",
+      "macd_bias": "Bearish"
     },
     "M15": {
-      "bias": "Neutral",
-      "trend": "Bearish nhưng có Bullish Engulfing pattern",
-      "trigger_setup": "Bullish Engulfing tại 4450 có thể tạo bounce ngắn",
-      "structure": "HH/HL - Bullish Structure",
-      "momentum": "Expanding",
-      "candle_pattern": "Bullish Engulfing"
+      "bias": "Bearish",
+      "trend": "LH/LL Bearish structure confirmed",
+      "trigger_setup": "Bollinger Bands squeeze với breakout pending",
+      "structure": "LH/LL - Bearish Structure",
+      "momentum": "Neutral",
+      "candle_pattern": "None"
     }
   },
   "key_levels": {
-    "current_price": 4450.81,
-    "resistance": [4453.03, 4472.5],
-    "support": [4434.82, 4426.21],
-    "swing_high": 4452.18,
-    "swing_low": 4434.82,
-    "prev_day_high": 4496.63,
-    "prev_day_low": 4426.21
+    "current_price": 30381.35,
+    "resistance": [30404.34, 30472.65],
+    "support": [30313.5, 30295.3],
+    "swing_high": 30472.65,
+    "swing_low": 30313.5,
+    "prev_day_high": 30755.15,
+    "prev_day_low": 30426.85
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 trend Bullish", "M15 Bullish Engulfing pattern", "H1 MACD chuyển Bullish", "RSI M15 trong Bullish Zone"],
-    "bearish_factors": ["H4 Full Bearish EMA alignment", "D1 RSI Bearish Zone", "H4 MACD Bearish", "Price dưới EMA200"],
-    "dominant_bias": "Bearish"
+    "bullish_factors": ["D1 Full Bullish EMA alignment", "H4 trend vẫn Bullish", "MACD histogram đang tăng nhẹ"],
+    "bearish_factors": ["M15 LH/LL structure", "MACD Bearish đa khung H1/H4/D1", "RSI D1 Overbought", "Price dưới EMA20"],
+    "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bearish",
-      "setup": "Nếu reject tại resistance 4453, tìm short về support 4435-4426",
-      "target": [4435.00, 4426.21],
-      "stop_loss": 4455.00,
-      "risk_reward": "1:2.8",
+      "setup": "Breakout dưới support 30313.5, confirm bằng volume expansion",
+      "target": [30295.3, 30250],
+      "stop_loss": 30404,
+      "risk_reward": "1:2.1",
       "probability": 65
     },
     "alternative_scenario": {
       "bias": "Bullish",
-      "setup": "Break trên 4453 với volume confirm cho bounce về 4460-4470",
-      "target": [4462.00],
-      "stop_loss": 4447.00,
-      "risk_reward": "1:2.2",
+      "setup": "Reclaim EMA20 và breakout 30404, confirm trend continuation",
+      "target": [30472.65],
+      "stop_loss": 30313,
+      "risk_reward": "1:1.3",
       "probability": 25
     },
     "invalidation_scenario": {
       "bias": "Bullish",
-      "setup": "Break mạnh trên 4472.5 với volume cao invalidate bias Bearish",
-      "target": [4485.00],
-      "stop_loss": 4445.00,
-      "risk_reward": "1:2.5",
+      "setup": "Strong breakout trên 30472 với volume cao",
+      "target": [30550],
+      "stop_loss": 30380,
+      "risk_reward": "1:1.8",
       "probability": 10
     }
   },
-  "risk_factors": ["Xung đột tín hiệu đa khung tạo whipsaw", "Volume thấp (0.92 ratio) làm giảm độ tin cậy", "News catalyst có thể thay đổi sentiment đột ngột"],
-  "catalyst_watch": ["US Dollar Index movement", "Fed officials speech", "Geopolitical tensions"],
+  "risk_factors": ["Xung đột bias đa khung", "Low volatility BB squeeze", "Normal volume thiếu conviction"],
+  "catalyst_watch": ["US CPI data", "Fed speakers", "Tech earnings season"],
   "execution_plan": {
-    "entry_zone": "4452-4453 cho short, 4447-4448 cho long nếu có confirm",
-    "entry_condition": "Wait for rejection at resistance hoặc break với volume",
-    "position_sizing": "Giảm 50% size do xung đột tín hiệu",
-    "session_focus": "London session mở cửa",
-    "key_time": "14:30-16:00 UTC cho volume cao"
+    "entry_zone": "Dưới 30313 cho short, trên 30404 cho long",
+    "entry_condition": "Breakout confirmed với volume expansion",
+    "position_sizing": "Conservative 0.5% risk do mixed signals",
+    "session_focus": "US morning session",
+    "key_time": "14:30 UTC economic releases"
   },
   "action_checklist": {
-    "immediate": ["Monitor price action tại 4452-4453", "Watch volume confirmation"],
-    "pre_trade": ["Confirm break/reject với volume", "Check news calendar"],
-    "monitoring": ["D1 close price movement", "H4 EMA reclaim signals"]
+    "immediate": ["Monitor BB squeeze breakout direction", "Watch volume expansion"],
+    "pre_trade": ["Confirm breakout với 2-3 candles", "Check news calendar"],
+    "monitoring": ["MACD histogram changes", "EMA20 reclaim/rejection"]
   },
-  "dashboard_summary": "XAUUSD xung đột đa khung với bias Bearish chủ đạo nhưng M15 có Bullish Engulfing. Chờ confirm tại 4453.",
-  "telegram_summary": "🥇 XAUUSD 4450.81 | Bearish bias | Xung đột tín hiệu | Watch 4453 resistance | Size giảm 50% | Confidence: Trung bình"
+  "dashboard_summary": "NQ trong consolidation với BB squeeze, bias mixed đa khung. Chờ breakout direction với volume confirmation.",
+  "telegram_summary": "🔄 NQ 30381 - BB squeeze pending breakout. Bearish M15 vs Bullish D1/H4. Watch 30313 support & 30404 resistance. Mixed bias, chờ direction."
 },"docx_url":""}]}
