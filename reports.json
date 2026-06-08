@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202606081430","datetime":"2026-06-08T14:30:36+07:00","date_display":"08/06/2026","time_display":"14:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 14:30","price_current":"4306.15","raw":{
-  "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 14:30",
-  "timestamp": "2025-01-26T14:30:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202606081815","datetime":"2026-06-08T18:15:31+07:00","date_display":"08/06/2026","time_display":"18:15","instrument":"NAS100","archetype":"Báo cáo 4H – 18:15","price_current":"29313.8","raw":{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 18:00",
+  "timestamp": "2024-01-15T18:00:00+07:00",
   "summary": {
-    "primary_bias": "Bearish",
-    "bias_direction": "Bearish",
-    "confidence_level": "Cao (75%+)",
-    "current_price": 4306.15,
-    "key_insight": "Vàng đang trong xu hướng giảm mạnh từ D1 xuống M15 với cấu trúc LH/LL rõ ràng. H4 RSI oversold nhưng momentum bearish vẫn expanding, chờ bounce kỹ thuật hoặc continuation xuống vùng 4268-4290.",
-    "headline": "XAUUSD bearish dominance - chờ bounce kỹ thuật từ oversold"
+    "primary_bias": "Bullish",
+    "bias_direction": "Bullish",
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 29313.8,
+    "key_insight": "NQ đang trong tình huống xung đột đa khung với D1 bullish nhưng H4-H1 bearish. M15 xuất hiện Bullish Pin Bar tại vùng support quan trọng, báo hiệu khả năng bounce ngắn hạn.",
+    "headline": "NQ test support 29164 với tín hiệu bullish reversal M15"
   },
   "market_structure": {
     "D1": {
-      "bias": "Bearish",
-      "trend": "Xu hướng giảm với EMA alignment mixed cho thấy đang trong quá trình transition bearish",
-      "structure": "LH/LL Bearish",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Bearish Zone",
+      "bias": "Bullish",
+      "trend": "Xu hướng tăng dài hạn với Full Bullish EMA alignment",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bearish",
-      "key_levels": "Đang test vùng 4306, xa dưới prev day high 4481, gần prev day low 4311"
+      "key_levels": "Vùng giá D1 từ 28720-30360, đang ở giữa range"
     },
     "H4": {
       "bias": "Bearish",
-      "trend": "Bearish trend với full alignment EMA và MACD bearish",
-      "structure": "Cấu trúc bearish với lower highs và lower lows",
-      "ema_alignment": "Full Bearish",
-      "rsi_zone": "Oversold",
+      "trend": "Pullback trong xu hướng tăng lớn",
+      "structure": "Điều chỉnh từ đỉnh cao",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Bearish Zone",
       "macd_bias": "Bearish",
-      "momentum": "Expanding",
+      "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [4325.8, 4353.36],
-        "support": [4290.92, 4268.59]
+        "resistance": [29400, 29600],
+        "support": [29100, 28950]
       }
     },
     "H1": {
       "bias": "Bearish",
-      "trend": "Bearish trend nhưng MACD đang bullish divergence",
-      "intraday_story": "Giá đang consolidate quanh 4306 với potential bounce từ oversold H4",
-      "rsi_zone": "Bearish Zone",
+      "trend": "Xu hướng giảm ngắn hạn với MACD bullish divergence",
+      "intraday_story": "Pressure bán từ H4 đang yếu dần, RSI neutral cho thấy oversold relief",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bullish"
     },
     "M15": {
-      "bias": "Bearish",
-      "trend": "Bearish với full EMA alignment và expanding momentum",
-      "trigger_setup": "Doji formation với BB squeeze có thể breakout, chờ direction",
-      "structure": "LH/LL Bearish Structure",
+      "bias": "Bullish",
+      "trend": "Tín hiệu đảo chiều sau test low",
+      "trigger_setup": "Bullish Pin Bar tại 29164 support với BB squeeze breakout pending",
+      "structure": "HH/HL - Bullish Structure",
       "momentum": "Expanding",
-      "candle_pattern": "Doji"
+      "candle_pattern": "Bullish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 4306.15,
-    "resistance": [4325.8, 4353.36],
-    "support": [4290.92, 4268.59],
-    "swing_high": 4321.8,
-    "swing_low": 4268.59,
-    "prev_day_high": 4481.32,
-    "prev_day_low": 4311.73
+    "current_price": 29313.8,
+    "resistance": [29400, 29600],
+    "support": [29164, 29095],
+    "swing_high": 29230.85,
+    "swing_low": 29095.3,
+    "prev_day_high": 30360.75,
+    "prev_day_low": 28720.5
   },
   "confluence_analysis": {
-    "bullish_factors": ["H4 RSI oversold 46.57", "H1 MACD bullish divergence", "MACD hist positive 0.9", "BB squeeze có thể bounce"],
-    "bearish_factors": ["D1-H4-H1-M15 all bearish trend", "Full bearish EMA alignment M15", "Expanding bearish momentum", "LH/LL structure intact"],
-    "dominant_bias": "Bearish"
+    "bullish_factors": ["D1 Full Bullish EMA alignment", "M15 Bullish Pin Bar tại support", "H1 MACD bullish divergence", "BB squeeze breakout pending"],
+    "bearish_factors": ["H4 bearish momentum", "H1 bearish trend", "H4 RSI in bearish zone", "MACD bearish trên D1"],
+    "dominant_bias": "Mixed"
   },
   "trading_scenarios": {
     "primary_scenario": {
-      "bias": "Bearish",
-      "setup": "Chờ bounce từ oversold đến vùng 4325-4340 rồi short continuation",
-      "target": [4290, 4268],
-      "stop_loss": 4345,
+      "bias": "Bullish",
+      "setup": "Long từ vùng 29164-29200 nếu hold above swing low với confirmation từ M15",
+      "target": [29400, 29500],
+      "stop_loss": 29095,
       "risk_reward": "1:2.8",
-      "probability": 70
+      "probability": 65
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Break xuống dưới 4290 BB lower cho continuation mạnh",
-      "target": [4268],
-      "stop_loss": 4310,
-      "risk_reward": "1:2.1",
-      "probability": 60
+      "bias": "Neutral",
+      "setup": "Range trade giữa 29095-29400 chờ breakout rõ ràng",
+      "target": [29300],
+      "stop_loss": 29050,
+      "risk_reward": "1:1.5",
+      "probability": 25
     },
     "invalidation_scenario": {
-      "bias": "Bullish",
-      "setup": "Break trên 4325 EMA50 và hold, reverse bearish trend",
-      "target": [4353],
-      "stop_loss": 4290,
-      "risk_reward": "1:1.8",
-      "probability": 25
+      "bias": "Bearish",
+      "setup": "Break below 29095 swing low với volume confirmation",
+      "target": [28950],
+      "stop_loss": 29150,
+      "risk_reward": "1:2.6",
+      "probability": 10
     }
   },
-  "risk_factors": ["H4 RSI oversold có thể bounce mạnh", "BB squeeze breakout có thể reverse nhanh", "Volume normal chưa confirm direction"],
-  "catalyst_watch": ["Break BB upper/lower từ squeeze", "RSI exit oversold zone"],
+  "risk_factors": ["Xung đột tín hiệu đa khung thời gian", "Volume thấp có thể tạo fake breakout", "Session US sắp mở có thể tăng volatility"],
+  "catalyst_watch": ["US session opening volume", "Tech earnings reactions"],
   "execution_plan": {
-    "entry_zone": "4325-4340 resistance hoặc break 4290 support",
-    "entry_condition": "Rejection từ resistance hoặc break support với volume confirm",
-    "position_sizing": "Conservative do oversold condition",
-    "session_focus": "US session tiếp theo",
-    "key_time": "15:00-16:00 GMT+7"
+    "entry_zone": "29164-29200 support zone",
+    "entry_condition": "Confirmation candle sau Pin Bar với RSI bounce từ support",
+    "position_sizing": "Conservative 0.5-1% do conflicting signals",
+    "session_focus": "US Pre-market và Regular session",
+    "key_time": "18:30-19:00 cho entry confirmation"
   },
   "action_checklist": {
-    "immediate": ["Theo dõi price action tại 4306 level", "Chờ BB squeeze breakout direction"],
-    "pre_trade": ["Confirm volume khi break level", "Check H1 MACD signal confirmation"],
-    "monitoring": ["RSI exit oversold zone H4", "EMA20 M15 price interaction"]
+    "immediate": ["Monitor 29164 support hold", "Watch for M15 confirmation candle"],
+    "pre_trade": ["Confirm volume increase on bounce", "Check US pre-market sentiment"],
+    "monitoring": ["Track H4 RSI cho oversold bounce", "Watch BB breakout direction"]
   },
-  "dashboard_summary": "XAUUSD bearish dominance cross timeframes, oversold H4 có thể bounce kỹ thuật nhưng bias chính vẫn bearish continuation.",
-  "telegram_summary": "🥇XAUUSD: Bearish 4306→4290/4268. H4 oversold chờ bounce 4325-4340 để short. Risk: BB squeeze breakout. Confidence: Cao 75%+ 📉"
+  "dashboard_summary": "NQ trong tình huống xung đột đa khung với D1 bullish nhưng H4-H1 bearish. M15 Pin Bar tại support 29164 tạo cơ hội bounce ngắn hạn.",
+  "telegram_summary": "🔶 NQ 29313 - M15 Bullish Pin Bar @ support 29164. Long setup 29164-29200, target 29400-29500, SL 29095. Conflicting signals = conservative sizing ⚠️"
 },"docx_url":""}]}
