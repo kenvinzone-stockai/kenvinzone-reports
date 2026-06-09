@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202606092215","datetime":"2026-06-09T22:15:26+07:00","date_display":"09/06/2026","time_display":"22:15","instrument":"NAS100","archetype":"Báo cáo 4H – 22:15","price_current":"29201.9","raw":{
-  "instrument": "NQ/US100",
-  "archetype": "Báo cáo 4H – 22:00",
-  "timestamp": "2026-06-14T22:00:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202606092230","datetime":"2026-06-09T22:30:31+07:00","date_display":"09/06/2026","time_display":"22:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 22:30","price_current":"4278.68","raw":{
+  "instrument": "XAUUSD",
+  "archetype": "Báo cáo 4H – 22:30",
+  "timestamp": "2026-06-15T22:30:00+07:00",
   "summary": {
     "primary_bias": "Bearish",
     "bias_direction": "Bearish",
-    "confidence_level": "Trung bình (50-74%)",
-    "current_price": 29201.9,
-    "key_insight": "RSI oversold ở M15 (21.38) với MACD divergence mạnh (-81.64) cho thấy áp lực bán nặng. Xung đột giữa D1 bullish và H1-M15 bearish tạo zone consolidation.",
-    "headline": "Nasdaq oversold ngắn hạn, chờ bounce từ vùng support 29042-29101"
+    "confidence_level": "Cao (75%+)",
+    "current_price": 4278.68,
+    "key_insight": "Vàng đang trong xu hướng giảm mạnh với đồng thuận bearish trên tất cả khung thời gian. RSI oversold M15, H4, H1 nhưng MACD vẫn bearish, cho thấy áp lực bán còn tiếp diễn.",
+    "headline": "XAUUSD bearish mạnh, test vùng support 4268-4277"
   },
   "market_structure": {
     "D1": {
-      "bias": "Bullish",
-      "trend": "Xu hướng tăng dài hạn với EMA alignment bullish hoàn toàn",
-      "structure": "HH/HL Bullish",
-      "ema_alignment": "Full Bullish Alignment",
-      "rsi_zone": "Neutral",
-      "macd_bias": "Bearish",
-      "key_levels": "Support chính tại 28773.7, resistance tại 29692.75"
-    },
-    "H4": {
-      "bias": "Neutral",
-      "trend": "Trend bullish nhưng bị thử thách bởi momentum giảm",
-      "structure": "Bullish structure đang weakening",
+      "bias": "Bearish",
+      "trend": "Xu hướng giảm với MACD bearish divergence",
+      "structure": "LH/LL Bearish",
       "ema_alignment": "Mixed",
       "rsi_zone": "Bearish Zone",
-      "macd_bias": "Bullish",
-      "momentum": "Weakening",
+      "macd_bias": "Bearish",
+      "key_levels": "Test vùng support 4268-4278, resistance tại 4330-4350"
+    },
+    "H4": {
+      "bias": "Bearish",
+      "trend": "Downtrend mạnh với EMA bearish alignment",
+      "structure": "Lower highs, lower lows pattern",
+      "ema_alignment": "Full Bearish",
+      "rsi_zone": "Oversold",
+      "macd_bias": "Bearish",
+      "momentum": "Expanding",
       "critical_levels": {
-        "resistance": [29646.55, 29803.6],
-        "support": [29042.8, 29101.7]
+        "resistance": [4318.15, 4326.2],
+        "support": [4277.13, 4268.59]
       }
     },
     "H1": {
       "bias": "Bearish",
-      "trend": "Xu hướng giảm ngắn hạn với momentum bearish",
-      "intraday_story": "Áp lực bán tăng với RSI bearish zone và MACD negative",
-      "rsi_zone": "Bearish Zone",
+      "trend": "Continuation của downtrend H4",
+      "intraday_story": "Áp lực bán mạnh, RSI oversold nhưng chưa có dấu hiệu reversal",
+      "rsi_zone": "Oversold",
       "macd_bias": "Bearish"
     },
     "M15": {
       "bias": "Bearish",
-      "trend": "Trend bearish mạnh với EMA alignment hoàn toàn bearish",
-      "trigger_setup": "Doji pattern tại oversold RSI 21.38 có thể signal reversal",
-      "structure": "HH/HL - Bullish Structure bị thách thức",
+      "trend": "Bearish với momentum expanding",
+      "trigger_setup": "Bearish Pin Bar confirmation tại resistance EMA20",
+      "structure": "Mixed/Range Structure với bias bearish",
       "momentum": "Expanding",
-      "candle_pattern": "Doji"
+      "candle_pattern": "Bearish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 29201.9,
-    "resistance": [29504.94, 29646.55],
-    "support": [29042.8, 29101.7],
-    "swing_high": 29803.6,
-    "swing_low": 29581.3,
-    "prev_day_high": 29692.75,
-    "prev_day_low": 28773.7
+    "current_price": 4278.68,
+    "resistance": [4318.15, 4326.2],
+    "support": [4277.13, 4268.59],
+    "swing_high": 4363.06,
+    "swing_low": 4321.27,
+    "prev_day_high": 4353.36,
+    "prev_day_low": 4268.59
   },
   "confluence_analysis": {
-    "bullish_factors": ["D1 trend bullish với full EMA alignment", "RSI oversold M15 (21.38) cho reversal potential", "Doji pattern tại support zone"],
-    "bearish_factors": ["H1-M15 trend bearish alignment", "MACD negative divergence mạnh (-81.64)", "Price below all key EMAs ngắn hạn"],
-    "dominant_bias": "Mixed"
+    "bullish_factors": ["RSI oversold M15, H4, H1", "Gần support 4277-4268", "Potential bounce zone"],
+    "bearish_factors": ["Full bearish EMA alignment H4", "MACD bearish across timeframes", "Bearish Pin Bar M15", "Momentum expanding bearish", "Price below all major EMAs"],
+    "dominant_bias": "Bearish"
   },
   "trading_scenarios": {
     "primary_scenario": {
-      "bias": "Bullish",
-      "setup": "Long từ oversold bounce tại support 29042-29101 với RSI divergence",
-      "target": [29350, 29500],
-      "stop_loss": 29000,
-      "risk_reward": "1:2.8",
-      "probability": 65
+      "bias": "Bearish",
+      "setup": "Short rebound tại EMA20 (4318) hoặc break support 4277 với confirmation",
+      "target": [4268.59, 4250.0],
+      "stop_loss": 4295.0,
+      "risk_reward": "1:2.0",
+      "probability": 70
     },
     "alternative_scenario": {
       "bias": "Bearish",
-      "setup": "Short nếu break support 29042 với volume confirmation",
-      "target": [28900],
-      "stop_loss": 29150,
-      "risk_reward": "1:1.5",
-      "probability": 30
+      "setup": "Break và retest support 4277, short continuation",
+      "target": [4250.0],
+      "stop_loss": 4290.0,
+      "risk_reward": "1:2.2",
+      "probability": 25
     },
     "invalidation_scenario": {
       "bias": "Bullish",
-      "setup": "Strong break above 29500 với momentum reversal",
-      "target": [29650],
-      "stop_loss": 29300,
-      "risk_reward": "1:1.8",
+      "setup": "Recovery trên EMA20 với volume confirmation và RSI divergence",
+      "target": [4320.0],
+      "stop_loss": 4275.0,
+      "risk_reward": "1:1.5",
       "probability": 5
     }
   },
-  "risk_factors": ["Xung đột bias multi-timeframe tạo whipsaw risk", "Volume normal không confirm breakout/breakdown", "MACD negative momentum có thể kéo dài"],
-  "catalyst_watch": ["Asia session opening reaction", "Key economic data releases"],
+  "risk_factors": ["RSI oversold có thể bounce bất ngờ", "Low volume có thể tạo false breakout", "Gần major support 4268"],
+  "catalyst_watch": ["USD strength", "Fed policy signals"],
   "execution_plan": {
-    "entry_zone": "29042-29120 cho long setup",
-    "entry_condition": "RSI divergence confirmation với candle reversal pattern",
-    "position_sizing": "Reduced size due to mixed bias",
-    "session_focus": "Asia morning session",
+    "entry_zone": "4318-4320 resistance rebound hoặc 4277 break",
+    "entry_condition": "Bearish confirmation candle + volume expansion",
+    "position_sizing": "Conservative do RSI oversold",
+    "session_focus": "Asian/London overlap",
     "key_time": "23:00-01:00 UTC+7"
   },
   "action_checklist": {
-    "immediate": ["Monitor support 29042 holding", "Watch for RSI divergence confirmation"],
-    "pre_trade": ["Confirm volume surge on reversal", "Check Asia session sentiment"],
-    "monitoring": ["Track MACD histogram convergence", "Monitor key resistance 29350 break"]
+    "immediate": ["Monitor support 4277 behavior", "Watch for bearish continuation patterns"],
+    "pre_trade": ["Confirm MACD momentum", "Check volume on breakouts"],
+    "monitoring": ["RSI divergence signals", "EMA20 as dynamic resistance"]
   },
-  "dashboard_summary": "Nasdaq tại oversold zone với conflict bias - D1 bullish vs H1-M15 bearish. Primary setup: long bounce từ 29042-29101.",
-  "telegram_summary": "🔄 NQ oversold RSI 21.38, doji tại support 29042-29101. Setup: long bounce target 29350-29500, SL 29000. Risk: mixed timeframe bias. Theo dõi Asia session."
+  "dashboard_summary": "XAUUSD bearish momentum mạnh, test support 4277. RSI oversold nhưng MACD vẫn bearish - chờ confirmation break hoặc bounce.",
+  "telegram_summary": "🔴 XAUUSD bearish mạnh 4278.68. Test support 4277-4268. Short rebound EMA20 4318 target 4268. RSI oversold cảnh báo bounce. SL 4295 RR 1:2 📉"
 },"docx_url":""}]}
