@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202606092230","datetime":"2026-06-09T22:30:31+07:00","date_display":"09/06/2026","time_display":"22:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 22:30","price_current":"4278.68","raw":{
-  "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 22:30",
-  "timestamp": "2026-06-15T22:30:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202606100615","datetime":"2026-06-10T06:15:28+07:00","date_display":"10/06/2026","time_display":"06:15","instrument":"NAS100","archetype":"Báo cáo 4H – 06:15","price_current":"28988.65","raw":{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 06:00",
+  "timestamp": "2026-05-29T06:00:00+07:00",
   "summary": {
     "primary_bias": "Bearish",
     "bias_direction": "Bearish",
-    "confidence_level": "Cao (75%+)",
-    "current_price": 4278.68,
-    "key_insight": "Vàng đang trong xu hướng giảm mạnh với đồng thuận bearish trên tất cả khung thời gian. RSI oversold M15, H4, H1 nhưng MACD vẫn bearish, cho thấy áp lực bán còn tiếp diễn.",
-    "headline": "XAUUSD bearish mạnh, test vùng support 4268-4277"
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 28988.65,
+    "key_insight": "Xung đột đa khung với D1 bullish nhưng H4/H1/M15 bearish. Giá đang test vùng EMA20-50 với momentum yếu dần. Bollinger Bands squeeze báo hiệu breakout sắp tới.",
+    "headline": "NQ trong vùng quyết định - chờ breakout khỏi squeeze"
   },
   "market_structure": {
     "D1": {
-      "bias": "Bearish",
-      "trend": "Xu hướng giảm với MACD bearish divergence",
-      "structure": "LH/LL Bearish",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Bearish Zone",
+      "bias": "Bullish",
+      "trend": "Xu hướng tăng D1 với Full Bullish EMA alignment",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Neutral",
       "macd_bias": "Bearish",
-      "key_levels": "Test vùng support 4268-4278, resistance tại 4330-4350"
+      "key_levels": "Vùng 28200-29800 là range lớn D1"
     },
     "H4": {
       "bias": "Bearish",
-      "trend": "Downtrend mạnh với EMA bearish alignment",
-      "structure": "Lower highs, lower lows pattern",
-      "ema_alignment": "Full Bearish",
-      "rsi_zone": "Oversold",
+      "trend": "Chuyển bearish với EMA alignment mixed",
+      "structure": "Cấu trúc đảo chiều từ bullish sang bearish",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Bearish Zone",
       "macd_bias": "Bearish",
-      "momentum": "Expanding",
+      "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [4318.15, 4326.2],
-        "support": [4277.13, 4268.59]
+        "resistance": [29074.7, 29152.9],
+        "support": [28946.6, 28734.31]
       }
     },
     "H1": {
       "bias": "Bearish",
-      "trend": "Continuation của downtrend H4",
-      "intraday_story": "Áp lực bán mạnh, RSI oversold nhưng chưa có dấu hiệu reversal",
-      "rsi_zone": "Oversold",
+      "trend": "Xu hướng giảm H1 rõ ràng",
+      "intraday_story": "Áp lực bán H1 với RSI bearish zone",
+      "rsi_zone": "Bearish Zone",
       "macd_bias": "Bearish"
     },
     "M15": {
       "bias": "Bearish",
-      "trend": "Bearish với momentum expanding",
-      "trigger_setup": "Bearish Pin Bar confirmation tại resistance EMA20",
-      "structure": "Mixed/Range Structure với bias bearish",
-      "momentum": "Expanding",
-      "candle_pattern": "Bearish Pin Bar"
+      "trend": "LH/LL bearish structure với EMA Full Bearish",
+      "trigger_setup": "BB Squeeze breakout với momentum yếu dần",
+      "structure": "LH/LL - Bearish Structure",
+      "momentum": "Weakening",
+      "candle_pattern": "Doji"
     }
   },
   "key_levels": {
-    "current_price": 4278.68,
-    "resistance": [4318.15, 4326.2],
-    "support": [4277.13, 4268.59],
-    "swing_high": 4363.06,
-    "swing_low": 4321.27,
-    "prev_day_high": 4353.36,
-    "prev_day_low": 4268.59
+    "current_price": 28988.65,
+    "resistance": [29074.7, 29152.9],
+    "support": [28946.6, 28734.31],
+    "swing_high": 29152.9,
+    "swing_low": 28186,
+    "prev_day_high": 29803.6,
+    "prev_day_low": 28186
   },
   "confluence_analysis": {
-    "bullish_factors": ["RSI oversold M15, H4, H1", "Gần support 4277-4268", "Potential bounce zone"],
-    "bearish_factors": ["Full bearish EMA alignment H4", "MACD bearish across timeframes", "Bearish Pin Bar M15", "Momentum expanding bearish", "Price below all major EMAs"],
+    "bullish_factors": ["D1 trend bullish", "Full Bullish EMA alignment D1", "MACD histogram tăng M15"],
+    "bearish_factors": ["H4/H1/M15 cùng bearish", "RSI H4/H1 bearish zone", "Price dưới EMA 50/200", "Volume thấp", "Momentum yếu dần"],
     "dominant_bias": "Bearish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bearish",
-      "setup": "Short rebound tại EMA20 (4318) hoặc break support 4277 với confirmation",
-      "target": [4268.59, 4250.0],
-      "stop_loss": 4295.0,
-      "risk_reward": "1:2.0",
-      "probability": 70
+      "setup": "BB squeeze breakout xuống dưới 28946 với volume tăng",
+      "target": [28800, 28650],
+      "stop_loss": 29075,
+      "risk_reward": "1:2.2",
+      "probability": 65
     },
     "alternative_scenario": {
-      "bias": "Bearish",
-      "setup": "Break và retest support 4277, short continuation",
-      "target": [4250.0],
-      "stop_loss": 4290.0,
-      "risk_reward": "1:2.2",
+      "bias": "Bullish",
+      "setup": "Bounce từ support 28946-28950 với reversal pattern",
+      "target": [29100],
+      "stop_loss": 28900,
+      "risk_reward": "1:1.8",
       "probability": 25
     },
     "invalidation_scenario": {
       "bias": "Bullish",
-      "setup": "Recovery trên EMA20 với volume confirmation và RSI divergence",
-      "target": [4320.0],
-      "stop_loss": 4275.0,
+      "setup": "Break trên 29075 xác nhận false breakdown",
+      "target": [29200],
+      "stop_loss": 28950,
       "risk_reward": "1:1.5",
-      "probability": 5
+      "probability": 10
     }
   },
-  "risk_factors": ["RSI oversold có thể bounce bất ngờ", "Low volume có thể tạo false breakout", "Gần major support 4268"],
-  "catalyst_watch": ["USD strength", "Fed policy signals"],
+  "risk_factors": ["Xung đột đa khung D1-H4", "Volume thấp thiếu conviction", "BB squeeze có thể fake breakout", "Session đầu tuần thanh khoản thấp"],
+  "catalyst_watch": ["US market open 21:30", "Volume breakout khỏi BB squeeze", "Break key levels 28946/29075"],
   "execution_plan": {
-    "entry_zone": "4318-4320 resistance rebound hoặc 4277 break",
-    "entry_condition": "Bearish confirmation candle + volume expansion",
-    "position_sizing": "Conservative do RSI oversold",
+    "entry_zone": "28945-28950 cho short, 29070-29075 cho long",
+    "entry_condition": "Chờ BB breakout với volume confirmation",
+    "position_sizing": "50% size do xung đột đa khung",
     "session_focus": "Asian/London overlap",
-    "key_time": "23:00-01:00 UTC+7"
+    "key_time": "US pre-market 19:00-21:30"
   },
   "action_checklist": {
-    "immediate": ["Monitor support 4277 behavior", "Watch for bearish continuation patterns"],
-    "pre_trade": ["Confirm MACD momentum", "Check volume on breakouts"],
-    "monitoring": ["RSI divergence signals", "EMA20 as dynamic resistance"]
+    "immediate": ["Monitor BB squeeze breakout", "Watch volume tại key levels"],
+    "pre_trade": ["Xác nhận direction bằng volume", "Set alerts tại 28946/29075"],
+    "monitoring": ["Volume profile changes", "H4 close confirmation"]
   },
-  "dashboard_summary": "XAUUSD bearish momentum mạnh, test support 4277. RSI oversold nhưng MACD vẫn bearish - chờ confirmation break hoặc bounce.",
-  "telegram_summary": "🔴 XAUUSD bearish mạnh 4278.68. Test support 4277-4268. Short rebound EMA20 4318 target 4268. RSI oversold cảnh báo bounce. SL 4295 RR 1:2 📉"
+  "dashboard_summary": "NQ tại crossroads với D1 bullish nhưng lower timeframes bearish. BB squeeze báo hiệu breakout sắp tới.",
+  "telegram_summary": "🔥 NQ 28988 - BB Squeeze! D1 bull vs H4/H1 bear. Chờ breakout 28946⬇️ hoặc 29075⬆️. Volume key! 📊 #NQ #BBSqueeze"
 },"docx_url":""}]}
