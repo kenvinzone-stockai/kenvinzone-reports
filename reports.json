@@ -1,108 +1,108 @@
-{"version":"1.0","reports":[{"id":"RPT-202606091430","datetime":"2026-06-09T14:30:29+07:00","date_display":"09/06/2026","time_display":"14:30","instrument":"XAUUSD","archetype":"Báo cáo 4H – 14:30","price_current":"4331.09","raw":{
-  "instrument": "XAUUSD",
-  "archetype": "Báo cáo 4H – 14:30",
-  "timestamp": "2024-12-28T14:30:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202606091815","datetime":"2026-06-09T18:15:29+07:00","date_display":"09/06/2026","time_display":"18:15","instrument":"NAS100","archetype":"Báo cáo 4H – 18:15","price_current":"29655.8","raw":{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 18:00",
+  "timestamp": "2025-01-03T18:00:00+07:00",
   "summary": {
-    "primary_bias": "Bearish",
-    "bias_direction": "Bearish",
-    "confidence_level": "Cao (75%+)",
-    "current_price": 4331.09,
-    "key_insight": "D1-H4 alignment bearish mạnh với RSI trong vùng bearish zone. M15 xuất hiện bullish engulfing nhưng chỉ là pullback kỹ thuật trong downtrend lớn.",
-    "headline": "Vàng bearish bias mạnh, chờ pullback để bán"
+    "primary_bias": "Bullish",
+    "bias_direction": "Bullish",
+    "confidence_level": "Trung bình (50-74%)",
+    "current_price": 29655.8,
+    "key_insight": "D1 và H4 đều bullish với momentum yếu đi trên M15. H1 xuất hiện xung đột bearish nhưng chưa đủ mạnh để thay đổi bias lớn.",
+    "headline": "Bullish bias duy trì nhưng cần xác nhận momentum"
   },
   "market_structure": {
     "D1": {
-      "bias": "Bearish",
-      "trend": "Xu hướng giảm với RSI vùng bearish zone",
-      "structure": "LH/LL Bearish",
-      "ema_alignment": "Mixed",
-      "rsi_zone": "Bearish Zone",
+      "bias": "Bullish",
+      "trend": "Xu hướng tăng mạnh với EMA alignment hoàn hảo",
+      "structure": "HH/HL Bullish",
+      "ema_alignment": "Full Bullish Alignment",
+      "rsi_zone": "Bullish Zone",
       "macd_bias": "Bearish",
-      "key_levels": "Kháng cự mạnh quanh 4355, hỗ trợ 4268"
+      "key_levels": "Vùng 29385-29692 là range gần nhất"
     },
     "H4": {
-      "bias": "Bearish",
-      "trend": "Downtrend rõ ràng với full bearish EMA alignment",
-      "structure": "Cấu trúc bearish mạnh",
-      "ema_alignment": "Full Bearish",
-      "rsi_zone": "Bearish Zone",
-      "macd_bias": "Bearish",
-      "momentum": "Expanding",
+      "bias": "Bullish",
+      "trend": "Bullish nhưng EMA alignment bắt đầu mixed",
+      "structure": "Duy trì cấu trúc tăng",
+      "ema_alignment": "Mixed",
+      "rsi_zone": "Neutral",
+      "macd_bias": "Bullish",
+      "momentum": "Weakening",
       "critical_levels": {
-        "resistance": [4342.3, 4351.43],
-        "support": [4324.16, 4312.73]
+        "resistance": [29692.75, 29700],
+        "support": [29524, 29566.74]
       }
     },
     "H1": {
       "bias": "Bearish",
-      "trend": "Trong downtrend nhưng có dấu hiệu pullback",
-      "intraday_story": "MACD bullish divergence nhưng vẫn trong cấu trúc bearish lớn",
-      "rsi_zone": "Neutral",
+      "trend": "Xuất hiện pullback ngắn hạn",
+      "intraday_story": "Xung đột với bias lớn, có thể là correction nhỏ",
+      "rsi_zone": "Bullish Zone",
       "macd_bias": "Bullish"
     },
     "M15": {
-      "bias": "Neutral",
-      "trend": "Bullish Engulfing xuất hiện nhưng trend tổng thể vẫn bearish",
-      "trigger_setup": "Pullback kỹ thuật với bullish engulfing pattern",
-      "structure": "HH/HL - Bullish Structure ngắn hạn",
-      "momentum": "Expanding",
-      "candle_pattern": "Bullish Engulfing"
+      "bias": "Bullish",
+      "trend": "Bullish với HH/HL structure",
+      "trigger_setup": "Bullish Pin Bar tại vùng hỗ trợ",
+      "structure": "HH/HL - Bullish Structure",
+      "momentum": "Weakening",
+      "candle_pattern": "Bullish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 4331.09,
-    "resistance": [4342.3, 4351.43],
-    "support": [4324.16, 4312.73],
-    "swing_high": 4351.43,
-    "swing_low": 4324.16,
-    "prev_day_high": 4353.36,
-    "prev_day_low": 4268.59
+    "current_price": 29655.8,
+    "resistance": [29692.75, 29700],
+    "support": [29524, 29566.74],
+    "swing_high": 29646.55,
+    "swing_low": 29524,
+    "prev_day_high": 29692.75,
+    "prev_day_low": 28773.7
   },
   "confluence_analysis": {
-    "bullish_factors": ["Bullish Engulfing M15", "H1 MACD bullish", "RSI không oversold"],
-    "bearish_factors": ["D1-H4 full bearish alignment", "EMA resistance 4334-4355", "RSI bearish zone D1-H4"],
-    "dominant_bias": "Bearish"
+    "bullish_factors": ["D1 Full Bullish EMA alignment", "H4 MACD bullish", "M15 Bullish Pin Bar", "Price trên EMA200", "RSI trong vùng bullish"],
+    "bearish_factors": ["H1 trend bearish", "M15 momentum weakening", "D1 MACD bearish divergence", "Price gần resistance 29692"],
+    "dominant_bias": "Bullish"
   },
   "trading_scenarios": {
     "primary_scenario": {
-      "bias": "Bearish",
-      "setup": "Chờ pullback về 4342-4345 để bán, xác nhận bằng rejection candle",
-      "target": [4324.16, 4312.73],
-      "stop_loss": 4351.43,
-      "risk_reward": "1:2.5",
-      "probability": 75
+      "bias": "Bullish",
+      "setup": "Breakout trên 29670 với xác nhận volume",
+      "target": [29700, 29750],
+      "stop_loss": 29580,
+      "risk_reward": "1:2.2",
+      "probability": 65
     },
     "alternative_scenario": {
       "bias": "Bullish",
-      "setup": "Nếu break 4345 có volume, target pullback ngắn hạn",
-      "target": [4351.43],
-      "stop_loss": 4324.16,
-      "risk_reward": "1:1.5",
-      "probability": 25
+      "setup": "Pullback về vùng 29580-29600 để tích lũy",
+      "target": [29680],
+      "stop_loss": 29540,
+      "risk_reward": "1:2.0",
+      "probability": 30
     },
     "invalidation_scenario": {
-      "bias": "Bullish",
-      "setup": "Break 4353 xác nhận reversal short-term",
-      "target": [4365],
-      "stop_loss": 4324.16,
-      "risk_reward": "1:1.2",
+      "bias": "Bearish",
+      "setup": "Break xuống dưới 29524 support",
+      "target": [29450],
+      "stop_loss": 29580,
+      "risk_reward": "1:1.3",
       "probability": 15
     }
   },
-  "risk_factors": ["Pullback mạnh hơn dự kiến do bullish engulfing", "News catalyst có thể thay đổi sentiment", "Low volume có thể tạo false breakout"],
-  "catalyst_watch": ["US economic data", "Fed speakers sentiment"],
+  "risk_factors": ["Momentum đang yếu đi trên M15", "MACD divergence trên D1", "H1 xuất hiện bias bearish ngắn hạn"],
+  "catalyst_watch": ["US session volume", "Breakout confirmation trên 29670"],
   "execution_plan": {
-    "entry_zone": "4342-4345 resistance zone",
-    "entry_condition": "Rejection tại resistance với confirmation candle",
-    "position_sizing": "Giảm size do M15 có bullish signal",
-    "session_focus": "US session",
-    "key_time": "15:30-17:00 khi volume tăng"
+    "entry_zone": "29640-29660 hoặc pullback 29580-29600",
+    "entry_condition": "Xác nhận bullish với volume hoặc pin bar reversal",
+    "position_sizing": "Conservative do momentum yếu",
+    "session_focus": "US session opening",
+    "key_time": "18:00-20:00 UTC+7"
   },
   "action_checklist": {
-    "immediate": ["Monitor 4342 resistance reaction", "Watch volume confirmation"],
-    "pre_trade": ["Chờ rejection signal tại resistance", "Confirm D1 bias không đổi"],
-    "monitoring": ["Follow MACD divergence H1", "Track break/hold 4324 support"]
+    "immediate": ["Theo dõi reaction tại 29670 resistance", "Xác nhận volume breakout"],
+    "pre_trade": ["Check US session opening sentiment", "Đợi xác nhận M15 bullish momentum"],
+    "monitoring": ["MACD histogram recovery", "EMA20 support hold"]
   },
-  "dashboard_summary": "XAUUSD bearish bias mạnh D1-H4, M15 pullback kỹ thuật với bullish engulfing - chờ bán tại resistance 4342-4345.",
-  "telegram_summary": "🥇XAUUSD: Bearish bias mạnh. Chờ pullback 4342-4345 để bán target 4324-4312. SL 4351. Confidence: Cao 75%+ 📉"
+  "dashboard_summary": "NQ bullish bias duy trì nhưng momentum yếu. Chờ breakout 29670 hoặc pullback entry.",
+  "telegram_summary": "📈 NQ: Bullish bias, momentum yếu. Entry: 29640-60 hoặc pullback 29580-600. Target: 29700-750. SL: 29580/29540. RR: 1:2+"
 },"docx_url":""}]}
