@@ -1,138 +1,138 @@
-{"version":"1.0","reports":[{"id":"RPT-202607011106","datetime":"2026-07-01T11:06:26+07:00","date_display":"01/07/2026","time_display":"11:06","instrument":"VNINDEX","archetype":"Báo cáo 4H – 11:06","price_current":"1865.47","raw":,{
-  "instrument": "VNINDEX",
-  "archetype": "Báo cáo 4H – 09:25",
-  "timestamp": "2026-08-01T09:25:00+07:00",
+{"version":"1.0","reports":[{"id":"RPT-202607011401","datetime":"2026-07-01T14:01:13+07:00","date_display":"01/07/2026","time_display":"14:01","instrument":"US100","archetype":"Báo cáo 4H – 14:01","price_current":"30124.7","raw":,{
+  "instrument": "NQ/US100",
+  "archetype": "Báo cáo 4H – 14:00",
+  "timestamp": "2026-01-02T14:00:00+07:00",
   "summary": {
     "primary_bias": "Bullish",
     "confidence_level": "Trung bình (50-74%)",
-    "current_price": 1865.47,
-    "key_insight": "VNINDEX duy trì xu hướng tăng đồng thuận trên D1, H4, H1 và M15, giá đang giao dịch sát đỉnh phiên 1865.62. Tuy nhiên MACD hist trên H4 và H1 đang suy yếu (âm/bằng 0) cho thấy đà tăng có dấu hiệu chững lại dù cấu trúc vẫn bullish, cần theo dõi khả năng điều chỉnh ngắn hạn trước khi tiếp tục xu hướng.",
-    "headline": "VNINDEX bứt phá vùng đỉnh cũ, đà tăng còn nhưng momentum H4/H1 đang hạ nhiệt"
+    "current_price": 30124.7,
+    "key_insight": "D1 và H4 vẫn giữ cấu trúc tăng với EMA alignment Full Bullish, nhưng momentum D1 đang suy yếu (MACD hist âm) trong khi M15/H1 xuất hiện tín hiệu điều chỉnh ngắn hạn với cấu trúc LH/LL và bearish pin bar. Giá đang co hẹp trong BB squeeze quanh vùng 30100-30170, chờ breakout xác nhận hướng đi tiếp theo.",
+    "headline": "US100 giằng co trong squeeze, xu hướng lớn vẫn nghiêng tăng nhưng cần xác nhận ngắn hạn"
   },
   "market_structure": {
     "D1": {
       "bias": "Bullish",
-      "trend": "Xu hướng tăng mạnh, giá đóng cửa trên toàn bộ hệ EMA",
-      "structure": "HH/HL Bullish",
+      "trend": "Xu hướng tăng dài hạn, giá duy trì trên toàn bộ hệ EMA nhưng đang có nhịp điều chỉnh từ đỉnh 30284.5",
+      "structure": "Mixed Range - pullback trong xu hướng tăng (giá gần đáy ngày 30098.2 so với đỉnh 30284.5, nhưng vẫn trên EMA20/50/200)",
       "ema_alignment": "Full Bullish",
-      "rsi_zone": "Bullish Zone",
-      "rsi_value": 56.35,
-      "macd_bias": "Bullish",
-      "macd_hist": 5.33,
-      "key_levels": "Giá 1865.45 nằm trên EMA20 (1847.66), EMA50 (1837), EMA200 (1739.56) với khoảng cách rất lớn so với EMA200 – xác nhận uptrend dài hạn vững chắc, vùng hỗ trợ gần nhất quanh EMA20"
+      "rsi_zone": "Neutral",
+      "rsi_value": 54.83,
+      "macd_bias": "Bearish",
+      "macd_hist": -50.16,
+      "key_levels": "Vùng hỗ trợ quanh EMA20 (29747.59) và đáy ngày 30098.2; kháng cự tại đỉnh ngày 30284.5. Cấu trúc EMA20>EMA50>EMA200 xác nhận trend tăng dài hạn dù momentum đang chững lại"
     },
     "H4": {
       "bias": "Bullish",
-      "trend": "Tăng, giá trên toàn bộ EMA nhưng momentum MACD chuyển âm nhẹ",
-      "structure": "Higher High tại 1865.62, higher low quanh 1859.68 - cấu trúc tăng còn nguyên vẹn",
+      "trend": "Xu hướng tăng rõ ràng, momentum mở rộng với MACD hist dương mạnh",
+      "structure": "Higher Low được giữ vững quanh 30098.2, giá dao động trong biên 30098-30177",
       "ema_alignment": "Full Bullish",
       "rsi_zone": "Bullish Zone",
-      "rsi_value": 57.51,
-      "macd_bias": "Bearish",
-      "macd_hist": -0.11,
-      "momentum": "Weakening",
+      "rsi_value": 60.43,
+      "macd_bias": "Bullish",
+      "macd_hist": 81.59,
+      "momentum": "Expanding",
       "critical_levels": {
-        "resistance": ["1865.62", "1870.00"],
-        "support": ["1859.68", "1852.29"]
+        "resistance": ["30177.1", "30210.5"],
+        "support": ["30098.2", "29825.34"]
       }
     },
     "H1": {
       "bias": "Bullish",
-      "trend": "Tăng nhẹ, giá bám sát EMA20 nhưng MACD hist bằng 0 - động lực trung tính",
-      "ema_alignment": "Full Bullish",
-      "intraday_story": "Giá mở phiên gần đáy 1862.49 rồi bật tăng lên đỉnh 1865.62, duy trì trên các EMA ngắn hạn cho thấy lực mua nội phiên vẫn chiếm ưu thế dù momentum đang phẳng",
+      "trend": "Điều chỉnh nhẹ sau nhịp tăng, giá dao động sát EMA20 (30111.93)",
+      "ema_alignment": "Mixed",
+      "intraday_story": "Giá đã test lại vùng 30177 rồi điều chỉnh về gần EMA20, momentum H1 chuyển bearish tạm thời dù vẫn trên EMA50/200 - dấu hiệu nghỉ trong xu hướng tăng lớn hơn",
       "rsi_zone": "Bullish Zone",
-      "rsi_value": 56.37,
+      "rsi_value": 56.12,
       "macd_bias": "Bearish",
-      "macd_hist": 0
+      "macd_hist": -29.98
     },
     "M15": {
-      "bias": "Bullish",
-      "trend": "Tăng, giá trên EMA200 M15, momentum mở rộng",
-      "trigger_setup": "Bullish Pin Bar xác nhận lực mua tại vùng hỗ trợ 1862-1863, breakout khỏi swing high 1862.1",
-      "structure": "Mixed/Range chuyển sang bứt phá đỉnh 20 bar",
-      "momentum": "Expanding",
-      "candle_pattern": "Bullish Pin Bar"
+      "bias": "Bearish",
+      "trend": "Điều chỉnh ngắn hạn trong bối cảnh BB Squeeze, chờ breakout",
+      "trigger_setup": "Chờ breakout khỏi squeeze: Buy nếu phá 30165 (cụm EMA20/50) kèm volume tăng, Sell nếu phá 30098-30100",
+      "structure": "LH/LL - cấu trúc giảm ngắn hạn hình thành sau đỉnh 30210.5",
+      "momentum": "Neutral/Compressing",
+      "candle_pattern": "Bearish Pin Bar"
     }
   },
   "key_levels": {
-    "current_price": 1865.47,
-    "resistance": ["1865.62", "1870.00"],
-    "support": ["1863.14", "1860.01"],
-    "swing_high": 1862.1,
-    "swing_low": 1850.8,
-    "prev_day_high": 1863.14,
-    "prev_day_low": 1844.66
+    "current_price": 30124.7,
+    "resistance": ["30177.1", "30210.5"],
+    "support": ["30098.2", "30114.3"],
+    "swing_high": 30210.5,
+    "swing_low": 30100.5,
+    "prev_day_high": 30324.9,
+    "prev_day_low": 29659.4
   },
   "confluence_analysis": {
     "bullish_factors": [
-      "D1, H4, H1, M15 đều có trend Bullish và EMA alignment Full Bullish trên D1/H4/H1",
-      "Giá phá vỡ prev day high 1863.14 và đang test đỉnh 20 phiên 1865.62",
-      "M15 xuất hiện Bullish Pin Bar với momentum expanding, volume bình thường không có dấu hiệu phân phối"
+      "D1 và H4 đều Full Bullish EMA alignment, giá trên toàn bộ hệ EMA",
+      "H4 MACD hist dương mạnh (+81.59) và RSI 60.43 cho thấy momentum trung hạn còn tích cực",
+      "Giá H1 vẫn giữ trên EMA50 (29890.54) và EMA200 (29739.83), cấu trúc tăng chưa bị phá vỡ"
     ],
     "bearish_factors": [
-      "MACD hist H4 âm (-0.11) và H1 bằng 0 cho thấy momentum trung/dài hạn đang chững lại",
-      "RSI M15 đã lên 66.79 gần vùng quá mua, rủi ro điều chỉnh ngắn hạn",
-      "BB width M15 hẹp (0.27) cho thấy biến động thấp, có thể sắp có breakout hoặc pullback mạnh"
+      "M15 xuất hiện cấu trúc LH/LL kèm bearish pin bar tại vùng kháng cự squeeze",
+      "MACD M15 và H1 đều bearish, RSI M15 giảm về vùng 36.17 cho thấy áp lực bán ngắn hạn",
+      "D1 MACD hist âm (-50.16) phản ánh momentum dài hạn đang suy yếu dù trend chính vẫn tăng"
     ],
     "dominant_bias": "Bullish"
   },
   "trading_scenarios": {
     "primary_scenario": {
       "bias": "Bullish",
-      "setup": "Chờ giá break và đóng nến trên 1865.62 với volume xác nhận để vào lệnh mua tiếp diễn xu hướng, hoặc mua khi pullback về vùng EMA20 H1 (1859.7-1860)",
-      "target": ["1870.00", "1875.00"],
-      "stop_loss": 1858.5,
-      "risk_reward": "1:2.3",
+      "setup": "Chờ giá test lại vùng hỗ trợ 30098-30115 (đáy 20 bar/H4 low) và xuất hiện tín hiệu đảo chiều tăng (bullish engulfing/pin bar) để vào lệnh mua theo xu hướng D1/H4",
+      "target": ["30177.1", "30210.5"],
+      "stop_loss": "30080",
+      "risk_reward": "1:2.2",
       "probability": 50
     },
     "alternative_scenario": {
-      "bias": "Bullish",
-      "setup": "Giá điều chỉnh về vùng 1860-1862 (EMA20 M15/H1) trước khi tiếp tục tăng, mua khi xuất hiện tín hiệu đảo chiều tại hỗ trợ",
-      "target": ["1868.00"],
-      "stop_loss": 1856.4,
+      "bias": "Bearish",
+      "setup": "Nếu giá phá squeeze xuống dưới 30098 nhưng chưa xác nhận trend đổi chiều, có thể retest sâu hơn về EMA200 H1 (29739.83) trước khi bật lại theo trend chính",
+      "target": ["29883.88"],
+      "stop_loss": "30177",
       "risk_reward": "1:1.8",
       "probability": 30
     },
     "invalidation_scenario": {
       "bias": "Bearish",
-      "setup": "Giá phá vỡ và đóng cửa dưới prev swing low 1856.42, xác nhận suy yếu cấu trúc tăng ngắn hạn",
-      "target": ["1850.80"],
-      "stop_loss": 1862.1,
+      "setup": "Nếu giá đóng nến H1/H4 dưới 30098 với volume xác nhận, cấu trúc tăng H4 bị phá, chuyển sang kịch bản giảm sâu hơn về vùng EMA50 H4 (29752.63)",
+      "target": ["29752.63"],
+      "stop_loss": "30210",
       "risk_reward": "1:1.5",
       "probability": 20
     }
   },
   "risk_factors": [
-    "Momentum MACD trên H4/H1 đang phân kỳ với giá, rủi ro điều chỉnh kỹ thuật trước khi tăng tiếp",
-    "RSI M15 tiệm cận vùng quá mua có thể gây áp lực chốt lời ngắn hạn",
-    "Volume ratio M15 chỉ 0.85 (dưới trung bình) - lực mua chưa thực sự mạnh mẽ để xác nhận breakout bền vững"
+    "BB Squeeze trên M15 có thể tạo breakout giả (fakeout) trước khi đi đúng hướng thật",
+    "Momentum D1 đang phân kỳ âm (MACD hist -50.16) dù giá vẫn trong uptrend, cần theo dõi sát",
+    "Volume M15 ở mức Normal, chưa có xác nhận dòng tiền mạnh cho breakout"
   ],
   "catalyst_watch": [
-    "Diễn biến dòng tiền khối ngoại và thanh khoản toàn thị trường phiên sáng",
-    "Phản ứng giá tại vùng đỉnh 1865.62 - breakout thành công hay false break"
+    "Dữ liệu kinh tế Mỹ (CPI/NFP/Fed speakers) có thể kích hoạt breakout khỏi squeeze M15",
+    "Phiên Mỹ mở cửa - thanh khoản tăng có thể xác nhận hướng breakout thực sự"
   ],
   "execution_plan": {
-    "entry_zone": "1860.00 - 1863.14 (pullback) hoặc breakout trên 1865.62",
-    "entry_condition": "Xác nhận bằng nến đóng cửa rõ ràng kèm volume tăng, tránh vào lệnh khi BB width quá hẹp chưa breakout",
-    "position_sizing": "Khối lượng vừa phải (50-70% size chuẩn) do momentum HTF đang yếu",
-    "session_focus": "Phiên sáng (09:00-11:30) và đầu phiên chiều (13:00-14:30)",
-    "key_time": "09:25 - 10:00 quan sát phản ứng tại đỉnh 1865.62"
+    "entry_zone": "30098 - 30120 cho lệnh mua theo trend chính; 30165-30177 cho breakout mua nếu phá squeeze lên",
+    "entry_condition": "Chờ nến M15/H1 xác nhận đảo chiều tại vùng hỗ trợ hoặc breakout khỏi BB squeeze kèm volume tăng",
+    "position_sizing": "Giảm khối lượng 30-50% so với bình thường do đang trong giai đoạn squeeze/consolidation, chờ tín hiệu rõ ràng",
+    "session_focus": "Phiên Mỹ (20:30-23:00 giờ VN) - thời điểm thanh khoản cao nhất cho breakout",
+    "key_time": "Theo dõi sát 30 phút đầu phiên Mỹ và các mốc dữ liệu kinh tế trong ngày"
   },
   "action_checklist": {
     "immediate": [
-      "Theo dõi sát vùng kháng cự 1865.62 xem có breakout xác nhận hay không",
-      "Kiểm tra volume xác nhận lực mua tại vùng đỉnh"
+      "Theo dõi vùng breakout squeeze 30098-30165 trên M15",
+      "Xác nhận volume và momentum trước khi vào lệnh"
     ],
     "pre_trade": [
-      "Xác nhận nến M15 đóng cửa trên 1865.62 kèm volume trên trung bình trước khi vào lệnh breakout",
-      "Đặt stop loss chặt dưới vùng hỗ trợ gần nhất để giới hạn rủi ro momentum yếu"
+      "Kiểm tra RSI M15 có thoát khỏi vùng Bearish Zone (36.17) chưa",
+      "Xác nhận không có tin tức mạnh sắp ra trong phiên"
     ],
     "monitoring": [
-      "Theo dõi MACD hist H1/H4 chuyển dương trở lại để củng cố tín hiệu tăng",
-      "Theo dõi RSI M15 nếu vượt 70 cần thận trọng với rủi ro điều chỉnh"
+      "Theo dõi MACD H1/M15 chuyển từ bearish sang bullish để xác nhận continuation",
+      "Theo dõi phản ứng giá tại vùng hỗ trợ 30098.2 - mức quyết định cấu trúc H4"
     ]
   },
-  "dashboard_summary": "VNINDEX giữ xu hướng tăng đa khung nhưng momentum H4/H1 đang hạ nhiệt, cần breakout xác nhận trên 1865.62 để tiếp diễn tăng, nếu không giá có thể điều chỉnh về vùng 1860 trước khi tăng tiếp.",
-  "telegram_summary": "VNINDEX 1865.47: Bullish đa khung nhưng momentum H4/H1 chững lại. Chờ break 1865.62 xác nhận tăng tiếp lên 1870-1875, hỗ trợ gần 1860/1856."
+  "dashboard_summary": "US100 duy trì xu hướng tăng D1/H4 nhưng đang điều chỉnh ngắn hạn trong BB squeeze M15, chờ breakout xác nhận trước khi vào lệnh theo trend chính.",
+  "telegram_summary": "US100: D1/H4 vẫn Bullish nhưng M15 đang squeeze + bearish pin bar. Chờ breakout 30098-30165 để xác nhận hướng. Bias chính: Mua theo trend, SL dưới 30080."
 },"docx_url":""}]}
