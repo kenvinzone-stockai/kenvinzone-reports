@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#070F1D" />
-<title>KENVINZONE STRATEGY DESK — AI Market Intelligence (XAUUSD · NQ / US100)</title>
-<meta name="description" content="Báo cáo phân tích đa khung thời gian H4 tự động bởi TradingView + Make.com + Claude AI cho XAUUSD và Nasdaq (NQ/US100) — Hệ sinh thái Kenvinzone." />
+<title>KENVINZONE — Bảng Chiến Lược Giao Dịch 4H (XAUUSD · NQ / US100)</title>
+<meta name="description" content="Bảng chiến lược giao dịch đa khung thời gian cập nhật tự động định kỳ mỗi 4 giờ cho Vàng (XAUUSD) và Nasdaq (NQ/US100) — Hệ sinh thái KenvinZone." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='7' fill='%23080E1B'/%3E%3Cpath d='M4 21L10 15L15 19L24 7' stroke='%2338D5E7' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -745,29 +745,29 @@
         </svg>
         <span>KENVINZONE</span>
       </a>
-      <span class="kz-prod-badge">4H AI DESK</span>
+      <span class="kz-prod-badge">BẢNG CHIẾN LƯỢC · 4H</span>
     </div>
 
     <!-- Ecosystem Switcher Pill Dock (Desktop) -->
     <nav class="eco-dock" aria-label="Hệ sinh thái KenvinZone">
       <a href="https://kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">🏠 Trang chủ</a>
       <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">⚡ Aurora V12.2</a>
-      <a href="index.html" class="eco-tab active" aria-current="page">📊 Báo cáo 4H</a>
+      <a href="index.html" class="eco-tab active" aria-current="page">📊 Chiến lược 4H</a>
       <a href="https://bias.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab green">🧭 Daily Bias</a>
       <a href="https://prop.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab gold">🏆 Prop Hub</a>
     </nav>
 
     <div class="nav-right">
-      <div class="live-pill"><span class="live-dot"></span>LIVE AI</div>
+      <div class="live-pill"><span class="live-dot"></span>AUTO · 4H</div>
       <div class="last-updated" id="lastUpdated">—</div>
-      <button type="button" class="kz-icon-btn" id="refreshBtn" title="Làm mới báo cáo ngay" aria-label="Refresh">↻</button>
+      <button type="button" class="kz-icon-btn" id="refreshBtn" title="Làm mới bảng chiến lược ngay" aria-label="Refresh">↻</button>
       <button type="button" class="kz-icon-btn" id="themeToggle" title="Chuyển giao diện Sáng / Tối" aria-label="Toggle theme">🌓</button>
     </div>
   </header>
 
   <!-- Mobile / Tablet Scrollable Ecosystem Dock -->
   <nav class="mobile-eco-strip" aria-label="Hệ sinh thái KenvinZone (Mobile)">
-    <a href="index.html" class="eco-tab active">📊 Báo cáo 4H</a>
+    <a href="index.html" class="eco-tab active">📊 Chiến lược 4H</a>
     <a href="https://bias.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab green">🧭 Daily Bias</a>
     <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">⚡ Aurora V12.2</a>
     <a href="https://prop.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab gold">🏆 Prop Hub</a>
@@ -840,7 +840,7 @@
   <div class="bottom-sheet" id="bottomSheet">
     <div class="sheet-handle" id="sheetHandle"></div>
     <div class="sheet-header">
-      <div class="sheet-title">Danh sách báo cáo 4H AI</div>
+      <div class="sheet-title">Lịch sử Bảng Chiến Lược (Mỗi 4H)</div>
       <button class="sheet-close" id="sheetClose" aria-label="Đóng">✕</button>
     </div>
     <div class="sheet-content" id="sheetContent"></div>
@@ -1159,7 +1159,7 @@ function normalizeReport(r) {
     headline: safeStr(summary.headline || '', ''),
     insight: safeStr(summary.key_insight || summary.summary || raw.dashboard_summary || raw.telegram_summary || '—'),
     telegramSummary: safeStr(raw.telegram_summary || raw.dashboard_summary || '', ''),
-    archetype: safeStr(r.archetype || raw.archetype || raw.metadata?.archetype || 'Báo cáo 4H AI'),
+    archetype: safeStr(r.archetype || raw.archetype || raw.metadata?.archetype || 'Chiến lược cập nhật 4H'),
     datetime,
     dateDisplay: r.date_display || fmtTs(datetime).split(' ')[0],
     timeDisplay: r.time_display || (fmtTs(datetime).split(' ')[1] || '—'),
@@ -1490,7 +1490,7 @@ function renderContent() {
   const r = filteredReports.find(x => x.id === selectedId);
 
   if (!r) {
-    container.innerHTML = `<div class="empty"><div style="font-size:32px">📊</div><div>Chọn một báo cáo từ danh sách để xem phân tích Claude AI</div></div>`;
+    container.innerHTML = `<div class="empty"><div style="font-size:32px">📊</div><div>Chọn một bản cập nhật từ danh sách để xem Bảng Chiến Lược Giao Dịch</div></div>`;
     return;
   }
 
@@ -1585,7 +1585,7 @@ function renderContent() {
     <!-- 3 Trading Scenarios -->
     <section class="panel">
       <div class="panel-body">
-        <div class="panel-title">Kịch Bản Giao Dịch Claude AI (3D Interactive Cards)</div>
+        <div class="panel-title">Kịch Bản Giao Dịch Trọng Tâm (Cập nhật mỗi 4 giờ)</div>
         <div class="scenarios-grid">
           ${scenarioCard('★ Kịch bản chính','primary',r.primaryScenario)}
           ${scenarioCard('◈ Kịch bản thay thế','alternative',r.alternativeScenario)}
@@ -1669,7 +1669,7 @@ function renderContent() {
     <section class="eco-strip">
       <div>
         <div class="mono" style="font-size:11px;color:#38D5E7;font-weight:700;letter-spacing:.08em">HỆ SINH THÁI KENVINZONE FUTURES</div>
-        <div style="font-size:15.5px;font-weight:800;margin-top:3px">Kết hợp Báo cáo AI H4 + Hệ thống Aurora V12.2 để vượt quỹ Bulenox · Earn2Trade · Topstep</div>
+        <div style="font-size:15.5px;font-weight:800;margin-top:3px">Kết hợp Bảng Chiến Lược 4H + Hệ thống Aurora V12.2 để vượt quỹ Bulenox · Earn2Trade · Topstep</div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a href="https://prop.kenvinzone.com/coupons.html" target="_blank" rel="noopener noreferrer" class="kz-btn gold">🔥 Săn Coupon Quỹ (-89%)</a>
