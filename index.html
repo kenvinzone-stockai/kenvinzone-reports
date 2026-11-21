@@ -141,15 +141,43 @@
     background: var(--kz-cyan-soft); color: var(--kz-cyan); white-space: nowrap;
   }
 
-  .nav-links {
-    display: flex; align-items: center; gap: 18px; margin-left: 16px;
-    font-size: 13.5px; font-weight: 600; color: var(--kz-muted);
+  /* KenvinZone Ecosystem Pill Dock (Header Center) */
+  .eco-dock {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px; border-radius: 12px;
+    background: var(--kz-surface2); border: 1px solid var(--kz-line);
+    margin: 0 auto;
   }
-  .nav-links a { transition: color 0.18s ease; white-space: nowrap; }
-  .nav-links a:hover { color: var(--kz-cyan); }
-  .nav-links a.gold { color: var(--kz-gold); }
+  .eco-tab {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 8px;
+    font-size: 12.5px; font-weight: 700; color: var(--kz-muted);
+    white-space: nowrap; transition: all 0.18s ease;
+  }
+  .eco-tab:hover { color: var(--kz-strong); background: var(--kz-surface-hover); }
+  .eco-tab.active {
+    background: linear-gradient(135deg, rgba(2,132,199,0.22), rgba(56,213,231,0.16));
+    color: var(--kz-cyan); border: 1px solid rgba(56,213,231,0.4);
+    box-shadow: 0 0 16px -6px rgba(56,213,231,0.55);
+  }
+  .eco-tab.gold { color: var(--kz-gold); }
+  .eco-tab.gold:hover { background: var(--kz-gold-soft); }
+  .eco-tab.green { color: var(--kz-green); }
+  .eco-tab.green:hover { background: var(--kz-green-soft); }
 
-  .nav-right { display: flex; align-items: center; gap: 9px; margin-left: auto; }
+  /* Mobile Ecosystem + Quick Asset Strip */
+  .mobile-eco-strip {
+    display: none; overflow-x: auto; gap: 8px; padding: 8px 14px;
+    background: var(--kz-deep); border-bottom: 1px solid var(--kz-line);
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .mobile-eco-strip::-webkit-scrollbar { display: none; }
+  .mobile-eco-strip .eco-tab {
+    background: var(--kz-surface); border: 1px solid var(--kz-line);
+    padding: 6px 11px; font-size: 12px; flex-shrink: 0;
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 
   .live-pill {
     display: inline-flex; align-items: center; gap: 7px;
@@ -200,77 +228,87 @@
     display: flex; flex-direction: column;
   }
 
-  /* ========== SIDEBAR CONTROLS ========== */
-  .search-block { padding: 14px 16px 10px; border-bottom: 1px solid var(--kz-line); }
+  /* ========== SIDEBAR CONTROLS (COMPACT & CRISP) ========== */
+  .sidebar-top {
+    padding: 12px 14px 10px; border-bottom: 1px solid var(--kz-line);
+    display: grid; gap: 8px; flex-shrink: 0;
+  }
   .search-input {
     width: 100%; background: var(--kz-surface2); border: 1px solid var(--kz-line2);
-    color: var(--kz-strong); padding: 9px 13px 9px 34px; border-radius: var(--radius-sm);
-    font-family: inherit; font-size: 13px; outline: none; transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    color: var(--kz-strong); padding: 8px 12px 8px 33px; border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 12.5px; outline: none; transition: border-color 0.18s ease, box-shadow 0.18s ease;
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238fa3bf' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: 11px center;
+    background-repeat: no-repeat; background-position: 10px center;
   }
   .search-input:focus { border-color: var(--kz-cyan); box-shadow: 0 0 0 3px var(--kz-cyan-soft); }
   .search-input::placeholder { color: var(--kz-subtle); }
 
-  .month-selector { padding: 8px 16px; border-bottom: 1px solid var(--kz-line); }
+  .sidebar-row-2 { display: grid; grid-template-columns: 1fr auto; gap: 6px; align-items: center; }
   .month-select {
     width: 100%; background: var(--kz-surface2); border: 1px solid var(--kz-line2);
-    color: var(--kz-strong); border-radius: var(--radius-sm); padding: 8px 32px 8px 12px;
-    font-family: "JetBrains Mono", monospace; font-size: 11.5px; cursor: pointer; outline: none; appearance: none;
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238fa3bf' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 10px center;
+    color: var(--kz-strong); border-radius: 9px; padding: 7px 28px 7px 10px;
+    font-family: "JetBrains Mono", monospace; font-size: 11px; cursor: pointer; outline: none; appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='%238fa3bf' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 8px center;
   }
   .month-select:focus { border-color: var(--kz-cyan); }
 
-  .time-filter {
-    padding: 8px 16px; border-bottom: 1px solid var(--kz-line);
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;
+  .filter-toggle-btn {
+    padding: 7px 10px; border-radius: 9px; border: 1px solid var(--kz-line2);
+    background: var(--kz-surface2); color: var(--kz-muted); font-size: 11.5px; font-weight: 700;
+    cursor: pointer; white-space: nowrap; transition: all 0.18s ease;
   }
+  .filter-toggle-btn:hover, .filter-toggle-btn.open { border-color: var(--kz-cyan); color: var(--kz-cyan); }
+
+  .adv-filters { display: grid; gap: 8px; padding-top: 4px; }
+  .adv-filters.collapsed { display: none; }
+
+  .time-filter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
   .tf-btn {
-    padding: 6px 4px; border-radius: 7px; border: 1px solid var(--kz-line);
+    padding: 5px 4px; border-radius: 7px; border: 1px solid var(--kz-line);
     background: var(--kz-surface2); color: var(--kz-muted);
-    font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 600;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700;
     cursor: pointer; text-align: center; transition: all 0.18s ease;
   }
   .tf-btn:hover { color: var(--kz-strong); border-color: var(--kz-line2); }
   .tf-btn.active { color: var(--kz-cyan); border-color: var(--kz-cyan); background: var(--kz-cyan-soft); }
 
-  .filters { padding: 11px 16px; border-bottom: 1px solid var(--kz-line); display: grid; gap: 10px; }
-  .filter-block { display: grid; gap: 7px; }
+  .filter-block { display: grid; gap: 5px; }
   .filter-label {
-    font-family: "JetBrains Mono", monospace; font-size: 9.5px; font-weight: 700;
-    color: var(--kz-subtle); text-transform: uppercase; letter-spacing: 1px;
+    font-family: "JetBrains Mono", monospace; font-size: 9px; font-weight: 700;
+    color: var(--kz-subtle); text-transform: uppercase; letter-spacing: 0.9px;
   }
-  .filter-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .filter-row { display: flex; flex-wrap: wrap; gap: 5px; }
   .chip {
     border: 1px solid var(--kz-line); background: var(--kz-surface2); color: var(--kz-muted);
     border-radius: 999px; padding: 4px 10px; font-family: "JetBrains Mono", monospace;
-    font-size: 10.5px; font-weight: 600; cursor: pointer; transition: all 0.18s ease;
+    font-size: 10.5px; font-weight: 700; cursor: pointer; transition: all 0.18s ease;
   }
   .chip:hover { color: var(--kz-strong); border-color: var(--kz-line2); }
   .chip.active { color: var(--kz-cyan); border-color: var(--kz-cyan); background: var(--kz-cyan-soft); }
 
   .stats-bar {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-    border-bottom: 1px solid var(--kz-line); background: var(--kz-line);
+    border-bottom: 1px solid var(--kz-line); background: var(--kz-line); flex-shrink: 0;
   }
-  .stat-cell { padding: 10px 8px; background: var(--kz-deep); text-align: center; }
+  .stat-cell { padding: 8px 6px; background: var(--kz-deep); text-align: center; }
   html[data-theme="light"] .stat-cell { background: var(--kz-surface2); }
-  .stat-cell .num { font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 800; line-height: 1.1; }
-  .stat-cell .lbl { font-family: "JetBrains Mono", monospace; font-size: 9px; color: var(--kz-subtle); text-transform: uppercase; letter-spacing: 0.9px; margin-top: 2px; }
+  .stat-cell .num { font-family: "JetBrains Mono", monospace; font-size: 15px; font-weight: 800; line-height: 1.1; }
+  .stat-cell .lbl { font-family: "JetBrains Mono", monospace; font-size: 9px; color: var(--kz-subtle); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 2px; }
   .num.total { color: var(--kz-cyan); }
   .num.bull { color: var(--kz-green); }
   .num.bear { color: var(--kz-rose); }
 
-  /* ========== REPORT LIST ========== */
+  /* ========== REPORT LIST (FIXED FLEX COLUMN — ZERO SQUISHING!) ========== */
   .report-list {
-    flex: 1; overflow-y: auto; padding: 12px; display: grid; gap: 8px; align-content: start;
+    flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 12px 13px 18px;
+    display: flex; flex-direction: column; gap: 9px;
     scrollbar-width: thin; scrollbar-color: var(--kz-line2) transparent;
   }
   .date-group-header {
-    font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700;
+    flex-shrink: 0; font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700;
     color: var(--kz-subtle); text-transform: uppercase; letter-spacing: 0.9px;
-    padding: 6px 2px; margin-top: 6px; display: flex; align-items: center; gap: 8px;
+    padding: 4px 2px; margin-top: 6px; display: flex; align-items: center; gap: 8px;
   }
   .date-group-header:first-child { margin-top: 0; }
   .date-group-header::after { content: ""; flex: 1; height: 1px; background: var(--kz-line); }
@@ -280,27 +318,29 @@
   }
 
   .report-item {
+    flex-shrink: 0;
     background: var(--kz-surface); border: 1px solid var(--kz-line);
-    border-radius: var(--radius); padding: 12px 13px; cursor: pointer;
-    transition: transform 0.2s var(--ease-out), border-color 0.2s ease, box-shadow 0.2s ease;
-    position: relative; overflow: hidden;
+    border-radius: 13px; padding: 12px 13px; cursor: pointer;
+    transition: transform 0.18s var(--ease-out), border-color 0.18s ease, box-shadow 0.18s ease;
+    position: relative;
   }
   .report-item::before {
-    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-    background: transparent; transition: background 0.2s ease;
+    content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 3px;
+    background: transparent; transition: background 0.18s ease;
   }
-  .report-item:hover { border-color: var(--kz-line2); transform: translateX(2px); }
+  .report-item:hover { border-color: var(--kz-line2); transform: translateX(2px); background: var(--kz-surface-hover); }
   .report-item.active {
     border-color: var(--kz-cyan);
-    background: linear-gradient(135deg, var(--kz-cyan-soft) 0%, var(--kz-surface) 65%);
+    background: linear-gradient(135deg, var(--kz-cyan-soft) 0%, var(--kz-surface) 70%);
     box-shadow: 0 8px 22px -12px rgba(56, 213, 231, 0.35);
   }
   .report-item.active::before { background: var(--kz-cyan); }
 
-  .ri-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 7px; }
-  .ri-inst { font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-weight: 800; color: var(--kz-strong); }
+  .ri-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .ri-inst { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 800; color: var(--kz-strong); display: flex; align-items: center; gap: 6px; }
+  .ri-price { font-family: "JetBrains Mono", monospace; font-size: 11.5px; font-weight: 700; color: var(--kz-gold); }
   .ri-time { font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--kz-muted); }
-  .ri-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+  .ri-badges { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 6px; }
   .badge {
     padding: 2px 8px; border-radius: 999px; font-family: "JetBrains Mono", monospace;
     font-size: 9.5px; font-weight: 700; border: 1px solid var(--kz-line2);
@@ -311,8 +351,32 @@
   .badge.neutral { color: var(--kz-cyan); background: var(--kz-cyan-soft); border-color: rgba(56,213,231,0.32); }
   .badge.conf { color: var(--kz-gold); background: var(--kz-gold-soft); border-color: rgba(243,190,98,0.35); }
   .ri-text {
-    color: var(--kz-muted); font-size: 12px; line-height: 1.5;
+    color: var(--kz-text2); font-size: 12px; line-height: 1.48;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  /* Quick Asset Switcher Bar (Above Hero — Great for Desktop & Mobile!) */
+  .quick-asset-bar {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+  }
+  .qa-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .qa-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border-radius: 11px;
+    border: 1px solid var(--kz-line); background: var(--kz-surface);
+    color: var(--kz-text2); font-size: 12.5px; font-weight: 700; cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .qa-btn:hover { border-color: var(--kz-cyan); color: var(--kz-strong); }
+  .qa-btn.active {
+    border-color: var(--kz-cyan); background: var(--kz-cyan-soft); color: var(--kz-strong);
+    box-shadow: 0 0 18px -8px rgba(56,213,231,0.55);
+  }
+  .mtf-score-pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 7px 12px; border-radius: 10px; font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px; font-weight: 700; background: var(--kz-surface); border: 1px solid var(--kz-line);
+    color: var(--kz-text2);
   }
 
   /* ========== MAIN CONTENT ========== */
@@ -640,6 +704,8 @@
   @media (max-width: 1180px) {
     .mtf-radar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .triple-grid { grid-template-columns: 1fr; }
+    .eco-dock { display: none; }
+    .mobile-eco-strip { display: flex; }
   }
   @media (max-width: 1080px) {
     .layout { grid-template-columns: 1fr; }
@@ -647,7 +713,6 @@
     .fab { display: flex; }
     .scroll-top { bottom: 86px; }
     .scenarios-grid, .dual-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
   }
   @media (max-width: 720px) {
     .hero-inner { grid-template-columns: 1fr; padding: 20px; }
@@ -680,13 +745,18 @@
         </svg>
         <span>KENVINZONE</span>
       </a>
-      <span class="kz-prod-badge">STRATEGY DESK · 4H AI</span>
-      <nav class="nav-links">
-        <a href="https://prop.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="gold">Prop Firm Hub</a>
-        <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer">Aurora V12.2</a>
-        <a href="https://kenvinzone.com/" target="_blank" rel="noopener noreferrer">KenvinZone.com</a>
-      </nav>
+      <span class="kz-prod-badge">4H AI DESK</span>
     </div>
+
+    <!-- Ecosystem Switcher Pill Dock (Desktop) -->
+    <nav class="eco-dock" aria-label="Hệ sinh thái KenvinZone">
+      <a href="https://kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">🏠 Trang chủ</a>
+      <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">⚡ Aurora V12.2</a>
+      <a href="index.html" class="eco-tab active" aria-current="page">📊 Báo cáo 4H</a>
+      <a href="https://bias.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab green">🧭 Daily Bias</a>
+      <a href="https://prop.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab gold">🏆 Prop Hub</a>
+    </nav>
+
     <div class="nav-right">
       <div class="live-pill"><span class="live-dot"></span>LIVE AI</div>
       <div class="last-updated" id="lastUpdated">—</div>
@@ -695,39 +765,46 @@
     </div>
   </header>
 
+  <!-- Mobile / Tablet Scrollable Ecosystem Dock -->
+  <nav class="mobile-eco-strip" aria-label="Hệ sinh thái KenvinZone (Mobile)">
+    <a href="index.html" class="eco-tab active">📊 Báo cáo 4H</a>
+    <a href="https://bias.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab green">🧭 Daily Bias</a>
+    <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">⚡ Aurora V12.2</a>
+    <a href="https://prop.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab gold">🏆 Prop Hub</a>
+    <a href="https://kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">🏠 KenvinZone</a>
+  </nav>
+
   <!-- ========== LAYOUT ========== -->
   <div class="layout">
     <!-- Sidebar (Desktop) -->
     <aside class="sidebar">
       <div class="sidebar-inner">
-        <div class="search-block">
-          <input type="text" id="searchInput" class="search-input" placeholder="Tìm XAUUSD, US100, insight, sự kiện... (phím /)" />
-        </div>
-        <div class="month-selector">
-          <select class="month-select" id="monthSelect">
-            <option value="">Đang tải dữ liệu...</option>
-          </select>
-        </div>
-        <div class="time-filter">
-          <button class="tf-btn active" data-time="all">Tất cả</button>
-          <button class="tf-btn" data-time="today">Hôm nay</button>
-          <button class="tf-btn" data-time="week">Tuần này</button>
-          <button class="tf-btn" data-time="month">Tháng này</button>
-        </div>
-        <div class="filters">
-          <div class="filter-block">
-            <div class="filter-label">Instrument</div>
-            <div class="filter-row" id="instrumentFilters">
-              <button class="chip active" data-type="instrument" data-value="all">Tất cả</button>
-            </div>
+        <div class="sidebar-top">
+          <input type="text" id="searchInput" class="search-input" placeholder="Tìm XAUUSD, US100, sự kiện... (phím /)" />
+          <div class="filter-row" id="instrumentFilters">
+            <button class="chip active" data-type="instrument" data-value="all">Tất cả</button>
           </div>
-          <div class="filter-block">
-            <div class="filter-label">Bias</div>
-            <div class="filter-row" id="biasFilters">
-              <button class="chip active" data-type="bias" data-value="all">Tất cả</button>
-              <button class="chip" data-type="bias" data-value="bullish">▲ Bullish</button>
-              <button class="chip" data-type="bias" data-value="bearish">▼ Bearish</button>
-              <button class="chip" data-type="bias" data-value="neutral">◆ Neutral</button>
+          <div class="sidebar-row-2">
+            <select class="month-select" id="monthSelect">
+              <option value="">Đang tải...</option>
+            </select>
+            <button type="button" class="filter-toggle-btn" id="advFilterToggle">⚙️ Lọc thêm</button>
+          </div>
+          <div class="adv-filters collapsed" id="advFiltersBox">
+            <div class="time-filter">
+              <button class="tf-btn active" data-time="all">Tất cả</button>
+              <button class="tf-btn" data-time="today">Hôm nay</button>
+              <button class="tf-btn" data-time="week">7 ngày</button>
+              <button class="tf-btn" data-time="month">Tháng</button>
+            </div>
+            <div class="filter-block">
+              <div class="filter-label">Lọc theo Bias</div>
+              <div class="filter-row" id="biasFilters">
+                <button class="chip active" data-type="bias" data-value="all">Tất cả</button>
+                <button class="chip" data-type="bias" data-value="bullish">▲ Bullish</button>
+                <button class="chip" data-type="bias" data-value="bearish">▼ Bearish</button>
+                <button class="chip" data-type="bias" data-value="neutral">◆ Neutral</button>
+              </div>
             </div>
           </div>
         </div>
@@ -738,9 +815,9 @@
         </div>
         <div class="report-list" id="reportList">
           <div class="skeleton-stack" style="padding:8px">
-            <div class="skel" style="height:82px"></div>
-            <div class="skel" style="height:82px"></div>
-            <div class="skel" style="height:82px"></div>
+            <div class="skel" style="height:88px"></div>
+            <div class="skel" style="height:88px"></div>
+            <div class="skel" style="height:88px"></div>
           </div>
         </div>
       </div>
@@ -1287,11 +1364,11 @@ function renderReportListHtml() {
     ${list.map(r => `
       <div class="report-item ${r.id === selectedId ? 'active' : ''}" data-id="${esc(r.id)}">
         <div class="ri-top">
-          <div class="ri-inst">${esc(r.instrument)}</div>
+          <div class="ri-inst">${esc(r.instrument)} <span class="ri-price">${esc(r.priceFmt)}</span></div>
           <div class="ri-time">${esc(r.timeDisplay)}</div>
         </div>
         <div class="ri-badges">
-          <span class="badge ${r.biasClass}">${getBiasIcon(r.biasClass)} ${esc(r.bias.slice(0, 26))}</span>
+          <span class="badge ${r.biasClass}">${getBiasIcon(r.biasClass)} ${esc(r.bias.slice(0, 22))}</span>
           <span class="badge conf">${esc(safeStr(r.confidence, 'N/A'))}</span>
         </div>
         <div class="ri-text">${esc(r.headline || r.insight)}</div>
@@ -1419,6 +1496,7 @@ function renderContent() {
 
   const mtfHtml = r.tfRows.map(row => {
     const cls = getBiasClass(row.trend);
+    const shortEma = row.ema ? row.ema.split('(')[0].trim() : '';
     return `
       <div class="mtf-card ${cls}">
         <div class="mtf-head">
@@ -1426,13 +1504,34 @@ function renderContent() {
           <span class="badge ${cls}">${getBiasIcon(cls)} ${esc(row.trend.slice(0, 18))}</span>
         </div>
         <div class="mtf-pills">
-          ${row.ema ? `<span class="mtf-mini">EMA: ${esc(row.ema.slice(0, 18))}</span>` : ''}
+          ${shortEma ? `<span class="mtf-mini">EMA: ${esc(shortEma)}</span>` : ''}
           ${row.rsi ? `<span class="mtf-mini">${esc(row.rsi)}</span>` : ''}
           ${row.macd ? `<span class="mtf-mini">MACD: ${esc(row.macd)}</span>` : ''}
         </div>
         <div class="mtf-desc">${esc(row.description || '—')}</div>
       </div>`;
   }).join('');
+
+  // Quick Asset Switcher (Latest XAUUSD vs Latest NQ/US100) + MTF Alignment Score
+  const latestXau = allReports.find(x => x.instrument === 'XAUUSD');
+  const latestNq = allReports.find(x => x.instrument === 'NQ / US100');
+  const bullTfs = r.tfRows.filter(x => getBiasClass(x.trend) === 'bullish').length;
+  const bearTfs = r.tfRows.filter(x => getBiasClass(x.trend) === 'bearish').length;
+  const totalTfs = r.tfRows.length || 4;
+  const alignLabel = bullTfs >= 3
+    ? `🟢 Đồng thuận Tăng (${bullTfs}/${totalTfs} khung)`
+    : bearTfs >= 3
+      ? `🔴 Đồng thuận Giảm (${bearTfs}/${totalTfs} khung)`
+      : `🟡 Xung đột đa khung (${bullTfs}▲ / ${bearTfs}▼) — Giảm size`;
+
+  const quickBarHtml = `
+    <div class="quick-asset-bar">
+      <div class="qa-pills">
+        ${latestXau ? `<button type="button" class="qa-btn ${r.instrument === 'XAUUSD' ? 'active' : ''}" data-quick-id="${esc(latestXau.id)}">🥇 XAUUSD <span class="mono" style="color:var(--kz-gold)">${esc(latestXau.priceFmt)}</span></button>` : ''}
+        ${latestNq ? `<button type="button" class="qa-btn ${r.instrument === 'NQ / US100' ? 'active' : ''}" data-quick-id="${esc(latestNq.id)}">📈 NQ / US100 <span class="mono" style="color:var(--kz-cyan)">${esc(latestNq.priceFmt)}</span></button>` : ''}
+      </div>
+      <div class="mtf-score-pill">${alignLabel}</div>
+    </div>`;
 
   const execEntries = Object.entries(r.execution).filter(([k]) => !['key_levels','checklist','action_plan','actions'].includes(k));
   const reportChecks = checklistState[r.id] || {};
@@ -1448,6 +1547,7 @@ function renderContent() {
     </tr>`).join('');
 
   container.innerHTML = `
+    ${quickBarHtml}
     <section class="hero">
       <canvas id="kzHeroCanvas" aria-hidden="true"></canvas>
       <div class="hero-inner">
@@ -1578,6 +1678,14 @@ function renderContent() {
     </section>
   `;
 
+  // Quick Asset Switcher handlers
+  container.querySelectorAll('[data-quick-id]').forEach(btn => {
+    btn.onclick = () => {
+      selectedId = btn.dataset.quickId;
+      renderList(); renderContent();
+    };
+  });
+
   // Start Hero Flow Canvas
   startHeroFlowCanvas();
 
@@ -1646,6 +1754,15 @@ function showAppToast(msg, onClick) {
 document.getElementById('fabBtn').addEventListener('click', openSheet);
 document.getElementById('sheetClose').addEventListener('click', closeSheet);
 document.getElementById('sheetBackdrop').addEventListener('click', closeSheet);
+const advToggle = document.getElementById('advFilterToggle');
+const advBox = document.getElementById('advFiltersBox');
+if (advToggle && advBox) {
+  advToggle.addEventListener('click', () => {
+    const isCollapsed = advBox.classList.toggle('collapsed');
+    advToggle.classList.toggle('open', !isCollapsed);
+    advToggle.textContent = isCollapsed ? '⚙️ Lọc thêm' : '✕ Thu gọn';
+  });
+}
 document.getElementById('refreshBtn').addEventListener('click', async () => {
   const b = document.getElementById('refreshBtn');
   b.classList.add('spinning');
