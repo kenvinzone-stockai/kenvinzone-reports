@@ -915,14 +915,14 @@
         </svg>
         <span>KENVINZONE</span>
       </a>
-      <span class="kz-prod-badge">BẢNG CHIẾN LƯỢC · 4H</span>
+      <span class="kz-prod-badge" data-i18n="badge">BẢNG CHIẾN LƯỢC · 4H</span>
     </div>
 
     <!-- Ecosystem Switcher Pill Dock (Desktop) -->
     <nav class="eco-dock" aria-label="Hệ sinh thái KenvinZone">
-      <a href="https://kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">🏠 Trang chủ</a>
+      <a href="https://kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab" data-i18n="ecoHome">🏠 Trang chủ</a>
       <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">⚡ Aurora V12.2</a>
-      <a href="index.html" class="eco-tab active" aria-current="page">📊 Chiến lược 4H</a>
+      <a href="index.html" class="eco-tab active" aria-current="page" data-i18n="eco4h">📊 Chiến lược 4H</a>
       <a href="https://bias.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab green">🧭 Daily Bias</a>
       <a href="https://prop.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab gold">🏆 Prop Hub</a>
     </nav>
@@ -930,6 +930,7 @@
     <div class="nav-right">
       <div class="live-pill"><span class="live-dot"></span>AUTO · 4H</div>
       <div class="last-updated" id="lastUpdated">—</div>
+      <button type="button" class="kz-icon-btn mono" id="langToggle" style="font-size:11.5px;font-weight:800;width:40px" title="Switch Language (VI / EN)" aria-label="Switch language">EN</button>
       <button type="button" class="kz-icon-btn" id="refreshBtn" title="Làm mới bảng chiến lược ngay" aria-label="Refresh">↻</button>
       <button type="button" class="kz-icon-btn" id="themeToggle" title="Chuyển giao diện Sáng / Tối" aria-label="Toggle theme">🌓</button>
     </div>
@@ -937,11 +938,11 @@
 
   <!-- Mobile / Tablet Scrollable Ecosystem Dock -->
   <nav class="mobile-eco-strip" aria-label="Hệ sinh thái KenvinZone (Mobile)">
-    <a href="index.html" class="eco-tab active">📊 Chiến lược 4H</a>
+    <a href="index.html" class="eco-tab active" data-i18n="eco4h">📊 Chiến lược 4H</a>
     <a href="https://bias.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab green">🧭 Daily Bias</a>
     <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">⚡ Aurora V12.2</a>
     <a href="https://prop.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab gold">🏆 Prop Hub</a>
-    <a href="https://kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab">🏠 KenvinZone</a>
+    <a href="https://kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="eco-tab" data-i18n="ecoHome">🏠 KenvinZone</a>
   </nav>
 
   <!-- ========== LAYOUT ========== -->
@@ -952,25 +953,25 @@
         <div class="sidebar-top">
           <input type="text" id="searchInput" class="search-input" placeholder="Tìm XAUUSD, US100, sự kiện... (phím /)" />
           <div class="filter-row" id="instrumentFilters">
-            <button class="chip active" data-type="instrument" data-value="all">Tất cả</button>
+            <button class="chip active" data-type="instrument" data-value="all" data-i18n="all">Tất cả</button>
           </div>
           <div class="sidebar-row-2">
             <select class="month-select" id="monthSelect">
               <option value="">Đang tải...</option>
             </select>
-            <button type="button" class="filter-toggle-btn" id="advFilterToggle">⚙️ Lọc thêm</button>
+            <button type="button" class="filter-toggle-btn" id="advFilterToggle" data-i18n="moreFilters">⚙️ Lọc thêm</button>
           </div>
           <div class="adv-filters collapsed" id="advFiltersBox">
             <div class="time-filter">
-              <button class="tf-btn active" data-time="all">Tất cả</button>
-              <button class="tf-btn" data-time="today">Hôm nay</button>
-              <button class="tf-btn" data-time="week">7 ngày</button>
-              <button class="tf-btn" data-time="month">Tháng</button>
+              <button class="tf-btn active" data-time="all" data-i18n="all">Tất cả</button>
+              <button class="tf-btn" data-time="today" data-i18n="today">Hôm nay</button>
+              <button class="tf-btn" data-time="week" data-i18n="week">7 ngày</button>
+              <button class="tf-btn" data-time="month" data-i18n="month">Tháng</button>
             </div>
             <div class="filter-block">
-              <div class="filter-label">Lọc theo Bias</div>
+              <div class="filter-label" data-i18n="filterBias">Lọc theo Bias</div>
               <div class="filter-row" id="biasFilters">
-                <button class="chip active" data-type="bias" data-value="all">Tất cả</button>
+                <button class="chip active" data-type="bias" data-value="all" data-i18n="all">Tất cả</button>
                 <button class="chip" data-type="bias" data-value="bullish">▲ Bullish</button>
                 <button class="chip" data-type="bias" data-value="bearish">▼ Bearish</button>
                 <button class="chip" data-type="bias" data-value="neutral">◆ Neutral</button>
@@ -979,7 +980,7 @@
           </div>
         </div>
         <div class="stats-bar" id="statsBar">
-          <div class="stat-cell"><div class="num total" id="statTotal">0</div><div class="lbl">Tổng</div></div>
+          <div class="stat-cell"><div class="num total" id="statTotal">0</div><div class="lbl" data-i18n="statTotal">Tổng</div></div>
           <div class="stat-cell"><div class="num bull" id="statBull">0</div><div class="lbl">Bull</div></div>
           <div class="stat-cell"><div class="num bear" id="statBear">0</div><div class="lbl">Bear</div></div>
         </div>
@@ -1030,6 +1031,203 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script>
+// ============================================================
+// KENVINZONE BILINGUAL ENGINE (VI / EN — SYNCED .kenvinzone.com)
+// ============================================================
+let currentLang = (function detectLang() {
+  let q = null;
+  try { q = new URLSearchParams(location.search).get('lang'); } catch(_) {}
+  const c = (document.cookie.match(/(?:^|; )kz-lang=(en|vi)/) || [])[1];
+  let s = null;
+  try { s = localStorage.getItem('kz-lang'); } catch(_) {}
+  let l = (q === 'en' || q === 'vi') ? q : (c || s);
+  if (l !== 'en' && l !== 'vi') {
+    let tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(_) {}
+    const ls = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'vi']).map(x => String(x).toLowerCase());
+    l = (/^Asia\/(Ho_Chi_Minh|Saigon)$/.test(tz) || ls.some(x => x.indexOf('vi') === 0)) ? 'vi' : 'en';
+  }
+  document.documentElement.lang = l;
+  return l;
+})();
+
+const I18N = {
+  vi: {
+    badge: 'BẢNG CHIẾN LƯỢC · 4H',
+    ecoHome: '🏠 Trang chủ',
+    eco4h: '📊 Chiến lược 4H',
+    all: 'Tất cả',
+    today: 'Hôm nay',
+    week: '7 ngày',
+    month: 'Tháng',
+    moreFilters: '⚙️ Lọc thêm',
+    lessFilters: '✕ Thu gọn',
+    filterBias: 'Lọc theo Bias',
+    statTotal: 'Tổng',
+    searchPh: 'Tìm XAUUSD, US100, sự kiện... (phím /)',
+    allMonths: '📅 Tất cả các tháng',
+    monthFmt: (m, y) => `Tháng ${m} / ${y}`,
+    sheetTitle: 'Lịch sử Bảng Chiến Lược (Mỗi 4H)',
+    emptyList: 'Không có bản cập nhật phù hợp',
+    clearFilter: 'Xoá bộ lọc',
+    emptyContent: 'Chọn một bản cập nhật từ danh sách để xem Bảng Chiến Lược Giao Dịch',
+    priceScan: 'Giá Thời Điểm Quét H4',
+    copyTg: '📋 Copy Bản Tin Telegram',
+    auroraCta: '⚡ Lọc Entry bằng Aurora V12.2 →',
+    alignBull: (n, t) => `🟢 Đồng thuận Tăng (${n}/${t} khung)`,
+    alignBear: (n, t) => `🔴 Đồng thuận Giảm (${n}/${t} khung)`,
+    alignMix: (b, s) => `🟡 Xung đột đa khung (${b}▲ / ${s}▼) — Giảm size`,
+    secScenarios: 'Kịch Bản Giao Dịch Trọng Tâm (Cập nhật mỗi 4 giờ)',
+    pillUltra: (p) => `🔥 SIÊU XÁC SUẤT A+ · ${p}%`,
+    pillHigh: (p) => `⚡ XÁC SUẤT CAO · ${p}%`,
+    pillMod: '★ KỊCH BẢN CHÍNH · CHỜ XÁC NHẬN',
+    probLbl: 'Xác suất',
+    slLbl: 'Cắt lỗ (SL)',
+    rrLbl: 'Tỷ lệ R / R',
+    tpLbl: 'Mục tiêu (TP)',
+    footUltra: '✦ Ưu tiên cao nhất — Lọc điểm vào nến với Aurora V12.2',
+    footHigh: '✦ Lợi thế rõ — Chờ xác nhận nến trước khi vào lệnh',
+    footMod: '✦ Xác suất trung bình — Giảm 50% khối lượng cho tới khi xác nhận',
+    copyPlan: '📋 Copy Kế Hoạch Lệnh',
+    altTitle: '◈ Kịch bản thay thế',
+    invTitle: '✕ Kịch bản vô hiệu hóa',
+    tpShort: 'Mục tiêu',
+    slShort: 'Cắt lỗ',
+    secLadder: 'Bản Đồ Vùng Giá Quan Trọng',
+    secRisk: 'Radar Rủi Ro',
+    secCat: 'Sự Kiện & Catalyst',
+    secConf: 'Hợp Lưu Đa Khung (Hỗ Trợ Tăng vs Áp Lực Giảm)',
+    bullHead: '▲ YẾU TỐ HỖ TRỢ TĂNG',
+    bearHead: '▼ ÁP LỰC GIẢM',
+    secMatrix: 'Ma Trận So Sánh Kịch Bản',
+    thType: 'Loại', thBias: 'Bias', thSetup: 'Setup', thTarget: 'Target', thStop: 'Stop', thRR: 'R/R', thProb: 'Xác suất',
+    secExec: 'Kế Hoạch Thực Thi & Checklist Trong Phiên',
+    ecoBannerSub: 'HỆ SINH THÁI KENVINZONE FUTURES',
+    ecoBannerTitle: 'Kết hợp Bảng Chiến Lược 4H + Hệ thống Aurora V12.2 để vượt quỹ Bulenox · Earn2Trade · Topstep',
+    ecoCouponBtn: '🔥 Săn Coupon Quỹ (-89%)',
+    ecoAuroraBtn: 'Xem Aurora V12.2 →',
+    resLbl: (i) => `Kháng cự R${i}`,
+    supLbl: (i) => `Hỗ trợ S${i}`,
+    curLbl: 'Giá hiện tại',
+    copiedPlan: '✓ Đã sao chép Kế hoạch lệnh trọng tâm!',
+    copiedTg: '✓ Đã sao chép bản tin Telegram!',
+    refreshed: '✓ Đã đồng bộ dữ liệu mới nhất!',
+    justNow: 'vừa xong',
+    minsAgo: (m) => `${m} phút trước`,
+    hrsAgo: (h) => `${h} giờ trước`,
+    daysAgo: (d) => `${d} ngày trước`
+  },
+  en: {
+    badge: '4H STRATEGY DESK',
+    ecoHome: '🏠 Home',
+    eco4h: '📊 4H Strategy',
+    all: 'All',
+    today: 'Today',
+    week: '7 Days',
+    month: 'Month',
+    moreFilters: '⚙️ Filters',
+    lessFilters: '✕ Hide',
+    filterBias: 'Filter by Bias',
+    statTotal: 'Total',
+    searchPh: 'Search XAUUSD, US100, events... (press /)',
+    allMonths: '📅 All Months',
+    monthFmt: (m, y) => `Month ${m} / ${y}`,
+    sheetTitle: '4H Strategy Desk History',
+    emptyList: 'No matching strategy updates',
+    clearFilter: 'Reset filters',
+    emptyContent: 'Select an update from the list to view the 4H Trading Strategy Desk',
+    priceScan: 'H4 Scan Price',
+    copyTg: '📋 Copy Telegram Brief',
+    auroraCta: '⚡ Filter Entries with Aurora V12.2 →',
+    alignBull: (n, t) => `🟢 Bullish Alignment (${n}/${t} TFs)`,
+    alignBear: (n, t) => `🔴 Bearish Alignment (${n}/${t} TFs)`,
+    alignMix: (b, s) => `🟡 Mixed Timeframes (${b}▲ / ${s}▼) — Reduce Size`,
+    secScenarios: 'Core Trading Scenarios (Auto-Updated Every 4H)',
+    pillUltra: (p) => `🔥 A+ HIGH CONVICTION · ${p}%`,
+    pillHigh: (p) => `⚡ HIGH PROBABILITY · ${p}%`,
+    pillMod: '★ PRIMARY SCENARIO · AWAIT CONFIRMATION',
+    probLbl: 'Prob.',
+    slLbl: 'Stop Loss (SL)',
+    rrLbl: 'R / R Ratio',
+    tpLbl: 'Target (TP)',
+    footUltra: '✦ Top Priority Setup — Refine candle entry with Aurora V12.2',
+    footHigh: '✦ Clear Edge — Wait for candle confirmation before entry',
+    footMod: '✦ Moderate Odds — Cut position size 50% until confirmed',
+    copyPlan: '📋 Copy Trade Plan',
+    altTitle: '◈ Alternative Scenario',
+    invTitle: '✕ Invalidation Scenario',
+    tpShort: 'Target',
+    slShort: 'Stop Loss',
+    secLadder: 'Key Price Levels Map',
+    secRisk: 'Risk Radar',
+    secCat: 'Events & Catalysts',
+    secConf: 'Multi-Timeframe Confluence (Bullish vs Bearish)',
+    bullHead: '▲ BULLISH FACTORS',
+    bearHead: '▼ BEARISH PRESSURE',
+    secMatrix: 'Scenario Comparison Matrix',
+    thType: 'Type', thBias: 'Bias', thSetup: 'Setup', thTarget: 'Target', thStop: 'Stop', thRR: 'R/R', thProb: 'Prob.',
+    secExec: 'Execution Plan & Session Checklist',
+    ecoBannerSub: 'KENVINZONE FUTURES ECOSYSTEM',
+    ecoBannerTitle: 'Combine 4H Strategy Desk + Aurora V12.2 to pass Bulenox · Earn2Trade · Topstep',
+    ecoCouponBtn: '🔥 Prop Coupons (-89%)',
+    ecoAuroraBtn: 'Explore Aurora V12.2 →',
+    resLbl: (i) => `Resistance R${i}`,
+    supLbl: (i) => `Support S${i}`,
+    curLbl: 'Current Price',
+    copiedPlan: '✓ Primary Trade Plan copied!',
+    copiedTg: '✓ Telegram brief copied!',
+    refreshed: '✓ Synced latest strategy updates!',
+    justNow: 'just now',
+    minsAgo: (m) => `${m}m ago`,
+    hrsAgo: (h) => `${h}h ago`,
+    daysAgo: (d) => `${d}d ago`
+  }
+};
+
+function L(key) {
+  const dict = I18N[currentLang] || I18N.vi;
+  return dict[key] !== undefined ? dict[key] : I18N.vi[key];
+}
+
+function applyStaticLang() {
+  document.documentElement.lang = currentLang;
+  document.title = currentLang === 'en'
+    ? 'KenvinZone 4H Strategy Desk · Auto Trading Scenarios (XAUUSD & NQ)'
+    : 'KenvinZone Bảng Chiến Lược 4H · Kịch Bản Giao Dịch Tự Động (XAUUSD & NQ)';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    const v = L(k);
+    if (typeof v === 'string') el.textContent = v;
+  });
+  const advT = document.getElementById('advFilterToggle');
+  const advB = document.getElementById('advFiltersBox');
+  if (advT && advB) advT.textContent = advB.classList.contains('collapsed') ? L('moreFilters') : L('lessFilters');
+  const si = document.getElementById('searchInput');
+  if (si) si.placeholder = L('searchPh');
+  const st = document.querySelector('.sheet-title');
+  if (st) st.textContent = L('sheetTitle');
+  const lb = document.getElementById('langToggle');
+  if (lb) {
+    lb.textContent = currentLang === 'en' ? 'VI' : 'EN';
+    lb.title = currentLang === 'en' ? 'Chuyển sang Tiếng Việt' : 'Switch to English';
+  }
+}
+
+function setLang(next) {
+  currentLang = next === 'en' ? 'en' : 'vi';
+  try { localStorage.setItem('kz-lang', currentLang); } catch(_) {}
+  try {
+    const domainAttr = /\.?kenvinzone\.com$/i.test(location.hostname) ? '; domain=.kenvinzone.com' : '';
+    document.cookie = `kz-lang=${currentLang}; path=/${domainAttr}; max-age=31536000; SameSite=Lax`;
+  } catch(_) {}
+  applyStaticLang();
+  updateMonthSelector();
+  renderFilters();
+  renderList();
+  renderContent();
+  if (allReports.length) document.getElementById('lastUpdated').textContent = fmtRelativeTime(allReports[0].datetime);
+}
+
 // ============================================================
 // THEME & MOTION UTILITIES
 // ============================================================
@@ -1203,10 +1401,10 @@ function fmtRelativeTime(ts) {
     const d = new Date(ts);
     if (isNaN(d.getTime())) return '—';
     const diff = (Date.now() - d.getTime()) / 1000;
-    if (diff < 60) return 'vừa xong';
-    if (diff < 3600) return `${Math.floor(diff/60)} phút trước`;
-    if (diff < 86400) return `${Math.floor(diff/3600)} giờ trước`;
-    if (diff < 604800) return `${Math.floor(diff/86400)} ngày trước`;
+    if (diff < 60) return L('justNow');
+    if (diff < 3600) return L('minsAgo')(Math.floor(diff/60));
+    if (diff < 86400) return L('hrsAgo')(Math.floor(diff/3600));
+    if (diff < 604800) return L('daysAgo')(Math.floor(diff/86400));
     return fmtTs(ts);
   } catch { return '—'; }
 }
@@ -1234,7 +1432,7 @@ function getMonthKey(date) {
 }
 function getMonthLabel(key) {
   const [y, m] = key.split('-');
-  return `Tháng ${parseInt(m)} / ${y}`;
+  return L('monthFmt')(parseInt(m), y);
 }
 
 // ============================================================
@@ -1445,7 +1643,7 @@ function updateMonthSelector() {
   const sel = document.getElementById('monthSelect');
   if (!sel) return;
   const prev = sel.value;
-  sel.innerHTML = `<option value="all">📅 Tất cả các tháng</option>` +
+  sel.innerHTML = `<option value="all">${L('allMonths')}</option>` +
     availableMonths.map(mk => `<option value="${mk}" ${mk === prev ? 'selected' : ''}>${getMonthLabel(mk)}</option>`).join('');
   if (!prev) sel.value = 'all';
 }
@@ -1513,7 +1711,7 @@ function applyFiltersAndRender() {
 function renderFilters() {
   const insts = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
   document.getElementById('instrumentFilters').innerHTML =
-    `<button class="chip ${filters.instrument === 'all' ? 'active' : ''}" data-type="instrument" data-value="all">Tất cả</button>` +
+    `<button class="chip ${filters.instrument === 'all' ? 'active' : ''}" data-type="instrument" data-value="all">${L('all')}</button>` +
     insts.map(i => `<button class="chip ${filters.instrument === i ? 'active' : ''}" data-type="instrument" data-value="${esc(i)}">${esc(i)}</button>`).join('');
 }
 function resetFilters() {
@@ -1525,7 +1723,7 @@ function resetFilters() {
 
 function renderReportListHtml() {
   if (!filteredReports.length) {
-    return `<div class="empty"><div style="font-size:28px">📭</div><div>Không có báo cáo phù hợp</div><button class="kz-btn" onclick="resetFilters()">Xoá bộ lọc</button></div>`;
+    return `<div class="empty"><div style="font-size:28px">📭</div><div>${L('emptyList')}</div><button class="kz-btn" onclick="resetFilters()">${L('clearFilter')}</button></div>`;
   }
   const groups = {};
   filteredReports.forEach(r => { (groups[r.dateDisplay] ||= []).push(r); });
@@ -1554,11 +1752,11 @@ function renderList() {
   const sheetContent = document.getElementById('sheetContent');
   if (sheetContent) {
     sheetContent.innerHTML = `
-      <div class="search-block"><input type="text" id="searchInputMobile" class="search-input" placeholder="Tìm báo cáo..." value="${esc(filters.search)}" /></div>
+      <div class="search-block"><input type="text" id="searchInputMobile" class="search-input" placeholder="${esc(L('searchPh'))}" value="${esc(filters.search)}" /></div>
       <div class="filters">
         <div class="filter-block"><div class="filter-label">Instrument</div><div class="filter-row" id="instrumentFiltersMobile"></div></div>
         <div class="filter-block"><div class="filter-label">Bias</div><div class="filter-row">
-          <button class="chip ${filters.bias==='all'?'active':''}" data-type="bias" data-value="all">Tất cả</button>
+          <button class="chip ${filters.bias==='all'?'active':''}" data-type="bias" data-value="all">${L('all')}</button>
           <button class="chip ${filters.bias==='bullish'?'active':''}" data-type="bias" data-value="bullish">▲ Bullish</button>
           <button class="chip ${filters.bias==='bearish'?'active':''}" data-type="bias" data-value="bearish">▼ Bearish</button>
           <button class="chip ${filters.bias==='neutral'?'active':''}" data-type="bias" data-value="neutral">◆ Neutral</button>
@@ -1567,7 +1765,7 @@ function renderList() {
       <div class="report-list" style="height:auto;flex:none;padding:12px 16px 24px">${html}</div>`;
     const insts = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
     document.getElementById('instrumentFiltersMobile').innerHTML =
-      `<button class="chip ${filters.instrument==='all'?'active':''}" data-type="instrument" data-value="all">Tất cả</button>` +
+      `<button class="chip ${filters.instrument==='all'?'active':''}" data-type="instrument" data-value="all">${L('all')}</button>` +
       insts.map(i => `<button class="chip ${filters.instrument===i?'active':''}" data-type="instrument" data-value="${esc(i)}">${esc(i)}</button>`).join('');
     const sm = document.getElementById('searchInputMobile');
     if (sm) {
@@ -1598,17 +1796,17 @@ function primaryScenarioHero(r, s) {
   // Conviction tier driven by probability (65%+ High, 75%+ Ultra A+ Setup!)
   let tierCls = 'tier-mod';
   let pillCls = 'mod';
-  let pillText = '★ KỊCH BẢN CHÍNH · CHỜ XÁC NHẬN';
+  let pillText = L('pillMod');
   let ringColor = '#F3BE62';
   if (prob >= 75) {
     tierCls = 'tier-ultra';
     pillCls = 'ultra';
-    pillText = `🔥 SIÊU XÁC SUẤT A+ · ${prob}%`;
+    pillText = L('pillUltra')(prob);
     ringColor = biasCls === 'bearish' ? '#FB7185' : '#34D399';
   } else if (prob >= 65) {
     tierCls = 'tier-high';
     pillCls = 'high';
-    pillText = `⚡ XÁC SUẤT CAO · ${prob}%`;
+    pillText = L('pillHigh')(prob);
     ringColor = '#38D5E7';
   }
 
@@ -1624,7 +1822,7 @@ function primaryScenarioHero(r, s) {
             <span class="sc-conviction-pill ${pillCls}">${pillText}</span>
             <div class="sc-bias-hero ${biasCls}">${getBiasIcon(biasCls)} ${esc(s.bias)}</div>
           </div>
-          <div class="prob-ring-box" title="Xác suất kịch bản chính: ${prob}%">
+          <div class="prob-ring-box" title="${L('probLbl')}: ${prob}%">
             <svg class="prob-ring-svg" viewBox="0 0 88 88" aria-hidden="true">
               <circle class="prob-ring-bg" cx="44" cy="44" r="${radius}"></circle>
               <circle class="prob-ring-fg" cx="44" cy="44" r="${radius}"
@@ -1635,7 +1833,7 @@ function primaryScenarioHero(r, s) {
             </svg>
             <div class="prob-ring-text">
               <span class="prob-ring-num" data-count-prob="${prob}">0%</span>
-              <span class="prob-ring-lbl">Xác suất</span>
+              <span class="prob-ring-lbl">${L('probLbl')}</span>
             </div>
           </div>
         </div>
@@ -1644,9 +1842,9 @@ function primaryScenarioHero(r, s) {
 
         <div class="trade-visual">
           <div class="trade-vis-labels">
-            <div class="tv-cell"><span class="tv-k">Cắt lỗ (SL)</span><span class="tv-v sl">${esc(s.stop)}</span></div>
-            <div class="tv-cell center"><span class="tv-k">Tỷ lệ R / R</span><span class="tv-v rr">${esc(s.rr)}</span></div>
-            <div class="tv-cell right"><span class="tv-k">Mục tiêu (TP)</span><span class="tv-v tp">${esc(s.target)}</span></div>
+            <div class="tv-cell"><span class="tv-k">${L('slLbl')}</span><span class="tv-v sl">${esc(s.stop)}</span></div>
+            <div class="tv-cell center"><span class="tv-k">${L('rrLbl')}</span><span class="tv-v rr">${esc(s.rr)}</span></div>
+            <div class="tv-cell right"><span class="tv-k">${L('tpLbl')}</span><span class="tv-v tp">${esc(s.target)}</span></div>
           </div>
           <div class="tv-track" aria-hidden="true">
             <div class="tv-risk-seg"></div>
@@ -1656,16 +1854,16 @@ function primaryScenarioHero(r, s) {
 
         <div class="sc-primary-foot">
           <span class="mono" style="font-size:11px;color:var(--kz-muted)">
-            ${prob >= 75 ? '✦ Ưu tiên cao nhất — Lọc điểm vào nến với Aurora V12.2' : prob >= 65 ? '✦ Lợi thế rõ — Chờ xác nhận nến trước khi vào lệnh' : '✦ Xác suất trung bình — Giảm 50% khối lượng cho tới khi xác nhận'}
+            ${prob >= 75 ? L('footUltra') : prob >= 65 ? L('footHigh') : L('footMod')}
           </span>
-          <button type="button" class="kz-btn primary" id="copyPlanBtn" style="padding:7px 12px;font-size:12px">📋 Copy Kế Hoạch Lệnh</button>
+          <button type="button" class="kz-btn primary" id="copyPlanBtn" style="padding:7px 12px;font-size:12px">${L('copyPlan')}</button>
         </div>
       </div>
     </div>`;
 }
 
 function scenarioCard(label, cls, s) {
-  if (!s) return `<div class="scenario-card ${cls}"><div class="scenario-type ${cls}">${esc(label)}</div><div style="color:var(--kz-muted);font-size:12.5px">Không có dữ liệu</div></div>`;
+  if (!s) return `<div class="scenario-card ${cls}"><div class="scenario-type ${cls}">${esc(label)}</div><div style="color:var(--kz-muted);font-size:12.5px">—</div></div>`;
   const prob = Math.min(100, Math.max(0, Math.round(s.probability || 0)));
   return `
     <div class="scenario-card ${cls}">
@@ -1676,8 +1874,8 @@ function scenarioCard(label, cls, s) {
       <div class="scenario-bias ${getBiasClass(s.bias)}">${getBiasIcon(getBiasClass(s.bias))} ${esc(s.bias)}</div>
       <div class="scenario-setup">${esc(s.setup)}</div>
       <div class="scenario-stats">
-        <div><div class="stat-label">Mục tiêu</div><div class="stat-value green">${esc(s.target)}</div></div>
-        <div><div class="stat-label">Cắt lỗ</div><div class="stat-value red">${esc(s.stop)}</div></div>
+        <div><div class="stat-label">${L('tpShort')}</div><div class="stat-value green">${esc(s.target)}</div></div>
+        <div><div class="stat-label">${L('slShort')}</div><div class="stat-value red">${esc(s.stop)}</div></div>
         <div><div class="stat-label">R / R</div><div class="stat-value gold">${esc(s.rr)}</div></div>
       </div>
       <div class="prob-track"><div class="prob-fill ${cls}" data-pct="${prob}"></div></div>
@@ -1704,9 +1902,9 @@ function buildBiasSparkline(reports, instrument) {
 function buildPriceLadder(r) {
   const items = [];
   if (r.prevDayHigh) items.push({ label: 'Prev High', cls: 'ref', val: r.prevDayHigh });
-  r.resistanceNums.forEach((v, i) => items.push({ label: `Kháng cự R${i+1}`, cls: 'resistance', val: v }));
-  if (r.price) items.push({ label: 'Giá hiện tại', cls: 'current', val: r.price });
-  r.supportNums.forEach((v, i) => items.push({ label: `Hỗ trợ S${i+1}`, cls: 'support', val: v }));
+  r.resistanceNums.forEach((v, i) => items.push({ label: L('resLbl')(i+1), cls: 'resistance', val: v }));
+  if (r.price) items.push({ label: L('curLbl'), cls: 'current', val: r.price });
+  r.supportNums.forEach((v, i) => items.push({ label: L('supLbl')(i+1), cls: 'support', val: v }));
   if (r.prevDayLow) items.push({ label: 'Prev Low', cls: 'ref', val: r.prevDayLow });
 
   items.sort((a, b) => b.val - a.val);
@@ -1735,7 +1933,7 @@ function renderContent() {
   const r = filteredReports.find(x => x.id === selectedId);
 
   if (!r) {
-    container.innerHTML = `<div class="empty"><div style="font-size:32px">📊</div><div>Chọn một bản cập nhật từ danh sách để xem Bảng Chiến Lược Giao Dịch</div></div>`;
+    container.innerHTML = `<div class="empty"><div style="font-size:32px">📊</div><div>${L('emptyContent')}</div></div>`;
     return;
   }
 
@@ -1764,10 +1962,10 @@ function renderContent() {
   const bearTfs = r.tfRows.filter(x => getBiasClass(x.trend) === 'bearish').length;
   const totalTfs = r.tfRows.length || 4;
   const alignLabel = bullTfs >= 3
-    ? `🟢 Đồng thuận Tăng (${bullTfs}/${totalTfs} khung)`
+    ? L('alignBull')(bullTfs, totalTfs)
     : bearTfs >= 3
-      ? `🔴 Đồng thuận Giảm (${bearTfs}/${totalTfs} khung)`
-      : `🟡 Xung đột đa khung (${bullTfs}▲ / ${bearTfs}▼) — Giảm size`;
+      ? L('alignBear')(bearTfs, totalTfs)
+      : L('alignMix')(bullTfs, bearTfs);
 
   const quickBarHtml = `
     <div class="quick-asset-bar">
@@ -1811,12 +2009,12 @@ function renderContent() {
           ${r.headline ? `<div class="hero-headline">${esc(r.headline)}</div>` : ''}
           <div class="hero-insight">${esc(r.insight)}</div>
           <div class="hero-actions">
-            ${r.telegramSummary ? `<button type="button" class="kz-btn primary" id="copyTgBtn">📋 Copy Bản Tin Telegram</button>` : ''}
-            <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="kz-btn gold">⚡ Lọc Entry bằng Aurora V12.2 →</a>
+            ${r.telegramSummary ? `<button type="button" class="kz-btn primary" id="copyTgBtn">${L('copyTg')}</button>` : ''}
+            <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="kz-btn gold">${L('auroraCta')}</a>
           </div>
         </div>
         <div class="hero-price">
-          <div class="hero-price-label">Giá Thời Điểm Quét H4</div>
+          <div class="hero-price-label">${L('priceScan')}</div>
           <div class="hero-price-value" id="heroPriceNum" data-target-price="${r.price}">${esc(r.priceFmt)}</div>
           <div class="hero-price-time">${esc(fmtTs(r.datetime))}</div>
           ${buildBiasSparkline(allReports, r.instrument)}
@@ -1830,12 +2028,12 @@ function renderContent() {
     <!-- 3 Trading Scenarios (Flagship Asymmetric Command Stage) -->
     <section class="panel" style="border-color:rgba(243,190,98,0.28)">
       <div class="panel-body">
-        <div class="panel-title">Kịch Bản Giao Dịch Trọng Tâm (Cập nhật mỗi 4 giờ)</div>
+        <div class="panel-title">${L('secScenarios')}</div>
         <div class="scenarios-stage">
           ${primaryScenarioHero(r, r.primaryScenario)}
           <div class="scenarios-secondary">
-            ${scenarioCard('◈ Kịch bản thay thế','alternative',r.alternativeScenario)}
-            ${scenarioCard('✕ Kịch bản vô hiệu hóa','invalidation',r.invalidationScenario)}
+            ${scenarioCard(L('altTitle'),'alternative',r.alternativeScenario)}
+            ${scenarioCard(L('invTitle'),'invalidation',r.invalidationScenario)}
           </div>
         </div>
       </div>
@@ -1845,23 +2043,23 @@ function renderContent() {
     <section class="triple-grid">
       <div class="panel">
         <div class="panel-body">
-          <div class="panel-title">Bản Đồ Vùng Giá Quan Trọng</div>
+          <div class="panel-title">${L('secLadder')}</div>
           <div class="ladder">${buildPriceLadder(r)}</div>
         </div>
       </div>
       <div class="panel">
         <div class="panel-body">
-          <div class="panel-title">Radar Rủi Ro</div>
+          <div class="panel-title">${L('secRisk')}</div>
           <div class="list-stack">
-            ${(r.risks.length ? r.risks : ['Chưa ghi nhận rủi ro đặc biệt']).map(x => `<div class="list-item risk">${esc(x)}</div>`).join('')}
+            ${(r.risks.length ? r.risks : ['—']).map(x => `<div class="list-item risk">${esc(x)}</div>`).join('')}
           </div>
         </div>
       </div>
       <div class="panel">
         <div class="panel-body">
-          <div class="panel-title">Sự Kiện & Catalyst</div>
+          <div class="panel-title">${L('secCat')}</div>
           <div class="list-stack">
-            ${(r.catalysts.length ? r.catalysts : ['Không có sự kiện lớn']).map(x => `<div class="list-item">${esc(x)}</div>`).join('')}
+            ${(r.catalysts.length ? r.catalysts : ['—']).map(x => `<div class="list-item">${esc(x)}</div>`).join('')}
           </div>
         </div>
       </div>
@@ -1870,15 +2068,15 @@ function renderContent() {
     <!-- Confluence Bullish vs Bearish -->
     <section class="panel">
       <div class="panel-body">
-        <div class="panel-title">Hợp Lưu Đa Khung (Hỗ Trợ Tăng vs Áp Lực Giảm)</div>
+        <div class="panel-title">${L('secConf')}</div>
         <div class="dual-grid">
           <div>
-            <div class="mono" style="font-size:11px;font-weight:800;color:var(--kz-green);letter-spacing:.08em;margin-bottom:10px">▲ YẾU TỐ HỖ TRỢ TĂNG</div>
-            <div class="list-stack">${(r.bullish.length ? r.bullish : ['Không có']).map(x => `<div class="list-item bull">${esc(x)}</div>`).join('')}</div>
+            <div class="mono" style="font-size:11px;font-weight:800;color:var(--kz-green);letter-spacing:.08em;margin-bottom:10px">${L('bullHead')}</div>
+            <div class="list-stack">${(r.bullish.length ? r.bullish : ['—']).map(x => `<div class="list-item bull">${esc(x)}</div>`).join('')}</div>
           </div>
           <div>
-            <div class="mono" style="font-size:11px;font-weight:800;color:var(--kz-rose);letter-spacing:.08em;margin-bottom:10px">▼ ÁP LỰC GIẢM</div>
-            <div class="list-stack">${(r.bearish.length ? r.bearish : ['Không có']).map(x => `<div class="list-item bear">${esc(x)}</div>`).join('')}</div>
+            <div class="mono" style="font-size:11px;font-weight:800;color:var(--kz-rose);letter-spacing:.08em;margin-bottom:10px">${L('bearHead')}</div>
+            <div class="list-stack">${(r.bearish.length ? r.bearish : ['—']).map(x => `<div class="list-item bear">${esc(x)}</div>`).join('')}</div>
           </div>
         </div>
       </div>
@@ -1887,10 +2085,10 @@ function renderContent() {
     <!-- Matrix Table -->
     <section class="panel">
       <div class="panel-body">
-        <div class="panel-title">Ma Trận So Sánh Kịch Bản</div>
+        <div class="panel-title">${L('secMatrix')}</div>
         <div class="matrix-wrap">
           <table class="matrix">
-            <thead><tr><th>Loại</th><th>Bias</th><th>Setup</th><th>Target</th><th>Stop</th><th>R/R</th><th>Xác suất</th></tr></thead>
+            <thead><tr><th>${L('thType')}</th><th>${L('thBias')}</th><th>${L('thSetup')}</th><th>${L('thTarget')}</th><th>${L('thStop')}</th><th>${L('thRR')}</th><th>${L('thProb')}</th></tr></thead>
             <tbody>${matrixRows}</tbody>
           </table>
         </div>
@@ -1900,10 +2098,10 @@ function renderContent() {
     <!-- Action Plan & Persistent Checklist -->
     <section class="panel">
       <div class="panel-body">
-        <div class="panel-title">Kế Hoạch Thực Thi & Checklist Trong Phiên</div>
+        <div class="panel-title">${L('secExec')}</div>
         ${execEntries.length ? `<div class="exec-grid">${execEntries.map(([k,v]) => `<div class="exec-card"><div class="exec-key">${esc(k.replaceAll('_',' '))}</div><div class="exec-val">${esc(typeof v === 'object' ? JSON.stringify(v) : safeStr(v))}</div></div>`).join('')}</div>` : ''}
         <div class="checklist">
-          ${(r.actionItems.length ? r.actionItems : ['Xác nhận đồng thuận bias đa khung', 'Kiểm tra khoảng cách tới kháng cự/hỗ trợ', 'Đặt SL & TP cố định trước khi vào lệnh']).map((x, i) => `
+          ${(r.actionItems.length ? r.actionItems : ['Confirm multi-timeframe bias alignment', 'Check key level proximity', 'Set fixed SL & TP before entry']).map((x, i) => `
             <div class="check ${reportChecks[i] ? 'checked' : ''}" data-report="${esc(r.id)}" data-idx="${i}">
               <div class="check-box">✓</div>
               <div class="check-text">${esc(x)}</div>
@@ -1915,12 +2113,12 @@ function renderContent() {
     <!-- Kenvinzone Ecosystem Cross-Link -->
     <section class="eco-strip">
       <div>
-        <div class="mono" style="font-size:11px;color:#38D5E7;font-weight:700;letter-spacing:.08em">HỆ SINH THÁI KENVINZONE FUTURES</div>
-        <div style="font-size:15.5px;font-weight:800;margin-top:3px">Kết hợp Bảng Chiến Lược 4H + Hệ thống Aurora V12.2 để vượt quỹ Bulenox · Earn2Trade · Topstep</div>
+        <div class="mono" style="font-size:11px;color:#38D5E7;font-weight:700;letter-spacing:.08em">${L('ecoBannerSub')}</div>
+        <div style="font-size:15.5px;font-weight:800;margin-top:3px">${L('ecoBannerTitle')}</div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a href="https://prop.kenvinzone.com/coupons.html" target="_blank" rel="noopener noreferrer" class="kz-btn gold">🔥 Săn Coupon Quỹ (-89%)</a>
-        <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="kz-btn primary">Xem Aurora V12.2 →</a>
+        <a href="https://prop.kenvinzone.com/coupons.html" target="_blank" rel="noopener noreferrer" class="kz-btn gold">${L('ecoCouponBtn')}</a>
+        <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="kz-btn primary">${L('ecoAuroraBtn')}</a>
       </div>
     </section>
   `;
@@ -1969,10 +2167,10 @@ function renderContent() {
   const copyPlanBtn = document.getElementById('copyPlanBtn');
   if (copyPlanBtn && r.primaryScenario) {
     const s = r.primaryScenario;
-    const planText = `📊 ${r.instrument} (${r.dateDisplay} ${r.timeDisplay})\n• Kịch bản chính (${Math.round(s.probability||0)}%): ${s.bias}\n• Setup: ${s.setup}\n• Target: ${s.target} | SL: ${s.stop} | R/R: ${s.rr}`;
+    const planText = `📊 ${r.instrument} (${r.dateDisplay} ${r.timeDisplay})\n• ${currentLang === 'en' ? 'Primary Scenario' : 'Kịch bản chính'} (${Math.round(s.probability||0)}%): ${s.bias}\n• Setup: ${s.setup}\n• Target: ${s.target} | SL: ${s.stop} | R/R: ${s.rr}`;
     copyPlanBtn.onclick = (e) => {
       navigator.clipboard?.writeText(planText).catch(() => {});
-      showAppToast('✓ Đã sao chép Kế hoạch lệnh trọng tâm!');
+      showAppToast(L('copiedPlan'));
       spawnSparkles(e.clientX, e.clientY);
     };
   }
@@ -1982,7 +2180,7 @@ function renderContent() {
   if (copyBtn) {
     copyBtn.onclick = (e) => {
       navigator.clipboard?.writeText(r.telegramSummary).catch(() => {});
-      showAppToast('✓ Đã sao chép bản tin Telegram!');
+      showAppToast(L('copiedTg'));
       spawnSparkles(e.clientX, e.clientY);
     };
   }
@@ -2029,7 +2227,7 @@ if (advToggle && advBox) {
   advToggle.addEventListener('click', () => {
     const isCollapsed = advBox.classList.toggle('collapsed');
     advToggle.classList.toggle('open', !isCollapsed);
-    advToggle.textContent = isCollapsed ? '⚙️ Lọc thêm' : '✕ Thu gọn';
+    advToggle.textContent = isCollapsed ? L('moreFilters') : L('lessFilters');
   });
 }
 document.getElementById('refreshBtn').addEventListener('click', async () => {
@@ -2037,7 +2235,7 @@ document.getElementById('refreshBtn').addEventListener('click', async () => {
   b.classList.add('spinning');
   await loadReports(true);
   setTimeout(() => b.classList.remove('spinning'), 500);
-  showAppToast('✓ Đã đồng bộ dữ liệu mới nhất!');
+  showAppToast(L('refreshed'));
 });
 
 document.addEventListener('keydown', (e) => {
@@ -2054,6 +2252,11 @@ function stopPolling() { if (pollTimer) { clearInterval(pollTimer); pollTimer = 
 document.addEventListener('visibilitychange', () => { if (document.hidden) stopPolling(); else { loadReports(true); startPolling(); } });
 setInterval(() => { if (allReports.length) document.getElementById('lastUpdated').textContent = fmtRelativeTime(allReports[0].datetime); }, 30000);
 
+const langBtn = document.getElementById('langToggle');
+if (langBtn) {
+  langBtn.addEventListener('click', () => setLang(currentLang === 'en' ? 'vi' : 'en'));
+}
+applyStaticLang();
 loadReports(false);
 startPolling();
 </script>
