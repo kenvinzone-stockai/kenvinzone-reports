@@ -1,1367 +1,719 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#0a0e1a" />
-<title>KenvinZone — Strategy Desk</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="theme-color" content="#070F1D" />
+<title>KENVINZONE STRATEGY DESK — AI Market Intelligence (XAUUSD · NQ / US100)</title>
+<meta name="description" content="Báo cáo phân tích đa khung thời gian H4 tự động bởi TradingView + Make.com + Claude AI cho XAUUSD và Nasdaq (NQ/US100) — Hệ sinh thái Kenvinzone." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='7' fill='%23080E1B'/%3E%3Cpath d='M4 21L10 15L15 19L24 7' stroke='%2338D5E7' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<script>
+  /* Sync Kenvinzone Dark/Light theme across kenvinzone.com, aurora.kenvinzone.com & prop.kenvinzone.com */
+  (function(){
+    try{
+      var m=document.cookie.match(/(?:^|; )kz-theme=(light|dark)/);
+      var t=m?m[1]:localStorage.getItem("kz-theme");
+      if(t==="light"||t==="dark") document.documentElement.setAttribute("data-theme",t);
+    }catch(e){}
+  })();
+</script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap');
-
+  /* ==========================================================================
+     KENVINZONE UNIFIED DESIGN SYSTEM — STRATEGY DESK EDITION
+     ========================================================================== */
   :root {
-    /* Obsidian Gold theme */
-    --bg-0: #0a0e1a;
-    --bg-1: #0f1420;
-    --bg-2: #161c2e;
-    --bg-3: #1c2338;
-    --bg-4: #232c44;
-    --border-1: #1f2940;
-    --border-2: #2a3553;
-    --border-3: #364263;
-
-    --gold: #fbbf24;
-    --gold-2: #f59e0b;
-    --gold-3: #d97706;
-    --gold-soft: rgba(251,191,36,0.10);
-    --gold-glow: rgba(251,191,36,0.30);
-
-    --emerald: #10b981;
-    --emerald-soft: rgba(16,185,129,0.10);
-    --rose: #f43f5e;
-    --rose-soft: rgba(244,63,94,0.10);
-    --sky: #38bdf8;
-    --sky-soft: rgba(56,189,248,0.10);
-
-    --text-0: #f1f5f9;
-    --text-1: #cbd5e1;
-    --text-2: #94a3b8;
-    --text-3: #64748b;
-    --text-4: #475569;
-
-    --radius-xs: 6px;
+    --kz-ink: #070f1d;
+    --kz-deep: #0a1426;
+    --kz-surface: #101d35;
+    --kz-surface2: #0c182d;
+    --kz-surface-hover: #152542;
+    --kz-line: #1e2e4d;
+    --kz-line2: #2b4168;
+    --kz-text: #e6eef8;
+    --kz-text2: #c9d5e4;
+    --kz-muted: #8fa3bf;
+    --kz-subtle: #647a99;
+    --kz-strong: #ffffff;
+    --kz-cyan: #38d5e7;
+    --kz-cyan-soft: rgba(56, 213, 231, 0.13);
+    --kz-gold: #f3be62;
+    --kz-gold-soft: rgba(243, 190, 98, 0.14);
+    --kz-green: #34d399;
+    --kz-green-soft: rgba(52, 211, 153, 0.13);
+    --kz-rose: #fb7185;
+    --kz-rose-soft: rgba(251, 113, 133, 0.13);
+    --kz-hd-bg: rgba(7, 15, 29, 0.85);
+    --kz-shadow: 0 18px 42px -18px rgba(0, 0, 0, 0.65);
+    --kz-glow: 0.55;
     --radius-sm: 10px;
     --radius: 14px;
-    --radius-lg: 20px;
-    --radius-xl: 28px;
-
-    --shadow-1: 0 1px 2px rgba(0,0,0,0.4);
-    --shadow-2: 0 4px 16px rgba(0,0,0,0.35);
-    --shadow-3: 0 12px 40px rgba(0,0,0,0.45);
-    --shadow-gold: 0 0 24px rgba(251,191,36,0.20);
-
-    --font-display: 'Syne', system-ui, sans-serif;
-    --font-mono: 'DM Mono', ui-monospace, monospace;
-    --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-
+    --radius-lg: 18px;
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-
     --safe-bottom: env(safe-area-inset-bottom, 0px);
+    color-scheme: dark;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html[data-theme="light"] {
+    --kz-ink: #f4f7fc;
+    --kz-deep: #e9eff8;
+    --kz-surface: #ffffff;
+    --kz-surface2: #f7f9fd;
+    --kz-surface-hover: #eef3fb;
+    --kz-line: #d6e0ee;
+    --kz-line2: #b9c8df;
+    --kz-text: #0e1b30;
+    --kz-text2: #2e435f;
+    --kz-muted: #5a6d87;
+    --kz-subtle: #7487a1;
+    --kz-strong: #091324;
+    --kz-cyan: #0b8aa3;
+    --kz-cyan-soft: rgba(11, 138, 163, 0.11);
+    --kz-gold: #b46c00;
+    --kz-gold-soft: rgba(180, 108, 0, 0.11);
+    --kz-green: #05875f;
+    --kz-green-soft: rgba(5, 135, 95, 0.11);
+    --kz-rose: #d12c56;
+    --kz-rose-soft: rgba(209, 44, 86, 0.11);
+    --kz-hd-bg: rgba(244, 247, 252, 0.88);
+    --kz-shadow: 0 14px 30px -16px rgba(14, 27, 48, 0.14);
+    --kz-glow: 0.22;
+    color-scheme: light;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
   body {
-    background: var(--bg-0);
-    color: var(--text-0);
-    font-family: var(--font-body);
+    background: var(--kz-ink);
+    background-image: radial-gradient(rgba(56, 213, 231, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    color: var(--kz-text);
+    font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
-    font-feature-settings: 'ss01', 'cv11';
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Tabular numerals for mono font */
-  .mono, [class*="mono"] { font-variant-numeric: tabular-nums; }
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
 
-  /* Ambient background */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(251,191,36,0.07) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 40% at 90% 90%, rgba(56,189,248,0.05) 0%, transparent 60%),
-      radial-gradient(ellipse 30% 30% at 10% 80%, rgba(244,63,94,0.03) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
+  /* Top Scroll Telemetry Progress Beam */
+  .kz-scroll-beam-track {
+    position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 150; pointer-events: none;
+  }
+  .kz-scroll-beam {
+    height: 100%; width: 100%;
+    transform-origin: left center; transform: scaleX(0);
+    background: linear-gradient(90deg, #38d5e7 0%, #34d399 52%, #f3be62 100%);
+    box-shadow: 0 0 12px rgba(56, 213, 231, 0.75);
+    will-change: transform;
   }
 
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-    z-index: 0;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 80%);
-  }
-
-  /* ========== NAV ========== */
+  /* ========== HEADER (KENVINZONE UNIFIED) ========== */
   .nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(10,14,26,0.75);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border-bottom: 1px solid var(--border-1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    height: 60px;
+    position: sticky; top: 0; z-index: 100;
+    background: var(--kz-hd-bg);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--kz-line);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 14px; padding: 0 20px; height: 64px;
+  }
+  .nav::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(56,213,231,0.55) 30%, rgba(243,190,98,0.5) 70%, transparent);
+    pointer-events: none;
   }
 
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: var(--font-display);
-    font-size: 19px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-3) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  .nav-brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .kz-logo {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-weight: 800; font-size: 17px; letter-spacing: -0.015em; color: var(--kz-strong);
+  }
+  .kz-logo svg { width: 30px; height: 30px; }
+  .kz-prod-badge {
+    font-size: 10.5px; font-weight: 800; letter-spacing: 0.06em;
+    padding: 4px 9px; border-radius: 7px;
+    border: 1px solid rgba(56, 213, 231, 0.35);
+    background: var(--kz-cyan-soft); color: var(--kz-cyan); white-space: nowrap;
   }
 
-  .brand-mark {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-3) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--bg-0);
-    font-size: 14px;
-    font-weight: 900;
-    box-shadow: var(--shadow-gold);
-    position: relative;
+  .nav-links {
+    display: flex; align-items: center; gap: 18px; margin-left: 16px;
+    font-size: 13.5px; font-weight: 600; color: var(--kz-muted);
   }
+  .nav-links a { transition: color 0.18s ease; white-space: nowrap; }
+  .nav-links a:hover { color: var(--kz-cyan); }
+  .nav-links a.gold { color: var(--kz-gold); }
 
-  .brand-mark::after {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 11px;
-    border: 1px solid rgba(251,191,36,0.3);
-    animation: ring 3s ease infinite;
-  }
-
-  @keyframes ring {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.08); }
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+  .nav-right { display: flex; align-items: center; gap: 9px; margin-left: auto; }
 
   .live-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 13px;
-    border-radius: 999px;
-    background: var(--emerald-soft);
-    border: 1px solid rgba(16,185,129,0.25);
-    color: var(--emerald);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 5px 11px; border-radius: 999px;
+    background: var(--kz-green-soft); border: 1px solid rgba(52, 211, 153, 0.32);
+    color: var(--kz-green); font-family: "JetBrains Mono", monospace;
+    font-size: 11px; font-weight: 700; white-space: nowrap;
   }
-
   .live-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--emerald);
-    position: relative;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--kz-green); position: relative;
   }
-
   .live-dot::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    background: var(--emerald);
-    opacity: 0.4;
-    animation: ping 1.5s ease-out infinite;
+    content: ""; position: absolute; inset: -4px; border-radius: 50%;
+    background: var(--kz-green); opacity: 0.45; animation: ping 1.6s ease-out infinite;
   }
-
-  @keyframes ping {
-    0% { transform: scale(0.8); opacity: 0.5; }
-    100% { transform: scale(2.2); opacity: 0; }
-  }
+  @keyframes ping { 0% { transform: scale(0.8); opacity: 0.55; } 100% { transform: scale(2.2); opacity: 0; } }
 
   .last-updated {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-3);
+    font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--kz-muted); white-space: nowrap;
   }
+
+  .kz-icon-btn {
+    width: 36px; height: 36px; border-radius: 10px;
+    border: 1px solid var(--kz-line); background: var(--kz-surface);
+    color: var(--kz-text); cursor: pointer; display: inline-grid; place-items: center;
+    font-size: 15px; transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .kz-icon-btn:hover { border-color: var(--kz-cyan); transform: translateY(-1px); }
+  .kz-icon-btn.spinning { animation: spin 0.7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
   /* ========== LAYOUT ========== */
   .layout {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    min-height: calc(100vh - 60px);
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 344px 1fr;
+    min-height: calc(100vh - 64px);
   }
 
   .sidebar {
-    border-right: 1px solid var(--border-1);
-    background: rgba(15,20,32,0.6);
+    border-right: 1px solid var(--kz-line);
+    background: rgba(10, 20, 38, 0.68);
     backdrop-filter: blur(12px);
   }
+  html[data-theme="light"] .sidebar { background: rgba(255, 255, 255, 0.85); }
 
   .sidebar-inner {
-    position: sticky;
-    top: 60px;
-    height: calc(100vh - 60px);
-    display: flex;
-    flex-direction: column;
+    position: sticky; top: 64px; height: calc(100vh - 64px);
+    display: flex; flex-direction: column;
   }
 
-  /* ========== SEARCH ========== */
-  .search-block {
-    padding: 14px 16px 10px;
-    border-bottom: 1px solid var(--border-1);
-  }
-
+  /* ========== SIDEBAR CONTROLS ========== */
+  .search-block { padding: 14px 16px 10px; border-bottom: 1px solid var(--kz-line); }
   .search-input {
-    width: 100%;
-    background: var(--bg-2);
-    border: 1px solid var(--border-2);
-    color: var(--text-0);
-    padding: 9px 14px 9px 34px;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-body);
-    font-size: 13px;
-    outline: none;
-    transition: all 0.18s var(--ease-out);
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: 11px center;
+    width: 100%; background: var(--kz-surface2); border: 1px solid var(--kz-line2);
+    color: var(--kz-strong); padding: 9px 13px 9px 34px; border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 13px; outline: none; transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238fa3bf' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: 11px center;
   }
+  .search-input:focus { border-color: var(--kz-cyan); box-shadow: 0 0 0 3px var(--kz-cyan-soft); }
+  .search-input::placeholder { color: var(--kz-subtle); }
 
-  .search-input:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px var(--gold-soft);
-  }
-
-  .search-input::placeholder { color: var(--text-4); }
-
-  /* ========== FILTERS ========== */
-  .month-selector {
-    padding: 8px 16px;
-    border-bottom: 1px solid var(--border-1);
-  }
-
+  .month-selector { padding: 8px 16px; border-bottom: 1px solid var(--kz-line); }
   .month-select {
-    width: 100%;
-    background: var(--bg-2);
-    border: 1px solid var(--border-2);
-    color: var(--text-0);
-    border-radius: var(--radius-sm);
-    padding: 8px 12px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.18s var(--ease-out);
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    padding-right: 32px;
+    width: 100%; background: var(--kz-surface2); border: 1px solid var(--kz-line2);
+    color: var(--kz-strong); border-radius: var(--radius-sm); padding: 8px 32px 8px 12px;
+    font-family: "JetBrains Mono", monospace; font-size: 11.5px; cursor: pointer; outline: none; appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238fa3bf' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 10px center;
   }
-
-  .month-select:focus { border-color: var(--gold); }
+  .month-select:focus { border-color: var(--kz-cyan); }
 
   .time-filter {
-    padding: 8px 16px;
-    border-bottom: 1px solid var(--border-1);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
+    padding: 8px 16px; border-bottom: 1px solid var(--kz-line);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;
   }
-
   .tf-btn {
-    padding: 6px 4px;
-    border-radius: var(--radius-xs);
-    border: 1px solid var(--border-2);
-    background: var(--bg-2);
-    color: var(--text-3);
-    font-family: var(--font-mono);
-    font-size: 10px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.18s var(--ease-out);
+    padding: 6px 4px; border-radius: 7px; border: 1px solid var(--kz-line);
+    background: var(--kz-surface2); color: var(--kz-muted);
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 600;
+    cursor: pointer; text-align: center; transition: all 0.18s ease;
   }
+  .tf-btn:hover { color: var(--kz-strong); border-color: var(--kz-line2); }
+  .tf-btn.active { color: var(--kz-cyan); border-color: var(--kz-cyan); background: var(--kz-cyan-soft); }
 
-  .tf-btn:hover { color: var(--gold); border-color: var(--border-3); }
-  .tf-btn.active {
-    color: var(--gold);
-    border-color: var(--gold);
-    background: var(--gold-soft);
-    box-shadow: 0 0 12px var(--gold-soft);
-  }
-
-  .filters {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border-1);
-    display: grid;
-    gap: 12px;
-  }
-
-  .filter-block { display: grid; gap: 8px; }
-
+  .filters { padding: 11px 16px; border-bottom: 1px solid var(--kz-line); display: grid; gap: 10px; }
+  .filter-block { display: grid; gap: 7px; }
   .filter-label {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
+    font-family: "JetBrains Mono", monospace; font-size: 9.5px; font-weight: 700;
+    color: var(--kz-subtle); text-transform: uppercase; letter-spacing: 1px;
   }
-
-  .filter-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
+  .filter-row { display: flex; flex-wrap: wrap; gap: 6px; }
   .chip {
-    border: 1px solid var(--border-2);
-    background: var(--bg-2);
-    color: var(--text-2);
-    border-radius: 999px;
-    padding: 5px 11px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    cursor: pointer;
-    transition: all 0.18s var(--ease-out);
+    border: 1px solid var(--kz-line); background: var(--kz-surface2); color: var(--kz-muted);
+    border-radius: 999px; padding: 4px 10px; font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; font-weight: 600; cursor: pointer; transition: all 0.18s ease;
   }
+  .chip:hover { color: var(--kz-strong); border-color: var(--kz-line2); }
+  .chip.active { color: var(--kz-cyan); border-color: var(--kz-cyan); background: var(--kz-cyan-soft); }
 
-  .chip:hover { color: var(--gold); border-color: var(--border-3); }
-  .chip.active {
-    color: var(--gold);
-    border-color: var(--gold);
-    background: var(--gold-soft);
-    box-shadow: 0 0 12px var(--gold-soft);
-  }
-
-  /* ========== STATS BAR ========== */
   .stats-bar {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    padding: 0;
-    border-bottom: 1px solid var(--border-1);
-    background: var(--border-1);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    border-bottom: 1px solid var(--kz-line); background: var(--kz-line);
   }
-
-  .stat-cell {
-    padding: 10px 12px;
-    background: var(--bg-1);
-    text-align: center;
-  }
-
-  .stat-cell .num {
-    font-family: var(--font-mono);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1;
-    margin-bottom: 3px;
-  }
-
-  .stat-cell .lbl {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .num.bull { color: var(--emerald); }
-  .num.bear { color: var(--rose); }
-  .num.total { color: var(--gold); }
+  .stat-cell { padding: 10px 8px; background: var(--kz-deep); text-align: center; }
+  html[data-theme="light"] .stat-cell { background: var(--kz-surface2); }
+  .stat-cell .num { font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 800; line-height: 1.1; }
+  .stat-cell .lbl { font-family: "JetBrains Mono", monospace; font-size: 9px; color: var(--kz-subtle); text-transform: uppercase; letter-spacing: 0.9px; margin-top: 2px; }
+  .num.total { color: var(--kz-cyan); }
+  .num.bull { color: var(--kz-green); }
+  .num.bear { color: var(--kz-rose); }
 
   /* ========== REPORT LIST ========== */
   .report-list {
-    flex: 1;
-    overflow: auto;
-    padding: 12px;
-    display: grid;
-    gap: 8px;
-    align-content: start;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-3) transparent;
+    flex: 1; overflow-y: auto; padding: 12px; display: grid; gap: 8px; align-content: start;
+    scrollbar-width: thin; scrollbar-color: var(--kz-line2) transparent;
   }
-
-  .report-list::-webkit-scrollbar { width: 6px; }
-  .report-list::-webkit-scrollbar-track { background: transparent; }
-  .report-list::-webkit-scrollbar-thumb { background: var(--border-3); border-radius: 3px; }
-
   .date-group-header {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 6px 2px;
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700;
+    color: var(--kz-subtle); text-transform: uppercase; letter-spacing: 0.9px;
+    padding: 6px 2px; margin-top: 6px; display: flex; align-items: center; gap: 8px;
   }
-
   .date-group-header:first-child { margin-top: 0; }
-
-  .date-group-header::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border-1);
-  }
-
+  .date-group-header::after { content: ""; flex: 1; height: 1px; background: var(--kz-line); }
   .report-count {
-    background: var(--bg-3);
-    border: 1px solid var(--border-2);
-    border-radius: 999px;
-    padding: 1px 7px;
-    font-size: 9px;
-    color: var(--text-2);
+    background: var(--kz-surface); border: 1px solid var(--kz-line2);
+    border-radius: 999px; padding: 1px 7px; font-size: 9.5px; color: var(--kz-muted);
   }
 
   .report-item {
-    background: var(--bg-2);
-    border: 1px solid var(--border-1);
-    border-radius: var(--radius);
-    padding: 12px 14px;
-    cursor: pointer;
-    transition: all 0.2s var(--ease-out);
-    position: relative;
-    overflow: hidden;
+    background: var(--kz-surface); border: 1px solid var(--kz-line);
+    border-radius: var(--radius); padding: 12px 13px; cursor: pointer;
+    transition: transform 0.2s var(--ease-out), border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative; overflow: hidden;
   }
-
   .report-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: transparent;
-    transition: background 0.2s var(--ease-out);
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: transparent; transition: background 0.2s ease;
   }
-
-  .report-item:hover {
-    border-color: var(--border-3);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-2);
-  }
-
+  .report-item:hover { border-color: var(--kz-line2); transform: translateX(2px); }
   .report-item.active {
-    border-color: var(--gold);
-    background: linear-gradient(135deg, var(--gold-soft) 0%, var(--bg-2) 60%);
-    box-shadow: 0 0 0 1px var(--gold-soft), var(--shadow-2);
+    border-color: var(--kz-cyan);
+    background: linear-gradient(135deg, var(--kz-cyan-soft) 0%, var(--kz-surface) 65%);
+    box-shadow: 0 8px 22px -12px rgba(56, 213, 231, 0.35);
   }
+  .report-item.active::before { background: var(--kz-cyan); }
 
-  .report-item.active::before { background: var(--gold); }
-
-  .ri-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
-
-  .ri-inst {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--text-0);
-  }
-
-  .ri-time {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--text-4);
-  }
-
+  .ri-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 7px; }
+  .ri-inst { font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-weight: 800; color: var(--kz-strong); }
+  .ri-time { font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--kz-muted); }
   .ri-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
-
   .badge {
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-family: var(--font-mono);
-    font-size: 9px;
-    font-weight: 500;
-    border: 1px solid var(--border-2);
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+    padding: 2px 8px; border-radius: 999px; font-family: "JetBrains Mono", monospace;
+    font-size: 9.5px; font-weight: 700; border: 1px solid var(--kz-line2);
+    display: inline-flex; align-items: center; gap: 4px;
   }
-
-  .badge.bullish { color: var(--emerald); background: var(--emerald-soft); border-color: rgba(16,185,129,0.25); }
-  .badge.bearish { color: var(--rose); background: var(--rose-soft); border-color: rgba(244,63,94,0.25); }
-  .badge.neutral { color: var(--sky); background: var(--sky-soft); border-color: rgba(56,189,248,0.25); }
-  .badge.conf { color: var(--gold); background: var(--gold-soft); border-color: rgba(251,191,36,0.25); }
-
+  .badge.bullish { color: var(--kz-green); background: var(--kz-green-soft); border-color: rgba(52,211,153,0.32); }
+  .badge.bearish { color: var(--kz-rose); background: var(--kz-rose-soft); border-color: rgba(251,113,133,0.32); }
+  .badge.neutral { color: var(--kz-cyan); background: var(--kz-cyan-soft); border-color: rgba(56,213,231,0.32); }
+  .badge.conf { color: var(--kz-gold); background: var(--kz-gold-soft); border-color: rgba(243,190,98,0.35); }
   .ri-text {
-    color: var(--text-2);
-    font-size: 12px;
-    line-height: 1.55;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    color: var(--kz-muted); font-size: 12px; line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
   }
 
-  /* ========== CONTENT ========== */
+  /* ========== MAIN CONTENT ========== */
   .content { min-width: 0; }
-
   .content-inner {
-    max-width: 1180px;
-    padding: 24px;
-    margin: 0 auto;
-    display: grid;
-    gap: 20px;
+    max-width: 1220px; padding: 24px 26px 40px; margin: 0 auto; display: grid; gap: 20px;
   }
 
-  /* ========== SKELETON LOADER ========== */
-  .skeleton-stack { display: grid; gap: 20px; padding: 24px; }
-  .skel {
-    background: linear-gradient(90deg, var(--bg-2) 0%, var(--bg-3) 50%, var(--bg-2) 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.6s ease infinite;
-    border-radius: var(--radius);
-  }
-
-  @keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-
-  .skel-hero { height: 220px; border-radius: var(--radius-lg); }
-  .skel-row { height: 140px; }
-  .skel-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .skel-card { height: 200px; }
-
-  .empty {
-    min-height: calc(100vh - 200px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 12px;
-    color: var(--text-3);
-    font-family: var(--font-mono);
-    font-size: 13px;
-    text-align: center;
-    padding: 24px;
-  }
-
-  .empty-icon {
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    background: var(--bg-2);
-    border: 1px solid var(--border-2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    margin-bottom: 4px;
-  }
-
-  .empty-action {
-    margin-top: 8px;
-    padding: 8px 16px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--gold);
-    background: var(--gold-soft);
-    color: var(--gold);
-    font-family: var(--font-mono);
-    font-size: 11px;
-    cursor: pointer;
-    transition: all 0.18s var(--ease-out);
-  }
-
-  .empty-action:hover { background: var(--gold); color: var(--bg-0); }
-
-  /* ========== HERO ========== */
+  /* ========== HERO STAGE WITH AMBIENT FLOW CANVAS ========== */
   .hero {
-    background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%);
-    border: 1px solid var(--border-2);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-3);
-    overflow: hidden;
-    position: relative;
-    animation: fadeUp 0.5s var(--ease-out);
+    position: relative; isolation: isolate; overflow: hidden;
+    background: linear-gradient(135deg, var(--kz-surface) 0%, var(--kz-deep) 100%);
+    border: 1px solid rgba(56, 213, 231, 0.28);
+    border-radius: var(--radius-lg); box-shadow: var(--kz-shadow);
   }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
   .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold-glow), transparent);
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--kz-cyan) 35%, var(--kz-gold) 70%, transparent);
+    z-index: 2;
+  }
+  #kzHeroCanvas {
+    position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; opacity: 0.78;
   }
 
   .hero-inner {
-    padding: 32px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    align-items: start;
+    padding: 28px 30px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start;
   }
-
-  .hero-line {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
-  }
-
+  .hero-line { display: flex; gap: 9px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
   .hero-title {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 36px;
-    letter-spacing: -1.5px;
-    color: var(--text-0);
-    line-height: 1;
+    font-weight: 800; font-size: clamp(28px, 3.4vw, 40px);
+    letter-spacing: -0.03em; color: var(--kz-strong); line-height: 1.05;
   }
-
   .hero-pill {
-    padding: 4px 11px;
-    border-radius: 999px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border: 1px solid var(--border-2);
-    color: var(--text-2);
-    background: var(--bg-1);
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
+    padding: 4px 11px; border-radius: 999px; font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+    border: 1px solid var(--kz-line2); color: var(--kz-text2); background: var(--kz-surface2);
+    display: inline-flex; align-items: center; gap: 5px;
   }
+  .hero-pill.bullish { color: var(--kz-green); background: var(--kz-green-soft); border-color: rgba(52,211,153,0.35); }
+  .hero-pill.bearish { color: var(--kz-rose); background: var(--kz-rose-soft); border-color: rgba(251,113,133,0.35); }
+  .hero-pill.neutral { color: var(--kz-cyan); background: var(--kz-cyan-soft); border-color: rgba(56,213,231,0.35); }
+  .hero-pill.conf-high { color: var(--kz-gold); background: var(--kz-gold-soft); border-color: rgba(243,190,98,0.4); }
+  .hero-pill.conf-medium { color: var(--kz-cyan); background: var(--kz-cyan-soft); border-color: rgba(56,213,231,0.35); }
 
-  .hero-pill.bullish { color: var(--emerald); background: var(--emerald-soft); border-color: rgba(16,185,129,0.3); }
-  .hero-pill.bearish { color: var(--rose); background: var(--rose-soft); border-color: rgba(244,63,94,0.3); }
-  .hero-pill.neutral { color: var(--sky); background: var(--sky-soft); border-color: rgba(56,189,248,0.3); }
-  .hero-pill.conf-high { color: var(--gold); background: var(--gold-soft); border-color: rgba(251,191,36,0.3); }
-  .hero-pill.conf-medium { color: var(--sky); background: var(--sky-soft); border-color: rgba(56,189,248,0.3); }
-  .hero-pill.conf-low { color: var(--text-3); background: var(--bg-1); }
-
+  .hero-headline {
+    font-size: 16.5px; font-weight: 700; color: var(--kz-strong); margin-bottom: 8px; max-width: 740px;
+  }
   .hero-meta {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-4);
-    margin-bottom: 16px;
+    display: flex; gap: 15px; flex-wrap: wrap; font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--kz-muted); margin-bottom: 12px;
   }
-
-  .hero-meta span { display: inline-flex; align-items: center; gap: 5px; }
-
   .hero-insight {
-    color: var(--text-1);
-    line-height: 1.75;
-    max-width: 720px;
-    font-size: 14px;
+    color: var(--kz-text2); line-height: 1.72; max-width: 740px; font-size: 14px;
+    padding-left: 14px; border-left: 3px solid rgba(56, 213, 231, 0.45);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+
+  .kz-btn {
+    display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 10px;
+    font-size: 12.5px; font-weight: 700; cursor: pointer; border: 1px solid var(--kz-line2);
+    background: var(--kz-surface2); color: var(--kz-strong); position: relative; overflow: hidden;
+    transition: transform 0.18s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .kz-btn:hover { transform: translateY(-1px); border-color: var(--kz-cyan); }
+  .kz-btn.primary {
+    border: 0; background: linear-gradient(135deg, #0284c7 0%, #38d5e7 100%); color: #04131c;
+  }
+  .kz-btn.primary:hover { box-shadow: 0 10px 24px -8px rgba(56, 213, 231, 0.55); }
+  .kz-btn.gold {
+    border: 0; background: linear-gradient(135deg, #e59d24 0%, #f3be62 100%); color: #211400;
   }
 
-  .hero-price { text-align: right; }
-
+  .hero-price {
+    text-align: right; background: var(--kz-surface2); border: 1px solid var(--kz-line);
+    border-radius: 15px; padding: 16px 20px; min-width: 215px;
+  }
   .hero-price-label {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    margin-bottom: 8px;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700;
+    color: var(--kz-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
   }
-
   .hero-price-value {
-    font-family: var(--font-mono);
-    font-size: 42px;
-    font-weight: 500;
-    color: var(--gold);
-    text-shadow: 0 0 32px rgba(251,191,36,0.25);
-    line-height: 1;
-    font-variant-numeric: tabular-nums;
+    font-family: "JetBrains Mono", monospace; font-size: 38px; font-weight: 800;
+    color: var(--kz-gold); line-height: 1.05; letter-spacing: -0.02em;
   }
+  .hero-price-time { margin-top: 6px; font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--kz-muted); }
+  .hero-sparkline { margin-top: 12px; height: 34px; width: 170px; margin-left: auto; display: block; }
 
-  .hero-price-time {
-    margin-top: 10px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--text-4);
+  /* ========== 4-TIMEFRAME ALIGNMENT RADAR STRIP ========== */
+  .mtf-radar {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;
   }
-
-  .hero-sparkline {
-    margin-top: 14px;
-    height: 32px;
-    width: 160px;
-    margin-left: auto;
+  .mtf-card {
+    background: var(--kz-surface); border: 1px solid var(--kz-line); border-radius: var(--radius);
+    padding: 14px 15px; position: relative; overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
   }
+  .mtf-card:hover { transform: translateY(-2px); border-color: var(--kz-line2); }
+  .mtf-card.bullish { border-top: 3px solid var(--kz-green); }
+  .mtf-card.bearish { border-top: 3px solid var(--kz-rose); }
+  .mtf-card.neutral { border-top: 3px solid var(--kz-cyan); }
+  .mtf-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .mtf-tf { font-family: "JetBrains Mono", monospace; font-size: 15px; font-weight: 800; color: var(--kz-strong); }
+  .mtf-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+  .mtf-mini {
+    font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700;
+    padding: 2px 7px; border-radius: 6px; background: var(--kz-surface2);
+    border: 1px solid var(--kz-line); color: var(--kz-text2);
+  }
+  .mtf-desc { font-size: 12px; color: var(--kz-muted); line-height: 1.5; }
 
-  /* ========== PANEL ========== */
+  /* ========== PANELS & SPOTLIGHT ========== */
   .panel {
-    background: var(--bg-1);
-    border: 1px solid var(--border-1);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-2);
-    overflow: hidden;
-    animation: fadeUp 0.5s var(--ease-out) both;
+    position: relative; overflow: hidden; isolation: isolate;
+    background: var(--kz-surface); border: 1px solid var(--kz-line);
+    border-radius: var(--radius-lg); box-shadow: var(--kz-shadow);
   }
+  .panel::before, .scenario-card::before, .mtf-card::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    opacity: 0; transition: opacity 0.28s ease; z-index: -1;
+    background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(56, 213, 231, 0.12), transparent 62%);
+  }
+  .panel:hover::before, .scenario-card:hover::before, .mtf-card:hover::before { opacity: 1; }
 
   .panel-body { padding: 22px 24px; }
-
   .panel-title {
-    font-family: var(--font-display);
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-2);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
+    font-size: 11.5px; font-weight: 800; color: var(--kz-cyan); letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 16px; display: flex; gap: 10px; align-items: center;
   }
-
   .panel-title::before {
-    content: '';
-    width: 3px;
-    height: 14px;
-    border-radius: 2px;
-    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-3) 100%);
-    box-shadow: 0 0 8px var(--gold-glow);
+    content: ""; width: 3px; height: 15px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--kz-cyan) 0%, var(--kz-gold) 100%);
   }
 
-  /* ========== SUMMARY ========== */
-  .summary-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; }
-
-  .summary-box, .mini-box {
-    background: var(--bg-2);
-    border: 1px solid var(--border-1);
-    border-radius: var(--radius);
-    padding: 20px;
-  }
-
-  .summary-box p, .mini-box p { color: var(--text-1); line-height: 1.8; font-size: 14px; }
-
-  .mini-title {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--text-4);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-
-  .mini-kv { display: grid; gap: 10px; }
-  .mini-kv-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 8px;
-    border-bottom: 1px dashed var(--border-1);
-  }
-  .mini-kv-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .mini-kv-key {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-  }
-  .mini-kv-val {
-    color: var(--text-0);
-    font-size: 13px;
-    font-family: var(--font-mono);
-    text-align: right;
-  }
-  .mini-kv-val.gold { color: var(--gold); }
-
-  /* ========== SCENARIOS ========== */
-  .scenarios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-
+  /* ========== SCENARIOS (3D TILT CARDS) ========== */
+  .scenarios-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
   .scenario-card {
-    background: var(--bg-2);
-    border: 1px solid var(--border-1);
-    border-radius: var(--radius);
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden; isolation: isolate;
+    background: var(--kz-surface2); border: 1px solid var(--kz-line);
+    border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 11px;
+    transition: transform 0.22s var(--ease-out), border-color 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
   }
-
-  .scenario-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--border-2);
-  }
-
-  .scenario-card.primary { border-color: rgba(251,191,36,0.3); background: linear-gradient(135deg, rgba(251,191,36,0.04) 0%, var(--bg-2) 100%); }
-  .scenario-card.primary::after { background: linear-gradient(90deg, var(--gold), var(--gold-3)); }
-  .scenario-card.alternative { border-color: rgba(56,189,248,0.25); }
-  .scenario-card.alternative::after { background: var(--sky); }
-  .scenario-card.invalidation { border-color: rgba(244,63,94,0.25); }
-  .scenario-card.invalidation::after { background: var(--rose); }
+  .scenario-card.primary { border-color: rgba(243, 190, 98, 0.48); box-shadow: 0 0 28px -14px rgba(243, 190, 98, 0.45); }
+  .scenario-card.alternative { border-color: rgba(56, 213, 231, 0.32); }
+  .scenario-card.invalidation { border-color: rgba(251, 113, 133, 0.32); }
 
   .scenario-type {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    font-weight: 500;
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 800;
+    letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .scenario-type.primary { color: var(--gold); }
-  .scenario-type.alternative { color: var(--sky); }
-  .scenario-type.invalidation { color: var(--rose); }
+  .scenario-type.primary { color: var(--kz-gold); }
+  .scenario-type.alternative { color: var(--kz-cyan); }
+  .scenario-type.invalidation { color: var(--kz-rose); }
 
-  .scenario-bias {
-    display: inline-block;
-    margin-bottom: 12px;
-    padding: 3px 9px;
-    border-radius: 999px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  .scenario-bias { font-size: 15px; font-weight: 800; }
+  .scenario-bias.bullish { color: var(--kz-green); }
+  .scenario-bias.bearish { color: var(--kz-rose); }
+  .scenario-bias.neutral { color: var(--kz-cyan); }
+  .scenario-setup { font-size: 13px; color: var(--kz-text2); line-height: 1.6; flex: 1; }
+
+  .scenario-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    padding: 10px 0; border-top: 1px dashed var(--kz-line); border-bottom: 1px dashed var(--kz-line);
   }
+  .stat-label { font-family: "JetBrains Mono", monospace; font-size: 9.5px; color: var(--kz-subtle); text-transform: uppercase; }
+  .stat-value { font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-weight: 800; margin-top: 3px; word-break: break-word; }
+  .stat-value.green { color: var(--kz-green); }
+  .stat-value.red { color: var(--kz-rose); }
+  .stat-value.gold { color: var(--kz-gold); }
 
-  .scenario-bias.bullish { color: var(--emerald); background: var(--emerald-soft); }
-  .scenario-bias.bearish { color: var(--rose); background: var(--rose-soft); }
-  .scenario-bias.neutral { color: var(--sky); background: var(--sky-soft); }
+  .prob-head { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--kz-muted); margin-bottom: 6px; font-weight: 700; }
+  .prob-track { height: 7px; border-radius: 999px; background: var(--kz-deep); overflow: hidden; border: 1px solid var(--kz-line); }
+  .prob-fill { height: 100%; width: 0%; border-radius: 999px; transition: width 0.9s var(--ease-out); }
+  .prob-fill.primary { background: linear-gradient(90deg, #e59d24, #f3be62); }
+  .prob-fill.alternative { background: linear-gradient(90deg, #0284c7, #38d5e7); }
+  .prob-fill.invalidation { background: linear-gradient(90deg, #e11d48, #fb7185); }
 
-  .scenario-setup { color: var(--text-1); line-height: 1.65; font-size: 13px; margin-bottom: 16px; }
+  /* ========== VISUAL PRICE LADDER & GRIDS ========== */
+  .dual-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .triple-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 18px; }
 
-  .scenario-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; margin-bottom: 14px; }
-
-  .stat-label {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
+  .ladder { display: grid; gap: 8px; }
+  .ladder-row {
+    display: grid; grid-template-columns: 10px 92px 1fr auto; align-items: center; gap: 10px;
+    padding: 9px 12px; border-radius: 10px; background: var(--kz-surface2); border: 1px solid var(--kz-line);
   }
-  .stat-value {
-    font-size: 13px;
-    color: var(--text-0);
-    line-height: 1.5;
-    font-family: var(--font-mono);
+  .ladder-row.current {
+    border-color: var(--kz-gold); background: linear-gradient(90deg, var(--kz-gold-soft), var(--kz-surface2));
   }
-  .stat-value.green { color: var(--emerald); }
-  .stat-value.red { color: var(--rose); }
-  .stat-value.gold { color: var(--gold); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; }
+  .dot.resistance { background: var(--kz-rose); box-shadow: 0 0 8px var(--kz-rose); }
+  .dot.current { background: var(--kz-gold); box-shadow: 0 0 10px var(--kz-gold); }
+  .dot.support { background: var(--kz-green); box-shadow: 0 0 8px var(--kz-green); }
+  .dot.ref { background: var(--kz-cyan); }
+  .level-type { font-size: 11.5px; font-weight: 700; color: var(--kz-muted); }
+  .level-bar-wrap { height: 6px; border-radius: 999px; background: var(--kz-deep); overflow: hidden; }
+  .level-bar { height: 100%; border-radius: 999px; }
+  .level-price { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 800; color: var(--kz-strong); }
 
-  .prob-wrap { margin-top: 10px; }
-  .prob-head {
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--text-4);
-    margin-bottom: 7px;
-  }
-  .prob-track { height: 5px; background: var(--bg-3); border-radius: 999px; overflow: hidden; }
-  .prob-fill {
-    height: 100%;
-    width: 0;
-    transition: width 0.5s var(--ease-out);
-    border-radius: 999px;
-  }
-  .prob-fill.primary { background: linear-gradient(90deg, var(--gold-3), var(--gold)); box-shadow: 0 0 8px var(--gold-glow); }
-  .prob-fill.alternative { background: var(--sky); }
-  .prob-fill.invalidation { background: var(--rose); }
-
-  /* ========== GRIDS ========== */
-  .triple-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .dual-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-  /* ========== TF TABLE ========== */
-  .tf-table { width: 100%; border-collapse: collapse; }
-  .tf-table tr { border-bottom: 1px solid var(--border-1); }
-  .tf-table tr:last-child { border-bottom: none; }
-  .tf-table td { padding: 12px 8px; vertical-align: top; }
-
-  .tf-name {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--gold);
-    width: 56px;
-    font-weight: 500;
-  }
-
-  .tf-trend {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-family: var(--font-mono);
-    font-size: 10px;
-    margin-right: 8px;
-    margin-bottom: 4px;
-  }
-
-  .tf-trend.bullish { color: var(--emerald); background: var(--emerald-soft); }
-  .tf-trend.bearish { color: var(--rose); background: var(--rose-soft); }
-  .tf-trend.neutral { color: var(--sky); background: var(--sky-soft); }
-
-  .tf-desc { color: var(--text-1); font-size: 12px; line-height: 1.55; }
-
-  /* ========== LEVELS ========== */
-  .levels { display: grid; gap: 8px; }
-
-  .level {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 11px 14px;
-    border-radius: var(--radius-sm);
-    background: var(--bg-2);
-    border: 1px solid var(--border-1);
-    transition: all 0.18s var(--ease-out);
-  }
-
-  .level:hover { border-color: var(--border-3); }
-
-  .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .dot.resistance { background: var(--rose); box-shadow: 0 0 10px rgba(244,63,94,0.5); }
-  .dot.support { background: var(--emerald); box-shadow: 0 0 10px rgba(16,185,129,0.5); }
-  .dot.current { background: var(--gold); box-shadow: 0 0 10px rgba(251,191,36,0.6); }
-
-  .level-type {
-    width: 80px;
-    font-family: var(--font-mono);
-    font-size: 9px;
-    text-transform: uppercase;
-    color: var(--text-3);
-    letter-spacing: 0.8px;
-  }
-  .level-price {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-0);
-    flex: 1;
-  }
-
-  /* ========== LISTS ========== */
-  .list-stack { display: grid; gap: 8px; }
-
+  .list-stack { display: grid; gap: 9px; }
   .list-item {
-    background: var(--bg-2);
-    border: 1px solid var(--border-1);
-    border-radius: var(--radius-sm);
-    padding: 11px 13px;
-    color: var(--text-1);
-    font-size: 13px;
-    line-height: 1.6;
+    padding: 11px 13px; border-radius: 10px; background: var(--kz-surface2);
+    border: 1px solid var(--kz-line); font-size: 13px; color: var(--kz-text2); line-height: 1.55;
   }
+  .list-item.bull { border-left: 3px solid var(--kz-green); }
+  .list-item.bear { border-left: 3px solid var(--kz-rose); }
+  .list-item.risk { border-left: 3px solid var(--kz-gold); background: rgba(243,190,98,0.05); }
 
-  .list-item.bull { border-color: rgba(16,185,129,0.15); background: rgba(16,185,129,0.04); }
-  .list-item.bear { border-color: rgba(244,63,94,0.15); background: rgba(244,63,94,0.04); }
-  .list-item.risk { border-color: rgba(244,63,94,0.15); background: rgba(244,63,94,0.04); }
-
-  /* ========== MATRIX ========== */
-  .matrix-wrap { overflow-x: auto; }
-  .matrix { width: 100%; border-collapse: collapse; min-width: 600px; }
-  .matrix th {
-    text-align: left;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border-1);
-    color: var(--text-4);
-    font-family: var(--font-mono);
-    font-size: 9px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .matrix td {
-    padding: 12px;
-    border-bottom: 1px solid var(--border-1);
-    color: var(--text-1);
-    font-size: 12px;
-    vertical-align: top;
-  }
-  .matrix tr:last-child td { border-bottom: none; }
-  .matrix tr:hover td { background: var(--bg-2); }
-
-  /* ========== ACTION PLAN ========== */
-  .exec-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-
+  /* ========== EXECUTION & CHECKLIST ========== */
+  .exec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 11px; margin-bottom: 16px; }
   .exec-card {
-    background: var(--bg-2);
-    border: 1px solid var(--border-1);
-    border-radius: var(--radius);
-    padding: 14px 16px;
+    background: var(--kz-surface2); border: 1px solid var(--kz-line); border-radius: 11px; padding: 13px 14px;
   }
   .exec-key {
-    font-family: var(--font-mono);
-    font-size: 9px;
-    color: var(--text-4);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700;
+    color: var(--kz-cyan); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px;
   }
-  .exec-val { color: var(--text-0); font-size: 13px; line-height: 1.6; }
+  .exec-val { font-size: 13px; color: var(--kz-strong); line-height: 1.5; }
 
   .checklist { display: grid; gap: 8px; }
-
   .check {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    padding: 10px 14px;
-    border-radius: var(--radius-sm);
-    background: var(--bg-2);
-    border: 1px solid var(--border-1);
-    cursor: pointer;
-    transition: all 0.18s var(--ease-out);
+    display: flex; align-items: flex-start; gap: 11px; padding: 11px 13px; border-radius: 11px;
+    background: var(--kz-surface2); border: 1px solid var(--kz-line); cursor: pointer;
+    transition: border-color 0.18s ease, background 0.18s ease;
   }
-
-  .check:hover { background: var(--bg-3); }
-
+  .check:hover { border-color: var(--kz-cyan); }
+  .check.checked { border-color: rgba(52,211,153,0.45); background: var(--kz-green-soft); }
   .check-box {
-    width: 18px; height: 18px;
-    border: 1.5px solid var(--border-3);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: transparent;
-    font-size: 12px;
-    flex-shrink: 0;
-    transition: all 0.18s var(--ease-spring);
+    width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--kz-line2);
+    display: grid; place-items: center; font-size: 12px; font-weight: 900; color: transparent; flex-shrink: 0;
+  }
+  .check.checked .check-box { background: var(--kz-green); border-color: var(--kz-green); color: #04131c; }
+  .check.checked .check-text { text-decoration: line-through; opacity: 0.72; }
+  .check-text { font-size: 13px; color: var(--kz-text); }
+
+  /* ========== MATRIX TABLE ========== */
+  .matrix-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--kz-line); }
+  table.matrix { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 680px; }
+  table.matrix th, table.matrix td { padding: 11px 13px; text-align: left; border-bottom: 1px solid var(--kz-line); vertical-align: top; }
+  table.matrix thead th {
+    background: var(--kz-surface2); color: var(--kz-muted);
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  table.matrix tbody tr:last-child td { border-bottom: 0; }
+  table.matrix tbody tr:hover { background: var(--kz-surface-hover); }
+
+  /* ========== ECOSYSTEM CROSS-LINK BANNER ========== */
+  .eco-strip {
+    border-radius: var(--radius-lg); padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(16,29,53,0.95) 0%, rgba(10,20,38,0.98) 60%, rgba(13,42,60,0.95) 100%);
+    border: 1px solid rgba(56, 213, 231, 0.32);
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;
+    color: #e6eef8;
   }
 
-  .check.checked .check-box {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--bg-0);
-    font-weight: 700;
-    transform: scale(1.05);
+  /* ========== SKELETON & EMPTY ========== */
+  .skeleton-stack { display: grid; gap: 18px; }
+  .skel {
+    background: linear-gradient(90deg, var(--kz-surface) 0%, var(--kz-surface-hover) 50%, var(--kz-surface) 100%);
+    background-size: 200% 100%; animation: shimmer 1.5s ease infinite; border-radius: var(--radius);
   }
-  .check.checked .check-text { text-decoration: line-through; color: var(--text-4); }
-  .check-text { color: var(--text-1); font-size: 13px; line-height: 1.5; }
-
-  /* ========== FAB (Mobile only) ========== */
-  .fab {
-    display: none;
-    position: fixed;
-    right: 20px;
-    bottom: calc(20px + var(--safe-bottom));
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-3) 100%);
-    color: var(--bg-0);
-    border: none;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 8px 24px rgba(251,191,36,0.4), 0 0 0 1px rgba(251,191,36,0.5);
-    z-index: 90;
-    font-size: 22px;
-    transition: all 0.25s var(--ease-spring);
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+  .empty {
+    min-height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; color: var(--kz-muted); text-align: center; padding: 24px;
   }
 
-  .fab:hover { transform: translateY(-2px) scale(1.05); }
-  .fab:active { transform: scale(0.95); }
-
-  .fab-badge {
-    position: absolute;
-    top: -3px;
-    right: -3px;
-    background: var(--rose);
-    color: white;
-    font-size: 10px;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    min-width: 20px;
-    height: 20px;
-    border-radius: 999px;
-    padding: 0 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--bg-0);
-  }
-
-  /* ========== BOTTOM SHEET (Mobile only) ========== */
+  /* ========== MOBILE BOTTOM SHEET, FAB, TOAST, SPARKLE ========== */
   .sheet-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(4px);
-    z-index: 200;
-    opacity: 0;
-    transition: opacity 0.3s var(--ease-out);
+    position: fixed; inset: 0; background: rgba(4, 10, 20, 0.68); backdrop-filter: blur(4px);
+    z-index: 120; opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
   }
-
-  .sheet-backdrop.open {
-    display: block;
-    opacity: 1;
-  }
-
+  .sheet-backdrop.open { opacity: 1; pointer-events: auto; }
   .bottom-sheet {
-    display: none;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg-1);
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    box-shadow: 0 -8px 32px rgba(0,0,0,0.5);
-    z-index: 201;
-    transform: translateY(100%);
-    transition: transform 0.35s var(--ease-out);
-    max-height: 88vh;
-    flex-direction: column;
-    padding-bottom: var(--safe-bottom);
+    position: fixed; left: 0; right: 0; bottom: 0; max-height: 84vh; z-index: 130;
+    background: var(--kz-deep); border-top: 1px solid var(--kz-line2);
+    border-radius: 22px 22px 0 0; transform: translateY(100%); transition: transform 0.3s var(--ease-out);
+    display: flex; flex-direction: column; padding-bottom: var(--safe-bottom);
   }
-
-  .bottom-sheet.open {
-    display: flex;
-    transform: translateY(0);
-  }
-
-  .sheet-handle {
-    width: 100%;
-    padding: 10px 0 6px;
-    display: flex;
-    justify-content: center;
-    cursor: grab;
-    touch-action: none;
-  }
-
-  .sheet-handle::before {
-    content: '';
-    width: 40px;
-    height: 4px;
-    border-radius: 999px;
-    background: var(--border-3);
-  }
-
+  .bottom-sheet.open { transform: translateY(0); }
+  .sheet-handle { width: 42px; height: 4px; border-radius: 99px; background: var(--kz-line2); margin: 10px auto 4px; cursor: grab; }
   .sheet-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4px 18px 14px;
-    border-bottom: 1px solid var(--border-1);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 18px 12px; border-bottom: 1px solid var(--kz-line);
   }
-
-  .sheet-title {
-    font-family: var(--font-display);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-0);
-  }
-
+  .sheet-title { font-weight: 800; font-size: 15px; color: var(--kz-strong); }
   .sheet-close {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--bg-3);
-    border: 1px solid var(--border-2);
-    color: var(--text-2);
-    font-size: 18px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.18s var(--ease-out);
+    width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--kz-line);
+    background: var(--kz-surface); color: var(--kz-text); cursor: pointer;
+  }
+  .sheet-content { overflow-y: auto; flex: 1; }
+
+  .fab {
+    display: none; position: fixed; right: 18px; bottom: calc(20px + var(--safe-bottom)); z-index: 110;
+    width: 54px; height: 54px; border-radius: 50%; border: 0; cursor: pointer;
+    background: linear-gradient(135deg, #0284c7, #38d5e7); color: #04131c; font-size: 20px;
+    box-shadow: 0 12px 28px rgba(56, 213, 231, 0.45); align-items: center; justify-content: center;
+  }
+  .fab-badge {
+    position: absolute; top: -4px; right: -4px; min-width: 22px; height: 22px; padding: 0 6px;
+    border-radius: 999px; background: var(--kz-gold); color: #211400; font-family: "JetBrains Mono", monospace;
+    font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center;
   }
 
-  .sheet-close:hover { background: var(--bg-4); color: var(--text-0); }
-
-  .sheet-content {
-    flex: 1;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* ========== TOAST ========== */
-  .toast-container {
-    position: fixed;
-    top: 78px;
-    right: 16px;
-    z-index: 150;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    pointer-events: none;
-  }
-
-  .toast {
-    background: var(--bg-2);
-    border: 1px solid var(--gold);
-    border-radius: var(--radius);
-    padding: 12px 16px;
-    color: var(--text-0);
-    font-size: 13px;
-    box-shadow: var(--shadow-3), 0 0 0 1px var(--gold-soft);
-    pointer-events: auto;
-    cursor: pointer;
-    animation: toastIn 0.4s var(--ease-spring), toastOut 0.4s var(--ease-out) 4.5s forwards;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    max-width: 320px;
-  }
-
-  .toast::before {
-    content: '🔔';
-    font-size: 16px;
-  }
-
-  @keyframes toastIn {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  @keyframes toastOut {
-    to { opacity: 0; transform: translateX(20px); }
-  }
-
-  /* ========== SCROLL TOP ========== */
   .scroll-top {
-    position: fixed;
-    right: 20px;
-    bottom: calc(20px + var(--safe-bottom));
-    width: 42px; height: 42px;
-    border-radius: 50%;
-    background: var(--bg-3);
-    border: 1px solid var(--border-3);
-    color: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: var(--shadow-2);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.25s var(--ease-out);
-    z-index: 89;
-    font-size: 18px;
+    position: fixed; right: 20px; bottom: 24px; z-index: 95; width: 42px; height: 42px;
+    border-radius: 12px; background: var(--kz-surface); border: 1px solid var(--kz-line2);
+    color: var(--kz-cyan); display: grid; place-items: center; cursor: pointer; font-weight: 800;
+    opacity: 0; transform: translateY(10px); pointer-events: none; transition: all 0.2s ease;
+  }
+  .scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+  .toast-container { position: fixed; right: 20px; bottom: 22px; z-index: 160; display: grid; gap: 8px; }
+  .toast {
+    padding: 12px 16px; border-radius: 12px; background: #0f293a; border: 1px solid #38d5e7;
+    color: #fff; font-size: 13px; font-weight: 700; box-shadow: 0 14px 32px rgba(0,0,0,0.45); cursor: pointer;
   }
 
-  .scroll-top.visible { opacity: 1; pointer-events: auto; }
-  .scroll-top:hover { background: var(--bg-4); transform: translateY(-2px); }
+  .kz-sparkle {
+    position: fixed; width: 7px; height: 7px; border-radius: 50%; pointer-events: none; z-index: 200;
+    transition: transform 0.56s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.56s ease;
+  }
 
   /* ========== RESPONSIVE ========== */
-  @media (max-width: 1100px) {
+  @media (max-width: 1180px) {
+    .mtf-radar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .triple-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 1080px) {
     .layout { grid-template-columns: 1fr; }
     .sidebar { display: none; }
     .fab { display: flex; }
-    .scroll-top { right: 88px; }
-    .summary-grid, .scenarios-grid, .triple-grid, .dual-grid {
-      grid-template-columns: 1fr;
-    }
-    .hero-inner { grid-template-columns: 1fr; }
+    .scroll-top { bottom: 86px; }
+    .scenarios-grid, .dual-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 720px) {
+    .hero-inner { grid-template-columns: 1fr; padding: 20px; }
     .hero-price { text-align: left; }
     .hero-sparkline { margin-left: 0; }
-  }
-
-  @media (max-width: 640px) {
-    .nav { padding: 0 14px; }
+    .mtf-radar { grid-template-columns: 1fr; }
     .last-updated { display: none; }
-    .content-inner { padding: 16px; gap: 14px; }
-    .hero-inner { padding: 22px; }
-    .panel-body { padding: 18px 20px; }
-    .hero-title { font-size: 28px; }
-    .hero-price-value { font-size: 32px; }
+    .content-inner { padding: 16px 14px 86px; gap: 14px; }
   }
-
-  /* Reduce motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
-    }
+    *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
   }
 </style>
 </head>
 <body>
 
-  <!-- ========== NAV ========== -->
-  <div class="nav">
+  <!-- Scroll Progress Beam -->
+  <div class="kz-scroll-beam-track" aria-hidden="true">
+    <div class="kz-scroll-beam" id="kzScrollBeam"></div>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="nav">
     <div class="nav-brand">
-      <div class="brand-mark">K</div>
-      <span>KenvinZone</span>
+      <a href="index.html" class="kz-logo">
+        <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <rect width="28" height="28" rx="7" fill="#0A1426" stroke="#38D5E7" stroke-opacity="0.45"/>
+          <path d="M5 20L10.5 14.5L15 18.2L23 7.5" stroke="#38D5E7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="23" cy="7.5" r="2.2" fill="#F3BE62"/>
+        </svg>
+        <span>KENVINZONE</span>
+      </a>
+      <span class="kz-prod-badge">STRATEGY DESK · 4H AI</span>
+      <nav class="nav-links">
+        <a href="https://prop.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="gold">Prop Firm Hub</a>
+        <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer">Aurora V12.2</a>
+        <a href="https://kenvinzone.com/" target="_blank" rel="noopener noreferrer">KenvinZone.com</a>
+      </nav>
     </div>
     <div class="nav-right">
-      <div class="live-pill"><span class="live-dot"></span>LIVE</div>
+      <div class="live-pill"><span class="live-dot"></span>LIVE AI</div>
       <div class="last-updated" id="lastUpdated">—</div>
+      <button type="button" class="kz-icon-btn" id="refreshBtn" title="Làm mới báo cáo ngay" aria-label="Refresh">↻</button>
+      <button type="button" class="kz-icon-btn" id="themeToggle" title="Chuyển giao diện Sáng / Tối" aria-label="Toggle theme">🌓</button>
     </div>
-  </div>
+  </header>
 
   <!-- ========== LAYOUT ========== -->
   <div class="layout">
-
-    <!-- Sidebar (desktop) -->
+    <!-- Sidebar (Desktop) -->
     <aside class="sidebar">
       <div class="sidebar-inner">
         <div class="search-block">
-          <input type="text" id="searchInput" class="search-input" placeholder="Tìm báo cáo, insight, sự kiện..." />
+          <input type="text" id="searchInput" class="search-input" placeholder="Tìm XAUUSD, US100, insight, sự kiện... (phím /)" />
         </div>
-
         <div class="month-selector">
           <select class="month-select" id="monthSelect">
-            <option value="">Đang tải...</option>
+            <option value="">Đang tải dữ liệu...</option>
           </select>
         </div>
-
         <div class="time-filter">
           <button class="tf-btn active" data-time="all">Tất cả</button>
           <button class="tf-btn" data-time="today">Hôm nay</button>
           <button class="tf-btn" data-time="week">Tuần này</button>
           <button class="tf-btn" data-time="month">Tháng này</button>
         </div>
-
         <div class="filters">
           <div class="filter-block">
             <div class="filter-label">Instrument</div>
@@ -1379,67 +731,181 @@
             </div>
           </div>
         </div>
-
         <div class="stats-bar" id="statsBar">
           <div class="stat-cell"><div class="num total" id="statTotal">0</div><div class="lbl">Tổng</div></div>
           <div class="stat-cell"><div class="num bull" id="statBull">0</div><div class="lbl">Bull</div></div>
           <div class="stat-cell"><div class="num bear" id="statBear">0</div><div class="lbl">Bear</div></div>
         </div>
-
         <div class="report-list" id="reportList">
-          <div class="skeleton-stack" style="padding:12px">
-            <div class="skel" style="height:80px;border-radius:14px"></div>
-            <div class="skel" style="height:80px;border-radius:14px"></div>
-            <div class="skel" style="height:80px;border-radius:14px"></div>
+          <div class="skeleton-stack" style="padding:8px">
+            <div class="skel" style="height:82px"></div>
+            <div class="skel" style="height:82px"></div>
+            <div class="skel" style="height:82px"></div>
           </div>
         </div>
       </div>
     </aside>
 
-    <!-- Content -->
+    <!-- Main Content -->
     <main class="content">
       <div class="content-inner" id="content">
         <div class="skeleton-stack">
-          <div class="skel skel-hero"></div>
-          <div class="skel skel-row"></div>
-          <div class="skel-grid">
-            <div class="skel skel-card"></div>
-            <div class="skel skel-card"></div>
-            <div class="skel skel-card"></div>
-          </div>
+          <div class="skel" style="height:220px"></div>
+          <div class="skel" style="height:120px"></div>
+          <div class="skel" style="height:210px"></div>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- ========== MOBILE BOTTOM SHEET ========== -->
+  <!-- Mobile Bottom Sheet -->
   <div class="sheet-backdrop" id="sheetBackdrop"></div>
   <div class="bottom-sheet" id="bottomSheet">
     <div class="sheet-handle" id="sheetHandle"></div>
     <div class="sheet-header">
-      <div class="sheet-title">Danh sách báo cáo</div>
+      <div class="sheet-title">Danh sách báo cáo 4H AI</div>
       <button class="sheet-close" id="sheetClose" aria-label="Đóng">✕</button>
     </div>
-    <div class="sheet-content" id="sheetContent">
-      <!-- Mobile sidebar content goes here -->
-    </div>
+    <div class="sheet-content" id="sheetContent"></div>
   </div>
 
-  <!-- ========== FAB (Mobile) ========== -->
+  <!-- Mobile FAB -->
   <button class="fab" id="fabBtn" aria-label="Mở danh sách báo cáo">
     📋
     <span class="fab-badge" id="fabBadge" style="display:none">0</span>
   </button>
 
-  <!-- ========== SCROLL TOP ========== -->
+  <!-- Scroll Top -->
   <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Lên đầu trang">↑</div>
 
-  <!-- ========== TOAST ========== -->
+  <!-- Toast Container -->
   <div class="toast-container" id="toastContainer"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script>
 // ============================================================
-// UTILS
+// THEME & MOTION UTILITIES
+// ============================================================
+const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+(function initThemeAndMotion(){
+  const btn = document.getElementById('themeToggle');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('kz-theme', next); } catch(_) {}
+      try {
+        const domainAttr = /\.?kenvinzone\.com$/i.test(location.hostname) ? '; domain=.kenvinzone.com' : '';
+        document.cookie = `kz-theme=${next}; path=/${domainAttr}; max-age=31536000; SameSite=Lax`;
+      } catch(_) {}
+    });
+  }
+
+  // Scroll Progress Telemetry Beam
+  const beam = document.getElementById('kzScrollBeam');
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    const topBtn = document.getElementById('scrollTop');
+    if (topBtn) topBtn.classList.toggle('visible', window.scrollY > 320);
+    if (!ticking && beam) {
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        beam.style.transform = `scaleX(${Math.min(1, Math.max(0, window.scrollY / max)).toFixed(4)})`;
+      });
+    }
+  }, { passive: true });
+
+  // Pointer Spotlight + 3D Tilt on Scenario Cards
+  if (!prefersReduced) {
+    document.addEventListener('pointermove', (e) => {
+      const card = e.target && e.target.closest ? e.target.closest('.panel, .scenario-card, .mtf-card') : null;
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left).toFixed(1) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top).toFixed(1) + 'px');
+      if (card.classList.contains('scenario-card') && window.innerWidth >= 960) {
+        const nx = (e.clientX - r.left) / r.width - 0.5;
+        const ny = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(900px) rotateX(${(-ny * 5).toFixed(2)}deg) rotateY(${(nx * 6).toFixed(2)}deg) translateY(-2px)`;
+      }
+    }, { passive: true });
+
+    document.addEventListener('pointerout', (e) => {
+      const card = e.target && e.target.closest ? e.target.closest('.scenario-card') : null;
+      if (card && !card.contains(e.relatedTarget)) card.style.transform = '';
+    }, { passive: true });
+  }
+})();
+
+function spawnSparkles(x, y) {
+  if (prefersReduced) return;
+  const colors = ['#38D5E7', '#F3BE62', '#34D399', '#FFFFFF'];
+  for (let i = 0; i < 12; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'kz-sparkle';
+    dot.style.left = (x || window.innerWidth / 2) + 'px';
+    dot.style.top = (y || window.innerHeight / 2) + 'px';
+    dot.style.background = colors[i % colors.length];
+    document.body.appendChild(dot);
+    const a = (Math.PI * 2 * i) / 12 + (Math.random() - 0.5) * 0.4;
+    const d = 28 + Math.random() * 40;
+    requestAnimationFrame(() => {
+      dot.style.transform = `translate3d(${(Math.cos(a)*d).toFixed(1)}px, ${(Math.sin(a)*d - 10).toFixed(1)}px, 0) scale(0)`;
+      dot.style.opacity = '0';
+    });
+    setTimeout(() => dot.remove(), 600);
+  }
+}
+
+let heroCanvasRaf = null;
+function startHeroFlowCanvas() {
+  if (heroCanvasRaf) cancelAnimationFrame(heroCanvasRaf);
+  const canvas = document.getElementById('kzHeroCanvas');
+  if (!canvas || prefersReduced) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  let phase = 0;
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    if (w <= 0 || h <= 0) return;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function drawWave(w, h, yFrac, amp, freq, spd, color) {
+    ctx.beginPath();
+    for (let i = 0; i <= 42; i++) {
+      const u = i / 42;
+      const x = u * w;
+      const y = yFrac * h + Math.sin(u * freq + phase * spd) * amp + Math.cos(u * freq * 0.5 - phase * 0.6) * (amp * 0.45);
+      if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = color; ctx.lineWidth = 1.3; ctx.stroke();
+  }
+  function loop() {
+    if (!document.body.contains(canvas)) return;
+    if (!document.hidden) {
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      if (w > 0 && h > 0) {
+        ctx.clearRect(0, 0, w, h);
+        phase += 0.013;
+        drawWave(w, h, 0.35, 18, 5.0, 1.0, 'rgba(56, 213, 231, 0.16)');
+        drawWave(w, h, 0.62, 22, 4.2, -0.8, 'rgba(243, 190, 98, 0.12)');
+        drawWave(w, h, 0.80, 14, 6.0, 0.7, 'rgba(52, 211, 153, 0.10)');
+      }
+    }
+    heroCanvasRaf = requestAnimationFrame(loop);
+  }
+  resize();
+  loop();
+}
+
+// ============================================================
+// DATA UTILS (100% COMPATIBLE WITH MAKE.COM + CLAUDE JSON)
 // ============================================================
 function esc(str) {
   return String(str ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
@@ -1456,7 +922,6 @@ function safeArr(v) {
   if (v && typeof v === 'object') return Object.values(v);
   return [];
 }
-
 function normalizeInstrument(inst) {
   const s = String(inst || '').toUpperCase();
   if (!s) return 'N/A';
@@ -1465,32 +930,20 @@ function normalizeInstrument(inst) {
   if (s.includes('VN') || s.includes('VNINDEX')) return 'VNINDEX';
   return inst;
 }
-
 function getBiasClass(bias) {
   const b = String(bias || '').toLowerCase();
-  if (b.includes('bull') || b.includes('long') || b.includes('up')) return 'bullish';
-  if (b.includes('bear') || b.includes('short') || b.includes('down')) return 'bearish';
+  if (b.includes('bull') || b.includes('long') || b.includes('tăng') || b.includes('mua')) return 'bullish';
+  if (b.includes('bear') || b.includes('short') || b.includes('giảm') || b.includes('bán')) return 'bearish';
   return 'neutral';
 }
-
-function getBiasIcon(cls) {
-  if (cls === 'bullish') return '▲';
-  if (cls === 'bearish') return '▼';
-  return '◆';
-}
-
+function getBiasIcon(cls) { return cls === 'bullish' ? '▲' : cls === 'bearish' ? '▼' : '◆'; }
 function getConfidenceClass(v) {
-  if (typeof v === 'number') {
-    if (v >= 70) return 'conf-high';
-    if (v >= 45) return 'conf-medium';
-    return 'conf-low';
-  }
+  if (typeof v === 'number') return v >= 70 ? 'conf-high' : v >= 45 ? 'conf-medium' : 'conf-low';
   const s = String(v || '').toLowerCase();
   if (s.includes('high') || s.includes('strong') || s.includes('cao')) return 'conf-high';
   if (s.includes('med') || s.includes('trung')) return 'conf-medium';
   return 'conf-low';
 }
-
 function fmtTs(ts) {
   try {
     const d = new Date(ts);
@@ -1498,7 +951,6 @@ function fmtTs(ts) {
     return d.toLocaleString('vi-VN', { year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit' });
   } catch { return String(ts); }
 }
-
 function fmtRelativeTime(ts) {
   try {
     const d = new Date(ts);
@@ -1511,13 +963,11 @@ function fmtRelativeTime(ts) {
     return fmtTs(ts);
   } catch { return '—'; }
 }
-
 function fmtPrice(v) {
   const n = Number(v);
-  if (Number.isFinite(n)) return n.toLocaleString('vi-VN', { minimumFractionDigits:0, maximumFractionDigits:2 });
+  if (Number.isFinite(n)) return n.toLocaleString('en-US', { minimumFractionDigits:0, maximumFractionDigits:2 });
   return safeStr(v);
 }
-
 function probValue(v) {
   if (v === null || v === undefined || v === '') return 0;
   const n = Number(v);
@@ -1525,23 +975,19 @@ function probValue(v) {
   const m = String(v).match(/(\d+(\.\d+)?)/);
   return m ? Number(m[1]) : 0;
 }
-
 function textArray(v) {
   return safeArr(v).map(item => {
     if (typeof item === 'object') return safeStr(item.factor || item.description || item.name || item.title || item.event || item);
     return safeStr(item);
   });
 }
-
 function getMonthKey(date) {
   const d = new Date(date);
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
 }
-
 function getMonthLabel(key) {
   const [y, m] = key.split('-');
-  const months = ['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
-  return `${months[parseInt(m)-1]} ${y}`;
+  return `Tháng ${parseInt(m)} / ${y}`;
 }
 
 // ============================================================
@@ -1555,19 +1001,13 @@ let availableMonths = [];
 let lastReportId = null;
 let pollTimer = null;
 
-// Persistent checklist state
 const CHECKLIST_KEY = 'kenvinzone_checklist_v1';
-function loadChecklistState() {
-  try { return JSON.parse(localStorage.getItem(CHECKLIST_KEY) || '{}'); }
-  catch { return {}; }
-}
-function saveChecklistState(state) {
-  try { localStorage.setItem(CHECKLIST_KEY, JSON.stringify(state)); } catch {}
-}
+function loadChecklistState() { try { return JSON.parse(localStorage.getItem(CHECKLIST_KEY) || '{}'); } catch { return {}; } }
+function saveChecklistState(state) { try { localStorage.setItem(CHECKLIST_KEY, JSON.stringify(state)); } catch {} }
 let checklistState = loadChecklistState();
 
 // ============================================================
-// NORMALIZE
+// NORMALIZE REPORT
 // ============================================================
 function normalizeScenario(key, v) {
   const s = safeObj(v);
@@ -1577,7 +1017,7 @@ function normalizeScenario(key, v) {
     bias: safeStr(s.bias || s.direction || s.type || key),
     setup: safeStr(s.setup || s.condition || s.trigger || s.description || s.action || '—'),
     target: Array.isArray(s.target) ? s.target.map(fmtPrice).join(' → ') : safeStr(s.target || s.targets || s.take_profit || s.tp || '—'),
-    stop: safeStr(s.stop_loss || s.stop || s.sl || '—'),
+    stop: fmtPrice(s.stop_loss || s.stop || s.sl || '—'),
     rr: safeStr(s.risk_reward || s.rr || s.ratio || '—'),
     probability: probValue(s.probability || s.prob || 0)
   };
@@ -1586,7 +1026,7 @@ function normalizeScenario(key, v) {
 function normalizeReport(r) {
   let raw = r.raw !== undefined ? r.raw : r;
   if (typeof raw === 'string') {
-    try { raw = JSON.parse(raw); } catch(e) { console.error('Parse raw error', e); return null; }
+    try { raw = JSON.parse(raw); } catch(e) { return null; }
   }
   if (!raw || typeof raw !== 'object') return null;
 
@@ -1599,7 +1039,7 @@ function normalizeReport(r) {
   const checklist = safeObj(raw.action_checklist || raw.actionChecklist);
 
   const instrument = normalizeInstrument(r.instrument || summary.instrument || raw.instrument || raw.metadata?.instrument);
-  const price = r.price_current || summary.current_price || keyLevels.currentPrice || keyLevels.current_price || 0;
+  const price = Number(r.price_current || summary.current_price || keyLevels.currentPrice || keyLevels.current_price || 0);
   const bias = safeStr(summary.primary_bias || summary.bias_direction || summary.bias || raw.bias_primary || raw.bias || 'Neutral');
   const confidence = summary.confidence_level || summary.confidence || raw.confidence || raw.confidence_level || 'N/A';
 
@@ -1609,9 +1049,11 @@ function normalizeReport(r) {
     return {
       tf,
       trend: safeStr(d.bias || d.trend || '—'),
+      ema: safeStr(d.ema_alignment || '', ''),
+      rsi: d.rsi_value ? `RSI ${Number(d.rsi_value).toFixed(1)}` : safeStr(d.rsi_zone || '', ''),
+      macd: safeStr(d.macd_bias || '', ''),
       description: [
         safeStr(d.structure || '', ''),
-        safeStr(d.market_structure || '', ''),
         safeStr(d.intraday_story || '', ''),
         safeStr(d.key_levels || '', ''),
         safeStr(d.momentum || '', ''),
@@ -1637,15 +1079,21 @@ function normalizeReport(r) {
     biasClass: getBiasClass(bias),
     confidence,
     confidenceClass: getConfidenceClass(confidence),
-    insight: safeStr(summary.key_insight || summary.summary || summary.headline || raw.dashboard_summary || raw.telegram_summary || '—'),
-    archetype: safeStr(r.archetype || raw.archetype || raw.metadata?.archetype || 'Báo cáo tự động'),
+    headline: safeStr(summary.headline || '', ''),
+    insight: safeStr(summary.key_insight || summary.summary || raw.dashboard_summary || raw.telegram_summary || '—'),
+    telegramSummary: safeStr(raw.telegram_summary || raw.dashboard_summary || '', ''),
+    archetype: safeStr(r.archetype || raw.archetype || raw.metadata?.archetype || 'Báo cáo 4H AI'),
     datetime,
     dateDisplay: r.date_display || fmtTs(datetime).split(' ')[0],
     timeDisplay: r.time_display || (fmtTs(datetime).split(' ')[1] || '—'),
     dateObj: new Date(datetime),
     monthKey: getMonthKey(datetime),
-    resistance: safeArr(structure.H4?.critical_levels?.resistance || keyLevels.resistance || keyLevels.resistances || []).map(fmtPrice),
-    support: safeArr(structure.H4?.critical_levels?.support || keyLevels.support || keyLevels.supports || []).map(fmtPrice),
+    resistanceNums: safeArr(keyLevels.resistance || structure.H4?.critical_levels?.resistance || []).map(Number).filter(Number.isFinite),
+    supportNums: safeArr(keyLevels.support || structure.H4?.critical_levels?.support || []).map(Number).filter(Number.isFinite),
+    swingHigh: Number(keyLevels.swing_high) || null,
+    swingLow: Number(keyLevels.swing_low) || null,
+    prevDayHigh: Number(keyLevels.prev_day_high) || null,
+    prevDayLow: Number(keyLevels.prev_day_low) || null,
     tfRows,
     bullish: textArray(confluence.bullish_confluence || confluence.bullish_factors || []),
     bearish: textArray(confluence.bearish_confluence || confluence.bearish_factors || []),
@@ -1661,39 +1109,22 @@ function normalizeReport(r) {
     scenarios,
     primaryScenario: scenarios.find(x => x.key === 'primary_scenario') || null,
     alternativeScenario: scenarios.find(x => x.key === 'alternative_scenario') || null,
-    invalidationScenario: scenarios.find(x => x.key === 'invalidation_scenario') || null,
-    docx: r.docx_url || ''
+    invalidationScenario: scenarios.find(x => x.key === 'invalidation_scenario') || null
   };
 }
 
 // ============================================================
-// LOAD DATA
+// SELF-HEALING FETCH (SỬA LỖI JSON TỪ MAKE.COM TỰ ĐỘNG)
 // ============================================================
 const MAX_REPORTS = 50;
 const STORAGE_KEY = 'kenvinzone_reports_v2';
 
-function loadFromStorage() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch(e) { return []; }
-}
-
-// LRU-friendly save with graceful degradation
+function loadFromStorage() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; } }
 function saveToStorage(reports) {
   let attempt = reports.slice(0, MAX_REPORTS);
-  for (let i = 0; i < 5; i++) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(attempt));
-      return;
-    } catch(e) {
-      // Quota exceeded — shrink and retry
-      if (attempt.length <= 5) {
-        try { localStorage.removeItem(STORAGE_KEY); } catch {}
-        return;
-      }
-      attempt = attempt.slice(0, Math.floor(attempt.length * 0.7));
-    }
+  for (let i = 0; i < 4; i++) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(attempt)); return; }
+    catch { attempt = attempt.slice(0, Math.floor(attempt.length * 0.7)); }
   }
 }
 
@@ -1701,11 +1132,17 @@ async function tryFetch(url) {
   try {
     const res = await fetch(url + '?t=' + Date.now());
     if (!res.ok) return [];
-    const json = await res.json();
+    let text = await res.text();
+    // Self-heal common Make.com stray comma bug: "raw":,{ -> "raw":{
+    text = text.replace(/"raw"\s*:\s*,\s*\{/g, '"raw":{');
+    const json = JSON.parse(text);
     if (Array.isArray(json)) return json;
     if (Array.isArray(json.reports)) return json.reports;
     return [json];
-  } catch(e) { return []; }
+  } catch (e) {
+    console.warn('Fetch/Parse fallback for', url, e);
+    return [];
+  }
 }
 
 async function loadReports(showToast = false) {
@@ -1715,10 +1152,9 @@ async function loadReports(showToast = false) {
   ]);
 
   const storedRaw = loadFromStorage();
-
   const seen = new Set();
   const mergedRaw = [...freshRaw, ...historyRaw, ...storedRaw].filter(r => {
-    const id = r.id || r.datetime;
+    const id = r && (r.id || r.datetime);
     if (!id || seen.has(id)) return false;
     seen.add(id);
     return true;
@@ -1728,24 +1164,19 @@ async function loadReports(showToast = false) {
 
   const seen2 = new Set();
   const newReports = mergedRaw.map(normalizeReport).filter(Boolean)
-    .filter(r => {
-      if (seen2.has(r.id)) return false;
-      seen2.add(r.id);
-      return true;
-    })
+    .filter(r => { if (seen2.has(r.id)) return false; seen2.add(r.id); return true; })
     .sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
 
-  // Detect new report for toast
   if (showToast && newReports.length > 0 && lastReportId && newReports[0].id !== lastReportId) {
-    showNewReportToast(newReports[0]);
+    showAppToast(`🔔 Báo cáo mới: ${newReports[0].instrument} · ${newReports[0].bias}`, () => {
+      selectedId = newReports[0].id;
+      renderList(); renderContent(); window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
   if (newReports.length > 0) lastReportId = newReports[0].id;
 
   allReports = newReports;
-
-  const monthSet = new Set(allReports.map(r => r.monthKey));
-  availableMonths = [...monthSet].sort().reverse();
-
+  availableMonths = [...new Set(allReports.map(r => r.monthKey))].sort().reverse();
   updateMonthSelector();
 
   if (allReports.length > 0) {
@@ -1754,170 +1185,118 @@ async function loadReports(showToast = false) {
 
   renderFilters();
   applyFilters();
-
   if (!selectedId && filteredReports.length) selectedId = filteredReports[0].id;
   if (filteredReports.length && !filteredReports.some(r => r.id === selectedId)) selectedId = filteredReports[0].id;
 
   renderList();
   renderContent();
   updateStats();
+  updateFabBadge();
 }
 
 function updateMonthSelector() {
   const sel = document.getElementById('monthSelect');
+  if (!sel) return;
   const prev = sel.value;
-  sel.innerHTML = `<option value="all">📅 Tất cả tháng</option>` +
+  sel.innerHTML = `<option value="all">📅 Tất cả các tháng</option>` +
     availableMonths.map(mk => `<option value="${mk}" ${mk === prev ? 'selected' : ''}>${getMonthLabel(mk)}</option>`).join('');
   if (!prev) sel.value = 'all';
 }
 
 // ============================================================
-// FILTER LOGIC
+// FILTERS & LIST
 // ============================================================
 function isInTimeRange(r, range) {
-  const now = new Date();
-  const d = r.dateObj;
+  const now = new Date(), d = r.dateObj;
   if (range === 'today') return d.toDateString() === now.toDateString();
-  if (range === 'week') {
-    const weekAgo = new Date(now);
-    weekAgo.setDate(weekAgo.getDate() - 7);
-    return d >= weekAgo;
-  }
+  if (range === 'week') { const w = new Date(now); w.setDate(w.getDate() - 7); return d >= w; }
   if (range === 'month') return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
   return true;
 }
-
-function matchSearch(r, query) {
-  if (!query) return true;
-  const q = query.toLowerCase();
-  return [
-    r.instrument, r.bias, r.insight, r.archetype,
-    ...r.bullish, ...r.bearish, ...r.risks, ...r.catalysts,
-    ...r.actionItems
-  ].some(x => String(x).toLowerCase().includes(q));
+function matchSearch(r, q) {
+  if (!q) return true;
+  const s = q.toLowerCase();
+  return [r.instrument, r.bias, r.headline, r.insight, r.archetype, ...r.bullish, ...r.bearish, ...r.risks, ...r.catalysts]
+    .some(x => String(x).toLowerCase().includes(s));
 }
-
 function applyFilters() {
-  const monthFilter = document.getElementById('monthSelect')?.value || 'all';
-
+  const m = document.getElementById('monthSelect')?.value || 'all';
   filteredReports = allReports.filter(r => {
     if (filters.instrument !== 'all' && r.instrument !== filters.instrument) return false;
     if (filters.bias !== 'all' && r.biasClass !== filters.bias) return false;
     if (filters.time !== 'all' && !isInTimeRange(r, filters.time)) return false;
-    if (monthFilter !== 'all' && monthFilter !== '' && r.monthKey !== monthFilter) return false;
-    if (!matchSearch(r, filters.search)) return false;
-    return true;
+    if (m !== 'all' && m !== '' && r.monthKey !== m) return false;
+    return matchSearch(r, filters.search);
   });
 }
-
 function updateStats() {
   document.getElementById('statTotal').textContent = filteredReports.length;
   document.getElementById('statBull').textContent = filteredReports.filter(r => r.biasClass === 'bullish').length;
   document.getElementById('statBear').textContent = filteredReports.filter(r => r.biasClass === 'bearish').length;
 }
-
-// ============================================================
-// RENDER FILTERS
-// ============================================================
 function attachFilterHandlers() {
   document.querySelectorAll('.chip').forEach(btn => {
     btn.onclick = () => {
-      const type = btn.dataset.type;
-      const value = btn.dataset.value;
+      const { type, value } = btn.dataset;
       filters[type] = value;
-      // Sync active class across both sidebar + sheet
-      document.querySelectorAll(`.chip[data-type="${type}"]`).forEach(x => x.classList.remove('active'));
-      document.querySelectorAll(`.chip[data-type="${type}"][data-value="${value}"]`).forEach(x => x.classList.add('active'));
+      document.querySelectorAll(`.chip[data-type="${type}"]`).forEach(x => x.classList.toggle('active', x.dataset.value === value));
       applyFiltersAndRender();
     };
   });
-
   document.querySelectorAll('.tf-btn').forEach(btn => {
     btn.onclick = () => {
       filters.time = btn.dataset.time;
-      document.querySelectorAll('.tf-btn').forEach(x => x.classList.remove('active'));
-      document.querySelectorAll(`.tf-btn[data-time="${filters.time}"]`).forEach(x => x.classList.add('active'));
+      document.querySelectorAll('.tf-btn').forEach(x => x.classList.toggle('active', x.dataset.time === filters.time));
       applyFiltersAndRender();
     };
   });
-
-  const monthSel = document.getElementById('monthSelect');
-  if (monthSel) {
-    monthSel.onchange = () => applyFiltersAndRender();
-  }
-
-  const searchEl = document.getElementById('searchInput');
-  if (searchEl) {
-    let searchTimer;
-    searchEl.oninput = (e) => {
-      clearTimeout(searchTimer);
-      searchTimer = setTimeout(() => {
-        filters.search = e.target.value.trim();
-        applyFiltersAndRender();
-      }, 200);
-    };
+  const ms = document.getElementById('monthSelect');
+  if (ms) ms.onchange = () => applyFiltersAndRender();
+  const si = document.getElementById('searchInput');
+  if (si) {
+    let t;
+    si.oninput = (e) => { clearTimeout(t); t = setTimeout(() => { filters.search = e.target.value.trim(); applyFiltersAndRender(); }, 180); };
   }
 }
-
 function applyFiltersAndRender() {
   applyFilters();
   selectedId = filteredReports.length ? filteredReports[0].id : null;
-  renderList();
-  renderContent();
-  updateStats();
-  updateFabBadge();
+  renderList(); renderContent(); updateStats(); updateFabBadge();
 }
-
 function renderFilters() {
-  const instruments = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
-  const instrumentHtml = `
-    <button class="chip ${filters.instrument === 'all' ? 'active' : ''}" data-type="instrument" data-value="all">Tất cả</button>
-    ${instruments.map(inst => `<button class="chip ${filters.instrument === inst ? 'active' : ''}" data-type="instrument" data-value="${esc(inst)}">${esc(inst)}</button>`).join('')}
-  `;
-  document.getElementById('instrumentFilters').innerHTML = instrumentHtml;
+  const insts = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
+  document.getElementById('instrumentFilters').innerHTML =
+    `<button class="chip ${filters.instrument === 'all' ? 'active' : ''}" data-type="instrument" data-value="all">Tất cả</button>` +
+    insts.map(i => `<button class="chip ${filters.instrument === i ? 'active' : ''}" data-type="instrument" data-value="${esc(i)}">${esc(i)}</button>`).join('');
+}
+function resetFilters() {
+  filters = { instrument: 'all', bias: 'all', time: 'all', search: '' };
+  document.getElementById('monthSelect').value = 'all';
+  const s = document.getElementById('searchInput'); if (s) s.value = '';
+  applyFiltersAndRender();
 }
 
-// ============================================================
-// RENDER LIST
-// ============================================================
 function renderReportListHtml() {
   if (!filteredReports.length) {
-    return `
-      <div class="empty" style="min-height:200px">
-        <div class="empty-icon">📭</div>
-        <div>Không có báo cáo phù hợp</div>
-        <button class="empty-action" onclick="resetFilters()">Xoá bộ lọc</button>
-      </div>`;
+    return `<div class="empty"><div style="font-size:28px">📭</div><div>Không có báo cáo phù hợp</div><button class="kz-btn" onclick="resetFilters()">Xoá bộ lọc</button></div>`;
   }
-
   const groups = {};
-  filteredReports.forEach(r => {
-    const key = r.dateDisplay;
-    if (!groups[key]) groups[key] = [];
-    groups[key].push(r);
-  });
-
-  let html = '';
-  Object.entries(groups).forEach(([date, reports]) => {
-    html += `<div class="date-group-header">${esc(date)}<span class="report-count">${reports.length}</span></div>`;
-    reports.forEach(r => {
-      html += `
-        <div class="report-item ${r.id === selectedId ? 'active' : ''}" data-id="${esc(r.id)}">
-          <div class="ri-top">
-            <div class="ri-inst">${esc(r.instrument)}</div>
-            <div class="ri-time">${esc(r.timeDisplay)}</div>
-          </div>
-          <div class="ri-badges">
-            <span class="badge ${r.biasClass}">${getBiasIcon(r.biasClass)} ${esc(r.bias)}</span>
-            <span class="badge conf">${esc(safeStr(r.confidence, 'N/A'))}</span>
-          </div>
-          <div class="ri-text">${esc(r.insight)}</div>
+  filteredReports.forEach(r => { (groups[r.dateDisplay] ||= []).push(r); });
+  return Object.entries(groups).map(([date, list]) => `
+    <div class="date-group-header">${esc(date)}<span class="report-count">${list.length}</span></div>
+    ${list.map(r => `
+      <div class="report-item ${r.id === selectedId ? 'active' : ''}" data-id="${esc(r.id)}">
+        <div class="ri-top">
+          <div class="ri-inst">${esc(r.instrument)}</div>
+          <div class="ri-time">${esc(r.timeDisplay)}</div>
         </div>
-      `;
-    });
-  });
-
-  return html;
+        <div class="ri-badges">
+          <span class="badge ${r.biasClass}">${getBiasIcon(r.biasClass)} ${esc(r.bias.slice(0, 26))}</span>
+          <span class="badge conf">${esc(safeStr(r.confidence, 'N/A'))}</span>
+        </div>
+        <div class="ri-text">${esc(r.headline || r.insight)}</div>
+      </div>`).join('')}
+  `).join('');
 }
 
 function renderList() {
@@ -1925,123 +1304,47 @@ function renderList() {
   const wrap = document.getElementById('reportList');
   if (wrap) wrap.innerHTML = html;
 
-  // Also update mobile sheet
   const sheetContent = document.getElementById('sheetContent');
   if (sheetContent) {
     sheetContent.innerHTML = `
-      <div class="search-block">
-        <input type="text" id="searchInputMobile" class="search-input" placeholder="Tìm báo cáo, insight, sự kiện..." value="${esc(filters.search)}" />
-      </div>
-      <div class="month-selector">
-        <select class="month-select" id="monthSelectMobile">
-          ${availableMonths.length === 0 ? '<option value="all">📅 Tất cả tháng</option>' :
-            `<option value="all">📅 Tất cả tháng</option>` + availableMonths.map(mk => `<option value="${mk}">${getMonthLabel(mk)}</option>`).join('')}
-        </select>
-      </div>
-      <div class="time-filter" id="timeFilterMobile">
-        <button class="tf-btn ${filters.time==='all'?'active':''}" data-time="all">Tất cả</button>
-        <button class="tf-btn ${filters.time==='today'?'active':''}" data-time="today">Hôm nay</button>
-        <button class="tf-btn ${filters.time==='week'?'active':''}" data-time="week">Tuần này</button>
-        <button class="tf-btn ${filters.time==='month'?'active':''}" data-time="month">Tháng này</button>
-      </div>
+      <div class="search-block"><input type="text" id="searchInputMobile" class="search-input" placeholder="Tìm báo cáo..." value="${esc(filters.search)}" /></div>
       <div class="filters">
-        <div class="filter-block">
-          <div class="filter-label">Instrument</div>
-          <div class="filter-row" id="instrumentFiltersMobile"></div>
-        </div>
-        <div class="filter-block">
-          <div class="filter-label">Bias</div>
-          <div class="filter-row">
-            <button class="chip ${filters.bias==='all'?'active':''}" data-type="bias" data-value="all">Tất cả</button>
-            <button class="chip ${filters.bias==='bullish'?'active':''}" data-type="bias" data-value="bullish">▲ Bullish</button>
-            <button class="chip ${filters.bias==='bearish'?'active':''}" data-type="bias" data-value="bearish">▼ Bearish</button>
-            <button class="chip ${filters.bias==='neutral'?'active':''}" data-type="bias" data-value="neutral">◆ Neutral</button>
-          </div>
-        </div>
+        <div class="filter-block"><div class="filter-label">Instrument</div><div class="filter-row" id="instrumentFiltersMobile"></div></div>
+        <div class="filter-block"><div class="filter-label">Bias</div><div class="filter-row">
+          <button class="chip ${filters.bias==='all'?'active':''}" data-type="bias" data-value="all">Tất cả</button>
+          <button class="chip ${filters.bias==='bullish'?'active':''}" data-type="bias" data-value="bullish">▲ Bullish</button>
+          <button class="chip ${filters.bias==='bearish'?'active':''}" data-type="bias" data-value="bearish">▼ Bearish</button>
+          <button class="chip ${filters.bias==='neutral'?'active':''}" data-type="bias" data-value="neutral">◆ Neutral</button>
+        </div></div>
       </div>
-      <div class="report-list" style="height:auto;flex:none;padding:12px 16px 20px">
-        ${html}
-      </div>
-    `;
-
-    // Sync month
-    const ms = document.getElementById('monthSelectMobile');
-    const original = document.getElementById('monthSelect');
-    if (ms && original) ms.value = original.value;
-
-    // Build instruments for mobile
-    const instruments = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
-    document.getElementById('instrumentFiltersMobile').innerHTML = `
-      <button class="chip ${filters.instrument === 'all' ? 'active' : ''}" data-type="instrument" data-value="all">Tất cả</button>
-      ${instruments.map(inst => `<button class="chip ${filters.instrument === inst ? 'active' : ''}" data-type="instrument" data-value="${esc(inst)}">${esc(inst)}</button>`).join('')}
-    `;
-
-    // Mobile search input
+      <div class="report-list" style="height:auto;flex:none;padding:12px 16px 24px">${html}</div>`;
+    const insts = [...new Set(allReports.map(r => r.instrument).filter(Boolean))];
+    document.getElementById('instrumentFiltersMobile').innerHTML =
+      `<button class="chip ${filters.instrument==='all'?'active':''}" data-type="instrument" data-value="all">Tất cả</button>` +
+      insts.map(i => `<button class="chip ${filters.instrument===i?'active':''}" data-type="instrument" data-value="${esc(i)}">${esc(i)}</button>`).join('');
     const sm = document.getElementById('searchInputMobile');
     if (sm) {
-      let timer;
-      sm.oninput = (e) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          filters.search = e.target.value.trim();
-          const desktop = document.getElementById('searchInput');
-          if (desktop) desktop.value = filters.search;
-          applyFiltersAndRender();
-        }, 200);
-      };
-    }
-
-    // Mobile month select sync
-    const msMobile = document.getElementById('monthSelectMobile');
-    if (msMobile) {
-      msMobile.onchange = () => {
-        document.getElementById('monthSelect').value = msMobile.value;
-        applyFiltersAndRender();
-      };
+      let t;
+      sm.oninput = (e) => { clearTimeout(t); t = setTimeout(() => { filters.search = e.target.value.trim(); const d = document.getElementById('searchInput'); if (d) d.value = filters.search; applyFiltersAndRender(); }, 180); };
     }
   }
 
-  // Re-attach all filter handlers (they exist in both sidebar + sheet now)
   attachFilterHandlers();
-
-  // Click on report items
   document.querySelectorAll('.report-item').forEach(el => {
     el.addEventListener('click', () => {
       selectedId = el.dataset.id;
-      renderList();
-      renderContent();
-      // Mobile: close sheet + scroll content into view
-      if (window.innerWidth <= 1100) {
-        closeSheet();
-        setTimeout(() => {
-          const content = document.querySelector('.content');
-          if (content) content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 300);
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      renderList(); renderContent();
+      if (window.innerWidth <= 1080) { closeSheet(); }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 }
 
-function resetFilters() {
-  filters = { instrument: 'all', bias: 'all', time: 'all', search: '' };
-  document.getElementById('monthSelect').value = 'all';
-  const s = document.getElementById('searchInput');
-  if (s) s.value = '';
-  applyFiltersAndRender();
-}
-
 // ============================================================
-// RENDER CONTENT
+// VISUAL COMPONENTS
 // ============================================================
 function scenarioCard(label, cls, s) {
-  if (!s) return `
-    <div class="scenario-card ${cls}">
-      <div class="scenario-type ${cls}">${esc(label)}</div>
-      <div style="color:var(--text-4);font-size:12px">Không có dữ liệu</div>
-    </div>`;
-
+  if (!s) return `<div class="scenario-card ${cls}"><div class="scenario-type ${cls}">${esc(label)}</div><div style="color:var(--kz-muted);font-size:12.5px">Không có dữ liệu</div></div>`;
   return `
     <div class="scenario-card ${cls}">
       <div class="scenario-type ${cls}">${esc(label)}</div>
@@ -2052,7 +1355,7 @@ function scenarioCard(label, cls, s) {
         <div><div class="stat-label">Cắt lỗ</div><div class="stat-value red">${esc(s.stop)}</div></div>
         <div><div class="stat-label">R / R</div><div class="stat-value gold">${esc(s.rr)}</div></div>
       </div>
-      <div class="prob-wrap">
+      <div>
         <div class="prob-head"><span>Xác suất</span><span class="mono">${Math.round(s.probability || 0)}%</span></div>
         <div class="prob-track"><div class="prob-fill ${cls}" data-pct="${Math.min(Math.round(s.probability||0),100)}"></div></div>
       </div>
@@ -2060,425 +1363,310 @@ function scenarioCard(label, cls, s) {
 }
 
 function buildBiasSparkline(reports, instrument) {
-  // Get last 10 reports of same instrument
-  const series = reports
-    .filter(x => x.instrument === instrument)
-    .slice(0, 10)
-    .reverse()
+  const series = reports.filter(x => x.instrument === instrument).slice(0, 10).reverse()
     .map(x => x.biasClass === 'bullish' ? 1 : x.biasClass === 'bearish' ? -1 : 0);
-
   if (series.length < 2) return '';
-
-  const w = 160, h = 32, pad = 2;
+  const w = 170, h = 34, pad = 3;
   const stepX = (w - pad * 2) / (series.length - 1);
-  const points = series.map((v, i) => {
-    const x = pad + i * stepX;
-    const y = h / 2 - (v * (h / 2 - pad));
-    return `${x.toFixed(1)},${y.toFixed(1)}`;
-  }).join(' ');
-
+  const pts = series.map((v, i) => `${(pad + i * stepX).toFixed(1)},${(h / 2 - v * (h / 2 - pad)).toFixed(1)}`).join(' ');
   const lastV = series[series.length - 1];
-  const color = lastV > 0 ? 'var(--emerald)' : lastV < 0 ? 'var(--rose)' : 'var(--sky)';
-
+  const color = lastV > 0 ? '#34D399' : lastV < 0 ? '#FB7185' : '#38D5E7';
   return `
-    <svg class="hero-sparkline" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="sparkGrad" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stop-color="${color}" stop-opacity="0.3"/>
-          <stop offset="100%" stop-color="${color}" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <polyline points="${points}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <polygon points="${points} ${w-pad},${h} ${pad},${h}" fill="url(#sparkGrad)"/>
+    <svg class="hero-sparkline" viewBox="0 0 ${w} ${h}" aria-hidden="true">
+      <defs><linearGradient id="spG" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="${color}" stop-opacity="0.32"/><stop offset="100%" stop-color="${color}" stop-opacity="0"/></linearGradient></defs>
+      <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <polygon points="${pts} ${w-pad},${h} ${pad},${h}" fill="url(#spG)"/>
     </svg>`;
 }
 
+function buildPriceLadder(r) {
+  const items = [];
+  if (r.prevDayHigh) items.push({ label: 'Prev High', cls: 'ref', val: r.prevDayHigh });
+  r.resistanceNums.forEach((v, i) => items.push({ label: `Kháng cự R${i+1}`, cls: 'resistance', val: v }));
+  if (r.price) items.push({ label: 'Giá hiện tại', cls: 'current', val: r.price });
+  r.supportNums.forEach((v, i) => items.push({ label: `Hỗ trợ S${i+1}`, cls: 'support', val: v }));
+  if (r.prevDayLow) items.push({ label: 'Prev Low', cls: 'ref', val: r.prevDayLow });
+
+  items.sort((a, b) => b.val - a.val);
+  const vals = items.map(x => x.val);
+  const minV = Math.min(...vals), maxV = Math.max(...vals);
+  const span = Math.max(0.01, maxV - minV);
+
+  return items.map(i => {
+    const pct = Math.max(8, Math.min(100, ((i.val - minV) / span) * 100));
+    const barColor = i.cls === 'resistance' ? 'var(--kz-rose)' : i.cls === 'support' ? 'var(--kz-green)' : i.cls === 'current' ? 'var(--kz-gold)' : 'var(--kz-cyan)';
+    return `
+      <div class="ladder-row ${i.cls}">
+        <span class="dot ${i.cls}"></span>
+        <span class="level-type">${esc(i.label)}</span>
+        <div class="level-bar-wrap"><div class="level-bar" style="width:${pct.toFixed(0)}%;background:${barColor}"></div></div>
+        <span class="level-price">${esc(fmtPrice(i.val))}</span>
+      </div>`;
+  }).join('');
+}
+
+// ============================================================
+// RENDER MAIN CONTENT
+// ============================================================
 function renderContent() {
   const container = document.getElementById('content');
   const r = filteredReports.find(x => x.id === selectedId);
 
   if (!r) {
-    container.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">📊</div>
-        <div>Chọn một báo cáo từ danh sách để xem chi tiết</div>
-        ${window.innerWidth <= 1100 ? '<button class="empty-action" onclick="openSheet()">Mở danh sách</button>' : ''}
-      </div>`;
+    container.innerHTML = `<div class="empty"><div style="font-size:32px">📊</div><div>Chọn một báo cáo từ danh sách để xem phân tích Claude AI</div></div>`;
     return;
   }
 
-  const tfRows = r.tfRows.length ? r.tfRows.map(row => `
-    <tr>
-      <td class="tf-name">${esc(row.tf)}</td>
-      <td>
-        <span class="tf-trend ${getBiasClass(row.trend)}">${getBiasIcon(getBiasClass(row.trend))} ${esc(row.trend)}</span>
-        <span class="tf-desc">${esc(row.description || '—')}</span>
-      </td>
-    </tr>`).join('') : `<tr><td colspan="2" class="tf-desc">Không có dữ liệu</td></tr>`;
-
-  const levelItems = [
-    ...r.resistance.map(v => ({ type:'Kháng cự', cls:'resistance', price:v })),
-    { type:'Hiện tại', cls:'current', price:r.priceFmt, desc:'Giá hiện tại' },
-    ...r.support.map(v => ({ type:'Hỗ trợ', cls:'support', price:v }))
-  ];
-
-  const matrixRows = r.scenarios.length ? r.scenarios.map(s => `
-    <tr>
-      <td class="mono">${esc(s.key.replace('_scenario',''))}</td>
-      <td><span class="scenario-bias ${getBiasClass(s.bias)}">${esc(s.bias)}</span></td>
-      <td>${esc(s.setup)}</td>
-      <td class="mono">${esc(s.target)}</td>
-      <td class="mono">${esc(s.stop)}</td>
-      <td class="mono">${esc(s.rr)}</td>
-      <td class="mono">${Math.round(s.probability||0)}%</td>
-    </tr>`).join('') : `<tr><td colspan="7">Không có dữ liệu</td></tr>`;
+  const mtfHtml = r.tfRows.map(row => {
+    const cls = getBiasClass(row.trend);
+    return `
+      <div class="mtf-card ${cls}">
+        <div class="mtf-head">
+          <span class="mtf-tf">${esc(row.tf)}</span>
+          <span class="badge ${cls}">${getBiasIcon(cls)} ${esc(row.trend.slice(0, 18))}</span>
+        </div>
+        <div class="mtf-pills">
+          ${row.ema ? `<span class="mtf-mini">EMA: ${esc(row.ema.slice(0, 18))}</span>` : ''}
+          ${row.rsi ? `<span class="mtf-mini">${esc(row.rsi)}</span>` : ''}
+          ${row.macd ? `<span class="mtf-mini">MACD: ${esc(row.macd)}</span>` : ''}
+        </div>
+        <div class="mtf-desc">${esc(row.description || '—')}</div>
+      </div>`;
+  }).join('');
 
   const execEntries = Object.entries(r.execution).filter(([k]) => !['key_levels','checklist','action_plan','actions'].includes(k));
-
-  // Get persistent checklist state for this report
   const reportChecks = checklistState[r.id] || {};
-
-  const sparkline = buildBiasSparkline(allReports, r.instrument);
+  const matrixRows = r.scenarios.map(s => `
+    <tr>
+      <td class="mono" style="font-weight:700">${esc(s.key.replace('_scenario','').toUpperCase())}</td>
+      <td><span class="scenario-bias ${getBiasClass(s.bias)}" style="font-size:13px">${getBiasIcon(getBiasClass(s.bias))} ${esc(s.bias)}</span></td>
+      <td>${esc(s.setup)}</td>
+      <td class="mono" style="color:var(--kz-green);font-weight:700">${esc(s.target)}</td>
+      <td class="mono" style="color:var(--kz-rose);font-weight:700">${esc(s.stop)}</td>
+      <td class="mono" style="color:var(--kz-gold);font-weight:700">${esc(s.rr)}</td>
+      <td class="mono" style="font-weight:700">${Math.round(s.probability||0)}%</td>
+    </tr>`).join('');
 
   container.innerHTML = `
-    <div class="hero">
+    <section class="hero">
+      <canvas id="kzHeroCanvas" aria-hidden="true"></canvas>
       <div class="hero-inner">
-        <div class="hero-main">
+        <div>
           <div class="hero-line">
             <div class="hero-title">${esc(r.instrument)}</div>
-            <div class="hero-pill">${esc(r.archetype)}</div>
-            <div class="hero-pill ${r.biasClass}">${getBiasIcon(r.biasClass)} ${esc(r.bias)}</div>
-            <div class="hero-pill ${r.confidenceClass}">${esc(safeStr(r.confidence,'N/A'))}</div>
+            <span class="hero-pill">${esc(r.archetype)}</span>
+            <span class="hero-pill ${r.biasClass}">${getBiasIcon(r.biasClass)} ${esc(r.bias)}</span>
+            <span class="hero-pill ${r.confidenceClass}">${esc(safeStr(r.confidence,'N/A'))}</span>
           </div>
           <div class="hero-meta">
             <span>📅 ${esc(r.dateDisplay)}</span>
             <span>🕐 ${esc(r.timeDisplay)} UTC+7</span>
             <span>🏷 ${esc(r.id)}</span>
           </div>
+          ${r.headline ? `<div class="hero-headline">${esc(r.headline)}</div>` : ''}
           <div class="hero-insight">${esc(r.insight)}</div>
-        </div>
-        <div class="hero-price">
-          <div class="hero-price-label">Giá hiện tại</div>
-          <div class="hero-price-value">${esc(r.priceFmt)}</div>
-          <div class="hero-price-time">${esc(fmtTs(r.datetime))}</div>
-          ${sparkline}
-        </div>
-      </div>
-    </div>
-
-    <div class="panel" style="animation-delay:0.05s">
-      <div class="panel-body">
-        <div class="panel-title">Tóm tắt điều hành</div>
-        <div class="summary-grid">
-          <div class="summary-box"><p>${esc(r.insight)}</p></div>
-          <div class="mini-box">
-            <div class="mini-title">Snapshot</div>
-            <div class="mini-kv">
-              <div class="mini-kv-row"><span class="mini-kv-key">Bias</span><span class="mini-kv-val">${esc(r.bias)}</span></div>
-              <div class="mini-kv-row"><span class="mini-kv-key">Confidence</span><span class="mini-kv-val">${esc(safeStr(r.confidence,'N/A'))}</span></div>
-              <div class="mini-kv-row"><span class="mini-kv-key">Instrument</span><span class="mini-kv-val">${esc(r.instrument)}</span></div>
-              <div class="mini-kv-row"><span class="mini-kv-key">Price</span><span class="mini-kv-val gold">${esc(r.priceFmt)}</span></div>
-            </div>
+          <div class="hero-actions">
+            ${r.telegramSummary ? `<button type="button" class="kz-btn primary" id="copyTgBtn">📋 Copy Bản Tin Telegram</button>` : ''}
+            <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="kz-btn gold">⚡ Lọc Entry bằng Aurora V12.2 →</a>
           </div>
         </div>
+        <div class="hero-price">
+          <div class="hero-price-label">Giá Thời Điểm Quét H4</div>
+          <div class="hero-price-value" id="heroPriceNum" data-target-price="${r.price}">${esc(r.priceFmt)}</div>
+          <div class="hero-price-time">${esc(fmtTs(r.datetime))}</div>
+          ${buildBiasSparkline(allReports, r.instrument)}
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="panel" style="animation-delay:0.1s">
+    <!-- 4-Timeframe Alignment Radar -->
+    <section class="mtf-radar">${mtfHtml}</section>
+
+    <!-- 3 Trading Scenarios -->
+    <section class="panel">
       <div class="panel-body">
-        <div class="panel-title">Kịch bản giao dịch</div>
+        <div class="panel-title">Kịch Bản Giao Dịch Claude AI (3D Interactive Cards)</div>
         <div class="scenarios-grid">
           ${scenarioCard('★ Kịch bản chính','primary',r.primaryScenario)}
           ${scenarioCard('◈ Kịch bản thay thế','alternative',r.alternativeScenario)}
-          ${scenarioCard('✕ Vô hiệu hóa','invalidation',r.invalidationScenario)}
+          ${scenarioCard('✕ Kịch bản vô hiệu hóa','invalidation',r.invalidationScenario)}
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="triple-grid">
-      <div class="panel" style="animation-delay:0.15s">
+    <!-- Visual Price Ladder + Risk Radar + Catalysts -->
+    <section class="triple-grid">
+      <div class="panel">
         <div class="panel-body">
-          <div class="panel-title">Đa khung thời gian</div>
-          <table class="tf-table"><tbody>${tfRows}</tbody></table>
+          <div class="panel-title">Bản Đồ Vùng Giá Quan Trọng</div>
+          <div class="ladder">${buildPriceLadder(r)}</div>
         </div>
       </div>
-      <div class="panel" style="animation-delay:0.2s">
+      <div class="panel">
         <div class="panel-body">
-          <div class="panel-title">Vùng giá quan trọng</div>
-          <div class="levels">
-            ${levelItems.map(i => `
-              <div class="level">
-                <span class="dot ${i.cls}"></span>
-                <span class="level-type">${esc(i.type)}</span>
-                <span class="level-price">${esc(i.price)}</span>
-              </div>`).join('')}
-          </div>
-        </div>
-      </div>
-      <div class="panel" style="animation-delay:0.25s">
-        <div class="panel-body">
-          <div class="panel-title">Radar rủi ro</div>
+          <div class="panel-title">Radar Rủi Ro</div>
           <div class="list-stack">
-            ${(r.risks.length ? r.risks : ['Không có rủi ro nào']).map(x => `<div class="list-item risk">${esc(x)}</div>`).join('')}
+            ${(r.risks.length ? r.risks : ['Chưa ghi nhận rủi ro đặc biệt']).map(x => `<div class="list-item risk">${esc(x)}</div>`).join('')}
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="dual-grid">
-      <div class="panel" style="animation-delay:0.3s">
+      <div class="panel">
         <div class="panel-body">
-          <div class="panel-title">Yếu tố hỗ trợ / áp lực</div>
-          <div class="dual-grid" style="gap:16px">
-            <div>
-              <div style="font-family:var(--font-mono);font-size:10px;color:var(--emerald);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">▲ Hỗ trợ tăng</div>
-              <div class="list-stack">${(r.bullish.length ? r.bullish : ['Không có']).map(x => `<div class="list-item bull">${esc(x)}</div>`).join('')}</div>
-            </div>
-            <div>
-              <div style="font-family:var(--font-mono);font-size:10px;color:var(--rose);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">▼ Áp lực giảm</div>
-              <div class="list-stack">${(r.bearish.length ? r.bearish : ['Không có']).map(x => `<div class="list-item bear">${esc(x)}</div>`).join('')}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="panel" style="animation-delay:0.35s">
-        <div class="panel-body">
-          <div class="panel-title">Sự kiện cần theo dõi</div>
+          <div class="panel-title">Sự Kiện & Catalyst</div>
           <div class="list-stack">
-            ${(r.catalysts.length ? r.catalysts : ['Không có sự kiện']).map(x => `<div class="list-item">${esc(x)}</div>`).join('')}
+            ${(r.catalysts.length ? r.catalysts : ['Không có sự kiện lớn']).map(x => `<div class="list-item">${esc(x)}</div>`).join('')}
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="panel" style="animation-delay:0.4s">
+    <!-- Confluence Bullish vs Bearish -->
+    <section class="panel">
       <div class="panel-body">
-        <div class="panel-title">Ma trận kịch bản</div>
+        <div class="panel-title">Hợp Lưu Đa Khung (Hỗ Trợ Tăng vs Áp Lực Giảm)</div>
+        <div class="dual-grid">
+          <div>
+            <div class="mono" style="font-size:11px;font-weight:800;color:var(--kz-green);letter-spacing:.08em;margin-bottom:10px">▲ YẾU TỐ HỖ TRỢ TĂNG</div>
+            <div class="list-stack">${(r.bullish.length ? r.bullish : ['Không có']).map(x => `<div class="list-item bull">${esc(x)}</div>`).join('')}</div>
+          </div>
+          <div>
+            <div class="mono" style="font-size:11px;font-weight:800;color:var(--kz-rose);letter-spacing:.08em;margin-bottom:10px">▼ ÁP LỰC GIẢM</div>
+            <div class="list-stack">${(r.bearish.length ? r.bearish : ['Không có']).map(x => `<div class="list-item bear">${esc(x)}</div>`).join('')}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Matrix Table -->
+    <section class="panel">
+      <div class="panel-body">
+        <div class="panel-title">Ma Trận So Sánh Kịch Bản</div>
         <div class="matrix-wrap">
           <table class="matrix">
-            <thead>
-              <tr>
-                <th>Type</th><th>Bias</th><th>Setup</th><th>Target</th><th>Stop</th><th>R/R</th><th>Probability</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Loại</th><th>Bias</th><th>Setup</th><th>Target</th><th>Stop</th><th>R/R</th><th>Xác suất</th></tr></thead>
             <tbody>${matrixRows}</tbody>
           </table>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="panel" style="animation-delay:0.45s">
+    <!-- Action Plan & Persistent Checklist -->
+    <section class="panel">
       <div class="panel-body">
-        <div class="panel-title">Action plan</div>
-        ${execEntries.length ? `
-          <div class="exec-grid">
-            ${execEntries.map(([k,v]) => `
-              <div class="exec-card">
-                <div class="exec-key">${esc(k.replaceAll('_',' '))}</div>
-                <div class="exec-val">${esc(typeof v === 'object' ? JSON.stringify(v) : safeStr(v))}</div>
-              </div>`).join('')}
-          </div>` : ''}
+        <div class="panel-title">Kế Hoạch Thực Thi & Checklist Trong Phiên</div>
+        ${execEntries.length ? `<div class="exec-grid">${execEntries.map(([k,v]) => `<div class="exec-card"><div class="exec-key">${esc(k.replaceAll('_',' '))}</div><div class="exec-val">${esc(typeof v === 'object' ? JSON.stringify(v) : safeStr(v))}</div></div>`).join('')}</div>` : ''}
         <div class="checklist">
-          ${(r.actionItems.length ? r.actionItems : [
-            'Confirm bias alignment across timeframes',
-            'Check confluence factors',
-            'Verify key level proximity',
-            'Set entry order',
-            'Place stop loss',
-            'Define take profit targets',
-            'Monitor catalyst events'
-          ]).map((x, i) => {
-            const checked = reportChecks[i] ? 'checked' : '';
-            return `
-            <div class="check ${checked}" data-report="${esc(r.id)}" data-idx="${i}">
+          ${(r.actionItems.length ? r.actionItems : ['Xác nhận đồng thuận bias đa khung', 'Kiểm tra khoảng cách tới kháng cự/hỗ trợ', 'Đặt SL & TP cố định trước khi vào lệnh']).map((x, i) => `
+            <div class="check ${reportChecks[i] ? 'checked' : ''}" data-report="${esc(r.id)}" data-idx="${i}">
               <div class="check-box">✓</div>
               <div class="check-text">${esc(x)}</div>
-            </div>`;
-          }).join('')}
+            </div>`).join('')}
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Kenvinzone Ecosystem Cross-Link -->
+    <section class="eco-strip">
+      <div>
+        <div class="mono" style="font-size:11px;color:#38D5E7;font-weight:700;letter-spacing:.08em">HỆ SINH THÁI KENVINZONE FUTURES</div>
+        <div style="font-size:15.5px;font-weight:800;margin-top:3px">Kết hợp Báo cáo AI H4 + Hệ thống Aurora V12.2 để vượt quỹ Bulenox · Earn2Trade · Topstep</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://prop.kenvinzone.com/coupons.html" target="_blank" rel="noopener noreferrer" class="kz-btn gold">🔥 Săn Coupon Quỹ (-89%)</a>
+        <a href="https://aurora.kenvinzone.com/" target="_blank" rel="noopener noreferrer" class="kz-btn primary">Xem Aurora V12.2 →</a>
+      </div>
+    </section>
   `;
+
+  // Start Hero Flow Canvas
+  startHeroFlowCanvas();
+
+  // GSAP Entrance Choreography + Price Roll-Up
+  if (!prefersReduced && typeof window.gsap !== 'undefined') {
+    window.gsap.fromTo(
+      container.querySelectorAll('.hero, .mtf-card, .panel'),
+      { y: 16, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.45, stagger: 0.045, ease: 'power2.out', clearProps: 'transform,opacity' }
+    );
+    const priceEl = document.getElementById('heroPriceNum');
+    if (priceEl && Number.isFinite(r.price) && r.price > 0) {
+      const obj = { v: r.price * 0.992 };
+      window.gsap.to(obj, { v: r.price, duration: 0.65, ease: 'power3.out', onUpdate: () => { priceEl.textContent = fmtPrice(obj.v); } });
+    }
+  }
 
   // Animate probability bars
   setTimeout(() => {
-    document.querySelectorAll('.prob-fill[data-pct]').forEach(el => {
-      el.style.width = el.dataset.pct + '%';
-    });
-  }, 100);
+    container.querySelectorAll('.prob-fill[data-pct]').forEach(el => { el.style.width = el.dataset.pct + '%'; });
+  }, 80);
 
-  // Attach persistent checklist handlers
-  document.querySelectorAll('.check').forEach(el => {
-    el.onclick = () => {
-      const reportId = el.dataset.report;
-      const idx = el.dataset.idx;
+  // Copy Telegram Summary button
+  const copyBtn = document.getElementById('copyTgBtn');
+  if (copyBtn) {
+    copyBtn.onclick = (e) => {
+      navigator.clipboard?.writeText(r.telegramSummary).catch(() => {});
+      showAppToast('✓ Đã sao chép bản tin Telegram!');
+      spawnSparkles(e.clientX, e.clientY);
+    };
+  }
+
+  // Checklist handlers
+  container.querySelectorAll('.check').forEach(el => {
+    el.onclick = (e) => {
+      const { report, idx } = el.dataset;
       el.classList.toggle('checked');
-      if (!checklistState[reportId]) checklistState[reportId] = {};
-      checklistState[reportId][idx] = el.classList.contains('checked');
+      (checklistState[report] ||= {})[idx] = el.classList.contains('checked');
       saveChecklistState(checklistState);
+      if (el.classList.contains('checked')) spawnSparkles(e.clientX, e.clientY);
     };
   });
 }
 
 // ============================================================
-// BOTTOM SHEET
+// SHEET, TOAST, SHORTCUTS & POLLING
 // ============================================================
-function openSheet() {
-  document.getElementById('sheetBackdrop').classList.add('open');
-  document.getElementById('bottomSheet').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeSheet() {
-  document.getElementById('sheetBackdrop').classList.remove('open');
-  document.getElementById('bottomSheet').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// Swipe-down to close
-function setupSheetGestures() {
-  const sheet = document.getElementById('bottomSheet');
-  const handle = document.getElementById('sheetHandle');
-  let startY = 0;
-  let currentY = 0;
-  let isDragging = false;
-
-  const handleStart = (y) => {
-    isDragging = true;
-    startY = y;
-    sheet.style.transition = 'none';
-  };
-
-  const handleMove = (y) => {
-    if (!isDragging) return;
-    currentY = y - startY;
-    if (currentY > 0) {
-      sheet.style.transform = `translateY(${currentY}px)`;
-    }
-  };
-
-  const handleEnd = () => {
-    if (!isDragging) return;
-    isDragging = false;
-    sheet.style.transition = '';
-    if (currentY > 100) {
-      closeSheet();
-    } else {
-      sheet.style.transform = '';
-    }
-    currentY = 0;
-  };
-
-  handle.addEventListener('touchstart', (e) => handleStart(e.touches[0].clientY), { passive: true });
-  handle.addEventListener('touchmove', (e) => handleMove(e.touches[0].clientY), { passive: true });
-  handle.addEventListener('touchend', handleEnd);
-
-  handle.addEventListener('mousedown', (e) => handleStart(e.clientY));
-  document.addEventListener('mousemove', (e) => handleMove(e.clientY));
-  document.addEventListener('mouseup', handleEnd);
-}
-
-// ============================================================
-// FAB BADGE (count of unseen reports)
-// ============================================================
+function openSheet() { document.getElementById('sheetBackdrop').classList.add('open'); document.getElementById('bottomSheet').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeSheet() { document.getElementById('sheetBackdrop').classList.remove('open'); document.getElementById('bottomSheet').classList.remove('open'); document.body.style.overflow = ''; }
 function updateFabBadge() {
-  const badge = document.getElementById('fabBadge');
-  if (filteredReports.length > 0) {
-    badge.textContent = filteredReports.length;
-    badge.style.display = 'flex';
-  } else {
-    badge.style.display = 'none';
-  }
+  const b = document.getElementById('fabBadge');
+  if (!b) return;
+  b.textContent = filteredReports.length;
+  b.style.display = filteredReports.length > 0 ? 'flex' : 'none';
 }
-
-// ============================================================
-// TOAST
-// ============================================================
-function showNewReportToast(report) {
-  const container = document.getElementById('toastContainer');
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.innerHTML = `<div>Báo cáo mới: <strong>${esc(report.instrument)}</strong> · ${esc(report.bias)}</div>`;
-  toast.onclick = () => {
-    selectedId = report.id;
-    renderList();
-    renderContent();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    toast.remove();
-  };
-  container.appendChild(toast);
-  setTimeout(() => toast.remove(), 5000);
+function showAppToast(msg, onClick) {
+  const c = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  if (onClick) t.onclick = () => { onClick(); t.remove(); };
+  c.appendChild(t);
+  setTimeout(() => t.remove(), 4000);
 }
-
-// ============================================================
-// KEYBOARD SHORTCUTS
-// ============================================================
-function setupKeyboardShortcuts() {
-  document.addEventListener('keydown', (e) => {
-    // Don't trigger when typing
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
-
-    const idx = filteredReports.findIndex(r => r.id === selectedId);
-
-    if (e.key === 'j' && idx < filteredReports.length - 1) {
-      selectedId = filteredReports[idx + 1].id;
-      renderList();
-      renderContent();
-    } else if (e.key === 'k' && idx > 0) {
-      selectedId = filteredReports[idx - 1].id;
-      renderList();
-      renderContent();
-    } else if (e.key === '/') {
-      e.preventDefault();
-      document.getElementById('searchInput')?.focus();
-    } else if (e.key === 'Escape') {
-      closeSheet();
-    }
-  });
-}
-
-// ============================================================
-// SMART POLLING (pause when hidden)
-// ============================================================
-function startPolling() {
-  stopPolling();
-  pollTimer = setInterval(() => loadReports(true), 60000);
-}
-function stopPolling() {
-  if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
-}
-
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    stopPolling();
-  } else {
-    loadReports(true);
-    startPolling();
-  }
-});
-
-// Update relative time every 30s
-setInterval(() => {
-  if (allReports.length > 0) {
-    document.getElementById('lastUpdated').textContent = fmtRelativeTime(allReports[0].datetime);
-  }
-}, 30000);
-
-// ============================================================
-// INIT
-// ============================================================
-window.addEventListener('scroll', () => {
-  const btn = document.getElementById('scrollTop');
-  if (window.scrollY > 320) btn.classList.add('visible');
-  else btn.classList.remove('visible');
-});
 
 document.getElementById('fabBtn').addEventListener('click', openSheet);
 document.getElementById('sheetClose').addEventListener('click', closeSheet);
 document.getElementById('sheetBackdrop').addEventListener('click', closeSheet);
+document.getElementById('refreshBtn').addEventListener('click', async () => {
+  const b = document.getElementById('refreshBtn');
+  b.classList.add('spinning');
+  await loadReports(true);
+  setTimeout(() => b.classList.remove('spinning'), 500);
+  showAppToast('✓ Đã đồng bộ dữ liệu mới nhất!');
+});
 
-setupSheetGestures();
-setupKeyboardShortcuts();
+document.addEventListener('keydown', (e) => {
+  if (['INPUT','TEXTAREA','SELECT'].includes(e.target.tagName)) return;
+  const idx = filteredReports.findIndex(r => r.id === selectedId);
+  if (e.key === 'j' && idx < filteredReports.length - 1) { selectedId = filteredReports[idx + 1].id; renderList(); renderContent(); }
+  else if (e.key === 'k' && idx > 0) { selectedId = filteredReports[idx - 1].id; renderList(); renderContent(); }
+  else if (e.key === '/') { e.preventDefault(); document.getElementById('searchInput')?.focus(); }
+  else if (e.key === 'Escape') closeSheet();
+});
+
+function startPolling() { stopPolling(); pollTimer = setInterval(() => loadReports(true), 60000); }
+function stopPolling() { if (pollTimer) { clearInterval(pollTimer); pollTimer = null; } }
+document.addEventListener('visibilitychange', () => { if (document.hidden) stopPolling(); else { loadReports(true); startPolling(); } });
+setInterval(() => { if (allReports.length) document.getElementById('lastUpdated').textContent = fmtRelativeTime(allReports[0].datetime); }, 30000);
 
 loadReports(false);
 startPolling();
