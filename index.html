@@ -510,47 +510,217 @@
     background: linear-gradient(180deg, var(--kz-cyan) 0%, var(--kz-gold) 100%);
   }
 
-  /* ========== SCENARIOS (3D TILT CARDS) ========== */
-  .scenarios-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+  /* ========== FLAGSHIP SCENARIO COMMAND STAGE (ASYMMETRIC + MOTION GRAPHIC) ========== */
+  .scenarios-stage {
+    display: grid;
+    grid-template-columns: 1.42fr 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .scenarios-secondary {
+    display: grid;
+    gap: 14px;
+    align-content: stretch;
+  }
+
+  /* Primary Spotlight Card */
+  .sc-primary-wrap {
+    position: relative;
+    border-radius: 17px;
+    padding: 1.5px;
+    background: linear-gradient(135deg, rgba(243,190,98,0.55), rgba(56,213,231,0.35) 55%, rgba(243,190,98,0.2));
+    overflow: hidden;
+    display: flex;
+  }
+  .sc-primary-wrap.tier-high {
+    background: linear-gradient(135deg, #38d5e7, #34d399 50%, #f3be62);
+    box-shadow: 0 0 36px -10px rgba(56, 213, 231, 0.45);
+  }
+  .sc-primary-wrap.tier-ultra {
+    background: transparent;
+    box-shadow: 0 0 46px -8px rgba(243, 190, 98, 0.55), 0 0 24px -8px rgba(52, 211, 153, 0.4);
+  }
+  .sc-primary-wrap.tier-ultra::before {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    background: conic-gradient(from 0deg, #34d399, #38d5e7, #f3be62, #fb7185, #34d399);
+    animation: kzOrbitBorder 4.5s linear infinite;
+    z-index: 0;
+  }
+  @keyframes kzOrbitBorder { to { transform: rotate(360deg); } }
+
+  .sc-primary-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    border-radius: 16px;
+    padding: 22px 22px 20px;
+    background: linear-gradient(155deg, rgba(16, 29, 53, 0.98) 0%, rgba(9, 19, 36, 0.99) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.22s var(--ease-out);
+  }
+  html[data-theme="light"] .sc-primary-card {
+    background: linear-gradient(155deg, #ffffff 0%, #f5f9ff 100%);
+  }
+  .sc-primary-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(420px circle at var(--mx, 20%) var(--my, 20%), rgba(243, 190, 98, 0.14), transparent 60%);
+  }
+  .sc-primary-wrap.tier-ultra .sc-primary-card::after {
+    background: radial-gradient(480px circle at 85% 15%, rgba(52, 211, 153, 0.16), transparent 55%),
+                radial-gradient(420px circle at var(--mx, 20%) var(--my, 20%), rgba(243, 190, 98, 0.16), transparent 60%);
+  }
+
+  .sc-top-bar {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;
+  }
+  .sc-conviction-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 11px; border-radius: 999px;
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 800;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .sc-conviction-pill.ultra {
+    background: linear-gradient(135deg, #e59d24, #f3be62); color: #1f1300;
+    box-shadow: 0 0 18px rgba(243, 190, 98, 0.6);
+    animation: kzPulseGlow 2.2s ease-in-out infinite;
+  }
+  .sc-conviction-pill.high {
+    background: linear-gradient(135deg, #0284c7, #38d5e7); color: #04131c;
+    box-shadow: 0 0 16px rgba(56, 213, 231, 0.5);
+  }
+  .sc-conviction-pill.mod {
+    background: var(--kz-gold-soft); color: var(--kz-gold); border: 1px solid rgba(243,190,98,0.4);
+  }
+  @keyframes kzPulseGlow {
+    0%, 100% { box-shadow: 0 0 14px rgba(243, 190, 98, 0.55); transform: scale(1); }
+    50% { box-shadow: 0 0 26px rgba(243, 190, 98, 0.85); transform: scale(1.02); }
+  }
+
+  .sc-bias-hero {
+    font-size: clamp(20px, 2.2vw, 25px); font-weight: 800; letter-spacing: -0.02em;
+    margin-top: 8px; display: flex; align-items: center; gap: 8px;
+  }
+  .sc-bias-hero.bullish { color: var(--kz-green); }
+  .sc-bias-hero.bearish { color: var(--kz-rose); }
+  .sc-bias-hero.neutral { color: var(--kz-cyan); }
+
+  /* Circular Probability Ring Gauge */
+  .prob-ring-box {
+    position: relative; width: 88px; height: 88px; flex-shrink: 0;
+    display: grid; place-items: center;
+  }
+  .prob-ring-svg { width: 88px; height: 88px; transform: rotate(-90deg); }
+  .prob-ring-bg { fill: none; stroke: var(--kz-line); stroke-width: 7; }
+  .prob-ring-fg {
+    fill: none; stroke-width: 7; stroke-linecap: round;
+    transition: stroke-dashoffset 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .prob-ring-text {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .prob-ring-num { font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 800; line-height: 1; color: var(--kz-strong); }
+  .prob-ring-lbl { font-family: "JetBrains Mono", monospace; font-size: 8.5px; color: var(--kz-muted); text-transform: uppercase; margin-top: 3px; letter-spacing: 0.06em; }
+
+  .sc-setup-box {
+    padding: 13px 15px; border-radius: 12px;
+    background: var(--kz-surface2); border: 1px solid var(--kz-line);
+    border-left: 3px solid var(--kz-gold);
+    font-size: 13.5px; color: var(--kz-text); line-height: 1.65;
+  }
+
+  /* Visual Trade Plan Trajectory Strip (SL -- Entry -- TP) */
+  .trade-visual {
+    padding: 12px 14px; border-radius: 12px;
+    background: rgba(7, 15, 29, 0.55); border: 1px solid var(--kz-line);
+  }
+  html[data-theme="light"] .trade-visual { background: var(--kz-surface2); }
+  .trade-vis-labels {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 8px;
+  }
+  .tv-cell { display: flex; flex-direction: column; gap: 2px; }
+  .tv-cell.center { text-align: center; }
+  .tv-cell.right { text-align: right; }
+  .tv-k { font-family: "JetBrains Mono", monospace; font-size: 9.5px; color: var(--kz-subtle); text-transform: uppercase; letter-spacing: 0.06em; }
+  .tv-v { font-family: "JetBrains Mono", monospace; font-size: 14px; font-weight: 800; }
+  .tv-v.sl { color: var(--kz-rose); }
+  .tv-v.rr { color: var(--kz-gold); }
+  .tv-v.tp { color: var(--kz-green); }
+
+  .tv-track {
+    position: relative; height: 8px; border-radius: 999px; overflow: hidden;
+    background: var(--kz-deep); border: 1px solid var(--kz-line);
+    display: flex;
+  }
+  .tv-risk-seg { width: 32%; background: linear-gradient(90deg, rgba(251,113,133,0.85), rgba(251,113,133,0.35)); }
+  .tv-reward-seg {
+    flex: 1; background: linear-gradient(90deg, rgba(56,213,231,0.5), #34d399);
+    position: relative; overflow: hidden;
+  }
+  .tv-reward-seg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+    transform: translateX(-100%);
+    animation: kzFlowSweep 2.4s ease-in-out infinite;
+  }
+  @keyframes kzFlowSweep { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+  .sc-primary-foot {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;
+    margin-top: auto; padding-top: 4px;
+  }
+
+  /* Secondary Tactical Cards (Alternative & Invalidation) */
   .scenario-card {
     position: relative; overflow: hidden; isolation: isolate;
     background: var(--kz-surface2); border: 1px solid var(--kz-line);
-    border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 11px;
+    border-radius: var(--radius); padding: 16px 17px; display: flex; flex-direction: column; gap: 9px;
     transition: transform 0.22s var(--ease-out), border-color 0.2s ease, box-shadow 0.2s ease;
     will-change: transform;
   }
-  .scenario-card.primary { border-color: rgba(243, 190, 98, 0.48); box-shadow: 0 0 28px -14px rgba(243, 190, 98, 0.45); }
-  .scenario-card.alternative { border-color: rgba(56, 213, 231, 0.32); }
-  .scenario-card.invalidation { border-color: rgba(251, 113, 133, 0.32); }
+  .scenario-card.alternative { border-left: 3px solid var(--kz-cyan); }
+  .scenario-card.invalidation { border-left: 3px solid var(--kz-rose); }
 
+  .sc-sec-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .scenario-type {
-    font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 800;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 800;
     letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .scenario-type.primary { color: var(--kz-gold); }
   .scenario-type.alternative { color: var(--kz-cyan); }
   .scenario-type.invalidation { color: var(--kz-rose); }
+  .sc-sec-prob {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 800;
+    padding: 2px 9px; border-radius: 999px; background: var(--kz-surface); border: 1px solid var(--kz-line2);
+  }
 
-  .scenario-bias { font-size: 15px; font-weight: 800; }
+  .scenario-bias { font-size: 14.5px; font-weight: 800; }
   .scenario-bias.bullish { color: var(--kz-green); }
   .scenario-bias.bearish { color: var(--kz-rose); }
   .scenario-bias.neutral { color: var(--kz-cyan); }
-  .scenario-setup { font-size: 13px; color: var(--kz-text2); line-height: 1.6; flex: 1; }
+  .scenario-setup { font-size: 12.5px; color: var(--kz-text2); line-height: 1.55; flex: 1; }
 
   .scenario-stats {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
-    padding: 10px 0; border-top: 1px dashed var(--kz-line); border-bottom: 1px dashed var(--kz-line);
+    padding: 8px 0; border-top: 1px dashed var(--kz-line); border-bottom: 1px dashed var(--kz-line);
   }
-  .stat-label { font-family: "JetBrains Mono", monospace; font-size: 9.5px; color: var(--kz-subtle); text-transform: uppercase; }
-  .stat-value { font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-weight: 800; margin-top: 3px; word-break: break-word; }
+  .stat-label { font-family: "JetBrains Mono", monospace; font-size: 9px; color: var(--kz-subtle); text-transform: uppercase; }
+  .stat-value { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 800; margin-top: 2px; word-break: break-word; }
   .stat-value.green { color: var(--kz-green); }
   .stat-value.red { color: var(--kz-rose); }
   .stat-value.gold { color: var(--kz-gold); }
 
-  .prob-head { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--kz-muted); margin-bottom: 6px; font-weight: 700; }
-  .prob-track { height: 7px; border-radius: 999px; background: var(--kz-deep); overflow: hidden; border: 1px solid var(--kz-line); }
+  .prob-track { height: 6px; border-radius: 999px; background: var(--kz-deep); overflow: hidden; border: 1px solid var(--kz-line); }
   .prob-fill { height: 100%; width: 0%; border-radius: 999px; transition: width 0.9s var(--ease-out); }
-  .prob-fill.primary { background: linear-gradient(90deg, #e59d24, #f3be62); }
   .prob-fill.alternative { background: linear-gradient(90deg, #0284c7, #38d5e7); }
   .prob-fill.invalidation { background: linear-gradient(90deg, #e11d48, #fb7185); }
 
@@ -712,7 +882,7 @@
     .sidebar { display: none; }
     .fab { display: flex; }
     .scroll-top { bottom: 86px; }
-    .scenarios-grid, .dual-grid { grid-template-columns: 1fr; }
+    .scenarios-stage, .dual-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 720px) {
     .hero-inner { grid-template-columns: 1fr; padding: 20px; }
@@ -1420,11 +1590,89 @@ function renderList() {
 // ============================================================
 // VISUAL COMPONENTS
 // ============================================================
+function primaryScenarioHero(r, s) {
+  if (!s) return `<div class="scenario-card"><div style="color:var(--kz-muted)">Chưa có kịch bản chính</div></div>`;
+  const prob = Math.min(100, Math.max(0, Math.round(s.probability || 0)));
+  const biasCls = getBiasClass(s.bias);
+
+  // Conviction tier driven by probability (65%+ High, 75%+ Ultra A+ Setup!)
+  let tierCls = 'tier-mod';
+  let pillCls = 'mod';
+  let pillText = '★ KỊCH BẢN CHÍNH · CHỜ XÁC NHẬN';
+  let ringColor = '#F3BE62';
+  if (prob >= 75) {
+    tierCls = 'tier-ultra';
+    pillCls = 'ultra';
+    pillText = `🔥 SIÊU XÁC SUẤT A+ · ${prob}%`;
+    ringColor = biasCls === 'bearish' ? '#FB7185' : '#34D399';
+  } else if (prob >= 65) {
+    tierCls = 'tier-high';
+    pillCls = 'high';
+    pillText = `⚡ XÁC SUẤT CAO · ${prob}%`;
+    ringColor = '#38D5E7';
+  }
+
+  const radius = 36;
+  const circ = +(2 * Math.PI * radius).toFixed(2);
+  const targetOffset = +(circ * (1 - prob / 100)).toFixed(2);
+
+  return `
+    <div class="sc-primary-wrap ${tierCls}">
+      <div class="sc-primary-card" data-primary-card>
+        <div class="sc-top-bar">
+          <div>
+            <span class="sc-conviction-pill ${pillCls}">${pillText}</span>
+            <div class="sc-bias-hero ${biasCls}">${getBiasIcon(biasCls)} ${esc(s.bias)}</div>
+          </div>
+          <div class="prob-ring-box" title="Xác suất kịch bản chính: ${prob}%">
+            <svg class="prob-ring-svg" viewBox="0 0 88 88" aria-hidden="true">
+              <circle class="prob-ring-bg" cx="44" cy="44" r="${radius}"></circle>
+              <circle class="prob-ring-fg" cx="44" cy="44" r="${radius}"
+                stroke="${ringColor}"
+                stroke-dasharray="${circ}"
+                stroke-dashoffset="${circ}"
+                data-ring-target="${targetOffset}"></circle>
+            </svg>
+            <div class="prob-ring-text">
+              <span class="prob-ring-num" data-count-prob="${prob}">0%</span>
+              <span class="prob-ring-lbl">Xác suất</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sc-setup-box">${esc(s.setup)}</div>
+
+        <div class="trade-visual">
+          <div class="trade-vis-labels">
+            <div class="tv-cell"><span class="tv-k">Cắt lỗ (SL)</span><span class="tv-v sl">${esc(s.stop)}</span></div>
+            <div class="tv-cell center"><span class="tv-k">Tỷ lệ R / R</span><span class="tv-v rr">${esc(s.rr)}</span></div>
+            <div class="tv-cell right"><span class="tv-k">Mục tiêu (TP)</span><span class="tv-v tp">${esc(s.target)}</span></div>
+          </div>
+          <div class="tv-track" aria-hidden="true">
+            <div class="tv-risk-seg"></div>
+            <div class="tv-reward-seg"></div>
+          </div>
+        </div>
+
+        <div class="sc-primary-foot">
+          <span class="mono" style="font-size:11px;color:var(--kz-muted)">
+            ${prob >= 75 ? '✦ Ưu tiên cao nhất — Lọc điểm vào nến với Aurora V12.2' : prob >= 65 ? '✦ Lợi thế rõ — Chờ xác nhận nến trước khi vào lệnh' : '✦ Xác suất trung bình — Giảm 50% khối lượng cho tới khi xác nhận'}
+          </span>
+          <button type="button" class="kz-btn primary" id="copyPlanBtn" style="padding:7px 12px;font-size:12px">📋 Copy Kế Hoạch Lệnh</button>
+        </div>
+      </div>
+    </div>`;
+}
+
 function scenarioCard(label, cls, s) {
   if (!s) return `<div class="scenario-card ${cls}"><div class="scenario-type ${cls}">${esc(label)}</div><div style="color:var(--kz-muted);font-size:12.5px">Không có dữ liệu</div></div>`;
+  const prob = Math.min(100, Math.max(0, Math.round(s.probability || 0)));
   return `
     <div class="scenario-card ${cls}">
-      <div class="scenario-type ${cls}">${esc(label)}</div>
+      <div class="sc-sec-head">
+        <div class="scenario-type ${cls}">${esc(label)}</div>
+        <span class="sc-sec-prob">${prob}%</span>
+      </div>
       <div class="scenario-bias ${getBiasClass(s.bias)}">${getBiasIcon(getBiasClass(s.bias))} ${esc(s.bias)}</div>
       <div class="scenario-setup">${esc(s.setup)}</div>
       <div class="scenario-stats">
@@ -1432,10 +1680,7 @@ function scenarioCard(label, cls, s) {
         <div><div class="stat-label">Cắt lỗ</div><div class="stat-value red">${esc(s.stop)}</div></div>
         <div><div class="stat-label">R / R</div><div class="stat-value gold">${esc(s.rr)}</div></div>
       </div>
-      <div>
-        <div class="prob-head"><span>Xác suất</span><span class="mono">${Math.round(s.probability || 0)}%</span></div>
-        <div class="prob-track"><div class="prob-fill ${cls}" data-pct="${Math.min(Math.round(s.probability||0),100)}"></div></div>
-      </div>
+      <div class="prob-track"><div class="prob-fill ${cls}" data-pct="${prob}"></div></div>
     </div>`;
 }
 
@@ -1582,14 +1827,16 @@ function renderContent() {
     <!-- 4-Timeframe Alignment Radar -->
     <section class="mtf-radar">${mtfHtml}</section>
 
-    <!-- 3 Trading Scenarios -->
-    <section class="panel">
+    <!-- 3 Trading Scenarios (Flagship Asymmetric Command Stage) -->
+    <section class="panel" style="border-color:rgba(243,190,98,0.28)">
       <div class="panel-body">
         <div class="panel-title">Kịch Bản Giao Dịch Trọng Tâm (Cập nhật mỗi 4 giờ)</div>
-        <div class="scenarios-grid">
-          ${scenarioCard('★ Kịch bản chính','primary',r.primaryScenario)}
-          ${scenarioCard('◈ Kịch bản thay thế','alternative',r.alternativeScenario)}
-          ${scenarioCard('✕ Kịch bản vô hiệu hóa','invalidation',r.invalidationScenario)}
+        <div class="scenarios-stage">
+          ${primaryScenarioHero(r, r.primaryScenario)}
+          <div class="scenarios-secondary">
+            ${scenarioCard('◈ Kịch bản thay thế','alternative',r.alternativeScenario)}
+            ${scenarioCard('✕ Kịch bản vô hiệu hóa','invalidation',r.invalidationScenario)}
+          </div>
         </div>
       </div>
     </section>
@@ -1703,10 +1950,32 @@ function renderContent() {
     }
   }
 
-  // Animate probability bars
+  // Animate probability bars + Primary Circular Ring Gauge + Count-up
   setTimeout(() => {
     container.querySelectorAll('.prob-fill[data-pct]').forEach(el => { el.style.width = el.dataset.pct + '%'; });
+    container.querySelectorAll('[data-ring-target]').forEach(el => { el.style.strokeDashoffset = el.dataset.ringTarget; });
+    container.querySelectorAll('[data-count-prob]').forEach(el => {
+      const target = Number(el.dataset.countProb || 0);
+      if (!prefersReduced && typeof window.gsap !== 'undefined') {
+        const obj = { v: 0 };
+        window.gsap.to(obj, { v: target, duration: 0.95, ease: 'power3.out', onUpdate: () => { el.textContent = Math.round(obj.v) + '%'; } });
+      } else {
+        el.textContent = target + '%';
+      }
+    });
   }, 80);
+
+  // Copy Primary Trade Plan button
+  const copyPlanBtn = document.getElementById('copyPlanBtn');
+  if (copyPlanBtn && r.primaryScenario) {
+    const s = r.primaryScenario;
+    const planText = `📊 ${r.instrument} (${r.dateDisplay} ${r.timeDisplay})\n• Kịch bản chính (${Math.round(s.probability||0)}%): ${s.bias}\n• Setup: ${s.setup}\n• Target: ${s.target} | SL: ${s.stop} | R/R: ${s.rr}`;
+    copyPlanBtn.onclick = (e) => {
+      navigator.clipboard?.writeText(planText).catch(() => {});
+      showAppToast('✓ Đã sao chép Kế hoạch lệnh trọng tâm!');
+      spawnSparkles(e.clientX, e.clientY);
+    };
+  }
 
   // Copy Telegram Summary button
   const copyBtn = document.getElementById('copyTgBtn');
